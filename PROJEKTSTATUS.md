@@ -1,6 +1,6 @@
 # Projektstatus: Watkost4
 
-**Stand:** 2026-04-21  
+**Stand:** 2026-04-21 (aktualisiert)  
 **Bearbeiter:** H. Kacirek
 
 ---
@@ -32,6 +32,7 @@ C:\watkostneu\
 ├── Watkost-Installation/← Installationspaket
 ├── watkost-texte/       ← Dokumentation
 ├── build.xml            ← Ant-Build-Datei
+├── build.bat            ← Windows-Startskript (kein PATH nötig)
 └── .gitignore
 ```
 
@@ -52,32 +53,28 @@ C:\watkostneu\
 **Status: ✅ Erfolgreich** (getestet mit JDK 25.0.2, 2026-04-21)
 
 ```
-javac -encoding Cp1252 -cp "Watkost4/bin/jxl.jar;Watkost4/bin/hsqldb.jar;Watkost4/bin/hsql.jar"
-      -d Watkost4/classes Quellcode/src/*.java
+build.bat          ← kompilieren (Standard)
+build.bat clean    ← .class-Dateien löschen
+build.bat run      ← kompilieren und starten
 ```
 
 - **Fehler:** 0
-- **Warnungen:** 4 (veraltete Applet-APIs — nicht kritisch, da Applets im Hauptprogramm nicht aktiv genutzt werden)
-
-**Mit Apache Ant** (sobald installiert):
-```
-ant compile   ← kompilieren
-ant clean     ← .class-Dateien löschen
-ant run       ← kompilieren und starten
-```
+- **Warnungen:** 3 (JDK 25 weist darauf hin, dass Java-8-Ziel künftig entfernt wird — unkritisch)
 
 ---
 
 ## Erledigte Schritte
 
 - [x] Compile-Fehler behoben: `import sun.jdbc.odbc.*;` aus `data.java` entfernt
-- [x] `build.xml` für Apache Ant erstellt (Encoding: Cp1252)
-- [x] Git-Repository initialisiert, erster Commit
-- [x] Kompilierung erfolgreich getestet (JDK 25, 0 Fehler)
+- [x] `build.xml` für Apache Ant erstellt (Encoding: Cp1252, release=8)
+- [x] `build.bat` erstellt (kein PATH-Setup nötig)
+- [x] JDK 25.0.2 installiert
+- [x] Apache Ant 1.10.17 installiert
+- [x] Git-Repository initialisiert (3 Commits)
+- [x] Kompilierung erfolgreich: `BUILD SUCCESSFUL`, 0 Fehler
 
 ## Offene Punkte
 
-- [ ] Apache Ant installieren (für bequeme Nutzung von `ant compile`)
 - [ ] Ressourcen-Dateien (`splash.GIF`, Icons, `WtkLg.xls`) auch im Quellcode-Ordner ablegen
 - [ ] Veraltete Root-Dateien (`analysendialog.java`, `watkostberechnung.java`) entfernen
 

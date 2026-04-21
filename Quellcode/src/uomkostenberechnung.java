@@ -47,11 +47,11 @@ public class uomkostenberechnung {
     betrieb.stadtWasserVer = dNVWM + betrieb.abWasserVer; //Speisewassermenge/Jahr
     betrieb.dosMittelVer = betrieb.abWasserVer * preise.dosierMenge / 1000; //Chemiklaienmenge
     betrieb.salzTabVer = 1.25 * dNSUK * betrieb.stadtWasserVer *
-        (1 - dNVerschnitt) * 120; //*Salzmenge/Jahr, 2-facher šberschuá (120g), bez. auf SUK
-    //double svt = 1.25 * dNSUK * betrieb.stadtWasserVer * (1-(((int)(dNVerschnitt*100))/100)) * 120; //*Salzmenge/Jahr, 2-facher šberschuá (120g), bez. auf SUK
+        (1 - dNVerschnitt) * 120; //*Salzmenge/Jahr, 2-facher Å¡berschuÃ¡ (120g), bez. auf SUK
+    //double svt = 1.25 * dNSUK * betrieb.stadtWasserVer * (1-(((int)(dNVerschnitt*100))/100)) * 120; //*Salzmenge/Jahr, 2-facher Å¡berschuÃ¡ (120g), bez. auf SUK
 
-     //Stadt- und Abwasserkosten zum Betreiben der Enth„rtungsanlage berechnen
-     //Berechnungsgrundlage: Proportionalit„t von Salzverbrauch und Sp?lwasser
+     //Stadt- und Abwasserkosten zum Betreiben der Enthâ€žrtungsanlage berechnen
+     //Berechnungsgrundlage: Proportionalitâ€žt von Salzverbrauch und Sp?lwasser
      //5 l Sp?lwasser/ l Harz oder 180g Salz
      dSPWM = betrieb.salzTabVer * 0.0278;
 
@@ -59,7 +59,7 @@ public class uomkostenberechnung {
     //Energie: 1,0 kWh / 1 m3 Speisewasser
     dSPWM2 = betrieb.stadtWasserVer * 0.25 * (1 - dNVerschnitt);
 
-    //Energie: 1,0 kWh / 1m³ Speisewasser
+    //Energie: 1,0 kWh / 1mÂ³ Speisewasser
     betrieb.enVer = betrieb.stadtWasserVer * (1 - dNVerschnitt);
 
     //Gesamte Stadt- und Abwassermenge korrigieren

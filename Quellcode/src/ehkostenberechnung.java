@@ -16,12 +16,12 @@ public class ehkostenberechnung {
   static betriebskosten kostehrech(kosten preise, double dNE,
                                    double dNVerschnitt, double dNSUK) {
     //Programm zur Berechnung von Betriebskosten
-    //bei Enth„rtung
+    //bei Enthâ€žrtung
     //kost12.prg
-    //Betriebskostenrechnung f?r Aufbereitungsart 2, Teilenth„rtung mit
+    //Betriebskostenrechnung f?r Aufbereitungsart 2, Teilenthâ€žrtung mit
     //Threshold Stabilisierung
     //Wassermengen f?r Verdunstung Speisewasser und Abwasser berechnen;
-    //Bezug: Verdampfungsenthalpie bei 30øC betr„gt 0,6758 kWh/kg
+    //Bezug: Verdampfungsenthalpie bei 30Ã¸C betrâ€žgt 0,6758 kWh/kg
     //Grundlage: 1 kW verdampft 1,480 l/h; 8760 h = 1 a.
     //Verbrauch berechnen
     double dNVWM, dLeistung;
@@ -36,7 +36,7 @@ public class ehkostenberechnung {
   static betriebskosten kostehrechL(kosten preise, double dNE,
                                     double dNVerschnitt, double dNSUK) {
     //Wassermengen f?r Verdunstung Speisewasser und Abwasser berechnen;
-    //Bezug: 3 g Wasser pro m³ Luft im Jahresmittel
+    //Bezug: 3 g Wasser pro mÂ³ Luft im Jahresmittel
     //Grundlage: 12 o C ergibt 50 % Feuchte bei 22 o C
     //Verbrauch berechnen
     double dNVWM, dLeistung;
@@ -58,10 +58,10 @@ public class ehkostenberechnung {
     betrieb.stadtWasserVer = dNVWM + betrieb.abWasserVer; //Speisewassermenge/Jahr
     betrieb.dosMittelVer = betrieb.abWasserVer * preise.dosierMenge / 1000; //Chemiklaienmenge
     betrieb.salzTabVer = dNSUK * betrieb.stadtWasserVer * (1 - dNVerschnitt) *
-        120; //*Salzmenge/Jahr, 2-facher šberschuá (120g), bez. auf SUK
+        120; //*Salzmenge/Jahr, 2-facher Å¡berschuÃ¡ (120g), bez. auf SUK
 
-    //Stadt- und Abwasserkosten zum Betreiben der Enth„rtungsanlage berechnen
-    //Berechnungsgrundlage: Proportionalit„t von Salzverbrauch und Sp?lwasser
+    //Stadt- und Abwasserkosten zum Betreiben der Enthâ€žrtungsanlage berechnen
+    //Berechnungsgrundlage: Proportionalitâ€žt von Salzverbrauch und Sp?lwasser
     //5 l Sp?lwasser/ l Harz oder 180g Salz
     dSPWM = betrieb.salzTabVer * 0.0278;
 

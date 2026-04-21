@@ -1,4 +1,4 @@
-//eine Klasse zum schlieﬂen von Dialogen
+//eine Klasse zum schlie√üen von Dialogen
 //package watkost;
 
 import java.awt.event.*;

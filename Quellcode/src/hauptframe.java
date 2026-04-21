@@ -18,7 +18,7 @@ import java.io.ObjectOutputStream;
 
 public class hauptframe
     extends JFrame implements Runnable {
-  //global gültige Variable//////////
+  //global gÃ¼ltige Variable//////////
   Thread testThread;
   boolean fehler = true; //wenn berechnung durch warnfenster unterbrochen
   rohanalyse anaroh = new rohanalyse();
@@ -291,7 +291,7 @@ public class hauptframe
   checkboxAnlage2.setFont(HauptSchrift);
   checkboxAnlage2.setForeground(SchriftFarbe);
   //checkboxAnlage2.setCheckboxGroup(CheckAnlage);
-  checkboxAnlage2.setText("Luftwäscher");
+  checkboxAnlage2.setText("LuftwÃ¤scher");
   checkboxAnlage2.addItemListener(new java.awt.event.ItemListener() {
 
     public void itemStateChanged(ItemEvent e) {
@@ -303,7 +303,7 @@ public class hauptframe
   checkboxAnlage1.setFont(HauptSchrift);
   checkboxAnlage1.setForeground(SchriftFarbe);
   //checkboxAnlage1.setCheckboxGroup(CheckAnlage);
-  checkboxAnlage1.setText("Kühlturmkreislauf");
+  checkboxAnlage1.setText("KÃ¼hlturmkreislauf");
   checkboxAnlage1.setSelected(true);
   checkboxAnlage1.addItemListener(new java.awt.event.ItemListener() {
 
@@ -354,7 +354,7 @@ public class hauptframe
   //buttondosierung.setBackground(Color.lightGray);
   buttondosierung.setFont(HauptSchrift);
   //buttondosierung.setForeground(new Color(55, 71, 100));
-  buttondosierung.setText("schwefelsäuredos");
+  buttondosierung.setText("schwefelsÃ¤uredos");
   buttondosierung.addMouseListener(new java.awt.event.MouseAdapter() {
 
     public void mouseClicked(MouseEvent e) {
@@ -384,7 +384,7 @@ public class hauptframe
   //buttonenthaertung.setBackground(Color.lightGray);
   buttonenthaertung.setFont(HauptSchrift);
   //buttonenthaertung.setForeground(new Color(55, 71, 100));
-  buttonenthaertung.setText("enthärtung");
+  buttonenthaertung.setText("enthÃ¤rtung");
   buttonenthaertung.addMouseListener(new java.awt.event.MouseAdapter() {
 
     public void mouseClicked(MouseEvent e) {
@@ -440,7 +440,7 @@ public class hauptframe
   label13.setText("GGW pH TKT:");
   label14.setFont(HauptSchrift);
   label14.setForeground(SchriftFarbe);
-  label14.setText("LF 25 µS/cm:");
+  label14.setText("LF 25 ÂµS/cm:");
   label15.setFont(HauptSchrift);
   label15.setForeground(SchriftFarbe);
   label15.setText("Chlorid mg/l:");
@@ -461,7 +461,7 @@ public class hauptframe
   label113.setText("Calcium mg/l:");
   label114.setFont(HauptSchrift);
   label114.setForeground(SchriftFarbe);
-  label114.setText("TW °C:");
+  label114.setText("TW Â°C:");
   label115.setFont(HauptSchrift);
   label115.setForeground(SchriftFarbe);
   label115.setText("Verschnitt RW %:");
@@ -471,7 +471,7 @@ public class hauptframe
   label118.setText("KS 4,3 mmol/l:");
   label119.setFont(HauptSchrift);
   label119.setForeground(SchriftFarbe);
-  label119.setText("TKT °C:");
+  label119.setText("TKT Â°C:");
   label1110.setText(" ");
   textFieldNa.setFont(HauptSchrift);
   textFieldNa.setForeground(Color.darkGray);
@@ -535,10 +535,10 @@ public class hauptframe
   label22.setText("Salztablette kg/a:");
   label23.setFont(HauptSchrift);
   label23.setForeground(SchriftFarbe);
-  label23.setText("Schmutzwasser m³/a:");
+  label23.setText("Schmutzwasser mÂ³/a:");
   label36.setFont(HauptSchrift);
   label36.setForeground(SchriftFarbe);
-  label36.setText("Regenwassersiel m³/a:");
+  label36.setText("Regenwassersiel mÂ³/a:");
   label25.setFont(HauptSchrift);
   label25.setForeground(Color.red);
   label25.setText("Verbrauch");
@@ -550,14 +550,14 @@ public class hauptframe
   label27.setText("CO2 mg/l:");
   label211.setFont(HauptSchrift);
   label211.setForeground(SchriftFarbe);
-  label211.setText("Zusatzwasser m³/a:");
+  label211.setText("Zusatzwasser mÂ³/a:");
   label221.setFont(HauptSchrift);
   label221.setForeground(SchriftFarbe);
-  label221.setText("Ionenstärke I:");
+  label221.setText("IonenstÃ¤rke I:");
   label222.setForeground(SchriftFarbe);
   label223.setFont(HauptSchrift);
   label223.setForeground(SchriftFarbe);
-  label223.setText("Salzsäure kg/a:");
+  label223.setText("SalzsÃ¤ure kg/a:");
   label224.setFont(HauptSchrift);
   label224.setForeground(SchriftFarbe);
   label224.setText("Dosiermittel kg/a: ");
@@ -569,7 +569,7 @@ public class hauptframe
   label227.setText("CO3 mg/l:");
   label228.setFont(HauptSchrift);
   label228.setForeground(SchriftFarbe);
-  label228.setText("Schwefelsäure kg/a:");
+  label228.setText("SchwefelsÃ¤ure kg/a:");
   label2117.setFont(HauptSchrift);
   label2117.setForeground(SchriftFarbe);
   label2117.setText("Energie kWh/a:");
@@ -621,7 +621,7 @@ public class hauptframe
   label120.setText(" ");
   label121.setText(" ");
   label122.setText(" ");
-  label34.setText("Salzsäure EUR/a:");
+  label34.setText("SalzsÃ¤ure EUR/a:");
   label34.setFont(HauptSchrift);
   label34.setForeground(SchriftFarbe);
   label35.setForeground(SchriftFarbe);
@@ -634,7 +634,7 @@ public class hauptframe
   textFieldZusatzK.setFont(HauptSchrift);
   textFieldZusatzK.setForeground(Color.darkGray);
   label1113.setForeground(SchriftFarbe);
-  label1114.setText("Schwefelsäure EUR/a:");
+  label1114.setText("SchwefelsÃ¤ure EUR/a:");
   label1114.setFont(HauptSchrift);
   label1114.setForeground(SchriftFarbe);
   label1115.setText("Anlagenkosten EUR/a:");
@@ -927,9 +927,9 @@ public class hauptframe
   panel5.add(new JLabel(), null);
 
   /*passwd pf = new passwd(); //passwortcheck
-       pf.ablauf(); //wann läuft pw aus
+       pf.ablauf(); //wann lÃ¤uft pw aus
        //datum verstellt ?
-       uhrCheck uc = new uhrCheck();hier geändert 050405*/
+       uhrCheck uc = new uhrCheck();hier geÃ¤ndert 050405*/
 
     //Beschriftungen aus EXCEL Tabelle auslesen
     try{
@@ -941,12 +941,12 @@ public class hauptframe
      Vector liste = new Vector();
      l = sheet.getColumns();
      l = l - 1; //erste Spalte nicht
-     liste.setSize(l + 1); //nachsehen welche Sprachen in Tabelle verfügbar
+     liste.setSize(l + 1); //nachsehen welche Sprachen in Tabelle verfÃ¼gbar
      for (j = 1; j < l + 1; j++) {
        Cell s1 = sheet.getCell(j, 0);
        liste.setElementAt(s1.getContents(), j);
      }
-     sprachDialog sd = new sprachDialog(this, "Bitte Sprache wählen.", true,
+     sprachDialog sd = new sprachDialog(this, "Bitte Sprache wÃ¤hlen.", true,
                                         liste);
      sd.setAlwaysOnTop(true);
      sd.setLocation(this.positionX(100), this.positionY(200));
@@ -955,7 +955,7 @@ public class hauptframe
      */
      k = sheet.getRows();
      startframe.Texte.setSize(k);
-     //i =  startframe.sprachIndex+1; //welche Sprache ist ausgewählt
+     //i =  startframe.sprachIndex+1; //welche Sprache ist ausgewÃ¤hlt
     i=1;
      for (j = 0; j < k - 1; j++) {
        Cell a1 = sheet.getCell(i, j);
@@ -976,7 +976,7 @@ public class hauptframe
 
   }
 
-  void checkboxAnlage2_itemStateChanged(ItemEvent e) { //Änderungen am GUI bei anderer AufArt
+  void checkboxAnlage2_itemStateChanged(ItemEvent e) { //Ã„nderungen am GUI bei anderer AufArt
     if (!this.checkboxAnlage1.isSelected()) {
       baufbereitung = false;
       this.buttondosierung.setEnabled(false);
@@ -994,17 +994,17 @@ public class hauptframe
   }
 
   //
-  void checkboxKosten_itemStateChanged(ItemEvent e) { //wenn Kosten geändert
+  void checkboxKosten_itemStateChanged(ItemEvent e) { //wenn Kosten geÃ¤ndert
     if (this.checkboxKosten.isSelected()) {
       bkosten = true;
     }
     else {
       bkosten = false;
     }
-    this.anlage.setEnabled(bkosten); //Schaltfläche Anlageinfo an/aus
+    this.anlage.setEnabled(bkosten); //SchaltflÃ¤che Anlageinfo an/aus
   }
 
-  void checkboxAnlage1_itemStateChanged(ItemEvent e) { //Änderungen am GUI bei anderer AufArt
+  void checkboxAnlage1_itemStateChanged(ItemEvent e) { //Ã„nderungen am GUI bei anderer AufArt
     if (!this.checkboxAnlage2.isSelected()) {
       baufbereitung = true;
       this.buttondosierung.setEnabled(true);
@@ -1045,18 +1045,18 @@ public class hauptframe
   void buttondosierung_mouseClicked(MouseEvent e) {
     schwefelsaeuredos(); }
   void buttonanalyse_mouseClicked(MouseEvent e) {
-    frei(); //HauptFensterInhalt löschen
+    frei(); //HauptFensterInhalt lÃ¶schen
     oeffneanalysendialog();
     textFieldAnalyse.setText(anaroh.analysenNummer);
   }
 
   void buttongrenzwert_mouseClicked(MouseEvent e) {
-    frei(); //HauptFensterInhalt löschen
+    frei(); //HauptFensterInhalt lÃ¶schen
     oeffnegrenzwertedialog();
   }
 
   void buttonpreise_mouseClicked(MouseEvent e) {
-    frei(); //HauptFensterInhalt löschen
+    frei(); //HauptFensterInhalt lÃ¶schen
     oeffnekostendialog();
   }
 
@@ -1072,7 +1072,7 @@ public class hauptframe
 
   }
 
-  //Rückgabe der Position
+  //RÃ¼ckgabe der Position
   int positionX(int x) {
     Point posParent;
     int b, posX;
@@ -1082,7 +1082,7 @@ public class hauptframe
     return posX;
   }
 
-  //Rückgabe der Position
+  //RÃ¼ckgabe der Position
   int positionY(int y) {
     Point posParent;
     int h, posY;
@@ -1599,7 +1599,7 @@ public class hauptframe
 
   public void threshhold() {
     this.labelArt.setText(startframe.Texte.elementAt(32).toString());
-    //Speichern in Variable für späteren Druck
+    //Speichern in Variable fÃ¼r spÃ¤teren Druck
     aufbereitung = "threshold Stabilisierung";
     aufbereitungAnzeige = startframe.Texte.elementAt(32).toString();
     //wenn Kuehlturm
@@ -1616,7 +1616,7 @@ public class hauptframe
       return;
     }
     anauml = watkostberechnung.einlesen();
-    //Daten übernehmen
+    //Daten Ã¼bernehmen
     anarohtoanaumlauf();
     if (this.checkboxKosten.isSelected()) { //wenn auch Kostenberechnung
       //wenn Kuehlturm
@@ -1644,8 +1644,8 @@ public class hauptframe
 
   public void enthaertung() {
     this.labelArt.setText(startframe.Texte.elementAt(33).toString());
-    //Speichern in Variable für späteren Druck
-    aufbereitung = "Enthärtung";
+    //Speichern in Variable fÃ¼r spÃ¤teren Druck
+    aufbereitung = "EnthÃ¤rtung";
     aufbereitungAnzeige = startframe.Texte.elementAt(33).toString();
     //wenn Kuehlturm
     if (this.checkboxAnlage1.isSelected()) {
@@ -1661,7 +1661,7 @@ public class hauptframe
       return;
     }
     anauml = watkostberechnung.einlesen();
-    //Daten übernehmen
+    //Daten Ã¼bernehmen
     anarohtoanaumlauf();
     if (this.checkboxKosten.isSelected()) { //wenn auch Kostenberechnung
 
@@ -1691,7 +1691,7 @@ public class hauptframe
 
   public void entcarbonisierung() {
     this.labelArt.setText(startframe.Texte.elementAt(34).toString());
-    //Speichern in Variable für späteren Druck
+    //Speichern in Variable fÃ¼r spÃ¤teren Druck
     aufbereitung = "Entcarbonisierung";
     aufbereitungAnzeige = startframe.Texte.elementAt(34).toString();
 
@@ -1709,7 +1709,7 @@ public class hauptframe
       return;
     }
     anauml = watkostberechnung.einlesen();
-    //Daten übernehmen
+    //Daten Ã¼bernehmen
     anarohtoanaumlauf();
     if (this.checkboxKosten.isSelected()) { //wenn auch Kostenberechnung
       //wenn Kuehlturm
@@ -1745,8 +1745,8 @@ public class hauptframe
     }
     //
     this.labelArt.setText(startframe.Texte.elementAt(36).toString());
-    //Speichern in Variable für späteren Druck
-    aufbereitung = "Umkehrosmose o. v. Enthärtung";
+    //Speichern in Variable fÃ¼r spÃ¤teren Druck
+    aufbereitung = "Umkehrosmose o. v. EnthÃ¤rtung";
     aufbereitungAnzeige = startframe.Texte.elementAt(36).toString();
     //wenn Kuehlturm
     if (this.checkboxAnlage1.isSelected()) {
@@ -1763,7 +1763,7 @@ public class hauptframe
       return;
     }
     anauml = watkostberechnung.einlesen();
-    //Daten übernehmen
+    //Daten Ã¼bernehmen
     anarohtoanaumlauf();
     if (this.checkboxKosten.isSelected()) { //wenn auch Kostenberechnung
       //wenn Kuehlturm
@@ -1798,7 +1798,7 @@ public class hauptframe
     }
     //iii
     this.labelArt.setText(startframe.Texte.elementAt(35).toString());
-    //Speichern in Variable für späteren Druck
+    //Speichern in Variable fÃ¼r spÃ¤teren Druck
     aufbereitung = "Umkehrosmose m. v. Enthaertung";
     aufbereitungAnzeige = startframe.Texte.elementAt(35).toString();
     //wenn Kuehlturm
@@ -1816,7 +1816,7 @@ public class hauptframe
       return;
     }
     anauml = watkostberechnung.einlesen();
-    //Daten übernehmen
+    //Daten Ã¼bernehmen
     anarohtoanaumlauf();
     if (this.checkboxKosten.isSelected()) { //wenn auch Kostenberechnung
       //wenn Kuehlturm
@@ -1846,8 +1846,8 @@ public class hauptframe
       return;
     }
     this.labelArt.setText(startframe.Texte.elementAt(37).toString());
-    //Speichern in Variable für späteren Druck
-    aufbereitung = "Schwefelsäuredosierung";
+    //Speichern in Variable fÃ¼r spÃ¤teren Druck
+    aufbereitung = "SchwefelsÃ¤uredosierung";
     aufbereitungAnzeige = startframe.Texte.elementAt(37).toString();
     //wenn Kuehlturm
     if (this.checkboxAnlage1.isSelected()) {
@@ -1862,7 +1862,7 @@ public class hauptframe
     //oder wenn umlaufwasser
     //if(this.checkboxAnlage2.isSelected()) watkostberechnung.sdrechL(anaroh,bedingungen);
     anauml = watkostberechnung.einlesen();
-    //Daten übernehmen
+    //Daten Ã¼bernehmen
     anarohtoanaumlauf();
     if (this.checkboxKosten.isSelected()) { //wenn auch Kostenberechnung
       //wenn Kuehlturm
@@ -1892,7 +1892,7 @@ public class hauptframe
       Vector liste = new Vector(); //Vector zur Aufnahme der Excel Sprachtabelle
       l = sheet.getColumns();
       l = l - 1; //erste Spalte nicht
-      liste.setSize(l + 1); //nachsehen welche Sprachen in Tabelle verfügbar
+      liste.setSize(l + 1); //nachsehen welche Sprachen in Tabelle verfÃ¼gbar
       for (j = 1; j < l + 1; j++) {
         Cell s1 = sheet.getCell(j, 0);
         liste.setElementAt(s1.getContents(), j);
@@ -1905,7 +1905,7 @@ public class hauptframe
       sd.setVisible(true);
       k = sheet.getRows();
       startframe.Texte.setSize(k);
-      i = startframe.sprachIndex + 1; //welche Sprache ist ausgewählt
+      i = startframe.sprachIndex + 1; //welche Sprache ist ausgewÃ¤hlt
       for (j = 0; j < k - 1; j++) {
         Cell a1 = sheet.getCell(i, j);
         String S = a1.getContents();
@@ -2021,7 +2021,7 @@ public class hauptframe
       label2115.setText(startframe.Texte.elementAt(77).toString());
       label227.setText(startframe.Texte.elementAt(78).toString());
 
-      if (checkboxAnlage2.isSelected()) { //Wenn Luftwäscher
+      if (checkboxAnlage2.isSelected()) { //Wenn LuftwÃ¤scher
         this.label119.setText(startframe.Texte.elementAt(56).toString());
         this.label13.setText(startframe.Texte.elementAt(69).toString());
         this.label18.setText(startframe.Texte.elementAt(67).toString());

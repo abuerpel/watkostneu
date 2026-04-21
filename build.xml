@@ -27,7 +27,7 @@
         <javac srcdir="${src.dir}"
                destdir="${classes.dir}"
                release="8"
-               encoding="Cp1252"
+               encoding="UTF-8"
                includeantruntime="false"
                classpathref="classpath">
         </javac>

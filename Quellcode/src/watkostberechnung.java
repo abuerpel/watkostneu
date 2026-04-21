@@ -13,14 +13,14 @@
 
 public class watkostberechnung {
   //Variablen deklarieren
-  ////deklarieren der Speichervariablen für Anarech
+  ////deklarieren der Speichervariablen fÃ¼r Anarech
   static double cT0 = 298.16;
   static double cTK = 273.16; //Temperaturnullpunkt
   static double dVerschnitt; //Verschnitt
   static double dEF; //maximaler Eindickungsfaktor
-  static double dpHE, dLf; //pH-Wert, Leitfähigkeit.
+  static double dpHE, dLf; //pH-Wert, LeitfÃ¤higkeit.
   static double dCa, dMg, dKs43, dCl, dSo4, dNo3, dNa; //Analysenwerte
-  static double dCaM, dMgM, dKs43M, dClM, dNo3M, dSo4M; //molare Größen
+  static double dCaM, dMgM, dKs43M, dClM, dNo3M, dSo4M; //molare GrÃ¶ÃŸen
   static double dSuA, dSuK, dNaM, dI, dNaNo3M, dCo2M;
   static double dElfCa, dElfMg, dElfNa, dElfKs, dElfCl, dElfSo, dElfNo, dElfCo3;
   static double dElfNaNo, dElfNaNo3M, dLfBer, dLfDiff;
@@ -117,7 +117,7 @@ public class watkostberechnung {
        static boolean threchL(rohanalyse anaAus, grenzwerte grenzw,String aufbereitung) {
          //rohanalyse aus Klasseauslesen
          auslesen(anaAus, grenzw);
-         double y, z; //Zählervariable
+         double y, z; //ZÃ¤hlervariable
          //default Werte
          dEF = 5;
          dSiW = 0.00;
@@ -127,7 +127,7 @@ public class watkostberechnung {
          z = 1;
          dLGF1 = 0;
 
-         //Pr?fen, ob eine Eindickug ?berhaupt m”glich ist, wenn nicht, abbbrechen
+         //Pr?fen, ob eine Eindickug ?berhaupt mâ€glich ist, wenn nicht, abbbrechen
          if (dLf > dLfMax) {
            warnfenster(startframe.Texte.elementAt(174).toString() + aufbereitung + startframe.Texte.elementAt(171).toString()); //warnung
            return false;
@@ -152,8 +152,8 @@ public class watkostberechnung {
            dSo4 = dSo4 * z / y;
            dLfBer = dLfBer * z / y;
 
-           //Berechnung der für die weitere Berechnung benötigten Größen
-           //Berechnung der molaren Größen
+           //Berechnung der fÃ¼r die weitere Berechnung benÃ¶tigten GrÃ¶ÃŸen
+           //Berechnung der molaren GrÃ¶ÃŸen
            dCaM = dCa / (40.08 * 1000);
            dMgM = dMg / (24.3 * 1000);
            dKs43M = dKs43 / 1000;
@@ -166,15 +166,15 @@ public class watkostberechnung {
            dLGF1 = -0.5 * Math.pow(dI, 0.5) / (1 + 1.4 * Math.pow(dI, 0.5));
 
            temperaturkorrektur(); //Temperaturkorrektur in Kelvin
-           konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste
+           konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste
            //Wandtemperatur
-           kohlensaeure(); //Berechnung Kohlensäure im K?hlturm nach Verrieselung
-           phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
+           kohlensaeure(); //Berechnung KohlensÃ¤ure im K?hlturm nach Verrieselung
+           phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
            sikt(); //Berechnung SI bei K?hlturmtemp.
            siw(); //Berechnung SI bei Wandtemperatur
          } //Ende der while Schleife
 
-         dho(); //erneute Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
+         dho(); //erneute Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
          ionensumme(); //Berechnung Summe Anionen/Kationen
          calciumkorrektur1(); //1. Calciumsulfatkorrektur, gilt f?r Speisewasser und Umlaufwasser
          calciumkorrektur2(); //2. Calciumcarbonatkorrektur, gilt nur f?r Umlaufwasser nach Verrieselun
@@ -185,7 +185,7 @@ public class watkostberechnung {
   static boolean threch(rohanalyse anaAus, grenzwerte grenzw,String aufbereitung) {
     //rohanalyse aus Klasseauslesen
     auslesen(anaAus, grenzw);
-    double y, z; //Zählervariable
+    double y, z; //ZÃ¤hlervariable
     dSiW = 0.00;
     z = 1;
     dE = 1;
@@ -202,8 +202,8 @@ public class watkostberechnung {
       dNo3 = dNo3 * z / y;
       dSo4 = dSo4 * z / y;
 
-      //Berechnung der für die weitere Berechnung benötigten Größen
-      //Berechnung der molaren Größen
+      //Berechnung der fÃ¼r die weitere Berechnung benÃ¶tigten GrÃ¶ÃŸen
+      //Berechnung der molaren GrÃ¶ÃŸen
       dCaM = dCa / (40.08 * 1000);
       dMgM = dMg / (24.3 * 1000);
       dKs43M = dKs43 / 1000;
@@ -215,16 +215,16 @@ public class watkostberechnung {
       dLGF1 = -0.5 * Math.pow(dI, 0.5) / (1 + 1.4 * Math.pow(dI, 0.5));
 
       temperaturkorrektur(); //Temperaturkorrektur in Kelvin
-      konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste
+      konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste
       //Wandtemperatur
-      kohlensaeure(); //Berechnung Kohlensäure im K?hlturm nach Verrieselung
-      phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
+      kohlensaeure(); //Berechnung KohlensÃ¤ure im K?hlturm nach Verrieselung
+      phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
       sikt(); //Berechnung SI bei K?hlturmtemp.
       siw(); //Berechnung SI bei Wandtemperatur
     } //Ende der while Schleife
 
-    dho(); //erneute Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
-    //Korrektur nach Dbye-Hückel-Onsager
+    dho(); //erneute Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
+    //Korrektur nach Dbye-HÃ¼ckel-Onsager
     ionensumme(); //Berechnung Summe Anionen/Kationen
     calciumkorrektur1(); //1. Calciumsulfatkorrektur, gilt f?r Speisewasser und
     calciumkorrektur2(); //2. Calciumcarbonatkorrektur, gilt nur f?r Umlaufwasser nach Verrieselung
@@ -234,7 +234,7 @@ public class watkostberechnung {
 
   //****************************************************************
    //**															**
-    //**ENTHÄRTUNG													**
+    //**ENTHÃ„RTUNG													**
      //**															**
       //****************************************************************
 
@@ -254,7 +254,7 @@ public class watkostberechnung {
          //Temperatur einsetzen um Funktionalitaet der dbase Algorythmen zu gewaehrleisten,
          dTKT = dTLW;
          dTW = dTKT;
-         //pr?fen, ob Enth„rtung ?berhaupt sinnvoll und Verschneidung berechnen
+         //pr?fen, ob Enthâ€rtung ?berhaupt sinnvoll und Verschneidung berechnen
          dGH = dCa / 40.08 + dMg / 24.3;
          dVerschnitt = dDhMin / dGH;
          if (dGH > dDhMin) {
@@ -268,12 +268,12 @@ public class watkostberechnung {
            dVerschnitt = 1.0;
            return true;
          }
-         //Pr?fen, ob eine Eindickug ?berhaupt m”glich ist, wenn nicht, abbbrechen
+         //Pr?fen, ob eine Eindickug ?berhaupt mâ€glich ist, wenn nicht, abbbrechen
          if (dLf > dLfMax) {
            warnfenster(startframe.Texte.elementAt(174).toString() + aufbereitung + startframe.Texte.elementAt(171).toString()); //warnung
            return false;
          }
-         //Berechnung der molaren Größen
+         //Berechnung der molaren GrÃ¶ÃŸen
          dCaM = dCa / (40.08 * 1000);
          dMgM = dMg / (24.3 * 1000);
          dKs43M = dKs43 / 1000;
@@ -287,8 +287,8 @@ public class watkostberechnung {
          dSuK = dSuK + dNaM;
          dI = 2 * (dCaM + dMgM + dSo4M) + 0.5 * (dKs43M + dClM + dNo3M + dNaM);
 
-         dho(); //Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
-         //Korrektur nach Dbye-Hückel-Onsager
+         dho(); //Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
+         //Korrektur nach Dbye-HÃ¼ckel-Onsager
 
          dSiW = 0.00;
          z = 1;
@@ -306,8 +306,8 @@ public class watkostberechnung {
            dNo3 = dNo3 * z / y;
            dSo4 = dSo4 * z / y;
            dLfBer = dLfBer * z / y;
-           //Berechnung der für die weitere Berechnung benötigten Größen
-           //Berechnung der molaren Größen
+           //Berechnung der fÃ¼r die weitere Berechnung benÃ¶tigten GrÃ¶ÃŸen
+           //Berechnung der molaren GrÃ¶ÃŸen
            dCaM = dCa / (40.08 * 1000);
            dMgM = dMg / (24.3 * 1000);
            dNaM = dNa / 23008;
@@ -319,16 +319,16 @@ public class watkostberechnung {
            dLGF1 = -0.5 * Math.pow(dI, 0.5) / (1 + 1.4 * Math.pow(dI, 0.5));
 
            temperaturkorrektur(); //Temperaturkorrektur in Kelvin
-           konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste
+           konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste
            //Wandtemperatur
-           kohlensaeure(); //Berechnung Kohlensäure im K?hlturm nach Verrieselung
-           phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
+           kohlensaeure(); //Berechnung KohlensÃ¤ure im K?hlturm nach Verrieselung
+           phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
            sikt(); //Berechnung SI bei K?hlturmtemp.
            siw(); //Berechnung SI bei Wandtemperatur
          } //Ende der while Schleife
 
-         dho(); //erneute Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
-         //Korrektur nach Dbye-Hückel-Ohrensauger
+         dho(); //erneute Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
+         //Korrektur nach Dbye-HÃ¼ckel-Ohrensauger
          ionensumme(); //Berechnung Summe Anionen/Kationen
          calciumkorrektur1(); //1. Calciumsulfatkorrektur, gilt f?r Speisewasser und Umlaufwasser
          calciumkorrektur2(); //2. Calciumcarbonatkorrektur, gilt nur f?r Umlaufwasser nach Verrieselung
@@ -338,16 +338,16 @@ public class watkostberechnung {
   //
   static boolean ehrech(rohanalyse anaAus, grenzwerte grenzw,String aufbereitung) {
     //Programm zur Berechnung von Emax und Umlaufwasser-
-    //analyenwerte bei Enth„rtung
-    //1. Algorithmus f?r Berechnung von S„ttigungsindex 2,30 bei
+    //analyenwerte bei Enthâ€rtung
+    //1. Algorithmus f?r Berechnung von Sâ€ttigungsindex 2,30 bei
     //Wandtemperatur und Eindickungsfaktor Emax ausRohwasseranalyse
-    //und Teilenth„rtung auf 0,5 mmol/l Ca
+    //und Teilenthâ€rtung auf 0,5 mmol/l Ca
     //Zugriff auf kost1.dbf
     //rohanalyse aus Klasseauslesen
     auslesen(anaAus, grenzw);
     //spezialvariablen deklarieren
     double dCaNEH, dMgNEH, y, z;
-    //pr?fen, ob Enth„rtung ?berhaupt sinnvoll und Verschneidung berechnen
+    //pr?fen, ob Enthâ€rtung ?berhaupt sinnvoll und Verschneidung berechnen
     if (dCa > 20.04) {
       dCaNEH = grenzw.caMax*40.08; //auslesen des maximalen Calciumwertes und wandeln in mmol/l
       dVerschnitt = dCaNEH / dCa;
@@ -359,7 +359,7 @@ public class watkostberechnung {
       warnfenster(startframe.Texte.elementAt(170).toString()); //warnung
       return false;
     }
-    //Berechnung der molaren Größen
+    //Berechnung der molaren GrÃ¶ÃŸen
     dCaM = dCa / (40.08 * 1000);
     dMgM = dMg / (24.3 * 1000);
     dKs43M = dKs43 / 1000;
@@ -387,8 +387,8 @@ public class watkostberechnung {
       dNo3 = dNo3 * z / y;
       dSo4 = dSo4 * z / y;
 
-      //Berechnung der für die weitere Berechnung benötigten Größen
-      //Berechnung der molaren Größen
+      //Berechnung der fÃ¼r die weitere Berechnung benÃ¶tigten GrÃ¶ÃŸen
+      //Berechnung der molaren GrÃ¶ÃŸen
       dCaM = dCa / (40.8 * 1000);
       dMgM = dMg / (24.3 * 1000);
       dNaM = dNa / 23008;
@@ -401,17 +401,17 @@ public class watkostberechnung {
       dLGF1 = -0.5 * Math.pow(dI, 0.5) / (1 + 1.4 * Math.pow(dI, 0.5));
 
       temperaturkorrektur(); //Temperaturkorrektur in Kelvin
-      konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste
+      konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste
       //Wandtemperatur
-      kohlensaeure(); //Berechnung Kohlensäure im K?hlturm nach Verrieselung
-      phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
+      kohlensaeure(); //Berechnung KohlensÃ¤ure im K?hlturm nach Verrieselung
+      phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
       sikt(); //Berechnung SI bei K?hlturmtemp.
       siw(); //Berechnung SI bei Wandtemperatur
 
     } //Ende der while Schleife
 
-    dho(); //erneute Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
-    //Korrektur nach Dbye-Hückel-Onsager
+    dho(); //erneute Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
+    //Korrektur nach Dbye-HÃ¼ckel-Onsager
     ionensumme(); //Berechnung Summe Anionen/Kationen
 
     calciumkorrektur1(); //1. Calciumsulfatkorrektur, gilt f?r Speisewasser und Umlaufwasser
@@ -432,7 +432,7 @@ public class watkostberechnung {
 
          //kost3l.prg Stand 02.11.00
          //1. Algorithmus f?r Berechnung von Verschneidung und Eindickungsfaktor E
-         //bei Entcarbonisierung und anschlieáender Verschneidung; die Grenzbedingungen
+         //bei Entcarbonisierung und anschlieÃ¡ender Verschneidung; die Grenzbedingungen
          //sind: LF<LFMAX, GH<GH
          //Zugriff auf anaroh.dbf
 
@@ -445,8 +445,8 @@ public class watkostberechnung {
          dTKT = dTLW;
          dTW = dTKT;
 
-         //Berechnung der für die weitere Berechnung benötigten Größen
-         //Berechnung der molaren Größen
+         //Berechnung der fÃ¼r die weitere Berechnung benÃ¶tigten GrÃ¶ÃŸen
+         //Berechnung der molaren GrÃ¶ÃŸen
          dCaM = dCa / (40.08 * 1000);
          dMgM = dMg / (24.3 * 1000);
          dKs43M = dKs43 / 1000;
@@ -473,7 +473,7 @@ public class watkostberechnung {
 
          dE = 1.0;
 
-         dho(); // Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
+         dho(); // Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
 
          dLfBer = (dCaNEC * dElfCa * 2 + dMgNEC * dElfMg * 2 + dNaM * dElfNa +
                    dKs43NEC * dElfKs
@@ -483,13 +483,13 @@ public class watkostberechnung {
          // Eindickungsfaktor festlegen; LFMAX ist Funktion von E und V
 
          // 1. Begrenzung durch LFMAX
-         // Bedingung: Alkalit„t im Umlaufwasser muss ALK mmol/l betragen
+         // Bedingung: Alkalitâ€t im Umlaufwasser muss ALK mmol/l betragen
          dV1 = dLfBer * dAlkMin /
              (dLfMax * dKs43 - dLf * dAlkMin + dLfBer * dAlkMin);
          dE1 = dAlkMin / (dV1 * dKs43);
 
          // Begrenzung durch dDhMax
-         // Bedingung: Gesamth„rte darf dDhMax nicht ?berschreiten
+         // Bedingung: Gesamthâ€rte darf dDhMax nicht ?berschreiten
          dV2 = dErdNEC * dAlkMin /
              (dDhMax * dKs43 / 1000 - dErdALM * dAlkMin + dErdNEC * dAlkMin);
          dE2 = dAlkMin / (dV2 * dKs43);
@@ -532,10 +532,10 @@ public class watkostberechnung {
          dLGF1 = -0.5 * Math.pow(dI, 0.5) / (1 + 1.4 * Math.pow(dI, 0.5));
 
          temperaturkorrektur(); //Temperaturkorrektur in Kelvin
-         konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste
+         konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste
          //Wandtemperatur
-         kohlensaeure(); //Berechnung Kohlensäure im K?hlturm nach Verrieselung
-         phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
+         kohlensaeure(); //Berechnung KohlensÃ¤ure im K?hlturm nach Verrieselung
+         phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
          sikt(); //Berechnung SI bei K?hlturmtemp.
          siw(); //Berechnung SI bei Wandtemperatur
          //falls SI zu hoch
@@ -544,8 +544,8 @@ public class watkostberechnung {
            return false;
          }
 
-         dho(); //Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
-         //Korrektur nach Dbye-Hückel-Onsager
+         dho(); //Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
+         //Korrektur nach Dbye-HÃ¼ckel-Onsager
          ionensumme(); //Berechnung Summe Anionen/Kationen
          calciumkorrektur1(); //1. Calciumsulfatkorrektur, gilt f?r Speisewasser und Umlaufwasser
          calciumkorrektur2(); //2. Calciumcarbonatkorrektur, gilt nur f?r Umlaufwasser nach Verrieselung
@@ -562,23 +562,23 @@ public class watkostberechnung {
     //analyenwerte bei Entcarbonisierung
     //kost3.prg
     //1. Algorithmus f?r Berechnung von Verschneidung und Eindickungsfaktor E
-    //bei S„ttigungsindex SIW=2,30 aus Rohwasseranalyse anaroh bei vollst.
-    //Entcarbonisierung und anschlieáender Verschneidung; die Grenzbedingungen
+    //bei Sâ€ttigungsindex SIW=2,30 aus Rohwasseranalyse anaroh bei vollst.
+    //Entcarbonisierung und anschlieÃ¡ender Verschneidung; die Grenzbedingungen
     //sind: Cl<250 mg/l, SO4<400 mg/l, SIW< simax
 
     //spezialvariablen
     double dKs43NEC, dErdALM, dErdNEC, dCaNEC, dMgNEC, dECl, dESo4;
     double dCaK, dMgK, dKs43K, dCaV = 0.0, dMgV = 0.0, dKs43V = 0.0;
 
-    // Pr?fen, ob eine Eindickug ?berhaupt m”glich ist, wenn nicht,
+    // Pr?fen, ob eine Eindickug ?berhaupt mâ€glich ist, wenn nicht,
     if (dCl > dClMax || dSo4 > dSoMax) {
       warnfenster(startframe.Texte.elementAt(174).toString() + aufbereitung + startframe.Texte.elementAt(167).toString()); //warnung
       return false;
     }
     dSiW = 0.00; //SIW auf 0 setzen
 
-    //Berechnung der für die weitere Berechnung benötigten Größen
-    //Berechnung der molaren Größen
+    //Berechnung der fÃ¼r die weitere Berechnung benÃ¶tigten GrÃ¶ÃŸen
+    //Berechnung der molaren GrÃ¶ÃŸen
     dCaM = dCa / (40.08 * 1000);
     dMgM = dMg / (24.3 * 1000);
     dKs43M = dKs43 / 1000;
@@ -629,7 +629,7 @@ public class watkostberechnung {
     dCaNEC = dCaNEC * dE;
     dMgNEC = dMgNEC * dE;
 
-    //jetzt probieren,wie verschnitten werden muá!
+    //jetzt probieren,wie verschnitten werden muÃ¡!
     dVerschnitt = 0.00;
     while (dSiW <= dSiMax && dVerschnitt <= 1.00) {
       dVerschnitt = dVerschnitt + 0.01;
@@ -637,8 +637,8 @@ public class watkostberechnung {
       dMgV = (dMgK * dVerschnitt + dMgNEC * (1 - dVerschnitt));
       dKs43V = dKs43K * dVerschnitt;
 
-      //Berechnung der für die weitere Berechnung benötigten Größen
-      //Berechnung der molaren Größen
+      //Berechnung der fÃ¼r die weitere Berechnung benÃ¶tigten GrÃ¶ÃŸen
+      //Berechnung der molaren GrÃ¶ÃŸen
       dCaM = dCaV / (40.8 * 1000);
       dMgM = dMgV / (24.3 * 1000);
       dNaM = dNa / 23008;
@@ -651,10 +651,10 @@ public class watkostberechnung {
       dLGF1 = -0.5 * Math.pow(dI, 0.5) / (1 + 1.4 * Math.pow(dI, 0.5));
 
       temperaturkorrektur(); //Temperaturkorrektur in Kelvin
-      konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste
+      konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste
       //Wandtemperatur
-      kohlensaeure(); //Berechnung Kohlensäure im K?hlturm nach Verrieselung
-      phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
+      kohlensaeure(); //Berechnung KohlensÃ¤ure im K?hlturm nach Verrieselung
+      phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
       sikt(); //Berechnung SI bei K?hlturmtemp.
       siw(); //Berechnung SI bei Wandtemperatur
 
@@ -672,13 +672,13 @@ public class watkostberechnung {
     dMg = dMgV;
     dKs43 = dKs43V;
 
-    dho(); //Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
+    dho(); //Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
 
     ionensumme(); //Berechnung Summe Anionen/Kationen
 
     calciumkorrektur1(); //1. Calciumsulfatkorrektur, gilt f?r Speisewasser und Umlaufwasser
     calciumkorrektur2(); //2. Calciumcarbonatkorrektur, gilt nur f?r Umlaufwasser nach Verrieselung
-    // für anaroh nicht ausf?hren
+    // fÃ¼r anaroh nicht ausf?hren
     return true;
   }
 
@@ -727,8 +727,8 @@ public class watkostberechnung {
            dSo4 = dSo4 * z / y;
            dLfBer = dLfBer * z / y;
 
-           //Berechnung der für die weitere Berechnung benötigten Größen
-           //Berechnung der molaren Größen
+           //Berechnung der fÃ¼r die weitere Berechnung benÃ¶tigten GrÃ¶ÃŸen
+           //Berechnung der molaren GrÃ¶ÃŸen
            dCaM = dCa / (40.08 * 1000);
            dMgM = dMg / (24.3 * 1000);
            dKs43M = dKs43 / 1000;
@@ -741,10 +741,10 @@ public class watkostberechnung {
            dLGF1 = -0.5 * Math.pow(dI, 0.5) / (1 + 1.4 * Math.pow(dI, 0.5));
 
            temperaturkorrektur(); //Temperaturkorrektur in Kelvin
-           konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste
+           konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste
            //Wandtemperatur
-           kohlensaeure(); //Berechnung Kohlensäure im K?hlturm nach Verrieselung
-           phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
+           kohlensaeure(); //Berechnung KohlensÃ¤ure im K?hlturm nach Verrieselung
+           phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
            sikt(); //Berechnung SI bei K?hlturmtemp.
            siw(); //Berechnung SI bei Wandtemperatur
          } //Ende der while Schleife
@@ -752,8 +752,8 @@ public class watkostberechnung {
          //jetzt Verschneidung berechnen!
          dVerschnitt = dE / dEF; //hier auch?
          dE = dEF; //hierauch ?
-         dho(); // Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
-         //Korrektur nach Dbye-Hückel-Onsager
+         dho(); // Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
+         //Korrektur nach Dbye-HÃ¼ckel-Onsager
          ionensumme(); //Berechnung Summe Anionen/Kationen
          calciumkorrektur1(); //1. Calciumsulfatkorrektur, gilt f?r Speisewasser und Umlaufwasser
          calciumkorrektur2(); //2. Calciumcarbonatkorrektur, gilt nur f?r Umlaufwasser nach Verrieselung
@@ -768,8 +768,8 @@ public class watkostberechnung {
     //analyenwerte bei Umkehosmose
     //kost4.prg
     //1. Algorithmus f?r Berechnung von Verschneidung und Eindickungsfaktor E=5
-    //bei S„ttigungsindex SIW=2,30 aus Rohwasseranalyse KOST1 bei vollst.
-    //Entsalzung und anschlieáender Verschneidung.
+    //bei Sâ€ttigungsindex SIW=2,30 aus Rohwasseranalyse KOST1 bei vollst.
+    //Entsalzung und anschlieÃ¡ender Verschneidung.
     //Zugriff auf kost1.dbf
     //Das Programm ist identisch mit kost2.prg, auch die Inhaltsstoffe sind gleich!
     //Einziger Unterschied: Verschneidungsfaktor VERSCHN wird berechnet.
@@ -800,8 +800,8 @@ public class watkostberechnung {
       dNo3 = dNo3 * z / y;
       dSo4 = dSo4 * z / y;
 
-      //Berechnung der für die weitere Berechnung benötigten Größen
-      //Berechnung der molaren Größen
+      //Berechnung der fÃ¼r die weitere Berechnung benÃ¶tigten GrÃ¶ÃŸen
+      //Berechnung der molaren GrÃ¶ÃŸen
       dCaM = dCa / (40.08 * 1000);
       dMgM = dMg / (24.3 * 1000);
       dKs43M = dKs43 / 1000;
@@ -814,10 +814,10 @@ public class watkostberechnung {
       dLGF1 = -0.5 * Math.pow(dI, 0.5) / (1 + 1.4 * Math.pow(dI, 0.5));
 
       temperaturkorrektur(); //Temperaturkorrektur in Kelvin
-      konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste
+      konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste
       //Wandtemperatur
-      kohlensaeure(); //Berechnung Kohlensäure im K?hlturm nach Verrieselung
-      phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
+      kohlensaeure(); //Berechnung KohlensÃ¤ure im K?hlturm nach Verrieselung
+      phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
       sikt(); //Berechnung SI bei K?hlturmtemp.
       siw(); //Berechnung SI bei Wandtemperatur
     } //Ende der while Schleife
@@ -825,8 +825,8 @@ public class watkostberechnung {
 //jetzt Verschneidung berechnen!
     dVerschnitt = dE / dEF; //hier auch ?
     dE = dEF; //hier auch ?
-    dho(); // Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
-    //Korrektur nach Dbye-Hückel-Onsager
+    dho(); // Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
+    //Korrektur nach Dbye-HÃ¼ckel-Onsager
     ionensumme(); //Berechnung Summe Anionen/Kationen
     calciumkorrektur1(); //1. Calciumsulfatkorrektur, gilt f?r Speisewasser und Umlaufwasser
     calciumkorrektur2(); //2. Calciumcarbonatkorrektur, gilt nur f?r Umlaufwasser nach
@@ -839,19 +839,19 @@ public class watkostberechnung {
     auslesen(anaAus, grenzw);
     //****************************************************************
      //**															**
-      //**SCHWEFELSÄUREDOSIERUNG													**
+      //**SCHWEFELSÃ„UREDOSIERUNG													**
        //**															**
         //****************************************************************
          //kost5.prg
          //1. Algorithmus f?r Berechnung von Eindickungsfaktor E
-         //bei Restalkalit„t von 4 mmol/l im Umlaufwasser aus Rohwasseranalyse anaroh bei
-         //innerer Entcarbonisierung mit Schwefels„uredosierung; die Grenzbedingungen
+         //bei Restalkalitâ€t von 4 mmol/l im Umlaufwasser aus Rohwasseranalyse anaroh bei
+         //innerer Entcarbonisierung mit Schwefelsâ€uredosierung; die Grenzbedingungen
          //sind: Cl<CLMAX, SO4<SOMAX; SIW wird nicht angepasst
          //Zugriff auf anaroh.dbf
          double dECl, dESo4, dSo4NEU, dKs43K, dSo4K;
     dE = dEF;
     dVerschnitt = 1;
-    // kontrollieren ob Saäuredos. unsinnig
+    // kontrollieren ob SaÃ¤uredos. unsinnig
     if ( (4 / dKs43) > (dSoMax + 192) / (dSo4 + dKs43 * 48)) {
       warnfenster(startframe.Texte.elementAt(166).toString()); //warnung
       return false;
@@ -888,7 +888,7 @@ public class watkostberechnung {
     dSo4 = dSo4 * dE;
     dNo3 = dNo3 * dE;
 
-    //Berechnung der molaren Größen
+    //Berechnung der molaren GrÃ¶ÃŸen
     dCaM = dCa / (40.08 * 1000);
     dMgM = dMg / (24.3 * 1000);
     dKs43M = dKs43 / 1000;
@@ -900,16 +900,16 @@ public class watkostberechnung {
     dLGF1 = -0.5 * Math.pow(dI, 0.5) / (1 + 1.4 * Math.pow(dI, 0.5));
 
     temperaturkorrektur(); //Temperaturkorrektur in Kelvin
-    konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste
+    konstantekorrektur(); //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste
     //Wandtemperatur
-    kohlensaeure(); //Berechnung Kohlensäure im K?hlturm nach Verrieselung
-    phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
-    phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
+    kohlensaeure(); //Berechnung KohlensÃ¤ure im K?hlturm nach Verrieselung
+    phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
+    phundkarbonatkonz(); //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
     sikt(); //Berechnung SI bei K?hlturmtemp.
     siw(); //Berechnung SI bei Wandtemperatur
 
-    dho(); //Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
-    //Korrektur nach Dbye-Hückel-Onsager
+    dho(); //Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
+    //Korrektur nach Dbye-HÃ¼ckel-Onsager
     ionensumme(); //Berechnung Summe Anionen/Kationen
     calciumkorrektur1(); //1. Calciumsulfatkorrektur, gilt f?r Speisewasser und Umlaufwasser
     calciumkorrektur2(); //2. Calciumcarbonatkorrektur, gilt nur f?r Umlaufwasser nach Verrieselung
@@ -942,8 +942,8 @@ public class watkostberechnung {
       dNo3 = dNo3 * z / y;
       dSo4 = dSo4 * z / y;
 
-      //Berechnung der für die weitere Berechnung benötigten Größen
-      //Berechnung der molaren Größen
+      //Berechnung der fÃ¼r die weitere Berechnung benÃ¶tigten GrÃ¶ÃŸen
+      //Berechnung der molaren GrÃ¶ÃŸen
       dCaM = dCa / (40.08 * 1000);
       dMgM = dMg / (24.3 * 1000);
       dNaM = dNa / 23008;
@@ -959,7 +959,7 @@ public class watkostberechnung {
       dTKE = dTE + cTK;
       dTKKT = dTKE;
 
-      //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste
+      //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste
       //Wandtemperatur
       dLGKCKT = -8.481 - 522.3 * (1 / cT0 - 1 / dTKKT) -
           14.1 * (Math.log(dTKKT / cT0) + (cT0 / dTKKT) - 1);
@@ -983,8 +983,8 @@ public class watkostberechnung {
       dSiW = dpHKTNV - dpHGlKT;
 
     } //Ende der while Schleife
-    //Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche Verdünnung)
-    //Korrektur nach Dbye-Hückel-Onsager
+    //Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche VerdÃ¼nnung)
+    //Korrektur nach Dbye-HÃ¼ckel-Onsager
     dElfCa = 59.2 - (0.229 * 59.2 + 30.1 * 2) * Math.pow(dI, 0.5);
     dElfMg = 53.2 - (0.229 * 53.2 + 30.1 * 2) * Math.pow(dI, 0.5);
     dElfNa = 50.1 - (0.229 * 50.1 + 30.1) * Math.pow(dI, 0.5);
@@ -1006,7 +1006,7 @@ public class watkostberechnung {
   //Ende Berechnungen
 
   //allgemeine Berechnungen
-  static void dho() { //Berechnung von Leitfähigkeit bei realem Verhalten (nicht unendliche   ), Korrektur nach Dbye-Hückel-Onsager
+  static void dho() { //Berechnung von LeitfÃ¤higkeit bei realem Verhalten (nicht unendliche   ), Korrektur nach Dbye-HÃ¼ckel-Onsager
     dElfCa = 59.2 - (0.229 * 59.2 + 30.1 * 2) * Math.pow(dI, 0.5);
     dElfMg = 53.2 - (0.229 * 53.2 + 30.1 * 2) * Math.pow(dI, 0.5);
     dElfNa = 50.1 - (0.229 * 50.1 + 30.1) * Math.pow(dI, 0.5);
@@ -1065,7 +1065,7 @@ public class watkostberechnung {
   }
 
 //
-  static void konstantekorrektur() { //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, h”chste,
+  static void konstantekorrektur() { //Temperaturkorrektur der Dissoziationskonstanten, Entnahmetemperatur, K?hlturmtemperatur, hâ€chste,
     dLGKCKT = -8.481 - 522.3 * (1 / cT0 - 1 / dTKKT) -
         14.1 * (Math.log(dTKKT / cT0) + (cT0 / dTKKT) - 1);
     dLGK1KT = -6.356 + 483.2 * (1 / cT0 - 1 / dTKKT) -
@@ -1086,12 +1086,12 @@ public class watkostberechnung {
   }
 
 //
-  static void kohlensaeure() { //Berechnung Kohlensäure im K?hlturm nach Verrieselung
+  static void kohlensaeure() { //Berechnung KohlensÃ¤ure im K?hlturm nach Verrieselung
     dlgC = ( -5.90 + 1222 / dTKKT) - 3;
   }
 
 //
-  static void phundkarbonatkonz() { //Berechnung pH-Wert und Karbonatkonz. nach Kohlens„ureverrieselung
+  static void phundkarbonatkonz() { //Berechnung pH-Wert und Karbonatkonz. nach Kohlensâ€ureverrieselung
     dCo2KT = Math.pow(10, dlgC);
     dpHKTNV = -dLGK1KT - dlgC + meinMath.log10(dKs43M) + dLGF1;
     dlgCo3 = dLGK2KT + meinMath.log10(dKs43M) - 3 * dLGF1 + dpHKTNV;

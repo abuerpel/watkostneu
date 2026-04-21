@@ -73,7 +73,7 @@ public class uhrCheck {
     passWort.setSize(300, 150);
     passWort.setLocation(300, 200);
     //keineZahl.setLocation((int)this.getX()+this.getWidth()/2 - 150,(int)this.getY()+this.getHeight()/2 - 75);
-    passWort.meldung("Sie haben das Datum zurückgestellt.");
+    passWort.meldung("Sie haben das Datum zurÃ¼ckgestellt.");
     passWort.meldung2("Das Programm wird abgebrochen");
     passWort.setVisible(true);
     meinDialog.dispose();

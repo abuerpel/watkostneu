@@ -97,7 +97,7 @@ public class anlageReport
 
     //hier den if Block einbauen
 
-    if (verfahren == "Enthärtung" || verfahren == "Entcarbonisierung" ||
+    if (verfahren == "EnthÃ¤rtung" || verfahren == "Entcarbonisierung" ||
         verfahren == "Umkehrosmose m. v. Eht.") {
       g.drawString("Anlage, Typ ", 100, i);
       g.drawString(anlKost.typ1, 300, i);
@@ -125,13 +125,13 @@ public class anlageReport
 
       i = zaehlen(i, 15);
       g.drawString(startframe.Texte.elementAt(146).toString(), 100, i);
-      g.drawString(zahltostring(anlKost.aP1, 7) + ".- € ¹", 300, i);
+      g.drawString(zahltostring(anlKost.aP1, 7) + ".- â‚¬ Â¹", 300, i);
       i = zaehlen(i, 25);
     }
 
     //
     if (verfahren == "Umkehrosmose m. v. Eht." ||
-        verfahren == "Umkehrosmose o. v. Enthärtung") {
+        verfahren == "Umkehrosmose o. v. EnthÃ¤rtung") {
       g.drawString(startframe.Texte.elementAt(140).toString(), 100, i);
       g.drawString(anlKost.typ2, 300, i);
       i = zaehlen(i, 15);
@@ -143,7 +143,7 @@ public class anlageReport
       i = zaehlen(i, 15);
       g.drawString(startframe.Texte.elementAt(144).toString(), 100, i);
       g.drawString(anlKost.st2, 300, i);
-      if (verfahren == "Umkehrosmose o.v. Enthärtung") {
+      if (verfahren == "Umkehrosmose o.v. EnthÃ¤rtung") {
         ;
       }
       {
@@ -153,11 +153,11 @@ public class anlageReport
       }
       i = zaehlen(i, 15);
       g.drawString(startframe.Texte.elementAt(146).toString(), 100, i);
-      g.drawString(zahltostring(anlKost.aP2, 7) + ".- € ¹", 300, i);
+      g.drawString(zahltostring(anlKost.aP2, 7) + ".- â‚¬ Â¹", 300, i);
       i = zaehlen(i, 25);
     }
     //
-    if (verfahren == "Schwefelsäuredosierung") {
+    if (verfahren == "SchwefelsÃ¤uredosierung") {
       g.drawString(startframe.Texte.elementAt(140).toString(), 100, i);
       g.drawString(anlKost.typ1, 300, i);
       i = zaehlen(i, 15);
@@ -174,7 +174,7 @@ public class anlageReport
       g.drawString(anlKost.st1, 300, i);
       i = zaehlen(i, 15);
       g.drawString(startframe.Texte.elementAt(146).toString(), 100, i);
-      g.drawString(zahltostring(anlKost.aP1, 7) + ".- € ¹", 300, i);
+      g.drawString(zahltostring(anlKost.aP1, 7) + ".- â‚¬ Â¹", 300, i);
       i = zaehlen(i, 25);
     }
     //
@@ -198,16 +198,16 @@ public class anlageReport
     g.drawString(anlKost.wz3, 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(146).toString(), 100, i);
-    g.drawString(zahltostring(anlKost.aP3, 7) + ".- € ¹", 300, i); //³²³¹¹¹
+    g.drawString(zahltostring(anlKost.aP3, 7) + ".- â‚¬ Â¹", 300, i); //Â³Â²Â³Â¹Â¹Â¹
     i = zaehlen(i, 30);
     g.drawString(startframe.Texte.elementAt(150).toString(), 100, i);
-    g.drawString(zahltostring(anlKost.stffP, 7) + ".- € ¹", 300, i);
+    g.drawString(zahltostring(anlKost.stffP, 7) + ".- â‚¬ Â¹", 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(151).toString(), 100, i);
-    g.drawString(zahltostring(anlKost.summe, 7) + ".- € ¹", 300, i);
+    g.drawString(zahltostring(anlKost.summe, 7) + ".- â‚¬ Â¹", 300, i);
     i = zaehlen(i, 30);
     g.drawString(startframe.Texte.elementAt(152).toString(), 100, i);
-    g.drawString(zahltostring(anlKost.jahresBetrag, 7) + ".- € ²", 300, i);
+    g.drawString(zahltostring(anlKost.jahresBetrag, 7) + ".- â‚¬ Â²", 300, i);
     //
     g.setFont(fnt4);
     i = zaehlen(i, 20);
@@ -217,7 +217,7 @@ public class anlageReport
                  150, i);
     g.setColor(Color.blue);
     g.setFont(fnt3);
-    g.drawString("Copyright © 1999-2013 Dr. H. Kacirek, N. Kacirek",300,700);
+    g.drawString("Copyright Â© 1999-2013 Dr. H. Kacirek, N. Kacirek",300,700);
     g.dispose();
   }
 }

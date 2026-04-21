@@ -1,6 +1,6 @@
 /**
  * Title:        Watkost<p> *
- * Description:  Berechnung der Anlagengrösse und der Kosten anhand des Volumenstroms und des Salzgehaltes
+ * Description:  Berechnung der AnlagengrÃ¶sse und der Kosten anhand des Volumenstroms und des Salzgehaltes
  * Copyright:    Copyright (c) nils kacirek/H. Kacirek<p>
  * Company:      bitwerker<p>
  * @author nils kacirek/H. Kacirek
@@ -13,7 +13,7 @@ public abstract class ehanlageberechnung {
 
   }
 
-  public anlagekosten berechne(double vs, double sg) { //berechnen der Enthärtungsanlage aus volumenstrom salzgehalt
+  public anlagekosten berechne(double vs, double sg) { //berechnen der EnthÃ¤rtungsanlage aus volumenstrom salzgehalt
     anlagekosten ak = new anlagekosten();
    return ak;
   }

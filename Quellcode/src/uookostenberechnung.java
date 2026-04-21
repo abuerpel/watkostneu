@@ -52,11 +52,11 @@ public class uookostenberechnung {
     //Stadt-/ und Abwasser-/ und Energiemengen zum
     //Betreiben der Umkehrosmoseanlage berechnen
 
-    //Energie: 1,0 kWh / 1m³ Speisewasser
+    //Energie: 1,0 kWh / 1mÂ³ Speisewasser
     betrieb.enVer = betrieb.stadtWasserVer * (1 - dNVerschnitt);
 
     //Konzentrat und zusaetzliche Speisewassermenge
-    //hierzu muß die Eindickung bei RO bestimmt werden
+    //hierzu muÃŸ die Eindickung bei RO bestimmt werden
 
     dNE = watkostberechnung.kostuo(anaroh, bedingungen);
 

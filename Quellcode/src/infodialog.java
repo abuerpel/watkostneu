@@ -18,7 +18,7 @@ public class infodialog
 
   public infodialog(Frame AufrufVonFenster, String text, boolean modal) {
     //
-    super(AufrufVonFenster, "Über Watkost", true);
+    super(AufrufVonFenster, "Ãœber Watkost", true);
     this.addWindowListener(new fensterZu());
     passwd PaWd = new passwd();
     pwdDate = PaWd.datumauslesen();
@@ -74,7 +74,7 @@ public class infodialog
     g.setColor(Color.lightGray);
     g.drawString(startframe.Texte.elementAt(176).toString()+pwdDate,65,140);
     g.setFont(urlFont);
-    g.drawString("© 1999-2013 Dr. Hartmut Kacirek, Nils Kacirek",
+    g.drawString("Â© 1999-2013 Dr. Hartmut Kacirek, Nils Kacirek",
                  65, 170);
     g.drawString("",
                  65, 190);

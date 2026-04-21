@@ -30,7 +30,7 @@ public class hauptmenue
     fd = new FileDialog(f);
     //Hauptfenster
     this.f = f;
-    //Menü
+    //MenÃ¼
     MenuBar hauptmenue = new MenuBar();
     String p = new String();
 
@@ -70,7 +70,7 @@ public class hauptmenue
     MenuItem mihilfe = new MenuItem("hilfe");
     MenuItem mifrage = new MenuItem("?");
 
-    //Menü hinzufuegen
+    //MenÃ¼ hinzufuegen
     //
     add(m1);
     add(m2);
@@ -198,7 +198,7 @@ public class hauptmenue
     misprache.addActionListener(new java.awt.event.ActionListener() {
 
       public void actionPerformed(ActionEvent e) {
-        //sprachDialog sd = new sprachDialog(f, "Bitte Sprache wählen.", true,
+        //sprachDialog sd = new sprachDialog(f, "Bitte Sprache wÃ¤hlen.", true,
           //                               f.liste);
         sprachwahl();
 
@@ -226,7 +226,7 @@ public class hauptmenue
       }
     });
     m3.add(mifrage);
-    //disabeln noch nicht programmierter Menüeinträge
+    //disabeln noch nicht programmierter MenÃ¼eintrÃ¤ge
     mineu.setEnabled(false);
     mispeichern.setEnabled(false);
     //mifrage.setEnabled(false);
@@ -246,7 +246,7 @@ public class hauptmenue
     //passwd pf = new passwd(); //passwortcheck
    passwd lpf = new passwd();
     boolean alt = false;
-    f.frei(); //Fesnter Daten löschen
+    f.frei(); //Fesnter Daten lÃ¶schen
     //FileDialogFenster
     fd.setTitle("Datei laden");
     fd.setDirectory("");
@@ -323,7 +323,7 @@ public class hauptmenue
 
       //GRENZWERTE AUSLESEN
       String anlage = sheet.getCell(4, 2).getContents();
-      int anlageint = anlage.length();//Länge des STrings als Kriterium für die if Abfrage
+      int anlageint = anlage.length();//LÃ¤nge des STrings als Kriterium fÃ¼r die if Abfrage
       if (anlageint == 8) {
         f.checkboxAnlage1.setSelected(true);
         f.checkboxAnlage2.setSelected(false);
@@ -498,7 +498,7 @@ public class hauptmenue
      Versionskonflikt.setSize(300, 150);
      Versionskonflikt.setLocation(f.positionX(300), f.positionY(150));
      Versionskonflikt.meldung(
-         "Datei kann nicht geöffnet werden. Versionskonflikt.");
+         "Datei kann nicht geÃ¶ffnet werden. Versionskonflikt.");
      Versionskonflikt.setVisible(true);
      meinDialog.dispose();
      return;
@@ -543,7 +543,7 @@ public class hauptmenue
     fd.setLocation(positionX(fd.getWidth()), 200);
     fd.show();
     String dateiName = fd.getDirectory() + fd.getFile();
-    //Format für die Ausgabe der Werte vorgeben
+    //Format fÃ¼r die Ausgabe der Werte vorgeben
     NumberFormat nf1 = new NumberFormat("#.00");
     WritableCellFormat nf1cell = new WritableCellFormat(nf1);
 
@@ -553,11 +553,11 @@ public class hauptmenue
       WritableSheet sheet1 = workbook.createSheet("Eingabeparameter", 0);
       WritableSheet sheet2 = workbook.createSheet("Threshhold Stabilisierung",
                                                   1);
-      WritableSheet sheet3 = workbook.createSheet("Enthärtung", 2);
+      WritableSheet sheet3 = workbook.createSheet("EnthÃ¤rtung", 2);
       WritableSheet sheet4 = workbook.createSheet("Entcarbonisierung", 3);
       WritableSheet sheet5 = workbook.createSheet("Umkehrosmose o. Eh.", 4);
       WritableSheet sheet6 = workbook.createSheet("Umkehrosmose m. Eh.", 5);
-      WritableSheet sheet7 = workbook.createSheet("Schwefelsäuredosierung", 6);
+      WritableSheet sheet7 = workbook.createSheet("SchwefelsÃ¤uredosierung", 6);
 
       try {
         //rohanalyse
@@ -566,7 +566,7 @@ public class hauptmenue
         jxl.write.Label labelA3 = new jxl.write.Label(0, 3, "Kunde");
         jxl.write.Label labelA4 = new jxl.write.Label(0, 4, "Projekt");
         jxl.write.Label labelA5 = new jxl.write.Label(0, 5, "Bearbeiter");
-        jxl.write.Label labelA6 = new jxl.write.Label(0, 6, "TE°C");
+        jxl.write.Label labelA6 = new jxl.write.Label(0, 6, "TEÂ°C");
         jxl.write.Label labelA7 = new jxl.write.Label(0, 7, "pH TE");
         jxl.write.Label labelA8 = new jxl.write.Label(0, 8, "LF K25");
         jxl.write.Label labelA9 = new jxl.write.Label(0, 9, "Calcium mg/l");
@@ -606,7 +606,7 @@ public class hauptmenue
         jxl.write.Label labelB2 = new jxl.write.Label(3, 2, "Anlage");
         jxl.write.Label labelB3 = new jxl.write.Label(3, 3, "Eindickungsfaktor");
         jxl.write.Label labelB4 = new jxl.write.Label(3, 4,
-            "max. Sättigungsindex ");
+            "max. SÃ¤ttigungsindex ");
         jxl.write.Label labelB5 = new jxl.write.Label(3, 5, "max. Chlorid");
         jxl.write.Label labelB6 = new jxl.write.Label(3, 6, "max. Sulfat");
         jxl.write.Label labelB7 = new jxl.write.Label(3, 7, "max. SI RO.");
@@ -615,14 +615,14 @@ public class hauptmenue
         jxl.write.Label labelB10 = new jxl.write.Label(3, 10,
             "Calciumgehalt Speisewasser");
 
-        if (f.baufbereitung == false) { //Luftwäscher
+        if (f.baufbereitung == false) { //LuftwÃ¤scher
           labelB2.setString("Anlage");
-          labelB3.setString("max. Sättigungsindex");
-          labelB4.setString("min. Härte");
-          labelB5.setString("max. Härte");
+          labelB3.setString("max. SÃ¤ttigungsindex");
+          labelB4.setString("min. HÃ¤rte");
+          labelB5.setString("max. HÃ¤rte");
           labelB6.setString("max. LF");
-          labelB7.setString("mind. Alkalität");
-          labelB8.setString("T. Wäscher");
+          labelB7.setString("mind. AlkalitÃ¤t");
+          labelB8.setString("T. WÃ¤scher");
           labelB9.setString("max. SI RO.");
           labelB10.setString("");
 
@@ -643,30 +643,30 @@ public class hauptmenue
         jxl.write.Label labelC1 = new jxl.write.Label(6, 0,
             "Wirtschaftsdaten");
         jxl.write.Label labelC2 = new jxl.write.Label(6, 2,
-            "Stadtwasser EUR/m³");
+            "Stadtwasser EUR/mÂ³");
         jxl.write.Label labelC3 = new jxl.write.Label(6, 3,
-            "Schmutzwasser EUR/m³");
+            "Schmutzwasser EUR/mÂ³");
         jxl.write.Label labelC4 = new jxl.write.Label(6, 4,
-            "Regenwassersiel EUR/m³");
+            "Regenwassersiel EUR/mÂ³");
         jxl.write.Label labelC5 = new jxl.write.Label(6, 5, "Energie EUR/kWh");
-        jxl.write.Label labelC6 = new jxl.write.Label(6, 6, "Kühlleistung kW");
+        jxl.write.Label labelC6 = new jxl.write.Label(6, 6, "KÃ¼hlleistung kW");
         jxl.write.Label labelC7
             = new jxl.write.Label(6, 7,
-                                  "Luftwäscherleistung kW");
+                                  "LuftwÃ¤scherleistung kW");
         jxl.write.Label labelC8 = new jxl.write.Label(6, 8, "Auslastung %");
         jxl.write.Label labelC9 = new jxl.write.Label(6, 9,
             "Dosiermittel EUR/kg");
-        jxl.write.Label labelC10 = new jxl.write.Label(6, 10, "Dosierhöhe g/m³");
+        jxl.write.Label labelC10 = new jxl.write.Label(6, 10, "DosierhÃ¶he g/mÂ³");
         jxl.write.Label labelC11 = new jxl.write.Label(6, 11,
             "Salztabletten EUR/kg");
         jxl.write.Label labelC12 = new jxl.write.Label(6, 12,
-            "Salzsäure EUR/kg");
+            "SalzsÃ¤ure EUR/kg");
         jxl.write.Label labelC13 = new jxl.write.Label(6, 13,
-            "Schwefelsäure EUR/kg");
+            "SchwefelsÃ¤ure EUR/kg");
         jxl.write.Label labelC14 = new jxl.write.Label(6, 14,
             "RO Dosiermittel EUR/kg");
         jxl.write.Label labelC15 = new jxl.write.Label(6, 15,
-            "RO Dosierhöhe g/m³");
+            "RO DosierhÃ¶he g/mÂ³");
         jxl.write.Label labelC16 = new jxl.write.Label(6, 16, "Dosiermittel");
 
         //
@@ -687,7 +687,7 @@ public class hauptmenue
         sheet1.addCell(labelC15);
         sheet1.addCell(labelC16);
 
-        // EINGABEWERTE EINFÜGEN
+        // EINGABEWERTE EINFÃœGEN
 
         jxl.write.Label labelWA1 = new jxl.write.Label(1, 2,
             f.anaroh.analysenNummer);
@@ -743,8 +743,8 @@ public class hauptmenue
         sheet1.addCell(numberWA16);
         sheet1.addCell(numberWA17);
         sheet1.addCell(numberWA18);
-        //Grenzwerte einfügen
-        jxl.write.Label labelGW1 = new jxl.write.Label(4, 2, "Kühlturm");
+        //Grenzwerte einfÃ¼gen
+        jxl.write.Label labelGW1 = new jxl.write.Label(4, 2, "KÃ¼hlturm");
         jxl.write.Number numberGW2 = new jxl.write.Number(4, 3,
             f.bedingungen.EF, nf1cell);
         jxl.write.Number numberGW3 = new jxl.write.Number(4, 4,
@@ -761,8 +761,8 @@ public class hauptmenue
             f.bedingungen.tW, nf1cell);
         jxl.write.Number numberGW9 = new jxl.write.Number(4, 10,
             f.bedingungen.caMax, nf1cell);
-        if (f.baufbereitung == false) { //falls Luftwäscher
-          labelGW1.setString("Luftwäscher");
+        if (f.baufbereitung == false) { //falls LuftwÃ¤scher
+          labelGW1.setString("LuftwÃ¤scher");
           numberGW2.setValue(f.bedingungen2.siMax);
           numberGW3.setValue(f.bedingungen2.dhMax);
           numberGW4.setValue(f.bedingungen2.dhMin);
@@ -772,7 +772,7 @@ public class hauptmenue
           numberGW8.setValue(f.bedingungen2.roMax);
           //numberGW8.setCellFormat();
         }
-        //Grenzwerte Einfügen
+        //Grenzwerte EinfÃ¼gen
         sheet1.addCell(labelGW1);
         sheet1.addCell(numberGW2);
         sheet1.addCell(numberGW3);
@@ -833,14 +833,14 @@ public class hauptmenue
 
 //
 
-        //Berechnung und Einfügen in Excel Spreadsheet für jede Aufbereitungsart
+        //Berechnung und EinfÃ¼gen in Excel Spreadsheet fÃ¼r jede Aufbereitungsart
 
 
 
         int m, k;
         k = 6;
-//         if (f.baufbereitung == false) { k = 5} // wenn Luftwäscher,
-        //dann nur 5 Aufbereitungsarten. Scwefelsäuredosierung fällt weg
+//         if (f.baufbereitung == false) { k = 5} // wenn LuftwÃ¤scher,
+        //dann nur 5 Aufbereitungsarten. ScwefelsÃ¤uredosierung fÃ¤llt weg
         // for (m = 1; m <= k ; m++)
         // {
 
@@ -851,8 +851,8 @@ public class hauptmenue
         //jxl.write.Label labelD2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
         jxl.write.Label labelD2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
         jxl.write.Label labelD3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelD4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelD5 = new jxl.write.Label(3, 5, "TW°C");
+        jxl.write.Label labelD4 = new jxl.write.Label(3, 4, "TKTÂ°C");
+        jxl.write.Label labelD5 = new jxl.write.Label(3, 5, "TWÂ°C");
         jxl.write.Label labelD6 = new jxl.write.Label(3, 6, "LF 25 ");
         jxl.write.Label labelD7 = new jxl.write.Label(3, 7, "Calcium mg/l");
         jxl.write.Label labelD8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
@@ -868,7 +868,7 @@ public class hauptmenue
         jxl.write.Label labelD18 = new jxl.write.Label(3, 18, "SI W");
         jxl.write.Label labelD19 = new jxl.write.Label(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelD20 = new jxl.write.Label(3, 20, "Ionenstärke I");
+        jxl.write.Label labelD20 = new jxl.write.Label(3, 20, "IonenstÃ¤rke I");
         jxl.write.Label labelD21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
         jxl.write.Label labelD22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
         jxl.write.Label labelD23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
@@ -904,13 +904,13 @@ public class hauptmenue
         sheet2.addCell(labelD22);
         sheet2.addCell(labelD23);
 
-        //Umlaufwasseranalyse ENTHÄRTUNG
+        //Umlaufwasseranalyse ENTHÃ„RTUNG
         jxl.write.Label labelEHU1 = new jxl.write.Label(3, 0, "Umlaufwasser");
         //jxl.write.Label labelEHU2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
         jxl.write.Label labelEHU2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
         jxl.write.Label labelEHU3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelEHU4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelEHU5 = new jxl.write.Label(3, 5, "TW°C");
+        jxl.write.Label labelEHU4 = new jxl.write.Label(3, 4, "TKTÂ°C");
+        jxl.write.Label labelEHU5 = new jxl.write.Label(3, 5, "TWÂ°C");
         jxl.write.Label labelEHU6 = new jxl.write.Label(3, 6, "LF 25 ");
         jxl.write.Label labelEHU7 = new jxl.write.Label(3, 7, "Calcium mg/l");
         jxl.write.Label labelEHU8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
@@ -926,7 +926,7 @@ public class hauptmenue
         jxl.write.Label labelEHU18 = new jxl.write.Label(3, 18, "SI W");
         jxl.write.Label labelEHU19 = new jxl.write.Label(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelEHU20 = new jxl.write.Label(3, 20, "Ionenstärke I");
+        jxl.write.Label labelEHU20 = new jxl.write.Label(3, 20, "IonenstÃ¤rke I");
         jxl.write.Label labelEHU21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
         jxl.write.Label labelEHU22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
         jxl.write.Label labelEHU23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
@@ -962,13 +962,13 @@ public class hauptmenue
         sheet3.addCell(labelEHU21);
         sheet3.addCell(labelEHU22);
         sheet3.addCell(labelEHU23);
-        //Umlaufwasseranalyse ENTHÄRTUNG
+        //Umlaufwasseranalyse ENTHÃ„RTUNG
         jxl.write.Label labelECU1 = new jxl.write.Label(3, 0, "Umlaufwasser");
         //jxl.write.Label labelECU2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
         jxl.write.Label labelECU2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
         jxl.write.Label labelECU3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelECU4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelECU5 = new jxl.write.Label(3, 5, "TW°C");
+        jxl.write.Label labelECU4 = new jxl.write.Label(3, 4, "TKTÂ°C");
+        jxl.write.Label labelECU5 = new jxl.write.Label(3, 5, "TWÂ°C");
         jxl.write.Label labelECU6 = new jxl.write.Label(3, 6, "LF 25 ");
         jxl.write.Label labelECU7 = new jxl.write.Label(3, 7, "Calcium mg/l");
         jxl.write.Label labelECU8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
@@ -984,7 +984,7 @@ public class hauptmenue
         jxl.write.Label labelECU18 = new jxl.write.Label(3, 18, "SI W");
         jxl.write.Label labelECU19 = new jxl.write.Label(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelECU20 = new jxl.write.Label(3, 20, "Ionenstärke I");
+        jxl.write.Label labelECU20 = new jxl.write.Label(3, 20, "IonenstÃ¤rke I");
         jxl.write.Label labelECU21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
         jxl.write.Label labelECU22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
         jxl.write.Label labelECU23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
@@ -1024,13 +1024,13 @@ public class hauptmenue
 
         //
         //
-        //Umlaufwasseranalyse ENTHÄRTUNG
+        //Umlaufwasseranalyse ENTHÃ„RTUNG
         jxl.write.Label labelUOU1 = new jxl.write.Label(3, 0, "Umlaufwasser");
         //jxl.write.Label labelUOU2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
         jxl.write.Label labelUOU2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
         jxl.write.Label labelUOU3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelUOU4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelUOU5 = new jxl.write.Label(3, 5, "TW°C");
+        jxl.write.Label labelUOU4 = new jxl.write.Label(3, 4, "TKTÂ°C");
+        jxl.write.Label labelUOU5 = new jxl.write.Label(3, 5, "TWÂ°C");
         jxl.write.Label labelUOU6 = new jxl.write.Label(3, 6, "LF 25 ");
         jxl.write.Label labelUOU7 = new jxl.write.Label(3, 7, "Calcium mg/l");
         jxl.write.Label labelUOU8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
@@ -1046,7 +1046,7 @@ public class hauptmenue
         jxl.write.Label labelUOU18 = new jxl.write.Label(3, 18, "SI W");
         jxl.write.Label labelUOU19 = new jxl.write.Label(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelUOU20 = new jxl.write.Label(3, 20, "Ionenstärke I");
+        jxl.write.Label labelUOU20 = new jxl.write.Label(3, 20, "IonenstÃ¤rke I");
         jxl.write.Label labelUOU21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
         jxl.write.Label labelUOU22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
         jxl.write.Label labelUOU23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
@@ -1085,13 +1085,13 @@ public class hauptmenue
         sheet5.addCell(labelUOU23);
 
         //
-        //Umlaufwasseranalyse ENTHÄRTUNG
+        //Umlaufwasseranalyse ENTHÃ„RTUNG
         jxl.write.Label labelUMU1 = new jxl.write.Label(3, 0, "Umlaufwasser");
         //jxl.write.Label labelUMU2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
         jxl.write.Label labelUMU2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
         jxl.write.Label labelUMU3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelUMU4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelUMU5 = new jxl.write.Label(3, 5, "TW°C");
+        jxl.write.Label labelUMU4 = new jxl.write.Label(3, 4, "TKTÂ°C");
+        jxl.write.Label labelUMU5 = new jxl.write.Label(3, 5, "TWÂ°C");
         jxl.write.Label labelUMU6 = new jxl.write.Label(3, 6, "LF 25 ");
         jxl.write.Label labelUMU7 = new jxl.write.Label(3, 7, "Calcium mg/l");
         jxl.write.Label labelUMU8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
@@ -1107,7 +1107,7 @@ public class hauptmenue
         jxl.write.Label labelUMU18 = new jxl.write.Label(3, 18, "SI W");
         jxl.write.Label labelUMU19 = new jxl.write.Label(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelUMU20 = new jxl.write.Label(3, 20, "Ionenstärke I");
+        jxl.write.Label labelUMU20 = new jxl.write.Label(3, 20, "IonenstÃ¤rke I");
         jxl.write.Label labelUMU21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
         jxl.write.Label labelUMU22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
         jxl.write.Label labelUMU23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
@@ -1145,13 +1145,13 @@ public class hauptmenue
         sheet6.addCell(labelUMU22);
         sheet6.addCell(labelUMU23);
         //
-        //Umlaufwasseranalyse ENTHÄRTUNG
+        //Umlaufwasseranalyse ENTHÃ„RTUNG
         jxl.write.Label labelSDU1 = new jxl.write.Label(3, 0, "Umlaufwasser");
         //jxl.write.Label labelSDU2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
         jxl.write.Label labelSDU2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
         jxl.write.Label labelSDU3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelSDU4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelSDU5 = new jxl.write.Label(3, 5, "TW°C");
+        jxl.write.Label labelSDU4 = new jxl.write.Label(3, 4, "TKTÂ°C");
+        jxl.write.Label labelSDU5 = new jxl.write.Label(3, 5, "TWÂ°C");
         jxl.write.Label labelSDU6 = new jxl.write.Label(3, 6, "LF 25 ");
         jxl.write.Label labelSDU7 = new jxl.write.Label(3, 7, "Calcium mg/l");
         jxl.write.Label labelSDU8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
@@ -1167,7 +1167,7 @@ public class hauptmenue
         jxl.write.Label labelSDU18 = new jxl.write.Label(3, 18, "SI W");
         jxl.write.Label labelSDU19 = new jxl.write.Label(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelSDU20 = new jxl.write.Label(3, 20, "Ionenstärke I");
+        jxl.write.Label labelSDU20 = new jxl.write.Label(3, 20, "IonenstÃ¤rke I");
         jxl.write.Label labelSDU21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
         jxl.write.Label labelSDU22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
         jxl.write.Label labelSDU23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
@@ -1210,18 +1210,18 @@ public class hauptmenue
             "Verbrauchsmengen");
         jxl.write.Label labelTHM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
         jxl.write.Label labelTHM3 = new jxl.write.Label(6, 3,
-            "Zusatzwasser m³/a");
+            "Zusatzwasser mÂ³/a");
         jxl.write.Label labelTHM4 = new jxl.write.Label(6, 4,
-            "Schmutzwassersiel m³/a");
+            "Schmutzwassersiel mÂ³/a");
         jxl.write.Label labelTHM5 = new jxl.write.Label(6, 5,
-            "Regenwassersiel m³/a");
+            "Regenwassersiel mÂ³/a");
         jxl.write.Label labelTHM6 = new jxl.write.Label(6, 6,
             "Dosiermittel kg/a");
         jxl.write.Label labelTHM7 = new jxl.write.Label(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelTHM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
+        jxl.write.Label labelTHM8 = new jxl.write.Label(6, 8, "SalzsÃ¤ure kg/a");
         jxl.write.Label labelTHM9 = new jxl.write.Label(6, 9,
-            "Schwefelsäure kg/l");
+            "SchwefelsÃ¤ure kg/l");
         jxl.write.Label labelTHM10 = new jxl.write.Label(6, 10,
             "RO Dosiermittel kg/a");
 
@@ -1242,18 +1242,18 @@ public class hauptmenue
             "Verbrauchsmengen");
         jxl.write.Label labelEHM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
         jxl.write.Label labelEHM3 = new jxl.write.Label(6, 3,
-            "Zusatzwasser m³/a");
+            "Zusatzwasser mÂ³/a");
         jxl.write.Label labelEHM4 = new jxl.write.Label(6, 4,
-            "Schmutzwassersiel m³/a");
+            "Schmutzwassersiel mÂ³/a");
         jxl.write.Label labelEHM5 = new jxl.write.Label(6, 5,
-            "Regenwassersiel m³/a");
+            "Regenwassersiel mÂ³/a");
         jxl.write.Label labelEHM6 = new jxl.write.Label(6, 6,
             "Dosiermittel kg/a");
         jxl.write.Label labelEHM7 = new jxl.write.Label(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelEHM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
+        jxl.write.Label labelEHM8 = new jxl.write.Label(6, 8, "SalzsÃ¤ure kg/a");
         jxl.write.Label labelEHM9 = new jxl.write.Label(6, 9,
-            "Schwefelsäure kg/l");
+            "SchwefelsÃ¤ure kg/l");
         jxl.write.Label labelEHM10 = new jxl.write.Label(6, 10,
             "RO Dosiermittel kg/a");
 
@@ -1274,18 +1274,18 @@ public class hauptmenue
             "Verbrauchsmengen");
         jxl.write.Label labelECM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
         jxl.write.Label labelECM3 = new jxl.write.Label(6, 3,
-            "Zusatzwasser m³/a");
+            "Zusatzwasser mÂ³/a");
         jxl.write.Label labelECM4 = new jxl.write.Label(6, 4,
-            "Schmutzwassersiel m³/a");
+            "Schmutzwassersiel mÂ³/a");
         jxl.write.Label labelECM5 = new jxl.write.Label(6, 5,
-            "Regenwassersiel m³/a");
+            "Regenwassersiel mÂ³/a");
         jxl.write.Label labelECM6 = new jxl.write.Label(6, 6,
             "Dosiermittel kg/a");
         jxl.write.Label labelECM7 = new jxl.write.Label(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelECM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
+        jxl.write.Label labelECM8 = new jxl.write.Label(6, 8, "SalzsÃ¤ure kg/a");
         jxl.write.Label labelECM9 = new jxl.write.Label(6, 9,
-            "Schwefelsäure kg/l");
+            "SchwefelsÃ¤ure kg/l");
         jxl.write.Label labelECM10 = new jxl.write.Label(6, 10,
             "RO Dosiermittel kg/a");
 
@@ -1307,18 +1307,18 @@ public class hauptmenue
             "Verbrauchsmengen");
         jxl.write.Label labelUOM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
         jxl.write.Label labelUOM3 = new jxl.write.Label(6, 3,
-            "Zusatzwasser m³/a");
+            "Zusatzwasser mÂ³/a");
         jxl.write.Label labelUOM4 = new jxl.write.Label(6, 4,
-            "Schmutzwassersiel m³/a");
+            "Schmutzwassersiel mÂ³/a");
         jxl.write.Label labelUOM5 = new jxl.write.Label(6, 5,
-            "Regenwassersiel m³/a");
+            "Regenwassersiel mÂ³/a");
         jxl.write.Label labelUOM6 = new jxl.write.Label(6, 6,
             "Dosiermittel kg/a");
         jxl.write.Label labelUOM7 = new jxl.write.Label(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelUOM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
+        jxl.write.Label labelUOM8 = new jxl.write.Label(6, 8, "SalzsÃ¤ure kg/a");
         jxl.write.Label labelUOM9 = new jxl.write.Label(6, 9,
-            "Schwefelsäure kg/l");
+            "SchwefelsÃ¤ure kg/l");
         jxl.write.Label labelUOM10 = new jxl.write.Label(6, 10,
             "RO Dosiermittel kg/a");
 
@@ -1339,18 +1339,18 @@ public class hauptmenue
             "Verbrauchsmengen");
         jxl.write.Label labelUMM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
         jxl.write.Label labelUMM3 = new jxl.write.Label(6, 3,
-            "Zusatzwasser m³/a");
+            "Zusatzwasser mÂ³/a");
         jxl.write.Label labelUMM4 = new jxl.write.Label(6, 4,
-            "Schmutzwassersiel m³/a");
+            "Schmutzwassersiel mÂ³/a");
         jxl.write.Label labelUMM5 = new jxl.write.Label(6, 5,
-            "Regenwassersiel m³/a");
+            "Regenwassersiel mÂ³/a");
         jxl.write.Label labelUMM6 = new jxl.write.Label(6, 6,
             "Dosiermittel kg/a");
         jxl.write.Label labelUMM7 = new jxl.write.Label(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelUMM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
+        jxl.write.Label labelUMM8 = new jxl.write.Label(6, 8, "SalzsÃ¤ure kg/a");
         jxl.write.Label labelUMM9 = new jxl.write.Label(6, 9,
-            "Schwefelsäure kg/l");
+            "SchwefelsÃ¤ure kg/l");
         jxl.write.Label labelUMM10 = new jxl.write.Label(6, 10,
             "RO Dosiermittel kg/a");
 
@@ -1372,18 +1372,18 @@ public class hauptmenue
             "Verbrauchsmengen");
         jxl.write.Label labelSDM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
         jxl.write.Label labelSDM3 = new jxl.write.Label(6, 3,
-            "Zusatzwasser m³/a");
+            "Zusatzwasser mÂ³/a");
         jxl.write.Label labelSDM4 = new jxl.write.Label(6, 4,
-            "Schmutzwassersiel m³/a");
+            "Schmutzwassersiel mÂ³/a");
         jxl.write.Label labelSDM5 = new jxl.write.Label(6, 5,
-            "Regenwassersiel m³/a");
+            "Regenwassersiel mÂ³/a");
         jxl.write.Label labelSDM6 = new jxl.write.Label(6, 6,
             "Dosiermittel kg/a");
         jxl.write.Label labelSDM7 = new jxl.write.Label(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelSDM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
+        jxl.write.Label labelSDM8 = new jxl.write.Label(6, 8, "SalzsÃ¤ure kg/a");
         jxl.write.Label labelSDM9 = new jxl.write.Label(6, 9,
-            "Schwefelsäure kg/l");
+            "SchwefelsÃ¤ure kg/l");
         jxl.write.Label labelSDM10 = new jxl.write.Label(6, 10,
             "RO Dosiermittel kg/a");
 
@@ -1413,9 +1413,9 @@ public class hauptmenue
         jxl.write.Label labelTHK7 = new jxl.write.Label(6, 18,
             "Salztabletten EUR/a ");
         jxl.write.Label labelTHK8 = new jxl.write.Label(6, 19,
-            "Salzsäure EUR/a");
+            "SalzsÃ¤ure EUR/a");
         jxl.write.Label labelTHK9 = new jxl.write.Label(6, 20,
-            "Schwefelsäure EUR/l");
+            "SchwefelsÃ¤ure EUR/l");
         jxl.write.Label labelTHK10 = new jxl.write.Label(6, 21,
             "RO Dosiermittel EUR/a");
         jxl.write.Label labelTHK11 = new jxl.write.Label(9, 23,
@@ -1449,9 +1449,9 @@ public class hauptmenue
         jxl.write.Label labelEHK7 = new jxl.write.Label(6, 18,
             "Salztabletten EUR/a ");
         jxl.write.Label labelEHK8 = new jxl.write.Label(6, 19,
-            "Salzsäure EUR/a");
+            "SalzsÃ¤ure EUR/a");
         jxl.write.Label labelEHK9 = new jxl.write.Label(6, 20,
-            "Schwefelsäure EUR/l");
+            "SchwefelsÃ¤ure EUR/l");
         jxl.write.Label labelEHK10 = new jxl.write.Label(6, 21,
             "RO Dosiermittel EUR/a");
         jxl.write.Label labelEHK11 = new jxl.write.Label(6, 22,
@@ -1484,9 +1484,9 @@ public class hauptmenue
         jxl.write.Label labelECK7 = new jxl.write.Label(6, 18,
             "Salztabletten EUR/a ");
         jxl.write.Label labelECK8 = new jxl.write.Label(6, 19,
-            "Salzsäure EUR/a");
+            "SalzsÃ¤ure EUR/a");
         jxl.write.Label labelECK9 = new jxl.write.Label(6, 20,
-            "Schwefelsäure EUR/l");
+            "SchwefelsÃ¤ure EUR/l");
         jxl.write.Label labelECK10 = new jxl.write.Label(6, 21,
             "RO Dosiermittel EUR/a");
         jxl.write.Label labelECK11 = new jxl.write.Label(6, 22,
@@ -1520,9 +1520,9 @@ public class hauptmenue
         jxl.write.Label labelUOK7 = new jxl.write.Label(6, 18,
             "Salztabletten EUR/a ");
         jxl.write.Label labelUOK8 = new jxl.write.Label(6, 19,
-            "Salzsäure EUR/a");
+            "SalzsÃ¤ure EUR/a");
         jxl.write.Label labelUOK9 = new jxl.write.Label(6, 20,
-            "Schwefelsäure EUR/l");
+            "SchwefelsÃ¤ure EUR/l");
         jxl.write.Label labelUOK10 = new jxl.write.Label(6, 21,
             "RO Dosiermittel EUR/a");
         jxl.write.Label labelUOK11 = new jxl.write.Label(6, 22,
@@ -1556,9 +1556,9 @@ public class hauptmenue
         jxl.write.Label labelUMK7 = new jxl.write.Label(6, 18,
             "Salztabletten EUR/a ");
         jxl.write.Label labelUMK8 = new jxl.write.Label(6, 19,
-            "Salzsäure EUR/a");
+            "SalzsÃ¤ure EUR/a");
         jxl.write.Label labelUMK9 = new jxl.write.Label(6, 20,
-            "Schwefelsäure EUR/l");
+            "SchwefelsÃ¤ure EUR/l");
         jxl.write.Label labelUMK10 = new jxl.write.Label(6, 21,
             "RO Dosiermittel EUR/a");
         jxl.write.Label labelUMK11 = new jxl.write.Label(6, 22,
@@ -1593,9 +1593,9 @@ public class hauptmenue
         jxl.write.Label labelSDK7 = new jxl.write.Label(6, 18,
             "Salztabletten EUR/a ");
         jxl.write.Label labelSDK8 = new jxl.write.Label(6, 19,
-            "Salzsäure EUR/a");
+            "SalzsÃ¤ure EUR/a");
         jxl.write.Label labelSDK9 = new jxl.write.Label(6, 20,
-            "Schwefelsäure EUR/l");
+            "SchwefelsÃ¤ure EUR/l");
         jxl.write.Label labelSDK10 = new jxl.write.Label(6, 21,
             "RO Dosiermittel EUR/a");
         jxl.write.Label labelSDK11 = new jxl.write.Label(6, 22,
@@ -1619,7 +1619,7 @@ public class hauptmenue
 
 
 //*****************************************************************
-//   WERTE EINFÜGEN
+//   WERTE EINFÃœGEN
 //*****************************************************************
 ///
           f.threshhold();
@@ -1778,7 +1778,7 @@ public class hauptmenue
         sheet2.addCell(LabelAK15);
 
         jxl.write.Label labelG16 = new jxl.write.Label(9, 4,
-            "Dosier und Schutzbehälter:");
+            "Dosier und SchutzbehÃ¤lter:");
         sheet2.addCell(labelG16);
         jxl.write.Label labelAK16 = new jxl.write.Label(10, 4,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
@@ -1799,7 +1799,7 @@ public class hauptmenue
         sheet2.addCell(LabelAK18);
 
         jxl.write.Label labelG19 = new jxl.write.Label(9, 7,
-            "Wassermengenzähler:");
+            "WassermengenzÃ¤hler:");
         sheet2.addCell(labelG19);
         jxl.write.Label NumberAK19 = new jxl.write.Label(10, 7,
             f.anlkost.wz3, nf1cell);
@@ -1835,7 +1835,7 @@ public class hauptmenue
         //} // Ende der for Schleife
         //**********
 
-         //ENTHÄRTUNG
+         //ENTHÃ„RTUNG
          f.enthaertung();
 
 //Umlaufwasseranalyse
@@ -1985,7 +1985,7 @@ public class hauptmenue
         sheet3.addCell(numberEHKO8);
         sheet3.addCell(numberEHKO9);
         sheet3.addCell(numberEHKO10);
-//*******************ANLAGE ENTHÄRTUNG*******+
+//*******************ANLAGE ENTHÃ„RTUNG*******+
 
 
          jxl.write.Label labelEHG1 = new jxl.write.Label(9, 0,
@@ -2003,7 +2003,7 @@ public class hauptmenue
         sheet3.addCell(labelEHAK2);
 
         jxl.write.Label labelEHG3 = new jxl.write.Label(9, 3,
-            "Kapazität:");
+            "KapazitÃ¤t:");
         sheet3.addCell(labelEHG3);
         jxl.write.Number numberEHAK3 = new jxl.write.Number(10, 3,
             f.anlkost.kap1, nf1cell);
@@ -2031,7 +2031,7 @@ public class hauptmenue
         sheet3.addCell(labelEHAK6);
 
         jxl.write.Label labelEHG7 = new jxl.write.Label(9, 7,
-            "Wassermengenzähler:");
+            "WassermengenzÃ¤hler:");
         sheet3.addCell(labelEHG7);
         jxl.write.Label labelEHAK7 = new jxl.write.Label(10, 7, f.anlkost.wz1,
             nf1cell);
@@ -2055,7 +2055,7 @@ public class hauptmenue
         sheet3.addCell(labelEHAK15);
 
         jxl.write.Label labelEHG16 = new jxl.write.Label(9, 11,
-            "Dosier und Schutzbehälter:");
+            "Dosier und SchutzbehÃ¤lter:");
         sheet3.addCell(labelEHG16);
         jxl.write.Label labelEHAK16 = new jxl.write.Label(10, 11,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
@@ -2076,7 +2076,7 @@ public class hauptmenue
         sheet3.addCell(labelEHAK18);
 
         jxl.write.Label labelEHG19 = new jxl.write.Label(9, 14,
-            "Wassermengenzähler:");
+            "WassermengenzÃ¤hler:");
         sheet3.addCell(labelEHG19);
         jxl.write.Label numberEHAK19 = new jxl.write.Label(10, 14,
             f.anlkost.wz3, nf1cell);
@@ -2110,7 +2110,7 @@ public class hauptmenue
             f.anlkost.jahresBetrag, nf1cell);
         sheet3.addCell(numberEHAK23);
 //} // Ende der for Schleife
-//*************************ENDE ANLAGE ENTHÄRTUNG*******
+//*************************ENDE ANLAGE ENTHÃ„RTUNG*******
 
 //ENTCARBONISIERUNG
          f.entcarbonisierung();
@@ -2282,7 +2282,7 @@ public class hauptmenue
         sheet4.addCell(labelECAK2);
 
         jxl.write.Label labelECG3 = new jxl.write.Label(9, 3,
-            "Kapazität:");
+            "KapazitÃ¤t:");
         sheet4.addCell(labelECG3);
         jxl.write.Number numberECAK3 = new jxl.write.Number(10, 3,
             f.anlkost.kap1, nf1cell);
@@ -2310,7 +2310,7 @@ public class hauptmenue
         sheet4.addCell(labelECAK6);
 
         jxl.write.Label labelECG7 = new jxl.write.Label(9, 7,
-            "Wassermengenzähler:");
+            "WassermengenzÃ¤hler:");
         sheet4.addCell(labelECG7);
         jxl.write.Label labelECAK7 = new jxl.write.Label(10, 7, f.anlkost.wz1,
             nf1cell);
@@ -2340,7 +2340,7 @@ public class hauptmenue
         sheet4.addCell(labelECAK15);
 
         jxl.write.Label labelECG16 = new jxl.write.Label(9, 12,
-            "Dosier und Schutzbehälter:");
+            "Dosier und SchutzbehÃ¤lter:");
         sheet4.addCell(labelECG16);
         jxl.write.Label labelECAK16 = new jxl.write.Label(10, 12,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
@@ -2361,7 +2361,7 @@ public class hauptmenue
         sheet4.addCell(labelECAK18);
 
         jxl.write.Label labelECG19 = new jxl.write.Label(9, 15,
-            "Wassermengenzähler:");
+            "WassermengenzÃ¤hler:");
         sheet4.addCell(labelECG19);
         jxl.write.Label numberECAK19 = new jxl.write.Label(10, 15,
             f.anlkost.wz3, nf1cell);
@@ -2395,7 +2395,7 @@ public class hauptmenue
             f.anlkost.jahresBetrag, nf1cell);
         sheet4.addCell(numberECAK23);
 //************************************
-//UMKEHROSMOSE OHNE ENTHÄRTUNG
+//UMKEHROSMOSE OHNE ENTHÃ„RTUNG
          f.umkehrosmoseo();
 
 //Umlaufwasseranalyse
@@ -2546,7 +2546,7 @@ public class hauptmenue
         sheet5.addCell(numberUOOKO9);
         sheet5.addCell(numberUOOKO10);
 
-//UMKEHROSMOSE OHNE ENTHÄRTUNG*******************************
+//UMKEHROSMOSE OHNE ENTHÃ„RTUNG*******************************
         //ANLAGE
 
 
@@ -2600,7 +2600,7 @@ public class hauptmenue
         sheet5.addCell(labelUOOAK15);
 
         jxl.write.Label labelUOOG16 = new jxl.write.Label(9, 9,
-            "Dosier und Schutzbehälter:");
+            "Dosier und SchutzbehÃ¤lter:");
         sheet5.addCell(labelUOOG16);
         jxl.write.Label labelUOOAK16 = new jxl.write.Label(10, 9,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
@@ -2621,7 +2621,7 @@ public class hauptmenue
         sheet5.addCell(labelUOOAK18);
 
         jxl.write.Label labelUOOG19 = new jxl.write.Label(9, 12,
-            "Wassermengenzähler:");
+            "WassermengenzÃ¤hler:");
         sheet5.addCell(labelUOOG19);
         jxl.write.Label numberUOOAK19 = new jxl.write.Label(10, 12,
             f.anlkost.wz3, nf1cell);
@@ -2657,7 +2657,7 @@ public class hauptmenue
         //} // Ende der for Schleife
 
         // ************************************************
-//UMKEHROSMOSE MIT ENTHÄRTUNG
+//UMKEHROSMOSE MIT ENTHÃ„RTUNG
         f.umkehrosmosem();
 
 //Umlaufwasseranalyse
@@ -2809,11 +2809,11 @@ public class hauptmenue
         sheet6.addCell(numberUOMKO9);
         sheet6.addCell(numberUOMKO10);
 
-        //*********ANLAGE UMKEHROSMOSE MIT ENTHÄRTUNG****************
+        //*********ANLAGE UMKEHROSMOSE MIT ENTHÃ„RTUNG****************
 
 
          jxl.write.Label labelUOMG1 = new jxl.write.Label(9, 0,
-             "Anlageinformation für Aufbereitungsart:");
+             "Anlageinformation fÃ¼r Aufbereitungsart:");
         sheet6.addCell(labelUOMG1);
         jxl.write.Label labelUOMAK1 = new jxl.write.Label(10, 0,
             f.anlkost.aufbereitungsart, nf1cell);
@@ -2827,7 +2827,7 @@ public class hauptmenue
         sheet6.addCell(labelUOMAK2);
 
         jxl.write.Label labelUOMG3 = new jxl.write.Label(9, 3,
-            "Kapazität:");
+            "KapazitÃ¤t:");
         sheet6.addCell(labelUOMG3);
         jxl.write.Number numberlUOMAK3 = new jxl.write.Number(10, 3,
             f.anlkost.kap1, nf1cell);
@@ -2855,7 +2855,7 @@ public class hauptmenue
         sheet6.addCell(labelUOMAK6);
 
         jxl.write.Label labelUOMG7 = new jxl.write.Label(9, 7,
-            "Wassermengenzähler:");
+            "WassermengenzÃ¤hler:");
         sheet6.addCell(labelUOMG7);
         jxl.write.Label labelUOMAK7 = new jxl.write.Label(10, 7, f.anlkost.wz1,
             nf1cell);
@@ -2921,7 +2921,7 @@ public class hauptmenue
         sheet6.addCell(labelUOMAK15);
 
         jxl.write.Label labelUOMG16 = new jxl.write.Label(9, 17,
-            "Dosier und Schutzbehälter:");
+            "Dosier und SchutzbehÃ¤lter:");
         sheet6.addCell(labelUOMG16);
         jxl.write.Label labelUOMAK16 = new jxl.write.Label(10, 17,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
@@ -2942,7 +2942,7 @@ public class hauptmenue
         sheet6.addCell(labelUOMAK18);
 
         jxl.write.Label labelUOMG19 = new jxl.write.Label(9, 20,
-            "Wassermengenzähler:");
+            "WassermengenzÃ¤hler:");
         sheet6.addCell(labelUOMG19);
         jxl.write.Label numberlUOMAK19 = new jxl.write.Label(10, 20,
             f.anlkost.wz3, nf1cell);
@@ -2979,7 +2979,7 @@ public class hauptmenue
 
         //**********************************************************
 
-//SCHWEFELSÄUREDOSIERUNG
+//SCHWEFELSÃ„UREDOSIERUNG
          f.schwefelsaeuredos();
 
 //Umlaufwasseranalyse
@@ -3129,7 +3129,7 @@ public class hauptmenue
         sheet7.addCell(numberSDKO9);
         sheet7.addCell(numberSDKO10);
 
-//*****************ANLAGE SCHWEFELSÄUREDOSIERUNG**************************
+//*****************ANLAGE SCHWEFELSÃ„UREDOSIERUNG**************************
          jxl.write.Label labelSDG1 = new jxl.write.Label(9, 0,
              "Anlageinformationen");
         sheet7.addCell(labelSDG1);
@@ -3145,7 +3145,7 @@ public class hauptmenue
         sheet7.addCell(labelSDAK2);
 
         jxl.write.Label labelSDG3 = new jxl.write.Label(9, 3,
-            "Dosier und Schutzbehälter:");
+            "Dosier und SchutzbehÃ¤lter:");
         sheet7.addCell(labelSDG3);
         jxl.write.Label labelSDAK3 = new jxl.write.Label(10, 3,
             "V " + Double.toString(f.anlkost.kap1), nf1cell);
@@ -3180,7 +3180,7 @@ public class hauptmenue
         sheet7.addCell(labelSDAK15);
 
         jxl.write.Label labelSDG16 = new jxl.write.Label(9, 9,
-            "Dosier und Schutzbehälter:");
+            "Dosier und SchutzbehÃ¤lter:");
         sheet7.addCell(labelSDG16);
         jxl.write.Label labelSDAK16 = new jxl.write.Label(10, 9,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
@@ -3201,7 +3201,7 @@ public class hauptmenue
         sheet7.addCell(labelSDAK18);
 
         jxl.write.Label labelSDG19 = new jxl.write.Label(9, 12,
-            "Wassermengenzähler:");
+            "WassermengenzÃ¤hler:");
         sheet7.addCell(labelSDG19);
         jxl.write.Label numberSDAK19 = new jxl.write.Label(10, 12,
             f.anlkost.wz3, nf1cell);
@@ -3262,7 +3262,7 @@ public class hauptmenue
     projektdatei datei = new projektdatei();
     projektdateiAlt dateiAlt = new projektdateiAlt();
     boolean alt = false;
-    f.frei(); //Fesnter Daten löschen
+    f.frei(); //Fesnter Daten lÃ¶schen
     //FileDialogFenster
     fd.setTitle("Datei laden");
     fd.setDirectory("");
@@ -3288,7 +3288,7 @@ public class hauptmenue
       Versionskonflikt.setSize(300, 150);
       Versionskonflikt.setLocation(f.positionX(300), f.positionY(150));
       Versionskonflikt.meldung(
-          "Datei kann nicht geöffnet werden. Versionskonflikt.");
+          "Datei kann nicht geÃ¶ffnet werden. Versionskonflikt.");
       Versionskonflikt.setVisible(true);
       meinDialog.dispose();
       return;
@@ -3431,7 +3431,7 @@ public class hauptmenue
 
   void info() {
     dialogframe frame = new dialogframe();
-    infodialog infofenster = new infodialog(frame, "Über Watkost", true);
+    infodialog infofenster = new infodialog(frame, "Ãœber Watkost", true);
     infofenster.setSize(400, 300);
     infofenster.setLocation(positionX(400), 150);
     infofenster.setVisible(true);
@@ -3439,7 +3439,7 @@ public class hauptmenue
 
   }
 
-  //Rückgabe der Position
+  //RÃ¼ckgabe der Position
   int positionX(int x) {
     Point posParent;
     int b, posX;
@@ -3520,11 +3520,11 @@ public class hauptmenue
 void anlage()
 {
       int i = 0;
-      if (f.aufbereitung == "Enthärtung" ||
+      if (f.aufbereitung == "EnthÃ¤rtung" ||
           f.aufbereitung == "Entcarbonisierung" ||
-          f.aufbereitung == "Umkehrosmose m. v. Enthärtung") {
+          f.aufbereitung == "Umkehrosmose m. v. EnthÃ¤rtung") {
         jxl.write.Label labelG1 = new jxl.write.Label(0, 0,
-          "Anlageinformation für Aufbereitungsart:");
+          "Anlageinformation fÃ¼r Aufbereitungsart:");
        sheet2.addCell(labelG1);
         jxl.write.Label LabelAK1 = new jxl.write.Label(i++, 1,
             f.anlkost.aufbereitungsart, nf1cell);
@@ -3538,7 +3538,7 @@ void anlage()
         sheet7.addCell(LabelAK2);
 
         jxl.write.Label labelG3 = new jxl.write.Label(i, 0,
-          "Kapazität:");
+          "KapazitÃ¤t:");
        sheet7.addCell(labelG3);
        jxl.write.Number numberAK3 = new jxl.write.Number(i++, 1,
             f.anlkost.kap1, nf1cell);
@@ -3566,7 +3566,7 @@ void anlage()
         sheet7.addCell(LabelAK6);
 
         jxl.write.Label labelG7 = new jxl.write.Label(i, 0,
-          "Wassermengenzähler:");
+          "WassermengenzÃ¤hler:");
        sheet7.addCell(labelG7);
         jxl.write.Label LabelAK7 = new jxl.write.Label(i++, 1, f.anlkost.wz1,
             nf1cell);
@@ -3589,8 +3589,8 @@ void anlage()
          sheet7.addCell(numberAK9);
         //
         //
-        if (f.aufbereitung == "Umkehrosmose m. v. Enthärtung" ||
-            f.aufbereitung == "Umkehrosmose o. v. Enthärtung") {
+        if (f.aufbereitung == "Umkehrosmose m. v. EnthÃ¤rtung" ||
+            f.aufbereitung == "Umkehrosmose o. v. EnthÃ¤rtung") {
 
           jxl.write.Label labelG10 = new jxl.write.Label(i, 0,
           "Anlage,Typ:");
@@ -3631,7 +3631,7 @@ void anlage()
 
         }
       }
-      if (f.aufbereitung == "Schwefelsäuredosierung")
+      if (f.aufbereitung == "SchwefelsÃ¤uredosierung")
       {
         jxl.write.Label labelG2 = new jxl.write.Label(i, 0,
           "Anlage,Typ:");
@@ -3641,7 +3641,7 @@ void anlage()
        sheet7.addCell(LabelAK2);
 
        jxl.write.Label labelG3 = new jxl.write.Label(i, 0,
-          "Dosier und Schutzbehälter:");
+          "Dosier und SchutzbehÃ¤lter:");
           sheet7.addCell(labelG3);
        jxl.write.Label labelAK3 = new jxl.write.Label(i++, 1,
            "V " + Double.toString(f.anlkost.kap1), nf1cell);
@@ -3677,7 +3677,7 @@ void anlage()
      sheet7.addCell(LabelAK15);
 
      jxl.write.Label labelG16 = new jxl.write.Label(i, 0,
-          "Dosier und Schutzbehälter:");
+          "Dosier und SchutzbehÃ¤lter:");
           sheet7.addCell(labelG16);
           jxl.write.Label labelAK16 = new jxl.write.Label(i++, 1,
           "V " + Double.toString(f.anlkost.kap3), nf1cell);
@@ -3698,7 +3698,7 @@ sheet7.addCell(LabelAK17);
 sheet7.addCell(LabelAK18);
 
 jxl.write.Label labelG19 = new jxl.write.Label(i, 0,
-          "Wassermengenzähler:");
+          "WassermengenzÃ¤hler:");
           sheet7.addCell(labelG19);
           jxl.write.Label NumberAK19 = new jxl.write.Label(i++, 1,
         f.anlkost.wz3, nf1cell);

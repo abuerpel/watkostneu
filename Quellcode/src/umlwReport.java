@@ -68,10 +68,10 @@ public class umlwReport
     i = zaehlen(i, 30);
     //
     g.drawString(startframe.Texte.elementAt(260).toString(), 100, i);
-    g.drawString(zahltostring(analyse.tKT, 4) + " °C", 300, i);
+    g.drawString(zahltostring(analyse.tKT, 4) + " Â°C", 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(194).toString(), 100, i);
-    g.drawString(zahltostring( (analyse.lF), 5) + " µS/cm", 300, i);
+    g.drawString(zahltostring( (analyse.lF), 5) + " ÂµS/cm", 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(195).toString(), 100, i);
     g.drawString(zahltostring( (analyse.ca), 5) + " mg/l Ca", 300, i);
@@ -122,7 +122,7 @@ public class umlwReport
 
     g.setColor(Color.blue);
     g.setFont(fnt3);
-   g.drawString("Copyright © 1999-2013  Dr. H. Kacirek, N. Kacirek",80, 700);
+   g.drawString("Copyright Â© 1999-2013  Dr. H. Kacirek, N. Kacirek",80, 700);
 
   }
 }

@@ -28,7 +28,7 @@ public class thkostenberechnung {
     //kost11.prg
     //Betriebskostenrechnung f?r Aufbereitungsart 1, Threshold Stabilisierung
     //Wassermengen f?r Verdunstung Speisewasser und Abwasser berechnen;
-    ///Bezug: Verdampfungsenthalpie bei 30øC betr„gt 0,6758 kWh/kg
+    ///Bezug: Verdampfungsenthalpie bei 30Ã¸C betrâ€žgt 0,6758 kWh/kg
     //Grundlage: 1 kW verdampft 1,480 l/h; 8760 h = 1 a.
     betriebskosten betrieb = new betriebskosten(); //objekt erzeugen
     double dNVWM, dLeistung;
@@ -46,7 +46,7 @@ public class thkostenberechnung {
     //kost11l.prg
     //Betriebskostenrechnung f?r Aufbereitungsart 1, Threshold Stabilisierung
     //Wassermengen f?r Verdunstung Speisewasser und Abwasser berechnen;
-    ///Bezug: 3 g Wasser pro m³ Luft im Jahresmittel
+    ///Bezug: 3 g Wasser pro mÂ³ Luft im Jahresmittel
     //Grundlage: 12 o C ergibt 50 % Feuchte bei 22 o C
 
     double dNVWM;

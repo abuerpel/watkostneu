@@ -63,13 +63,13 @@ public class anaReport
     i = zaehlen(i, 30);
     //
     g.drawString(startframe.Texte.elementAt(192).toString(), 100, i);
-    g.drawString(zahltostring(analyse.tKT) + " °C", 300, i);
+    g.drawString(zahltostring(analyse.tKT) + " Â°C", 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(193).toString(), 100, i);
-    g.drawString(zahltostring(analyse.tW) + " °C", 300, i);
+    g.drawString(zahltostring(analyse.tW) + " Â°C", 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(194).toString(), 100, i);
-    g.drawString(zahltostring(analyse.lF) + " µS/cm", 300, i);
+    g.drawString(zahltostring(analyse.lF) + " ÂµS/cm", 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(195).toString(), 100, i);
     g.drawString(zahltostring(analyse.ca) + " g/l Ca", 300, i);
@@ -125,7 +125,7 @@ public class anaReport
 
     g.setColor(Color.blue);
     g.setFont(fnt3);
-    g.drawString("Copyright © 1999-2013  Dr. H. Kacirek, N. Kacirek",
+    g.drawString("Copyright Â© 1999-2013  Dr. H. Kacirek, N. Kacirek",
                  100, 700);
 
   }

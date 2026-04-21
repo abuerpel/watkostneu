@@ -1,6 +1,6 @@
 /**
  * Title:        meinMath
- * Description:  zus‰tzliche Rechenfunktionen
+ * Description:  zus√§tzliche Rechenfunktionen
  * Copyright:    Copyright (c) nils kacirek
  * Company:      wat
  * @author nils kacirek

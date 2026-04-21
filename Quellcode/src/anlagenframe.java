@@ -20,7 +20,7 @@ public class anlagenframe
 
     hf = f; //Referenz auf hauptfenster
     setMenuBar(new anlagenmenue(this));
-    //größe und Position setzen
+    //grÃ¶ÃŸe und Position setzen
     int x = (int)this.getToolkit().getScreenSize().getWidth();
     int y = (int)this.getToolkit().getScreenSize().getHeight();
     this.setSize(x / 2 + 100, y - 50);

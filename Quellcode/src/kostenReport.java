@@ -80,13 +80,13 @@ public class kostenReport
     i = zaehlen(i, 20);
     //Kosten
     g.drawString(startframe.Texte.elementAt(216).toString(), 100, i);
-    g.drawString(Double.toString(kosten.stadtWasser) + " EUR/m³", 300, i);
+    g.drawString(Double.toString(kosten.stadtWasser) + " EUR/mÂ³", 300, i);
     i = zaehlen(i, 12);
     g.drawString(startframe.Texte.elementAt(217).toString(), 100, i);
-    g.drawString(Double.toString(kosten.abWasser) + " EUR/m³", 300, i);
+    g.drawString(Double.toString(kosten.abWasser) + " EUR/mÂ³", 300, i);
     i = zaehlen(i, 12);
     g.drawString(startframe.Texte.elementAt(218).toString(), 100, i);
-    g.drawString(Double.toString(kosten.regenWasser) + " EUR/m³", 300, i);
+    g.drawString(Double.toString(kosten.regenWasser) + " EUR/mÂ³", 300, i);
     i = zaehlen(i, 12);
     g.drawString(startframe.Texte.elementAt(219).toString(), 100, i);
     g.drawString(Double.toString(kosten.energie) + " EUR/kWh", 300, i);
@@ -104,7 +104,7 @@ public class kostenReport
     g.drawString(zahltostring(kosten.dosierMittel) + " EUR/kg", 300, i);
     i = zaehlen(i, 12);
     g.drawString(startframe.Texte.elementAt(224).toString(), 100, i);
-    g.drawString(Integer.toString( (int) kosten.dosierMenge) + " g/m³", 300, i);
+    g.drawString(Integer.toString( (int) kosten.dosierMenge) + " g/mÂ³", 300, i);
     i = zaehlen(i, 12);
     g.drawString(startframe.Texte.elementAt(225).toString(), 100, i);
     g.drawString(zahltostring(kosten.salzTabletten) + " EUR/kg", 300, i);
@@ -119,7 +119,7 @@ public class kostenReport
     g.drawString(zahltostring(kosten.ro) + " EUR/kg", 300, i);
     i = zaehlen(i, 12);
     g.drawString(startframe.Texte.elementAt(228).toString(), 100, i);
-    g.drawString(zahltostring(kosten.roMenge) + " g/m³", 300, i);
+    g.drawString(zahltostring(kosten.roMenge) + " g/mÂ³", 300, i);
     i = zaehlen(i, 20);
 
     //
@@ -129,14 +129,14 @@ public class kostenReport
     i = zaehlen(i, 12);
     g.drawString(startframe.Texte.elementAt(230).toString(), 100, i);
     g.drawString(Integer.toString( (int) betrkosten.stadtWasserVer) +
-                 " m³/Jahr", 300, i);
+                 " mÂ³/Jahr", 300, i);
     i = zaehlen(i, 12);
     g.drawString(startframe.Texte.elementAt(231).toString(), 100, i);
-    g.drawString(Integer.toString( (int) betrkosten.abWasserVer) + " m³/Jahr",
+    g.drawString(Integer.toString( (int) betrkosten.abWasserVer) + " mÂ³/Jahr",
                  300, i);
     i = zaehlen(i, 12);
     g.drawString(startframe.Texte.elementAt(232).toString(), 100, i);
-    g.drawString(Integer.toString( (int) betrkosten.regenSielVer) + " m³/Jahr",
+    g.drawString(Integer.toString( (int) betrkosten.regenSielVer) + " mÂ³/Jahr",
                  300, i);
     i = zaehlen(i, 12);
     g.drawString(startframe.Texte.elementAt(233).toString(), 100, i);
@@ -214,6 +214,6 @@ public class kostenReport
 
     g.setColor(Color.blue);
     g.setFont(fnt3);
-    g.drawString("Copyright © 1999-2013  Dr. H. Kacirek, N. Kacirek",80, 700);
+    g.drawString("Copyright Â© 1999-2013  Dr. H. Kacirek, N. Kacirek",80, 700);
   }
 }

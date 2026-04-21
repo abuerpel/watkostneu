@@ -20,9 +20,9 @@ public class sdkostenberechnung {
                                    double dNVerschnitt, double dEKS43M) {
     //kost15.prg
     //Betriebskostenrechnung f?r Aufbereitungsart 5, Teilentcarbonisierung
-    //?ber Schwefels„uredosierung mit Threshold Stabilisierung
+    //?ber Schwefelsâ€žuredosierung mit Threshold Stabilisierung
     //Wassermengen f?r Verdunstung Speisewasser und Abwasser berechnen;
-    //Bezug: Verdampfungsenthalpie bei 30øC betr„gt 0,6758 kWh/kg
+    //Bezug: Verdampfungsenthalpie bei 30Ã¸C betrâ€žgt 0,6758 kWh/kg
     //Grundlage: 1 kW verdampft 1,480 l/h; 8760 h = 1 a.
 
     betriebskosten betrieb = new betriebskosten(); //objekt erzeugen
@@ -35,7 +35,7 @@ public class sdkostenberechnung {
     betrieb.dosMittelVer = betrieb.abWasserVer * preise.dosierMenge / 1000; //Chemiklaienmenge
     dH2SO4M = (dNKS43M / 1000) * dNE - (dEKS43M / 1000);
     betrieb.schwefelSaeureVer = dH2SO4M * betrieb.abWasserVer * 50;
-    //vorläufig  verhindern, dass Schwefelsäure 0 wird
+    //vorlÃ¤ufig  verhindern, dass SchwefelsÃ¤ure 0 wird
     if (betrieb.schwefelSaeureVer < 0) {
       betrieb.schwefelSaeureVer = 0;
     }

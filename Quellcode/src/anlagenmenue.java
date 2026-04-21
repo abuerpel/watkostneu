@@ -20,7 +20,7 @@ public class anlagenmenue
     MenuItem midrucken = new MenuItem(startframe.Texte.elementAt(10).toString());
     MenuItem mischliessen = new MenuItem(startframe.Texte.elementAt(12).toString());
 
-    //Menü hinzufuegen
+    //MenÃ¼ hinzufuegen
     m1.add(midrucken);
     m1.add(mischliessen);
     add(m1);

@@ -20,7 +20,7 @@ public class eckostenberechnung {
     //Betriebskostenrechnung f?r Aufbereitungsart 3, Teilentcarbonisierung mit
     //Threshold Stabilisierung
     //Wassermengen f?r Verdunstung Speisewasser und Abwasser berechnen;
-    //Bezug: Verdampfungsenthalpie bei 30øC betr„gt 0,6758 kWh/kg
+    //Bezug: Verdampfungsenthalpie bei 30Ã¸C betrâ€žgt 0,6758 kWh/kg
     //Grundlage: 1 kW verdampft 1,480 l/h; 8760 h = 1 a.
 
     betriebskosten betrieb = new betriebskosten(); //objekt erzeugen
@@ -39,7 +39,7 @@ public class eckostenberechnung {
     //Threshold Stabilisierung
     //Wassermengen f?r Verdunstung Speisewasser und Abwasser berechnen;
     //Bezug: 3 g Wasser pro m3 Luft im Jahresmittel
-    //S„ttigung bei 12øC ergibt 50 % Feuchte bei 22øC.
+    //Sâ€žttigung bei 12Ã¸C ergibt 50 % Feuchte bei 22Ã¸C.
 
     double dNVWM, dLeistung;
     betriebskosten betrieb = new betriebskosten(); //objekt erzeugen
@@ -64,8 +64,8 @@ public class eckostenberechnung {
     betrieb.salzSaeureVer = (dNKS43 / 1000) * betrieb.stadtWasserVer *
         (1 - dNVerschnitt) * 120; //*Salzsaeuremenge 30-31 % Jahr
 
-    //Stadt- und Abwasserkosten zum Betreiben der Enth„rtungsanlage berechnen
-    //Berechnungsgrundlage: Proportionalit„t von Salzverbrauch und Sp?lwasser
+    //Stadt- und Abwasserkosten zum Betreiben der Enthâ€žrtungsanlage berechnen
+    //Berechnungsgrundlage: Proportionalitâ€žt von Salzverbrauch und Sp?lwasser
     //5 l Sp?lwasser/ l Harz oder 180g Salz
     dSPWM = betrieb.salzSaeureVer * 0.0167;
 

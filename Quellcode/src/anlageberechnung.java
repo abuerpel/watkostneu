@@ -1,6 +1,6 @@
 /**
  * Title:        Watkost<p> *
- * Description:  Berechnung der Anlagengrˆsse und der Kosten anhand des Volumenstroms und des Salzgehaltes
+ * Description:  Berechnung der Anlagengr√∂sse und der Kosten anhand des Volumenstroms und des Salzgehaltes
  * Copyright:    Copyright (c) nils kacirek/H. Kacirek<p>
  * Company:      bitwerker<p>
  * @author nils kacirek/H. Kacirek
@@ -21,14 +21,14 @@ public class anlageberechnung {
       ws1, ws2, ws3, st1, st2, st3, wz1, wz2, wz3, dosuo, nf;
 
   private static int kap1, kap2, kap3, aP1, aP2, aP3, stffP;
-  private final double faktor = 1.2; //+ 17% annuit‰t + 3% Service
+  private final double faktor = 1.2; //+ 17% annuit√§t + 3% Service
 
   public anlageberechnung() {
 
   }
 
   //
-  public static anlagekosten thberechne(double vs, double al, double dmv) { //berechnen der Enth‰rtungsanlage aus volumenstrom salzgehalt und auslastung
+  public static anlagekosten thberechne(double vs, double al, double dmv) { //berechnen der Enth√§rtungsanlage aus volumenstrom salzgehalt und auslastung
 
     int grundPreisP = 0, wasserZaehlerP = 0;
     // berechnung der spitzenlast
@@ -40,7 +40,7 @@ public class anlageberechnung {
     try {
       kap3 = rsAnlage.getInt(3); //Volumen
       grundPreisP = rsAnlage.getInt(4) * 2 + rsAnlage.getInt(5) * 2 + 2470 +
-          800 + 725; //beh‰lter +schutzbeh‰lter+ anlagenpreis + propdosierpumpe + bioziddosierpumpe
+          800 + 725; //beh√§lter +schutzbeh√§lter+ anlagenpreis + propdosierpumpe + bioziddosierpumpe
     }
     catch (java.lang.NullPointerException e) {
       System.out.print(e);
@@ -52,8 +52,8 @@ public class anlageberechnung {
     rsAnlage = startframe.datenBank.getAnlData(
         "SELECT * FROM THROHRPREISE WHERE VMAX >= " + spitzenLast);
     try {
-      wz3 = rsAnlage.getString(2); //nennweite des Wasserz‰hlers
-      wasserZaehlerP = rsAnlage.getInt(5); // wassermengenz‰hler
+      wz3 = rsAnlage.getString(2); //nennweite des Wasserz√§hlers
+      wasserZaehlerP = rsAnlage.getInt(5); // wassermengenz√§hler
       stffP = rsAnlage.getInt(4) + rsAnlage.getInt(6); //systemtrenner-/ + feinfilterpreis
 
     }
@@ -64,7 +64,7 @@ public class anlageberechnung {
       System.out.print(e);
     }
 
-    typ3 = "Regel- und Dosierstation RBPD"; //VerfahrensK¸rzel
+    typ3 = "Regel- und Dosierstation RBPD"; //VerfahrensK√ºrzel
     ws3 = "PVC"; //Werksstoff
     st3 = "PILOT "; //Steuerung
     aP3 = grundPreisP + wasserZaehlerP; //anlagenpreis
@@ -73,7 +73,7 @@ public class anlageberechnung {
 
   //
   public static anlagekosten ehberechne(double vs, double sg, double al,
-                                        double dmv) { //berechnen der Enth‰rtungsanlage aus volumenstrom salzgehalt und auslastung
+                                        double dmv) { //berechnen der Enth√§rtungsanlage aus volumenstrom salzgehalt und auslastung
 
     int grundPreisP = 0, rohrPreisP = 0, wasserZaehlerPreisP = 0,
         steuerungPreisP = 0;
@@ -84,8 +84,8 @@ public class anlageberechnung {
         "SELECT * FROM EHSTRASSENPREISE WHERE KAPAZITAET >= " +
         Integer.toString( (int) kErf));
     try {
-      typ1 = "Enth‰rtungsanlage EHD-" + rsAnlage.getString(2); //anlagentyp
-      kap1 = rsAnlage.getInt(3); //kapazit‰t
+      typ1 = "Enth√§rtungsanlage EHD-" + rsAnlage.getString(2); //anlagentyp
+      kap1 = rsAnlage.getInt(3); //kapazit√§t
       grundPreisP = rsAnlage.getInt(4);
     }
     catch (java.lang.NullPointerException e) {
@@ -101,7 +101,7 @@ public class anlageberechnung {
       nennweite1 = rsAnlage.getString(2); //nennweite
       rohrPreisP = rsAnlage.getInt(4);
       wz1 = nennweite1;
-      wasserZaehlerPreisP = rsAnlage.getInt(5); // wassermengenz‰hler
+      wasserZaehlerPreisP = rsAnlage.getInt(5); // wassermengenz√§hler
       st1 = "M3";
       steuerungPreisP = 570; //Steuerung Version Aufbau M3
 
@@ -132,8 +132,8 @@ public class anlageberechnung {
     try {
       typ1 = "Entcarbonisierungsanlage ECD- " + rsAnlage.getString(2); //anlagenname
       grundPreisP = rsAnlage.getInt(4) + rsAnlage.getInt(5) + 1800; //anlagenpreis + neutralfilterpreis + zumesseinrichtung
-      kap1 = rsAnlage.getInt(3); //kapazit‰t
-      nf = "f¸r " + rsAnlage.getString(2); //neutralfiltername
+      kap1 = rsAnlage.getInt(3); //kapazit√§t
+      nf = "f√ºr " + rsAnlage.getString(2); //neutralfiltername
     }
     catch (java.lang.NullPointerException e) {
       //
@@ -166,7 +166,7 @@ public class anlageberechnung {
 
   //
   public static anlagekosten uoehberechne(double vs, double sg, double al,
-                                          double dmv) { //berechnen der Umkehrosmose aus volumenstrom Enth‰rtung au Salzgehalt
+                                          double dmv) { //berechnen der Umkehrosmose aus volumenstrom Enth√§rtung au Salzgehalt
     int grundPreisP = 0;
     // berechnung der spitzenlast
     double spitzenLast = (int) (vs / (8600 * al * 0.01) * 1000); //Spitzenstrom l/h
@@ -175,10 +175,10 @@ public class anlageberechnung {
         Integer.toString( (int) spitzenLast));
     try {
       typ2 = "RO-" + rsAnlage.getString(2); //anlage
-      kap2 = rsAnlage.getInt(3); //kapazit‰t
+      kap2 = rsAnlage.getInt(3); //kapazit√§t
       aP2 = rsAnlage.getInt(5) + rsAnlage.getInt(6) + 370; //preis + Verschneidung + steuerung
       st2 = "ROE 901 A"; //steuerung
-      dosuo = "Proportionaldosierstation f¸r RO"; //dosstation
+      dosuo = "Proportionaldosierstation f√ºr RO"; //dosstation
     }
     catch (java.lang.NullPointerException e) {
       //
@@ -199,10 +199,10 @@ public class anlageberechnung {
         Integer.toString( (int) spitzenLast));
     try {
       typ2 = " RO-" + rsAnlage.getString(2); //anlage
-      kap2 = rsAnlage.getInt(3); //kapazit‰t
+      kap2 = rsAnlage.getInt(3); //kapazit√§t
       aP2 = rsAnlage.getInt(5) + rsAnlage.getInt(6) + 370 + 900; //preis + Verschneidung + steuerung + dosStation RO
       st2 = "ROE 901 A"; //steuerung
-      dosuo = "Proportionaldosierstation f¸r RO"; //dosstation
+      dosuo = "Proportionaldosierstation f√ºr RO"; //dosstation
     }
     catch (java.lang.NullPointerException e) {
       //
@@ -216,10 +216,10 @@ public class anlageberechnung {
 
   //
   public static anlagekosten sdberechne(double vs, double al, double dmv) { //berechnen der threshol dosierstation
-    typ1 = "Schwefels‰uredosierstation";
+    typ1 = "Schwefels√§uredosierstation";
     ws1 = "PVC";
     aP1 = 2000;
-    kap1 = kap3; //Volumen Schutzbeh‰lter
+    kap1 = kap3; //Volumen Schutzbeh√§lter
     st1 = "Liquisis P-Regelung"; //Steuerung
     return thberechne(vs, al, dmv);
   }
@@ -254,7 +254,7 @@ public class anlageberechnung {
     anlKosten.nf = nf;
     anlKosten.summe = (int) ( (aP1 + aP2 + aP3 + stffP) * 1.1);
     anlKosten.jahresBetrag = (int) anlKosten.summe / 5; //Abschreibung 10 Jahre  linear 10%, Verzinsung 7%, Service reparatur 3%
-    nullen(); // Variablen auf Null zr¸cksetzen
+    nullen(); // Variablen auf Null zr√ºcksetzen
     return anlKosten;
   }
 

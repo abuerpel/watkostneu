@@ -38,7 +38,7 @@ public class navigation
     bw = new BasicArrowButton(7);
     bw.setFont(new java.awt.Font("Dialog", 1, 10));
     bw.setText("bw");
-    bw.setToolTipText("Datensatz zurück");
+    bw.setToolTipText("Datensatz zurÃ¼ck");
     bw.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mouseClicked(MouseEvent e) {
         bw_mouseClicked(e);

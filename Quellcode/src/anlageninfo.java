@@ -88,7 +88,7 @@ public class anlageninfo
     jPanel1.add(jLabelZusatz1, null);
     jPanel1.add(jLabelZusatz2, null);
     jPanel1.add(jLabelOption1, null);
-    // wenn aufbereitung Umkehrosmose + Enth‰rtung Feld hinzuf¸gen
+    // wenn aufbereitung Umkehrosmose + Enth√§rtung Feld hinzuf√ºgen
     if (aufbereitung == "Umkehrosmose m. v. Enthaertung") {
       jPanel1.add(jLabelUO, null);
       jPanel1.add(jLabelZusatzName1, null);
@@ -106,7 +106,7 @@ public class anlageninfo
     jPanel2.add(jLabelZusatz1W, null);
     jPanel2.add(jLabelZusatz2W, null);
     jPanel2.add(jLabelOption1W, null);
-    // wenn aufbereitung Umkehrosmose + Enth‰rtung Feld hinzuf¸gen
+    // wenn aufbereitung Umkehrosmose + Enth√§rtung Feld hinzuf√ºgen
     if (aufbereitung == "Umkehrosmose m. v. Enthaertung") {
       jPanel2.add(jLabelUOW, null);
       jPanel2.add(jLabelZusatzName1W, null);
@@ -123,7 +123,7 @@ public class anlageninfo
     jPanel3.add(jLabelZusatz1P, null);
     jPanel3.add(jLabelZusatz2P, null);
     jPanel3.add(jLabelOption1P, null);
-    // wenn aufbereitung Umkehrosmose + Enth‰rtung Feld hinzuf¸gen
+    // wenn aufbereitung Umkehrosmose + Enth√§rtung Feld hinzuf√ºgen
     if (aufbereitung == "Umkehrosmose m. v. Enthaertung") {
       jPanel3.add(jLabelUOP, null);
       jPanel3.add(jLabelZusatzName1P, null);
@@ -147,30 +147,30 @@ public class anlageninfo
       jLabelOption1.setVisible(false);
       //Preise
       jLabelDosierstationP.setText(" " + Integer.toString(kosten.dosierstation) +
-                                   ".- Ä");
-      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- Ä");
+                                   ".- ‚Ç¨");
+      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- ‚Ç¨");
     }
 
-    if (aufbereitung == "Enth‰rtung") {
+    if (aufbereitung == "Enth√§rtung") {
       jLabelAnlageW.setText( kosten.verfahren + "-" + kosten.model);
       jLabelStrassenkapazitaetW.setText(" " + kosten.model);
       jLabelNennweiteW.setText(" " + kosten.rohr);
       jLabelZusatz1W.setText(startframe.Texte.elementAt(286).toString());
       jLabelOption2W.setText(" " + kosten.rohr);
-      //nicht gebrauchte Lˆschen
+      //nicht gebrauchte L√∂schen
       jLabelZusatz2.setVisible(false);
       jLabelOption1.setVisible(false);
       //Preise
       //jLabelAnlageP.setText(Integer.toString(kosten.preis));
       jLabelStrassenkapazitaetP.setText(" " + Integer.toString(kosten.preis) +
-                                        ".- Ä");
+                                        ".- ‚Ç¨");
       jLabelNennweiteP.setText(" " + Integer.toString(kosten.rohrpreis) +
-                               ".- Ä");
-      jLabelZusatz1P.setText(" " + Integer.toString(kosten.zusatz1) + ".- Ä");
-      jLabelOption2P.setText(" " + Integer.toString(kosten.option1) + ".- Ä");
+                               ".- ‚Ç¨");
+      jLabelZusatz1P.setText(" " + Integer.toString(kosten.zusatz1) + ".- ‚Ç¨");
+      jLabelOption2P.setText(" " + Integer.toString(kosten.option1) + ".- ‚Ç¨");
       jLabelDosierstationP.setText(" " + Integer.toString(kosten.dosierstation) +
-                                   ".- Ä");
-      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- Ä");
+                                   ".- ‚Ç¨");
+      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- ‚Ç¨");
     }
     //
     if (aufbereitung == "Entcarbonisierung") {
@@ -182,22 +182,22 @@ public class anlageninfo
       jLabelOption2W.setText(" " + kosten.rohr); //hier Zumesseinrichtung
       jLabelZusatz2W.setText("");
 
-      //Text ‰ndern
+      //Text √§ndern
       jLabelOption2.setText(startframe.Texte.elementAt(281).toString());
 
       //Preise
       //jLabelAnlageP.setText(Integer.toString(kosten.preis));
       jLabelStrassenkapazitaetP.setText(" " + Integer.toString(kosten.preis) +
-                                        ".- Ä");
+                                        ".- ‚Ç¨");
       jLabelNennweiteP.setText(" " + Integer.toString(kosten.rohrpreis) +
-                               ".- Ä");
-      jLabelZusatz1P.setText(" " + Integer.toString(kosten.zusatz1) + ".- Ä");
-      jLabelOption1P.setText(" " + Integer.toString(kosten.zusatz2) + ".- Ä");
-      jLabelOption2P.setText(" " + kosten.option1 + ".- Ä"); //hier Zumesseinrichtung
-      jLabelZusatz2P.setText(" " + Integer.toString(kosten.option2) + ".- Ä");
+                               ".- ‚Ç¨");
+      jLabelZusatz1P.setText(" " + Integer.toString(kosten.zusatz1) + ".- ‚Ç¨");
+      jLabelOption1P.setText(" " + Integer.toString(kosten.zusatz2) + ".- ‚Ç¨");
+      jLabelOption2P.setText(" " + kosten.option1 + ".- ‚Ç¨"); //hier Zumesseinrichtung
+      jLabelZusatz2P.setText(" " + Integer.toString(kosten.option2) + ".- ‚Ç¨");
       jLabelDosierstationP.setText(" " + Integer.toString(kosten.dosierstation) +
-                                   ".- Ä");
-      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- Ä");
+                                   ".- ‚Ç¨");
+      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- ‚Ç¨");
     }
     //
     if (aufbereitung == "Umkehrosmose m. v. Enthaertung") {
@@ -221,24 +221,24 @@ public class anlageninfo
       //Preise
       //jLabelAnlageP.setText(Integer.toString(kosten.preis));
       jLabelStrassenkapazitaetP.setText(" " + Integer.toString(kosten.preis) +
-                                        ".- Ä");
+                                        ".- ‚Ç¨");
       jLabelNennweiteP.setText(" " + Integer.toString(kosten.rohrpreis) +
-                               ".- Ä");
-      jLabelZusatz1P.setText(" " + Integer.toString(kosten.zusatz1) + ".- Ä"); //Steuerung
-      jLabelZusatz2P.setText(" " + Integer.toString(kosten.option1) + ".- Ä"); //Wasserz‰hler
+                               ".- ‚Ç¨");
+      jLabelZusatz1P.setText(" " + Integer.toString(kosten.zusatz1) + ".- ‚Ç¨"); //Steuerung
+      jLabelZusatz2P.setText(" " + Integer.toString(kosten.option1) + ".- ‚Ç¨"); //Wasserz√§hler
       jLabelOption1P.setText(" " + Integer.toString(kosten.dosierstation) +
-                             ".- Ä"); //Dosierstation
+                             ".- ‚Ç¨"); //Dosierstation
 
-      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- Ä");
+      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- ‚Ç¨");
 
-      jLabelUOP.setText(" " + Integer.toString(kosten.uopreis) + ".- Ä");
-      jLabelOption2P.setText(" " + Integer.toString(kosten.option2) + ".- Ä");
+      jLabelUOP.setText(" " + Integer.toString(kosten.uopreis) + ".- ‚Ç¨");
+      jLabelOption2P.setText(" " + Integer.toString(kosten.option2) + ".- ‚Ç¨");
       jLabelDosierstationP.setText(" " + Integer.toString(kosten.zusatz2) +
-                                   ".- Ä");
+                                   ".- ‚Ç¨");
 
     }
     //
-    if (aufbereitung == "Umkehrosmose o. v. Enth‰rtung") {
+    if (aufbereitung == "Umkehrosmose o. v. Enth√§rtung") {
       jLabelAnlageW.setText(kosten.verfahren + "-" + kosten.model);
       jLabelStrassenkapazitaetW.setText(" " + kosten.model);
       //jLabelStrassenkapazitaet.setText("Bauart:"); //Bauart
@@ -251,19 +251,19 @@ public class anlageninfo
       //Preise
       //jLabelAnlageP.setText(Integer.toString(kosten.preis));
       jLabelStrassenkapazitaetP.setText(" " + Integer.toString(kosten.preis) +
-                                        ".- Ä");
-      //jLabelNennweiteP.setText(Integer.toString(kosten.rohrpreis)+".- Ä") ;
-      jLabelZusatz1P.setText(" " + Integer.toString(kosten.zusatz1) + ".- Ä");
-      jLabelZusatz2P.setText(" " + Integer.toString(kosten.zusatz2) + ".- Ä");
-      jLabelOption1P.setText(" " + Integer.toString(kosten.option1) + ".- Ä");
+                                        ".- ‚Ç¨");
+      //jLabelNennweiteP.setText(Integer.toString(kosten.rohrpreis)+".- ‚Ç¨") ;
+      jLabelZusatz1P.setText(" " + Integer.toString(kosten.zusatz1) + ".- ‚Ç¨");
+      jLabelZusatz2P.setText(" " + Integer.toString(kosten.zusatz2) + ".- ‚Ç¨");
+      jLabelOption1P.setText(" " + Integer.toString(kosten.option1) + ".- ‚Ç¨");
       jLabelDosierstationP.setText(" " + Integer.toString(kosten.dosierstation) +
-                                   ".- Ä");
-      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- Ä");
+                                   ".- ‚Ç¨");
+      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- ‚Ç¨");
     }
     //
-    if (aufbereitung == "Schwefels‰uredosierung") {
+    if (aufbereitung == "Schwefels√§uredosierung") {
       jLabelAnlageW.setText(startframe.Texte.elementAt(285).toString());
-      jLabelAnlageP.setText(" " + kosten.preis + ".- Ä");
+      jLabelAnlageP.setText(" " + kosten.preis + ".- ‚Ç¨");
       jLabelStrassenkapazitaet.setVisible(false);
       jLabelNennweite.setVisible(false);
       jLabelZusatz1.setVisible(false);
@@ -272,8 +272,8 @@ public class anlageninfo
       jLabelOption1.setVisible(false);
       //Preise
       jLabelDosierstationP.setText(" " + Integer.toString(kosten.dosierstation) +
-                                   ".- Ä");
-      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- Ä");
+                                   ".- ‚Ç¨");
+      jLabelSummeP.setText(" " + Integer.toString(kosten.summe) + ".- ‚Ç¨");
     }
 
   }

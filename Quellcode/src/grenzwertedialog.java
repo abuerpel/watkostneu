@@ -309,7 +309,7 @@ public class grenzwertedialog
     return posX;
   }
 
-  //Rückgabe der Position
+  //RÃ¼ckgabe der Position
   int positionY(int y) {
     Point posParent;
     int h, posY;

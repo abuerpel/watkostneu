@@ -26,8 +26,8 @@ public class dataAction2
 
     loeschen = new JButton();
     loeschen.setFont(new java.awt.Font("Dialog", 1, 10));
-    loeschen.setText("löschen");
-    loeschen.setToolTipText("Datensatz löschen");
+    loeschen.setText("lÃ¶schen");
+    loeschen.setToolTipText("Datensatz lÃ¶schen");
 
     laden = new JButton();
     laden.setFont(new java.awt.Font("Dialog", 1, 10));

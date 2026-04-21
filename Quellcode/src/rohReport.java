@@ -52,13 +52,13 @@ public class rohReport
     i = zaehlen(i, 30);
     //
     g.drawString(startframe.Texte.elementAt(252).toString(), 100, i);
-    g.drawString(analyse.tE + " °C", 300, i);
+    g.drawString(analyse.tE + " Â°C", 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(253).toString(), 100, i);
     g.drawString(zahltostring(analyse.pHtE, 4), 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(194).toString(), 100, i);
-    g.drawString(zahltostring( (analyse.lF), 5) + " µS/cm", 300, i);
+    g.drawString(zahltostring( (analyse.lF), 5) + " ÂµS/cm", 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(195).toString(), 100, i);
     g.drawString(analyse.ca + " mg/l Ca", 300, i);
@@ -105,7 +105,7 @@ public class rohReport
     g.drawString(zahltostring(analyse.sitE, 5), 300, i);
     g.setColor(Color.blue);
     g.setFont(fnt3);
-   g.drawString("Copyright © 1999-2013  Dr. H. Kacirek, N. Kacirek",80, 700);
+   g.drawString("Copyright Â© 1999-2013  Dr. H. Kacirek, N. Kacirek",80, 700);
 
   }
 }

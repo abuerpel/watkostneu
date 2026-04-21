@@ -47,6 +47,7 @@ public class anlagekosten {
     st3 = "";
     wz1 = "";
     wz2 = "";
+    wz3 = "";
     dosuo = "";
     nf = "";
   }

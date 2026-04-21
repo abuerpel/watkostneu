@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Watkost4" default="compile" basedir=".">
+
+    <property name="src.dir"     value="Quellcode/src"/>
+    <property name="classes.dir" value="Watkost4/classes"/>
+    <property name="bin.dir"     value="Watkost4/bin"/>
+    <property name="main.class"  value="watkost"/>
+
+    <path id="classpath">
+        <fileset dir="${bin.dir}">
+            <include name="jxl.jar"/>
+            <include name="hsqldb.jar"/>
+            <include name="hsql.jar"/>
+        </fileset>
+        <pathelement location="${classes.dir}"/>
+    </path>
+
+    <target name="clean" description="Kompilierte Klassen loeschen">
+        <delete>
+            <fileset dir="${classes.dir}" includes="**/*.class"/>
+        </delete>
+        <echo>Klassen geloescht.</echo>
+    </target>
+
+    <target name="compile" description="Quellcode kompilieren">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}"
+               destdir="${classes.dir}"
+               source="1.8"
+               target="1.8"
+               encoding="UTF-8"
+               includeantruntime="false"
+               classpathref="classpath">
+        </javac>
+        <echo>Kompilierung abgeschlossen: ${classes.dir}</echo>
+    </target>
+
+    <target name="run" depends="compile" description="Programm starten">
+        <java classname="${main.class}"
+              fork="true"
+              dir="Watkost4">
+            <classpath refid="classpath"/>
+        </java>
+    </target>
+
+</project>

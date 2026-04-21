@@ -1,0 +1,21 @@
+# Kompilierte Java-Klassen
+*.class
+**/package cache/
+
+# Datenbankdateien (nur Lock und Log, nicht Schema/Properties)
+Watkost4/db/*.lck
+Watkost4/db/*.log
+
+# Laufzeitdateien
+Watkost4/error.log
+Passwort4/error.log
+Watkost4/nullnull
+
+# Temporaere Office-Dateien
+watkost-texte/~$*
+watkost-texte/~WRL*.tmp
+
+# Veraltete Root-Quelldateien (Duplikate, aeltere AWT-Version)
+/analysendialog.java
+/watkostberechnung.java
+/watkostberechnung.txt

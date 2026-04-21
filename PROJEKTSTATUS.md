@@ -1,6 +1,6 @@
 # Projektstatus: Watkost4
 
-**Stand:** 2026-04-21 (aktualisiert 2)  
+**Stand:** 2026-04-21 (aktualisiert 3)  
 **Bearbeiter:** H. Kacirek
 
 ---
@@ -70,11 +70,13 @@ build.bat run      ← kompilieren und starten
 - [x] `build.bat` erstellt (kein PATH-Setup nötig)
 - [x] JDK 25.0.2 installiert
 - [x] Apache Ant 1.10.17 installiert
-- [x] Git-Repository initialisiert (6 Commits)
+- [x] Git-Repository initialisiert (9 Commits)
 - [x] Kompilierung erfolgreich: `BUILD SUCCESSFUL`, 0 Fehler
 - [x] Bugfix: `NullPointerException` in `anlageReport` — `wz3` in `anlagekosten.nullen()` ergänzt
 - [x] Quelldateien von Windows-1252 auf UTF-8 konvertiert (38 von 64 Dateien)
+- [x] Zeilenenden-Fix: `\r\r\n` → `\r\n` in 7 Quelldateien nach Konvertierung
 - [x] Encoding-Fix: `-Dfile.encoding=Cp1252` im JVM-Start (JExcelAPI / WtkLg.xls)
+- [x] UI: Nachkommastellen für Chlorid, Sulfat, Magnesium im Hauptfenster auf 1 reduziert
 
 ## Offene Punkte
 
@@ -91,6 +93,8 @@ build.bat run      ← kompilieren und starten
 | 2026-04-21 | `anlagekosten.java`| `wz3 = ""` in `nullen()` ergänzt → NullPointerException in `anlageReport` |
 | 2026-04-21 | 38 Quelldateien    | Encoding Windows-1252 → UTF-8 konvertiert    |
 | 2026-04-21 | `build.xml`        | `-Dfile.encoding=Cp1252` für JVM-Start (JExcelAPI / JDK 18+) |
+| 2026-04-21 | 7 Quelldateien     | Zeilenenden `\r\r\n` → `\r\n` bereinigt (Fehler aus Cp1252→UTF-8-Konvertierung) |
+| 2026-04-21 | `hauptframe.java`  | Nachkommastellen Chlorid/Sulfat/Magnesium im Hauptfenster auf 1 (`String.format("%.1f")`) |
 
 ## Bekannte Warnungen beim Kompilieren
 

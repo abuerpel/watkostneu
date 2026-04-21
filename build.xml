@@ -28,7 +28,7 @@
                destdir="${classes.dir}"
                source="1.8"
                target="1.8"
-               encoding="UTF-8"
+               encoding="Cp1252"
                includeantruntime="false"
                classpathref="classpath">
         </javac>

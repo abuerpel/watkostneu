@@ -1216,12 +1216,7 @@ public class hauptframe
     catch (StringIndexOutOfBoundsException e) {
       textFieldCa.setText(Double.toString(anauml.ca));
     }
-    try {
-      textFieldMg.setText(Double.toString(anauml.mg).substring(0, 5));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldMg.setText(Double.toString(anauml.mg));
-    }
+    textFieldMg.setText(String.format("%.1f", anauml.mg));
 
     try {
       textFieldNa.setText(Double.toString(anauml.na).substring(0, 7));
@@ -1237,19 +1232,9 @@ public class hauptframe
       textFieldKS43.setText(Double.toString(anauml.ks));
     }
 
-    try {
-      textFieldCl.setText(Double.toString(anauml.cl).substring(0, 7));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldCl.setText(Double.toString(anauml.cl));
-    }
+    textFieldCl.setText(String.format("%.1f", anauml.cl));
 
-    try {
-      textFieldSu.setText(Double.toString(anauml.so4).substring(0, 5));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldSu.setText(Double.toString(anauml.so4));
-    }
+    textFieldSu.setText(String.format("%.1f", anauml.so4));
 
     try {
       textFieldNo3.setText(Double.toString(anauml.no3).substring(0, 5));

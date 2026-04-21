@@ -26,8 +26,7 @@
         <mkdir dir="${classes.dir}"/>
         <javac srcdir="${src.dir}"
                destdir="${classes.dir}"
-               source="1.8"
-               target="1.8"
+               release="8"
                encoding="Cp1252"
                includeantruntime="false"
                classpathref="classpath">

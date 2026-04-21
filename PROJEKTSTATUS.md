@@ -1,6 +1,6 @@
 # Projektstatus: Watkost4
 
-**Stand:** 2026-04-21 (aktualisiert)  
+**Stand:** 2026-04-21 (aktualisiert 2)  
 **Bearbeiter:** H. Kacirek
 
 ---
@@ -66,12 +66,15 @@ build.bat run      ← kompilieren und starten
 ## Erledigte Schritte
 
 - [x] Compile-Fehler behoben: `import sun.jdbc.odbc.*;` aus `data.java` entfernt
-- [x] `build.xml` für Apache Ant erstellt (Encoding: Cp1252, release=8)
+- [x] `build.xml` für Apache Ant erstellt (Encoding: UTF-8, release=8)
 - [x] `build.bat` erstellt (kein PATH-Setup nötig)
 - [x] JDK 25.0.2 installiert
 - [x] Apache Ant 1.10.17 installiert
-- [x] Git-Repository initialisiert (3 Commits)
+- [x] Git-Repository initialisiert (6 Commits)
 - [x] Kompilierung erfolgreich: `BUILD SUCCESSFUL`, 0 Fehler
+- [x] Bugfix: `NullPointerException` in `anlageReport` — `wz3` in `anlagekosten.nullen()` ergänzt
+- [x] Quelldateien von Windows-1252 auf UTF-8 konvertiert (38 von 64 Dateien)
+- [x] Encoding-Fix: `-Dfile.encoding=Cp1252` im JVM-Start (JExcelAPI / WtkLg.xls)
 
 ## Offene Punkte
 
@@ -80,14 +83,23 @@ build.bat run      ← kompilieren und starten
 
 ---
 
+## Behobene Fehler
+
+| Datum      | Datei              | Problem                                      |
+|------------|--------------------|----------------------------------------------|
+| 2026-04-21 | `data.java`        | `import sun.jdbc.odbc.*` entfernt (JDK 8+ nicht vorhanden) |
+| 2026-04-21 | `anlagekosten.java`| `wz3 = ""` in `nullen()` ergänzt → NullPointerException in `anlageReport` |
+| 2026-04-21 | 38 Quelldateien    | Encoding Windows-1252 → UTF-8 konvertiert    |
+| 2026-04-21 | `build.xml`        | `-Dfile.encoding=Cp1252` für JVM-Start (JExcelAPI / JDK 18+) |
+
 ## Bekannte Warnungen beim Kompilieren
 
-| Klasse           | Warnung                          | Kritisch? |
-|------------------|----------------------------------|-----------|
-| anlageapplet.java | JApplet veraltet (für Entfernung markiert) | Nein |
-| startApplet.java  | JApplet veraltet                 | Nein |
-| warnframe.java    | Applet veraltet                  | Nein |
-| watkostapplet.java| Applet veraltet                  | Nein |
+| Klasse            | Warnung                                    | Kritisch? |
+|-------------------|--------------------------------------------|-----------|
+| anlageapplet.java | JApplet veraltet (für Entfernung markiert) | Nein      |
+| startApplet.java  | JApplet veraltet                           | Nein      |
+| warnframe.java    | Applet veraltet                            | Nein      |
+| watkostapplet.java| Applet veraltet                            | Nein      |
 
 ---
 

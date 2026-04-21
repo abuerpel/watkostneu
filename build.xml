@@ -39,6 +39,8 @@
               fork="true"
               dir="Watkost4">
             <classpath refid="classpath"/>
+            <!-- Cp1252 fuer JExcelAPI (WtkLg.xls): JDK 18+ verwendet sonst UTF-8 als Standard -->
+            <jvmarg value="-Dfile.encoding=Cp1252"/>
         </java>
     </target>
 

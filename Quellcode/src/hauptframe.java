@@ -1218,12 +1218,7 @@ public class hauptframe
     }
     textFieldMg.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.mg));
 
-    try {
-      textFieldNa.setText(dts(anauml.na).substring(0, 7));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldNa.setText(dts(anauml.na));
-    }
+    textFieldNa.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.na));
 
     try {
       textFieldKS43.setText(dts(anauml.ks).substring(0, 5));

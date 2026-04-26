@@ -1271,18 +1271,8 @@ public class hauptframe
     textFieldSalzGehalt.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.salz));
     textFieldI.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.ionen));
     textFieldH2CO3.setText(String.format(java.util.Locale.GERMAN, "%.2f", anauml.h2co3));
-    try {
-      textFieldHCO3.setText(dts(anauml.hco3).substring(0, 6));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldHCO3.setText(dts(anauml.hco3));
-    }
-    try {
-      textFieldCO3.setText(dts(anauml.co3).substring(0, 6));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldCO3.setText(dts(anauml.co3));
-    }
+    textFieldHCO3.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.hco3));
+    textFieldCO3.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.co3));
 
     //verbrauch
     try {

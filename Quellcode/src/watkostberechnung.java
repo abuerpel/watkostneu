@@ -1087,7 +1087,7 @@ public class watkostberechnung {
 
 //
   static void kohlensaeure() { //Berechnung Kohlensäure im K?hlturm nach Verrieselung
-    dlgC = ( -5.90 + 1222 / dTKKT) - 3;
+    dlgC = (-5.311 + 1042 / dTKKT) - 3;
   }
 
 //

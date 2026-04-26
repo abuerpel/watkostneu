@@ -1268,18 +1268,8 @@ public class hauptframe
     catch (StringIndexOutOfBoundsException e) {
       textFieldSIW.setText(dts(anauml.sIW));
     }
-    try {
-      textFieldSalzGehalt.setText(dts(anauml.salz).substring(0, 7));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldSalzGehalt.setText(dts(anauml.salz));
-    }
-    try {
-      textFieldI.setText(dts(anauml.ionen).substring(0, 7));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldI.setText(dts(anauml.ionen));
-    }
+    textFieldSalzGehalt.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.salz));
+    textFieldI.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.ionen));
     textFieldH2CO3.setText(String.format(java.util.Locale.GERMAN, "%.2f", anauml.h2co3));
     try {
       textFieldHCO3.setText(dts(anauml.hco3).substring(0, 6));

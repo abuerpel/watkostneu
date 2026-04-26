@@ -80,13 +80,13 @@ public class grenzwertedialog
     textFieldTKT.setForeground(Color.black);
     textFieldTKT.setText("30");
     textFieldROMax.setForeground(Color.black);
-    textFieldROMax.setText("2.0");
+    textFieldROMax.setText("2,0");
     textFieldSIMax1.setForeground(Color.black);
-    textFieldSIMax1.setText("2.3");
+    textFieldSIMax1.setText("2,3");
     textFieldCaMax.setForeground(Color.black);
-    textFieldCaMax.setText("0.5");
+    textFieldCaMax.setText("0,5");
     textFieldEF.setForeground(Color.black);
-    textFieldEF.setText("5.0");
+    textFieldEF.setText("5,0");
 
     //buttonOK.setBackground(Color.lightGray);
     //buttonOK.setForeground(Color.black);
@@ -290,14 +290,14 @@ public class grenzwertedialog
   }
 
   public void auslesen(grenzwerte grenzAus) { //aus Variable lesen
-    textFieldEF.setText(Double.toString(grenzAus.EF));
-    textFieldSIMax1.setText(Double.toString(grenzAus.siMax));
-    textClMax.setText(Double.toString(grenzAus.clMax));
-    textFieldSo4Max.setText(Double.toString(grenzAus.so4Max));
-    textFieldROMax.setText(Double.toString(grenzAus.roMax));
-    textFieldTW.setText(Double.toString(grenzAus.tW));
-    textFieldTKT.setText(Double.toString(grenzAus.tKT));
-    textFieldCaMax.setText(Double.toString(grenzAus.caMax));
+    textFieldEF.setText(dts(grenzAus.EF));
+    textFieldSIMax1.setText(dts(grenzAus.siMax));
+    textClMax.setText(dts(grenzAus.clMax));
+    textFieldSo4Max.setText(dts(grenzAus.so4Max));
+    textFieldROMax.setText(dts(grenzAus.roMax));
+    textFieldTW.setText(dts(grenzAus.tW));
+    textFieldTKT.setText(dts(grenzAus.tKT));
+    textFieldCaMax.setText(dts(grenzAus.caMax));
   }
 
   int positionX(int x) {
@@ -327,5 +327,8 @@ public class grenzwertedialog
     if (taste == 10) {
       event.setKeyCode(9);
     }
+  }
+  private static String dts(double v) {
+    return Double.toString(v).replace('.', ',');
   }
 }

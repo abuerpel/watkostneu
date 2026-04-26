@@ -460,20 +460,20 @@ public class kostendialog
 
   public void auslesen(kosten kostenAus) {
     //aus dem array ins Fenster
-    textFieldStadtWasser.setText(Double.toString(kostenAus.stadtWasser));
-    textFieldAbWasser.setText(Double.toString(kostenAus.abWasser));
-    textFieldAbWasser2.setText(Double.toString(kostenAus.regenWasser));
-    textFieldEnergie.setText(Double.toString(kostenAus.energie));
-    textFieldKuehlleistung.setText(Double.toString(kostenAus.leistung));
-    textFieldWaescherleistung.setText(Double.toString(kostenAus.leistung2));
-    textFieldAuslastung.setText(Double.toString(kostenAus.auslastung));
-    textFieldDosK.setText(Double.toString(kostenAus.dosierMittel));
-    textFieldDosH.setText(Double.toString(kostenAus.dosierMenge));
-    textFieldSalzTab.setText(Double.toString(kostenAus.salzTabletten));
-    textFieldSalzSaeure.setText(Double.toString(kostenAus.salzSaeure));
-    textFieldSchwefelsaeure.setText(Double.toString(kostenAus.schwefelSaeure));
-    textFieldROK.setText(Double.toString(kostenAus.ro));
-    textFieldROM.setText(Double.toString(kostenAus.roMenge));
+    textFieldStadtWasser.setText(dts(kostenAus.stadtWasser));
+    textFieldAbWasser.setText(dts(kostenAus.abWasser));
+    textFieldAbWasser2.setText(dts(kostenAus.regenWasser));
+    textFieldEnergie.setText(dts(kostenAus.energie));
+    textFieldKuehlleistung.setText(dts(kostenAus.leistung));
+    textFieldWaescherleistung.setText(dts(kostenAus.leistung2));
+    textFieldAuslastung.setText(dts(kostenAus.auslastung));
+    textFieldDosK.setText(dts(kostenAus.dosierMittel));
+    textFieldDosH.setText(dts(kostenAus.dosierMenge));
+    textFieldSalzTab.setText(dts(kostenAus.salzTabletten));
+    textFieldSalzSaeure.setText(dts(kostenAus.salzSaeure));
+    textFieldSchwefelsaeure.setText(dts(kostenAus.schwefelSaeure));
+    textFieldROK.setText(dts(kostenAus.ro));
+    textFieldROM.setText(dts(kostenAus.roMenge));
     textFieldDosName.setText(kostenAus.dosierMittelName);
   }
 
@@ -504,5 +504,8 @@ public class kostendialog
     if (taste == 10) {
       event.setKeyCode(9);
     }
+  }
+  private static String dts(double v) {
+    return Double.toString(v).replace('.', ',');
   }
 }

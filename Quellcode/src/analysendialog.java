@@ -405,20 +405,20 @@ public class analysendialog
     textFieldKunde.setText("");
     textFieldBearbeiter.setText("");
     textFieldProjekt.setText("");
-    textFieldTE.setText("0.00");
-    textFieldpH.setText("0.00");
-    textFieldLF.setText("0.00");
-    textFieldCa.setText("0.00");
-    textFieldMg.setText("0.00");
-    textFieldKS.setText("0.00");
-    textFieldCl.setText("0.00");
-    textFieldSO4.setText("0.00");
-    textFieldNO3.setText("0.00");
-    textFieldGGWpH.setText("0.00");
-    textFieldSITE.setText("0.00");
-    textFieldCO2.setText("0.00");
-    textFieldCO3.setText("0.00");
-    textFieldHCO3.setText("0.00");
+    textFieldTE.setText("0,00");
+    textFieldpH.setText("0,00");
+    textFieldLF.setText("0,00");
+    textFieldCa.setText("0,00");
+    textFieldMg.setText("0,00");
+    textFieldKS.setText("0,00");
+    textFieldCl.setText("0,00");
+    textFieldSO4.setText("0,00");
+    textFieldNO3.setText("0,00");
+    textFieldGGWpH.setText("0,00");
+    textFieldSITE.setText("0,00");
+    textFieldCO2.setText("0,00");
+    textFieldCO3.setText("0,00");
+    textFieldHCO3.setText("0,00");
 
   }
 
@@ -460,94 +460,94 @@ public class analysendialog
     textFieldProjekt.setText(analyse.projekt);
 
     try {
-      textFieldTE.setText(Double.toString(analyse.tE).substring(0, 4));
+      textFieldTE.setText(dts(analyse.tE).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldTE.setText(Double.toString(analyse.tE));
+      textFieldTE.setText(dts(analyse.tE));
     }
 
     try {
-      textFieldpH.setText(Double.toString(analyse.pHtE).substring(0, 4));
+      textFieldpH.setText(dts(analyse.pHtE).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldpH.setText(Double.toString(analyse.pHtE));
+      textFieldpH.setText(dts(analyse.pHtE));
     }
 
     try {
-      textFieldLF.setText(Double.toString(analyse.lF).substring(0, 6));
+      textFieldLF.setText(dts(analyse.lF).substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldLF.setText(Double.toString(analyse.lF));
+      textFieldLF.setText(dts(analyse.lF));
     }
 
     try {
-      textFieldCa.setText(Double.toString(analyse.ca).substring(0, 4));
+      textFieldCa.setText(dts(analyse.ca).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldCa.setText(Double.toString(analyse.ca));
+      textFieldCa.setText(dts(analyse.ca));
     }
 
     try {
-      textFieldMg.setText(Double.toString(analyse.mg).substring(0, 4));
+      textFieldMg.setText(dts(analyse.mg).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldMg.setText(Double.toString(analyse.mg));
+      textFieldMg.setText(dts(analyse.mg));
     }
 
     try {
-      textFieldKS.setText(Double.toString(analyse.ks).substring(0, 4));
+      textFieldKS.setText(dts(analyse.ks).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldKS.setText(Double.toString(analyse.ks));
+      textFieldKS.setText(dts(analyse.ks));
     }
     try {
-      textFieldCl.setText(Double.toString(analyse.cl).substring(0, 6));
+      textFieldCl.setText(dts(analyse.cl).substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldCl.setText(Double.toString(analyse.cl));
+      textFieldCl.setText(dts(analyse.cl));
     }
     try {
-      textFieldSO4.setText(Double.toString(analyse.so4).substring(0, 4));
+      textFieldSO4.setText(dts(analyse.so4).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSO4.setText(Double.toString(analyse.so4));
+      textFieldSO4.setText(dts(analyse.so4));
     }
     try {
-      textFieldNO3.setText(Double.toString(analyse.no3).substring(0, 4));
+      textFieldNO3.setText(dts(analyse.no3).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldNO3.setText(Double.toString(analyse.no3));
+      textFieldNO3.setText(dts(analyse.no3));
     }
 
     try {
-      textFieldGGWpH.setText(Double.toString(analyse.pHggW).substring(0, 4));
+      textFieldGGWpH.setText(dts(analyse.pHggW).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldGGWpH.setText(Double.toString(analyse.pHggW));
+      textFieldGGWpH.setText(dts(analyse.pHggW));
     }
     try {
-      textFieldSITE.setText(Double.toString(analyse.sitE).substring(0, 5));
+      textFieldSITE.setText(dts(analyse.sitE).substring(0, 5));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSITE.setText(Double.toString(analyse.sitE));
+      textFieldSITE.setText(dts(analyse.sitE));
     }
     try {
-      textFieldCO2.setText(Double.toString(analyse.h2co3).substring(0, 4));
+      textFieldCO2.setText(dts(analyse.h2co3).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldCO2.setText(Double.toString(analyse.h2co3));
+      textFieldCO2.setText(dts(analyse.h2co3));
     }
     try {
-      textFieldCO3.setText(Double.toString(analyse.co3).substring(0, 4));
+      textFieldCO3.setText(dts(analyse.co3).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldCO3.setText(Double.toString(analyse.co3));
+      textFieldCO3.setText(dts(analyse.co3));
     }
     try {
-      textFieldHCO3.setText(Double.toString(analyse.hco3).substring(0, 6));
+      textFieldHCO3.setText(dts(analyse.hco3).substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldHCO3.setText(Double.toString(analyse.hco3));
+      textFieldHCO3.setText(dts(analyse.hco3));
     }
 
 
@@ -733,17 +733,17 @@ public class analysendialog
 
       //Einlesen in DialogFelder
 
-      textFieldSITE.setText(Double.toString(dSiE).substring(0, 5));
-      textFieldGGWpH.setText(Double.toString(dpHGlE).substring(0, 4));
+      textFieldSITE.setText(dts(dSiE).substring(0, 5));
+      textFieldGGWpH.setText(dts(dpHGlE).substring(0, 4));
       try {
-        textFieldNO3.setText( (Double.toString(dNo3)).substring(0, 5));
+        textFieldNO3.setText( (dts(dNo3)).substring(0, 5));
       }
       catch (StringIndexOutOfBoundsException e) {
-        textFieldNO3.setText(Double.toString(dNo3));
+        textFieldNO3.setText(dts(dNo3));
       }
-      textFieldCO2.setText(Double.toString(dCo2).substring(0, 5));
-      textFieldCO3.setText(Double.toString(dCo3).substring(0, 5));
-      textFieldHCO3.setText(Double.toString(dHCo3).substring(0, 7));
+      textFieldCO2.setText(dts(dCo2).substring(0, 5));
+      textFieldCO3.setText(dts(dCo3).substring(0, 5));
+      textFieldHCO3.setText(dts(dHCo3).substring(0, 7));
 
       if (dSo4M / (dCaM + dMgM) > 0.5) {
         //Hinweis geben und weitermachen
@@ -999,4 +999,7 @@ public class analysendialog
     }
 
   }
-}
+  private static String dts(double v) {
+    return Double.toString(v).replace('.', ',');
+  }
+}

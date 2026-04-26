@@ -1338,7 +1338,7 @@ public class hauptframe
     //kosten
     try {
       textFieldEnergieK.setText(Integer.toString( (int) betrkost.enKost) +
-                                ".--");
+                                ",00");
     }
     catch (StringIndexOutOfBoundsException e) {
       textFieldEnergieK.setText(dts(betrkost.enKost));
@@ -1346,16 +1346,16 @@ public class hauptframe
 
     try {
       textFieldZusatzK.setText(Integer.toString( (int) (betrkost.
-          stadtWasserKost)) + ".--");
+          stadtWasserKost)) + ",00");
     }
     catch (StringIndexOutOfBoundsException e) {
       textFieldZusatzK.setText(Integer.toString( (int) (betrkost.
-          stadtWasserKost)) + ".--");
+          stadtWasserKost)) + ",00");
     }
 
     try {
       textFieldAbWasserK.setText(Integer.toString( (int) betrkost.abWasserKost) +
-                                 ".--");
+                                 ",00");
     }
     catch (StringIndexOutOfBoundsException e) {
       textFieldAbWasserK.setText(dts(betrkost.abWasserKost));
@@ -1363,54 +1363,54 @@ public class hauptframe
     if (this.checkboxSiel.isSelected()) { //zweites Siel ja/nein
       try {
         textFieldAbWasserK2.setText(Integer.toString( (int) betrkost.
-            regenSielKost) + ".--");
+            regenSielKost) + ",00");
       }
       catch (StringIndexOutOfBoundsException e) {
         textFieldAbWasserK2.setText(dts(betrkost.regenSielKost));
       }
     }
     else {
-      textFieldAbWasserK2.setText("0.--");
+      textFieldAbWasserK2.setText("0,00");
     }
     //
     try {
       textFieldDosK.setText(Integer.toString( (int) betrkost.dosMittelKost) +
-                            ".--");
+                            ",00");
     }
     catch (StringIndexOutOfBoundsException e) {
       textFieldDosK.setText(dts(betrkost.dosMittelKost));
     }
     try {
       textFieldSalzTabK.setText(Integer.toString( (int) betrkost.salzTabKost) +
-                                ".--");
+                                ",00");
     }
     catch (StringIndexOutOfBoundsException e) {
       textFieldSalzTabK.setText(dts(betrkost.salzTabKost));
     }
     try {
       textFieldSalzSaeureK.setText(Integer.toString( (int) betrkost.
-          salzSaeureKost) + ".--");
+          salzSaeureKost) + ",00");
     }
     catch (StringIndexOutOfBoundsException e) {
       textFieldSalzSaeureK.setText(dts(betrkost.salzSaeureKost));
     }
     try {
       textFieldSchwefelsaeureK.setText(Integer.toString( (int) betrkost.
-          schwefelSaeureKost) + ".--");
+          schwefelSaeureKost) + ",00");
     }
     catch (StringIndexOutOfBoundsException e) {
       textFieldSchwefelsaeureK.setText(dts(betrkost.
           schwefelSaeureKost));
     }
     try {
-      textFieldROK.setText(Integer.toString( (int) betrkost.roKost) + ".--");
+      textFieldROK.setText(Integer.toString( (int) betrkost.roKost) + ",00");
     }
     catch (StringIndexOutOfBoundsException e) {
       textFieldROK.setText(dts(betrkost.roKost));
     }
     try {
       textFieldAnlageK.setText(Integer.toString( (int) anlkost.jahresBetrag) +
-                               ".--");
+                               ",00");
     }
     catch (StringIndexOutOfBoundsException e) {
       textFieldAnlageK.setText(dts(anlkost.jahresBetrag));
@@ -1421,7 +1421,7 @@ public class hauptframe
         betrkost.dosMittelKost + betrkost.salzTabKost + betrkost.salzSaeureKost +
         betrkost.schwefelSaeureKost + betrkost.roKost + anlkost.jahresBetrag;
 
-    textFieldSummeK.setText(Integer.toString( (int) summe) + ".--");
+    textFieldSummeK.setText(Integer.toString( (int) summe) + ",00");
 
   }
 

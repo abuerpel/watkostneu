@@ -1466,7 +1466,7 @@ public class hauptframe
   }
 
   private static String dts(double v) {
-    return dts(v).replace('.', ',');
+    return Double.toString(v).replace('.', ',');
   }
 
   public void oeffnekostendialog() {

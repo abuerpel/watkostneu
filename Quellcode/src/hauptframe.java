@@ -1990,7 +1990,7 @@ public class hauptframe
       label14.setText(startframe.Texte.elementAt(58).toString());
       label113.setText(startframe.Texte.elementAt(59).toString());
       label9.setText(startframe.Texte.elementAt(60).toString());
-      label7.setText(startframe.Texte.elementAt(61).toString());
+      label7.setText(startframe.Texte.elementAt(61).toString().replace("Mg/l", "mg/l"));
       label8.setText(" ");
       label118.setText(startframe.Texte.elementAt(62).toString());
       label10.setText(" ");

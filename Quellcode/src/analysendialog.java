@@ -769,7 +769,7 @@ public class analysendialog
     analyseAus.projekt = textFieldProjekt.getText();
     //versuchen die Felsder zu lesen, sonst default Wert und Fehlermeldung
     try {
-      analyseAus.tE = Double.parseDouble(textFieldTE.getText());
+      analyseAus.tE = ptd(textFieldTE.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.tE = 12.0;
@@ -778,7 +778,7 @@ public class analysendialog
     }
 
     try {
-      analyseAus.pHtE = Double.parseDouble(textFieldpH.getText());
+      analyseAus.pHtE = ptd(textFieldpH.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.pHtE = 7.5;
@@ -787,7 +787,7 @@ public class analysendialog
     }
 
     try {
-      analyseAus.lF = Double.parseDouble(textFieldLF.getText());
+      analyseAus.lF = ptd(textFieldLF.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.lF = 500;
@@ -796,7 +796,7 @@ public class analysendialog
     }
 
     try {
-      analyseAus.ca = Double.parseDouble(textFieldCa.getText());
+      analyseAus.ca = ptd(textFieldCa.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.ca = 50.0;
@@ -805,7 +805,7 @@ public class analysendialog
     }
 
     try {
-      analyseAus.mg = Double.parseDouble(textFieldMg.getText());
+      analyseAus.mg = ptd(textFieldMg.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.mg = 10.0;
@@ -818,7 +818,7 @@ public class analysendialog
     analyseAus.i = dI;
 
     try {
-     analyseAus.h2co3 = Double.parseDouble(textFieldCO2.getText());
+     analyseAus.h2co3 = ptd(textFieldCO2.getText());
    }
    catch (NumberFormatException e) {
      //analyseAus.cl = 50.0;
@@ -827,7 +827,7 @@ public class analysendialog
    }
 
     try {
-     analyseAus.co3 = Double.parseDouble(textFieldCO3.getText());
+     analyseAus.co3 = ptd(textFieldCO3.getText());
    }
    catch (NumberFormatException e) {
      //analyseAus.cl = 50.0;
@@ -836,7 +836,7 @@ public class analysendialog
    }
 
     try {
-      analyseAus.hco3 = Double.parseDouble(textFieldHCO3.getText());
+      analyseAus.hco3 = ptd(textFieldHCO3.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.cl = 50.0;
@@ -845,7 +845,7 @@ public class analysendialog
     }
 
     try {
-         analyseAus.cl = Double.parseDouble(textFieldCl.getText());
+         analyseAus.cl = ptd(textFieldCl.getText());
        }
        catch (NumberFormatException e) {
          //analyseAus.cl = 50.0;
@@ -853,7 +853,7 @@ public class analysendialog
          gelesen = false;
    }
     try {
-      analyseAus.ks = Double.parseDouble(textFieldKS.getText());
+      analyseAus.ks = ptd(textFieldKS.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.ks = 2.5;
@@ -862,7 +862,7 @@ public class analysendialog
     }
 
     try {
-      analyseAus.so4 = Double.parseDouble(textFieldSO4.getText());
+      analyseAus.so4 = ptd(textFieldSO4.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.so4 = 30;
@@ -871,7 +871,7 @@ public class analysendialog
     }
     //analyseAus.no3 = dNo3;
     try {
-      analyseAus.no3 = Double.parseDouble(textFieldNO3.getText());
+      analyseAus.no3 = ptd(textFieldNO3.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.no3 = 0.0;
@@ -880,7 +880,7 @@ public class analysendialog
     }
 
     try {
-      analyseAus.pHggW = Double.parseDouble(textFieldGGWpH.getText());
+      analyseAus.pHggW = ptd(textFieldGGWpH.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.pHggW = 0.0;
@@ -889,7 +889,7 @@ public class analysendialog
     }
 
     try {
-      analyseAus.sitE = Double.parseDouble(textFieldSITE.getText());
+      analyseAus.sitE = ptd(textFieldSITE.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.sitE = 0.0;
@@ -898,7 +898,7 @@ public class analysendialog
     }
 
     try {
-      analyseAus.h2co3 = Double.parseDouble(textFieldCO2.getText());
+      analyseAus.h2co3 = ptd(textFieldCO2.getText());
     }
     catch (NumberFormatException e) {
 
@@ -906,7 +906,7 @@ public class analysendialog
       gelesen = false;
     }
     try {
-      analyseAus.co3 = Double.parseDouble(textFieldCO3.getText());
+      analyseAus.co3 = ptd(textFieldCO3.getText());
     }
     catch (NumberFormatException e) {
 
@@ -914,7 +914,7 @@ public class analysendialog
       gelesen = false;
     }
     try {
-      analyseAus.hco3 = Double.parseDouble(textFieldHCO3.getText());
+      analyseAus.hco3 = ptd(textFieldHCO3.getText());
     }
     catch (NumberFormatException e) {
       //analyseAus.sitE = 0.0;
@@ -1001,5 +1001,8 @@ public class analysendialog
   }
   private static String dts(double v) {
     return Double.toString(v).replace('.', ',');
+  }
+  private static double ptd(String s) {
+    return Double.parseDouble(s.replace(',', '.'));
   }
 }

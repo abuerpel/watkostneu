@@ -335,7 +335,7 @@ public class kostendialog
   public kosten einlesen() {
     kosten rohKosten = new kosten();
     try {
-      rohKosten.stadtWasser = Double.parseDouble(textFieldStadtWasser.getText());
+      rohKosten.stadtWasser = ptd(textFieldStadtWasser.getText());
     }
     catch (NumberFormatException e) {
       textFieldStadtWasser.setText(startframe.Texte.elementAt(174).toString());
@@ -343,7 +343,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.abWasser = Double.parseDouble(textFieldAbWasser.getText());
+      rohKosten.abWasser = ptd(textFieldAbWasser.getText());
     }
     catch (NumberFormatException e) {
       textFieldAbWasser.setText(startframe.Texte.elementAt(174).toString());
@@ -351,7 +351,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.regenWasser = Double.parseDouble(textFieldAbWasser2.getText());
+      rohKosten.regenWasser = ptd(textFieldAbWasser2.getText());
     }
     catch (NumberFormatException e) {
       textFieldAbWasser2.setText(startframe.Texte.elementAt(174).toString());
@@ -359,7 +359,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.energie = Double.parseDouble(textFieldEnergie.getText());
+      rohKosten.energie = ptd(textFieldEnergie.getText());
     }
     catch (NumberFormatException e) {
       textFieldEnergie.setText(startframe.Texte.elementAt(174).toString());
@@ -367,7 +367,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.leistung = Double.parseDouble(textFieldKuehlleistung.getText());
+      rohKosten.leistung = ptd(textFieldKuehlleistung.getText());
     }
     catch (NumberFormatException e) {
       textFieldKuehlleistung.setText(startframe.Texte.elementAt(174).toString());
@@ -375,7 +375,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.leistung2 = Double.parseDouble(textFieldWaescherleistung.
+      rohKosten.leistung2 = ptd(textFieldWaescherleistung.
                                                getText());
     }
     catch (NumberFormatException e) {
@@ -384,7 +384,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.auslastung = Double.parseDouble(textFieldAuslastung.getText());
+      rohKosten.auslastung = ptd(textFieldAuslastung.getText());
     }
     catch (NumberFormatException e) {
       textFieldAuslastung.setText(startframe.Texte.elementAt(174).toString());
@@ -392,7 +392,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.dosierMittel = Double.parseDouble(textFieldDosK.getText());
+      rohKosten.dosierMittel = ptd(textFieldDosK.getText());
     }
     catch (NumberFormatException e) {
       textFieldDosK.setText(startframe.Texte.elementAt(174).toString());
@@ -400,7 +400,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.dosierMenge = Double.parseDouble(textFieldDosH.getText());
+      rohKosten.dosierMenge = ptd(textFieldDosH.getText());
     }
     catch (NumberFormatException e) {
       textFieldDosH.setText(startframe.Texte.elementAt(174).toString());
@@ -408,7 +408,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.salzTabletten = Double.parseDouble(textFieldSalzTab.getText());
+      rohKosten.salzTabletten = ptd(textFieldSalzTab.getText());
     }
     catch (NumberFormatException e) {
       textFieldSalzTab.setText(startframe.Texte.elementAt(174).toString());
@@ -416,7 +416,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.salzSaeure = Double.parseDouble(textFieldSalzSaeure.getText());
+      rohKosten.salzSaeure = ptd(textFieldSalzSaeure.getText());
     }
     catch (NumberFormatException e) {
       textFieldSalzSaeure.setText(startframe.Texte.elementAt(174).toString());
@@ -424,7 +424,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.schwefelSaeure = Double.parseDouble(textFieldSchwefelsaeure.
+      rohKosten.schwefelSaeure = ptd(textFieldSchwefelsaeure.
           getText());
     }
     catch (NumberFormatException e) {
@@ -433,7 +433,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.ro = Double.parseDouble(textFieldROK.getText());
+      rohKosten.ro = ptd(textFieldROK.getText());
     }
     catch (NumberFormatException e) {
       textFieldROK.setText(startframe.Texte.elementAt(174).toString());
@@ -441,7 +441,7 @@ public class kostendialog
     }
 
     try {
-      rohKosten.roMenge = Double.parseDouble(textFieldROM.getText());
+      rohKosten.roMenge = ptd(textFieldROM.getText());
     }
     catch (NumberFormatException e) {
       textFieldROM.setText(startframe.Texte.elementAt(174).toString());
@@ -507,5 +507,8 @@ public class kostendialog
   }
   private static String dts(double v) {
     return Double.toString(v).replace('.', ',');
+  }
+  private static double ptd(String s) {
+    return Double.parseDouble(s.replace(',', '.'));
   }
 }

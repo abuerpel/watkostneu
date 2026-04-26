@@ -222,7 +222,7 @@ public class grenzwertedialog
   public grenzwerte einlesen() {
     grenzwerte bedingungenE = new grenzwerte();
     try {
-      bedingungenE.EF = Double.parseDouble(textFieldEF.getText());
+      bedingungenE.EF = ptd(textFieldEF.getText());
     }
     catch (NumberFormatException e) {
       textFieldSIMax1.setText(startframe.Texte.elementAt(174).toString());
@@ -230,14 +230,14 @@ public class grenzwertedialog
     }
 
     try {
-      bedingungenE.siMax = Double.parseDouble(textFieldSIMax1.getText());
+      bedingungenE.siMax = ptd(textFieldSIMax1.getText());
     }
     catch (NumberFormatException e) {
       textFieldSIMax1.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
     try {
-      bedingungenE.clMax = Double.parseDouble(textClMax.getText());
+      bedingungenE.clMax = ptd(textClMax.getText());
     }
     catch (NumberFormatException e) {
       textClMax.setText(startframe.Texte.elementAt(174).toString());
@@ -245,7 +245,7 @@ public class grenzwertedialog
     }
 
     try {
-      bedingungenE.so4Max = Double.parseDouble(textFieldSo4Max.getText());
+      bedingungenE.so4Max = ptd(textFieldSo4Max.getText());
     }
     catch (NumberFormatException e) {
       textFieldSo4Max.setText(startframe.Texte.elementAt(174).toString());
@@ -253,7 +253,7 @@ public class grenzwertedialog
     }
 
     try {
-      bedingungenE.roMax = Double.parseDouble(textFieldROMax.getText());
+      bedingungenE.roMax = ptd(textFieldROMax.getText());
     }
     catch (NumberFormatException e) {
       textFieldROMax.setText(startframe.Texte.elementAt(174).toString());
@@ -263,21 +263,21 @@ public class grenzwertedialog
     bedingungenE.dhMax = 0.0;
     bedingungenE.alkMin = 0.0;
     try {
-      bedingungenE.tW = Double.parseDouble(textFieldTW.getText());
+      bedingungenE.tW = ptd(textFieldTW.getText());
     }
     catch (NumberFormatException e) {
       textFieldTW.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
     try {
-      bedingungenE.tKT = Double.parseDouble(textFieldTKT.getText());
+      bedingungenE.tKT = ptd(textFieldTKT.getText());
     }
     catch (NumberFormatException e) {
       textFieldTKT.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
     try {
-      bedingungenE.caMax = Double.parseDouble(textFieldCaMax.getText());
+      bedingungenE.caMax = ptd(textFieldCaMax.getText());
     }
     catch (NumberFormatException e) {
       textFieldCaMax.setText(startframe.Texte.elementAt(174).toString());
@@ -330,5 +330,8 @@ public class grenzwertedialog
   }
   private static String dts(double v) {
     return Double.toString(v).replace('.', ',');
+  }
+  private static double ptd(String s) {
+    return Double.parseDouble(s.replace(',', '.'));
   }
 }

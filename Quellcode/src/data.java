@@ -33,6 +33,8 @@ public class data {
   private Connection verbindung;
   private ResultSet rs;
   private Statement st;
+  private Statement stAnl;
+  private ResultSet rsAnl;
   private PreparedStatement ps;
   private ResultSetMetaData daten;
   public String datenSatzRA = "0";
@@ -69,6 +71,7 @@ public class data {
     //get tableinformation and data
     try {
       st = verbindung.createStatement();
+      stAnl = verbindung.createStatement();
       rs = st.executeQuery("SELECT * FROM anaroh WHERE ID =" + 1);
       rs.next();
 
@@ -285,8 +288,8 @@ public class data {
 
   public ResultSet getAnlData(String abfrage) {
     try {
-      rs = st.executeQuery(abfrage);
-      rs.next();
+      rsAnl = stAnl.executeQuery(abfrage);
+      rsAnl.next();
     }
     catch (java.sql.SQLException e) {
       System.out.print(e.getMessage());
@@ -294,7 +297,7 @@ public class data {
     catch (java.lang.NullPointerException e) {
       //
     }
-    return rs;
+    return rsAnl;
   }
 
   private void jbInit() throws Exception {

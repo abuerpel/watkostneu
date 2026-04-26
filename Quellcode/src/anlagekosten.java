@@ -22,6 +22,7 @@ public class anlagekosten {
   int kap1, kap2, kap3, aP1, aP2, aP3, stffP, summe, jahresBetrag;
 
   public anlagekosten() {
+    nullen();
   }
 
   public void nullen() {

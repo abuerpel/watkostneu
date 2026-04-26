@@ -1176,204 +1176,204 @@ public class hauptframe
     rechenkontrolle();
     //analyse
     try {
-      textFieldVerschnitt.setText(Double.toString( (anauml.verSchnitt) * 100).
+      textFieldVerschnitt.setText(dts( (anauml.verSchnitt) * 100).
                                   substring(0, 3));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldVerschnitt.setText(Double.toString( (anauml.verSchnitt) * 100));
+      textFieldVerschnitt.setText(dts( (anauml.verSchnitt) * 100));
     }
 
     try {
-      textFieldE.setText(Double.toString(anauml.eindickung).substring(0, 4));
+      textFieldE.setText(dts(anauml.eindickung).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldE.setText(Double.toString(anauml.eindickung));
+      textFieldE.setText(dts(anauml.eindickung));
     }
 
     try {
-      textFieldTKT.setText(Double.toString(anauml.tKT).substring(0, 4));
+      textFieldTKT.setText(dts(anauml.tKT).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldTKT.setText(Double.toString(anauml.tKT));
+      textFieldTKT.setText(dts(anauml.tKT));
     }
 
     try {
-      textFieldTW.setText(Double.toString(anauml.tW).substring(0, 4));
+      textFieldTW.setText(dts(anauml.tW).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldTW.setText(Double.toString(anauml.tW));
+      textFieldTW.setText(dts(anauml.tW));
     }
 
     try {
-      textFieldLF.setText(Double.toString(anauml.lF).substring(0, 6));
+      textFieldLF.setText(dts(anauml.lF).substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldLF.setText(Double.toString(anauml.lF));
+      textFieldLF.setText(dts(anauml.lF));
     }
     try {
-      textFieldCa.setText(Double.toString(anauml.ca).substring(0, 5));
+      textFieldCa.setText(dts(anauml.ca).substring(0, 5));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldCa.setText(Double.toString(anauml.ca));
+      textFieldCa.setText(dts(anauml.ca));
     }
-    textFieldMg.setText(String.format("%.1f", anauml.mg));
+    textFieldMg.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.mg));
 
     try {
-      textFieldNa.setText(Double.toString(anauml.na).substring(0, 7));
+      textFieldNa.setText(dts(anauml.na).substring(0, 7));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldNa.setText(Double.toString(anauml.na));
-    }
-
-    try {
-      textFieldKS43.setText(Double.toString(anauml.ks).substring(0, 5));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldKS43.setText(Double.toString(anauml.ks));
-    }
-
-    textFieldCl.setText(String.format("%.1f", anauml.cl));
-
-    textFieldSu.setText(String.format("%.1f", anauml.so4));
-
-    try {
-      textFieldNo3.setText(Double.toString(anauml.no3).substring(0, 5));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldNo3.setText(Double.toString(anauml.no3));
+      textFieldNa.setText(dts(anauml.na));
     }
 
     try {
-      textFieldpHKT.setText(Double.toString(anauml.pHKTnV).substring(0, 4));
+      textFieldKS43.setText(dts(anauml.ks).substring(0, 5));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldpHKT.setText(Double.toString(anauml.pHKTnV));
+      textFieldKS43.setText(dts(anauml.ks));
+    }
+
+    textFieldCl.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.cl));
+
+    textFieldSu.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.so4));
+
+    try {
+      textFieldNo3.setText(dts(anauml.no3).substring(0, 5));
+    }
+    catch (StringIndexOutOfBoundsException e) {
+      textFieldNo3.setText(dts(anauml.no3));
+    }
+
+    try {
+      textFieldpHKT.setText(dts(anauml.pHKTnV).substring(0, 4));
+    }
+    catch (StringIndexOutOfBoundsException e) {
+      textFieldpHKT.setText(dts(anauml.pHKTnV));
     }
     try {
-      textFieldGGWKT.setText(Double.toString(anauml.pHTKT).substring(0, 4));
+      textFieldGGWKT.setText(dts(anauml.pHTKT).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldGGWKT.setText(Double.toString(anauml.pHTKT));
+      textFieldGGWKT.setText(dts(anauml.pHTKT));
     }
     try {
-      textFieldSITKT.setText(Double.toString(anauml.siTKT).substring(0, 5));
+      textFieldSITKT.setText(dts(anauml.siTKT).substring(0, 5));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSITKT.setText(Double.toString(anauml.siTKT));
+      textFieldSITKT.setText(dts(anauml.siTKT));
     }
     try {
-      textFieldGGWW.setText(Double.toString(anauml.pHggWW).substring(0, 4));
+      textFieldGGWW.setText(dts(anauml.pHggWW).substring(0, 4));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldGGWW.setText(Double.toString(anauml.pHggWW));
+      textFieldGGWW.setText(dts(anauml.pHggWW));
     }
     try {
-      textFieldSIW.setText(Double.toString(anauml.sIW).substring(0, 5));
+      textFieldSIW.setText(dts(anauml.sIW).substring(0, 5));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSIW.setText(Double.toString(anauml.sIW));
+      textFieldSIW.setText(dts(anauml.sIW));
     }
     try {
-      textFieldSalzGehalt.setText(Double.toString(anauml.salz).substring(0, 7));
+      textFieldSalzGehalt.setText(dts(anauml.salz).substring(0, 7));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSalzGehalt.setText(Double.toString(anauml.salz));
+      textFieldSalzGehalt.setText(dts(anauml.salz));
     }
     try {
-      textFieldI.setText(Double.toString(anauml.ionen).substring(0, 7));
+      textFieldI.setText(dts(anauml.ionen).substring(0, 7));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldI.setText(Double.toString(anauml.ionen));
+      textFieldI.setText(dts(anauml.ionen));
     }
     try {
-      textFieldH2CO3.setText(Double.toString(anauml.h2co3).substring(0, 6));
+      textFieldH2CO3.setText(dts(anauml.h2co3).substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldH2CO3.setText(Double.toString(anauml.h2co3));
+      textFieldH2CO3.setText(dts(anauml.h2co3));
     }
     try {
-      textFieldHCO3.setText(Double.toString(anauml.hco3).substring(0, 6));
+      textFieldHCO3.setText(dts(anauml.hco3).substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldHCO3.setText(Double.toString(anauml.hco3));
+      textFieldHCO3.setText(dts(anauml.hco3));
     }
     try {
-      textFieldCO3.setText(Double.toString(anauml.co3).substring(0, 6));
+      textFieldCO3.setText(dts(anauml.co3).substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldCO3.setText(Double.toString(anauml.co3));
+      textFieldCO3.setText(dts(anauml.co3));
     }
 
     //verbrauch
     try {
-      textFieldEnergieV.setText(Double.toString(betrkost.enVer).substring(0, 6));
+      textFieldEnergieV.setText(dts(betrkost.enVer).substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldEnergieV.setText(Double.toString(betrkost.enVer));
+      textFieldEnergieV.setText(dts(betrkost.enVer));
     }
 
     try {
-      textFieldZusatzV.setText(Double.toString(betrkost.stadtWasserVer).
+      textFieldZusatzV.setText(dts(betrkost.stadtWasserVer).
                                substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldZusatzV.setText(Double.toString(betrkost.stadtWasserVer));
+      textFieldZusatzV.setText(dts(betrkost.stadtWasserVer));
     }
 
     try {
-      textFieldAbwasserV.setText(Double.toString(betrkost.abWasserVer).
+      textFieldAbwasserV.setText(dts(betrkost.abWasserVer).
                                  substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldAbwasserV.setText(Double.toString(betrkost.abWasserVer));
+      textFieldAbwasserV.setText(dts(betrkost.abWasserVer));
     }
     //zweites Siel ja/nein
     if (this.checkboxSiel.isSelected()) {
       try {
-        textFieldAbwasserV2.setText(Double.toString(betrkost.regenSielVer).
+        textFieldAbwasserV2.setText(dts(betrkost.regenSielVer).
                                     substring(0, 6));
       }
       catch (StringIndexOutOfBoundsException e) {
-        textFieldAbwasserV2.setText(Double.toString(betrkost.regenSielVer));
+        textFieldAbwasserV2.setText(dts(betrkost.regenSielVer));
       }
     }
     else {
-      textFieldAbwasserV2.setText("0.0");
+      textFieldAbwasserV2.setText("0,0");
     }
     //
     try {
-      textFieldDosV.setText(Double.toString(betrkost.dosMittelVer).substring(0,
+      textFieldDosV.setText(dts(betrkost.dosMittelVer).substring(0,
           6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldDosV.setText(Double.toString(betrkost.dosMittelVer));
+      textFieldDosV.setText(dts(betrkost.dosMittelVer));
     }
     try {
-      textFieldSalzTabV.setText(Double.toString(betrkost.salzTabVer).substring(
+      textFieldSalzTabV.setText(dts(betrkost.salzTabVer).substring(
           0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSalzTabV.setText(Double.toString(betrkost.salzTabVer));
+      textFieldSalzTabV.setText(dts(betrkost.salzTabVer));
     }
     try {
-      textFieldSalzSaeureV.setText(Double.toString(betrkost.salzSaeureVer).
+      textFieldSalzSaeureV.setText(dts(betrkost.salzSaeureVer).
                                    substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSalzSaeureV.setText(Double.toString(betrkost.salzSaeureVer));
+      textFieldSalzSaeureV.setText(dts(betrkost.salzSaeureVer));
     }
     try {
-      textFieldSchwefelV.setText(Double.toString(betrkost.schwefelSaeureVer).
+      textFieldSchwefelV.setText(dts(betrkost.schwefelSaeureVer).
                                  substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSchwefelV.setText(Double.toString(betrkost.schwefelSaeureVer));
+      textFieldSchwefelV.setText(dts(betrkost.schwefelSaeureVer));
     }
     try {
-      textFieldROV.setText(Double.toString(betrkost.roVer).substring(0, 6));
+      textFieldROV.setText(dts(betrkost.roVer).substring(0, 6));
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldROV.setText(Double.toString(betrkost.roVer));
+      textFieldROV.setText(dts(betrkost.roVer));
     }
     //kosten
     try {
@@ -1381,7 +1381,7 @@ public class hauptframe
                                 ".--");
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldEnergieK.setText(Double.toString(betrkost.enKost));
+      textFieldEnergieK.setText(dts(betrkost.enKost));
     }
 
     try {
@@ -1398,7 +1398,7 @@ public class hauptframe
                                  ".--");
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldAbWasserK.setText(Double.toString(betrkost.abWasserKost));
+      textFieldAbWasserK.setText(dts(betrkost.abWasserKost));
     }
     if (this.checkboxSiel.isSelected()) { //zweites Siel ja/nein
       try {
@@ -1406,7 +1406,7 @@ public class hauptframe
             regenSielKost) + ".--");
       }
       catch (StringIndexOutOfBoundsException e) {
-        textFieldAbWasserK2.setText(Double.toString(betrkost.regenSielKost));
+        textFieldAbWasserK2.setText(dts(betrkost.regenSielKost));
       }
     }
     else {
@@ -1418,42 +1418,42 @@ public class hauptframe
                             ".--");
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldDosK.setText(Double.toString(betrkost.dosMittelKost));
+      textFieldDosK.setText(dts(betrkost.dosMittelKost));
     }
     try {
       textFieldSalzTabK.setText(Integer.toString( (int) betrkost.salzTabKost) +
                                 ".--");
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSalzTabK.setText(Double.toString(betrkost.salzTabKost));
+      textFieldSalzTabK.setText(dts(betrkost.salzTabKost));
     }
     try {
       textFieldSalzSaeureK.setText(Integer.toString( (int) betrkost.
           salzSaeureKost) + ".--");
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSalzSaeureK.setText(Double.toString(betrkost.salzSaeureKost));
+      textFieldSalzSaeureK.setText(dts(betrkost.salzSaeureKost));
     }
     try {
       textFieldSchwefelsaeureK.setText(Integer.toString( (int) betrkost.
           schwefelSaeureKost) + ".--");
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldSchwefelsaeureK.setText(Double.toString(betrkost.
+      textFieldSchwefelsaeureK.setText(dts(betrkost.
           schwefelSaeureKost));
     }
     try {
       textFieldROK.setText(Integer.toString( (int) betrkost.roKost) + ".--");
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldROK.setText(Double.toString(betrkost.roKost));
+      textFieldROK.setText(dts(betrkost.roKost));
     }
     try {
       textFieldAnlageK.setText(Integer.toString( (int) anlkost.jahresBetrag) +
                                ".--");
     }
     catch (StringIndexOutOfBoundsException e) {
-      textFieldAnlageK.setText(Double.toString(anlkost.jahresBetrag));
+      textFieldAnlageK.setText(dts(anlkost.jahresBetrag));
     }
     double summe;
     summe = betrkost.enKost + betrkost.stadtWasserKost + betrkost.abWasserKost +
@@ -1463,6 +1463,10 @@ public class hauptframe
 
     textFieldSummeK.setText(Integer.toString( (int) summe) + ".--");
 
+  }
+
+  private static String dts(double v) {
+    return dts(v).replace('.', ',');
   }
 
   public void oeffnekostendialog() {

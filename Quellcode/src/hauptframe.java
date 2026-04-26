@@ -1280,12 +1280,7 @@ public class hauptframe
     catch (StringIndexOutOfBoundsException e) {
       textFieldI.setText(dts(anauml.ionen));
     }
-    try {
-      textFieldH2CO3.setText(dts(anauml.h2co3).substring(0, 6));
-    }
-    catch (StringIndexOutOfBoundsException e) {
-      textFieldH2CO3.setText(dts(anauml.h2co3));
-    }
+    textFieldH2CO3.setText(String.format(java.util.Locale.GERMAN, "%.2f", anauml.h2co3));
     try {
       textFieldHCO3.setText(dts(anauml.hco3).substring(0, 6));
     }

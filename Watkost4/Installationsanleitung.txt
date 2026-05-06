@@ -1,241 +1,275 @@
-========================================================================
-  WATKOST 4  -  Installationsanleitung
-  Wasseraufbereitungs-Berechnungsprogramm
-  fuer Planer, Ingenieurbüros und Fachpersonal
-========================================================================
 
-Copyright (c) Dr. H. Kacirek, N. Kacirek
-------------------------------------------------------------------------
++========================================================================+
+|                                                                        |
+|   W A T K O S T  4   –   Installationsanleitung                       |
+|                                                                        |
+|   Wasseraufbereitungs-Berechnungsprogramm                              |
+|   für Planer, Ingenieurbüros und Fachpersonal                         |
+|                                                                        |
+|   Copyright (c) Dr. H. Kacirek, N. Kacirek                            |
+|   Kontakt: h.kacirek@t-online.de   |   Stand: 05/2026                 |
+|                                                                        |
++========================================================================+
 
 
 INHALT
-------
-  1. Systemvoraussetzungen
-  2. Installation
-  3. Programmstart
-  4. Jährliches Passwort
-  5. Programmübersicht
-  6. Deinstallation
-  7. Hinweise und Fehlerbehebung
+══════════════════════════════════════════════════════════════════════════
+  1.  Systemvoraussetzungen
+  2.  Installation  (Schritt für Schritt)
+  3.  Programmstart
+  4.  Jährliches Passwort
+  5.  Programmübersicht
+  6.  Deinstallation
+  7.  Hinweise und Fehlerbehebung
 
 
-------------------------------------------------------------------------
-1. SYSTEMVORAUSSETZUNGEN
-------------------------------------------------------------------------
+════════════════════════════════════════════════════════════════════════
+  1.  SYSTEMVORAUSSETZUNGEN
+════════════════════════════════════════════════════════════════════════
 
-  Betriebssystem:   Windows 7 / 8 / 10 / 11 (32- oder 64-Bit)
+  Betriebssystem     Windows 7 / 8 / 10 / 11  (32- oder 64-Bit)
 
-  Java-Laufzeit:    Java Runtime Environment (JRE), Version 8 oder höher
-                    WICHTIG: Es muss die 32-Bit-Version (x86) installiert sein,
-                    auch auf einem 64-Bit-Windows-System!
-                    Kostenloser Download: https://www.java.com
-                    (Auf der Download-Seite "Windows Offline" oder
-                     "Windows Online" wählen – NICHT "Windows 64-bit")
+  Java-Laufzeit      Java Runtime Environment (JRE), Version 8 oder höher
 
-  Speicherplatz:    ca. 20 MB auf der Festplatte
+                     ┌─────────────────────────────────────────────────┐
+                     │  WICHTIG: 32-Bit-Java erforderlich!             │
+                     │                                                 │
+                     │  Auch auf einem 64-Bit-Windows-System muss      │
+                     │  die 32-Bit-Version (x86) von Java installiert  │
+                     │  sein. Die 64-Bit-Version allein genügt NICHT.  │
+                     └─────────────────────────────────────────────────┘
 
-  Berechtigung:     Schreibrechte auf Laufwerk C:\ erforderlich
-                    (für Programmordner und Einstellungsdateien)
+                     Kostenloser Download:  www.java.com
+                     Auf der Download-Seite wählen:
+                       ✔  "Windows Offline"   (empfohlen)
+                       ✔  "Windows Online"
+                       ✘  "Windows 64-bit"    (funktioniert NICHT)
 
+  Speicherplatz      ca. 20 MB auf der Festplatte
 
-------------------------------------------------------------------------
-2. INSTALLATION
-------------------------------------------------------------------------
-
-  SCHRITT 1: Java prüfen
-  ----------------------
-  Öffnen Sie die Eingabeaufforderung (Windows-Taste + R, dann "cmd")
-  und geben Sie ein:
-
-      java -version
-
-  Wenn eine Versionsnummer erscheint (z. B. "java version 1.8.0_..."),
-  ist Java installiert. Andernfalls laden Sie Java von www.java.com herunter
-  und installieren Sie es.
+  Berechtigung       Schreibrechte auf Laufwerk C:\
+                     (für Programmordner und Einstellungsdateien)
 
 
-  SCHRITT 2: Programmdateien entpacken
-  -------------------------------------
-  Entpacken Sie die Datei "Watkost4.zip" so, dass der Ordner "Watkost4"
-  direkt auf Laufwerk C:\ liegt:
+════════════════════════════════════════════════════════════════════════
+  2.  INSTALLATION  (Schritt für Schritt)
+════════════════════════════════════════════════════════════════════════
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  SCHRITT 1  –  Java 32-Bit installieren                        │
+  └─────────────────────────────────────────────────────────────────┘
+
+  a)  Öffnen Sie die Eingabeaufforderung:
+      Windows-Taste + R  →  "cmd" eingeben  →  OK
+
+  b)  Prüfen Sie, ob 32-Bit-Java bereits vorhanden ist:
+
+          java -version
+
+      Erscheint eine Versionsnummer (z. B. "java version 1.8.0_..."),
+      ist Java installiert.
+
+  c)  Falls Java fehlt oder nur als 64-Bit-Version vorliegt:
+      Laden Sie die 32-Bit-Version von  www.java.com  herunter
+      (Auswahl: "Windows Offline" – NICHT "Windows 64-bit")
+      und installieren Sie diese.
+
+  Hinweis: 32-Bit- und 64-Bit-Java können gleichzeitig auf
+           demselben Windows-System installiert sein.
+
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  SCHRITT 2  –  Programmdateien entpacken                       │
+  └─────────────────────────────────────────────────────────────────┘
+
+  Entpacken Sie die Datei "Watkost4.zip" so, dass der Ordner
+  "Watkost4" direkt auf Laufwerk C:\ liegt:
 
       C:\Watkost4\
 
-  Die Verzeichnisstruktur muss nach dem Entpacken so aussehen:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  WICHTIG: Der Ordner MUSS direkt unter C:\ liegen!             │
+  │  Ein anderes Installationsverzeichnis wird nicht unterstützt.  │
+  └─────────────────────────────────────────────────────────────────┘
+
+  Die Verzeichnisstruktur nach dem Entpacken:
 
       C:\Watkost4\
-          Watkost4.exe        <-- Programm-Startdatei
-          Installationsanleitung.txt
-          bin\                <-- Programmbibliotheken und Konfiguration
-              jxl.jar
-              hsqldb.jar
-              hsql.jar
-              WtkLg.xls       <-- Sprachdatei (nicht verändern!)
-          classes\            <-- Programmcode (nicht verändern!)
-          db\                 <-- Datenbank (nicht verändern!)
-              watkost3db.script
-              watkost3db.properties
-
-  WICHTIG: Der Ordner "Watkost4" muss direkt unter C:\ liegen.
-           Ein anderes Installationsverzeichnis wird nicht unterstützt.
-
-
-  SCHRITT 3: Programm-Verknüpfung erstellen (empfohlen)
-  -------------------------------------------------------
-  Klicken Sie mit der rechten Maustaste auf "Watkost4.exe" und wählen Sie
-  "Verknüpfung erstellen". Ziehen Sie die Verknüpfung auf den Desktop
-  oder in die Taskleiste.
+      │
+      ├── Watkost4.exe               ← Programm-Startdatei
+      ├── Installationsanleitung.txt
+      │
+      ├── bin\                       ← Programmbibliotheken (nicht verändern)
+      │     ├── jxl.jar
+      │     ├── hsqldb.jar
+      │     ├── hsql.jar
+      │     └── WtkLg.xls           ← Sprachdatei (nicht verändern!)
+      │
+      ├── classes\                   ← Programmcode (nicht verändern)
+      │
+      └── db\                        ← Datenbank (nicht verändern)
+            ├── watkost3db.script
+            └── watkost3db.properties
 
 
-------------------------------------------------------------------------
-3. PROGRAMMSTART
-------------------------------------------------------------------------
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  SCHRITT 3  –  Desktop-Verknüpfung erstellen  (empfohlen)      │
+  └─────────────────────────────────────────────────────────────────┘
+
+  Klicken Sie mit der rechten Maustaste auf  C:\Watkost4\Watkost4.exe
+  und wählen Sie "Verknüpfung erstellen".
+  Ziehen Sie die Verknüpfung auf den Desktop oder in die Taskleiste.
+
+
+════════════════════════════════════════════════════════════════════════
+  3.  PROGRAMMSTART
+════════════════════════════════════════════════════════════════════════
 
   Starten Sie das Programm durch Doppelklick auf:
 
       C:\Watkost4\Watkost4.exe
 
-  Beim ersten Start wird das Programm geladen und das Hauptfenster
-  erscheint. Sobald Sie eine Eingabemaske öffnen, werden Sie zur
-  Passwort-Eingabe aufgefordert (siehe Abschnitt 4).
+  Das Hauptfenster erscheint. Sobald Sie eine Eingabemaske öffnen,
+  werden Sie zur Passwort-Eingabe aufgefordert (siehe Abschnitt 4).
 
 
-------------------------------------------------------------------------
-4. JÄHRLICHES PASSWORT
-------------------------------------------------------------------------
+════════════════════════════════════════════════════════════════════════
+  4.  JÄHRLICHES PASSWORT
+════════════════════════════════════════════════════════════════════════
 
-  Watkost 4 verwendet ein jährliches Passwort zum Programmschutz.
+  Watkost 4 ist durch ein jährliches Passwort geschützt.
 
-  - Das Passwort ist 12 Monate gültig und muss zu Beginn eines neuen
-    Kalenderjahres erneuert werden.
+  Gültigkeit       Das Passwort gilt für ein Kalenderjahr und muss
+                   zu Jahresbeginn erneuert werden.
 
-  - Bei der Passwort-Eingabe haben Sie 3 Versuche. Nach 3 fehlerhaften
-    Eingaben wird das Programm beendet.
+  Eingabeversuche  Sie haben 3 Versuche. Nach 3 Fehleingaben
+                   wird das Programm beendet.
 
   Passwort erzeugen:
-  ------------------
-  Das zugehörige Hilfsprogramm "Passwort4.exe" erzeugt das gültige
-  Jahrespasswort. Es befindet sich im Ordner "Passwort4" auf dem
-  Installationsmedium oder wird separat vom Programmhersteller
-  bereitgestellt.
+  ──────────────────
+  Das Hilfsprogramm "Passwort4.exe" erstellt das gültige Jahrespasswort.
+  Es befindet sich im Ordner "Passwort4" auf dem Installationsmedium
+  oder wird separat vom Programmhersteller bereitgestellt.
 
-  Wenden Sie sich bei Fragen zum Passwort an:
-      Dr. Hartmut Kacirek
-      E-Mail: h.kacirek@t-online.de
+  Bei Fragen zum Passwort:
+      Dr. Hartmut Kacirek  |  h.kacirek@t-online.de
 
 
-------------------------------------------------------------------------
-5. PROGRAMMÜBERSICHT
-------------------------------------------------------------------------
+════════════════════════════════════════════════════════════════════════
+  5.  PROGRAMMÜBERSICHT
+════════════════════════════════════════════════════════════════════════
 
   Watkost 4 berechnet und bewertet Wasseraufbereitungsanlagen für:
 
-  - Kühlturmkreisläufe
-  - Luftwäscher
+    •  Kühlturmkreisläufe
+    •  Luftwäscher
 
   Berechnungsmodule:
-  ------------------
-  - Rohwasseranalyse
-    Eingabe und Auswertung der Rohwasser-Analysedaten
+  ──────────────────
+    •  Rohwasseranalyse
+       Eingabe und Auswertung der Rohwasser-Analysedaten
 
-  - Umlaufwasseranalyse
-    Berechnung der Umlaufwasserqualität (Eindickung, Ionenkonzentration,
-    pH-Wert, Sättigungsindex, CO2, HCO3, CO3 u. a.)
+    •  Umlaufwasseranalyse
+       Berechnung der Umlaufwasserqualität (Eindickung, Ionenkonzen-
+       tration, pH-Wert, Sättigungsindex, CO2, HCO3, CO3 u. a.)
 
-  - Betriebskosten
-    Berechnung der jährlichen Betriebskosten für Wasseraufbereitungs-
-    anlagen (Enthärtung, Entcarbonisierung, Umkehrosmose u. a.)
+    •  Betriebskosten
+       Berechnung der jährlichen Betriebskosten für Wasseraufbereitungs-
+       anlagen (Enthärtung, Entcarbonisierung, Umkehrosmose u. a.)
 
-  - Anlageninfo
-    Technische und wirtschaftliche Kenndaten der Aufbereitungsanlage
+    •  Anlageninfo
+       Technische und wirtschaftliche Kenndaten der Aufbereitungsanlage
 
   Druckfunktion:
-  --------------
-  Über Menü "Datei" > "Drucken" können alle Berechnungsergebnisse
+  ──────────────
+  Über Menü "Datei" › "Drucken" können alle Berechnungsergebnisse
   ausgedruckt werden.
 
   Datenspeicherung:
-  -----------------
-  Alle eingegebenen Analysen und Berechnungen werden automatisch in einer
-  internen Datenbank gespeichert und stehen beim nächsten Programmstart
-  wieder zur Verfügung.
+  ─────────────────
+  Alle Analysen und Berechnungen werden automatisch in einer internen
+  Datenbank gespeichert und beim nächsten Programmstart geladen.
 
   Anlagenpreise:
-  --------------
-  Die hinterlegten Anlagenpreise entsprechen marktüblichen Preisen
-  (Stand 2015) und sind noch nicht aktualisiert.
-  Anlagen-Fabrikatsbezeichnungen wurden weitgehend entfernt.
-
-  Das Programm ist auch für salzreicheres Wasser (Brackwasserqualität)
-  geeignet.
+  ──────────────
+  Die hinterlegten Preise entsprechen marktüblichen Werten (Stand 2015)
+  und wurden noch nicht aktualisiert. Fabrikatsbezeichnungen wurden
+  weitgehend entfernt. Das Programm eignet sich auch für salzreicheres
+  Wasser (Brackwasserqualität).
 
   Sprache:
-  --------
-  Das Programm unterstützt mehrere Sprachen (Deutsch, Englisch,
-  Dänisch, Polnisch). Die Sprachauswahl erfolgt über das Programm-
-  menü.
+  ────────
+  Unterstützte Sprachen: Deutsch, Englisch, Dänisch, Polnisch.
+  Die Sprachauswahl erfolgt über das Programmmenü.
 
-  Ausführliche Programmbeschreibung:
-  -----------------------------------
-  Eine detaillierte Beschreibung aller Funktionen finden Sie in der
-  PDF-Datei "InhaltWatkost Ver 4.pdf".
+  Ausführliche Beschreibung:
+  ──────────────────────────
+  Details zu allen Funktionen finden Sie in der PDF-Datei
+  "InhaltWatkost Ver 4.pdf".
 
 
-------------------------------------------------------------------------
-6. DEINSTALLATION
-------------------------------------------------------------------------
+════════════════════════════════════════════════════════════════════════
+  6.  DEINSTALLATION
+════════════════════════════════════════════════════════════════════════
 
-  Löschen Sie den Ordner C:\Watkost4\ vollständig.
+  Löschen Sie den Ordner  C:\Watkost4\  vollständig.
+
   Es werden keine Einträge in der Windows-Registrierung vorgenommen.
 
-  Hinweis: Die Datei C:\Windows\wtkdate.ini (Datumsprüfung) kann
-  ebenfalls manuell gelöscht werden.
+  Hinweis:  Die Datei  C:\Windows\wtkdate.ini  (Datumsprüfung) kann
+            ebenfalls manuell gelöscht werden.
 
 
-------------------------------------------------------------------------
-7. HINWEISE UND FEHLERBEHEBUNG
-------------------------------------------------------------------------
+════════════════════════════════════════════════════════════════════════
+  7.  HINWEISE UND FEHLERBEHEBUNG
+════════════════════════════════════════════════════════════════════════
 
-  Problem: Das Programm startet nicht
-  ------------------------------------
-  - Prüfen Sie, ob Java installiert ist (siehe Abschnitt 1).
-  - Prüfen Sie, ob der Ordner "Watkost4" direkt unter C:\ liegt.
-  - Stellen Sie sicher, dass Sie Schreibrechte auf C:\ haben.
+  Problem:  Das Programm startet nicht
+  ─────────────────────────────────────
+  →  Prüfen Sie, ob Java 32-Bit installiert ist (siehe Abschnitt 1).
+  →  Prüfen Sie, ob der Ordner "Watkost4" direkt unter  C:\  liegt.
+  →  Stellen Sie sicher, dass Sie Schreibrechte auf  C:\  haben.
 
-  Problem: Fehlermeldung "Keine JVM gefunden" / "EXE4J_JAVA_HOME"
-  ----------------------------------------------------------------
-  Watkost4.exe benötigt zwingend die 32-Bit-Version von Java (x86).
-  Eine installierte 64-Bit-Java-Version wird NICHT erkannt.
+
+  Problem:  Fehlermeldung „Keine JVM gefunden" / „EXE4J_JAVA_HOME"
+  ──────────────────────────────────────────────────────────────────
+  Ursache: Watkost4.exe benötigt zwingend die 32-Bit-Version von Java.
+           Eine rein 64-Bit-Installation wird NICHT erkannt.
+
   Lösung:
-  - Laden Sie Java 8 (32-Bit) von www.java.com herunter.
-    Wählen Sie auf der Download-Seite "Windows Offline" oder
-    "Windows Online" – NICHT "Windows 64-bit".
-  - Installieren Sie diese 32-Bit-Version. Beide Java-Versionen
-    (32-Bit und 64-Bit) können gleichzeitig installiert sein.
-  - Starten Sie Watkost4.exe anschließend erneut.
-
-  Problem: Passwort wird nicht akzeptiert
-  -----------------------------------------
-  - Das Passwort ist jahresabhängig. Prüfen Sie, ob das verwendete
-    Passwort für das aktuelle Kalenderjahr gültig ist.
-  - Erzeugen Sie ein neues Passwort mit "Passwort4.exe".
-
-  Problem: Fehlermeldung beim Datenbankzugriff
-  ---------------------------------------------
-  - Prüfen Sie, ob der Ordner C:\Watkost4\db\ vorhanden ist und die
-    Dateien "watkost3db.script" und "watkost3db.properties" enthält.
-  - Stellen Sie sicher, dass keine Sicherheitssoftware den Zugriff
-    auf den Datenbankordner blockiert.
-
-  Problem: Drucken funktioniert nicht
-  -------------------------------------
-  - Prüfen Sie, ob ein Drucker installiert und als Standard-Drucker
-    eingerichtet ist.
-  - Führen Sie zunächst eine Berechnung durch, bevor Sie drucken.
+  →  Laden Sie Java 8 (32-Bit) von  www.java.com  herunter.
+     Wählen Sie auf der Download-Seite "Windows Offline" –
+     NICHT "Windows 64-bit".
+  →  Installieren Sie diese 32-Bit-Version.
+     (32-Bit und 64-Bit Java können gleichzeitig installiert sein.)
+  →  Starten Sie Watkost4.exe anschließend erneut.
 
 
-------------------------------------------------------------------------
-  Watkost 4  |  Copyright (c) Dr. H. Kacirek, N. Kacirek
-  Kontakt: Dr. Hartmut Kacirek  |  h.kacirek@t-online.de
-  Stand: 05/2026
-------------------------------------------------------------------------
+  Problem:  Passwort wird nicht akzeptiert
+  ─────────────────────────────────────────
+  →  Das Passwort ist jahresabhängig. Prüfen Sie, ob es für das
+     aktuelle Kalenderjahr gültig ist.
+  →  Erzeugen Sie ein neues Passwort mit "Passwort4.exe".
+
+
+  Problem:  Fehlermeldung beim Datenbankzugriff
+  ───────────────────────────────────────────────
+  →  Prüfen Sie, ob der Ordner  C:\Watkost4\db\  vorhanden ist und
+     die Dateien  watkost3db.script  und  watkost3db.properties
+     enthält.
+  →  Prüfen Sie, ob Sicherheitssoftware den Zugriff auf diesen Ordner
+     blockiert (Antivirenprogramm / Firewall).
+
+
+  Problem:  Drucken funktioniert nicht
+  ──────────────────────────────────────
+  →  Prüfen Sie, ob ein Drucker installiert und als Standard-Drucker
+     eingerichtet ist.
+  →  Führen Sie zunächst eine Berechnung durch, bevor Sie drucken.
+
+
++========================================================================+
+|   Watkost 4  |  Copyright (c) Dr. H. Kacirek, N. Kacirek             |
+|   Kontakt: Dr. Hartmut Kacirek  |  h.kacirek@t-online.de             |
+|   Stand: 05/2026                                                       |
++========================================================================+

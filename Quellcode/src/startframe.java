@@ -3,7 +3,6 @@
 import java.awt.*;
 import java.util.*;
 import java.sql.*;
-import org.hsql.*;
 import java.net.URL;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;

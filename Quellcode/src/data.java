@@ -12,8 +12,6 @@ import java.sql.*;
 import java.awt.*;
 import java.util.Properties;
 import java.util.*;
-import org.hsql.*;
-import org.hsqldb.*;
 public class data {
   public data() {
     try {
@@ -24,9 +22,7 @@ public class data {
     }
   }
 
-  //Class.forName(org.hsql.jdbcDriver);
-  private String treiber = "org.hsqldb.jdbcDriver";
-  private String url = "jdbc:HypersonicSQL:watkost3db";
+  private String treiber = "org.hsqldb.jdbc.JDBCDriver";
   private String url2 = "jdbc:hsqldb:file:" + startframe.homeDir +
       "/../db/watkost3db";
   private String query = "SELECT * FROM anaroh Where ID = 0";

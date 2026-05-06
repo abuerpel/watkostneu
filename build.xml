@@ -8,8 +8,7 @@
 
     <path id="classpath">
         <fileset dir="${bin.dir}">
-            <include name="hsqldb.jar"/>
-            <include name="hsql.jar"/>
+            <include name="hsqldb-2.7.4-jdk8.jar"/>
             <include name="poi-5.2.3.jar"/>
             <include name="poi-ooxml-5.2.3.jar"/>
             <include name="poi-ooxml-lite-5.2.3.jar"/>

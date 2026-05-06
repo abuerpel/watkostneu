@@ -12,13 +12,13 @@ import java.io.*;
 import javax.swing.*;
 import java.io.File;
 import java.util.Date;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileOutputStream;
 import java.util.*;
 
@@ -257,7 +257,7 @@ public class hauptmenue
     fd.setTitle("Datei laden");
     fd.setDirectory("");
     //fd.setFilenameFilter("*.wkp");
-    fd.setFile("*.xls");
+    fd.setFile("*.xls*");
     fd.setMode(FileDialog.LOAD);
     fd.setLocation(positionX(fd.getWidth()), 200);
     fd.show();
@@ -411,14 +411,18 @@ public class hauptmenue
     fd.setTitle("Datei speichern unter ...");
     fd.setDirectory("");
     //fd.setFilenameFilter("*.wkp");
-    fd.setFile("*.xls");
+    fd.setFile("*.xlsx");
     fd.setMode(FileDialog.SAVE);
     fd.setLocation(positionX(fd.getWidth()), 200);
     fd.show();
     String dateiName = fd.getDirectory() + fd.getFile();
+    if (dateiName != null && !dateiName.toLowerCase().endsWith(".xlsx")
+                          && !dateiName.toLowerCase().endsWith(".xls")) {
+      dateiName = dateiName + ".xlsx";
+    }
 
     try {
-      org.apache.poi.ss.usermodel.Workbook workbook = new HSSFWorkbook();
+      org.apache.poi.ss.usermodel.Workbook workbook = new XSSFWorkbook();
       Sheet sheet1 = workbook.createSheet("Eingabeparameter");
       Sheet sheet2 = workbook.createSheet("Threshhold Stabilisierung");
       Sheet sheet3 = workbook.createSheet("Enthärtung");

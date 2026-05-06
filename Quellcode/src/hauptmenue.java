@@ -12,8 +12,11 @@ import java.io.*;
 import javax.swing.*;
 import java.io.File;
 import java.util.Date;
-import jxl.*;
+import jxl.Workbook;
 import jxl.write.*;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import java.util.*;
 
 public class hauptmenue
@@ -258,218 +261,85 @@ public class hauptmenue
     String dateiName = fd.getDirectory() + fd.getFile();
 
     try {
-      Workbook workbook = Workbook.getWorkbook(new File(dateiName));
-      Sheet sheet = workbook.getSheet(0);
-      f.anaroh.analysenNummer = sheet.getCell(1, 2).getContents();
-      f.anaroh.kunde = sheet.getCell(1, 3).getContents();
-      f.anaroh.projekt = sheet.getCell(1, 4).getContents();
-      f.anaroh.bearbeiter = sheet.getCell(1, 5).getContents();
+      org.apache.poi.ss.usermodel.Workbook workbook = WorkbookFactory.create(new File(dateiName), null, true);
+      Sheet sheet = workbook.getSheetAt(0);
+      DataFormatter df = new DataFormatter();
+      f.anaroh.analysenNummer = df.formatCellValue(sheet.getRow(2).getCell(1));
+      f.anaroh.kunde         = df.formatCellValue(sheet.getRow(3).getCell(1));
+      f.anaroh.projekt       = df.formatCellValue(sheet.getRow(4).getCell(1));
+      f.anaroh.bearbeiter    = df.formatCellValue(sheet.getRow(5).getCell(1));
 
-      Cell c1 = sheet.getCell(1, 6);
-      NumberCell nc = (NumberCell) c1;
-      f.anaroh.tE = nc.getValue();
-
-      c1 = sheet.getCell(1, 7);
-      nc = (NumberCell) c1;
-      f.anaroh.pHtE = nc.getValue();
-
-      c1 = sheet.getCell(1, 8);
-      nc = (NumberCell) c1;
-      f.anaroh.lF = nc.getValue();
-
-      c1 = sheet.getCell(1, 9);
-      nc = (NumberCell) c1;
-      f.anaroh.ca = nc.getValue();
-
-      c1 = sheet.getCell(1, 10);
-      nc = (NumberCell) c1;
-      f.anaroh.mg = nc.getValue();
-
-      c1 = sheet.getCell(1, 11);
-      nc = (NumberCell) c1;
-      f.anaroh.ks = nc.getValue();
-
-      c1 = sheet.getCell(1, 12);
-      nc = (NumberCell) c1;
-      f.anaroh.cl = nc.getValue();
-
-      c1 = sheet.getCell(1, 13);
-      nc = (NumberCell) c1;
-      f.anaroh.so4 = nc.getValue();
-
-      c1 = sheet.getCell(1, 14);
-      nc = (NumberCell) c1;
-      f.anaroh.pHggW = nc.getValue();
-
-      c1 = sheet.getCell(1, 15);
-      nc = (NumberCell) c1;
-      f.anaroh.no3 = nc.getValue();
-
-      c1 = sheet.getCell(1, 16);
-      nc = (NumberCell) c1;
-      f.anaroh.sitE = nc.getValue();
-
-      c1 = sheet.getCell(1, 17);
-      nc = (NumberCell) c1;
-      f.anaroh.h2co3 = nc.getValue();
-
-      c1 = sheet.getCell(1, 18);
-      nc = (NumberCell) c1;
-      f.anaroh.co3 = nc.getValue();
-
-      c1 = sheet.getCell(1, 19);
-      nc = (NumberCell) c1;
-      f.anaroh.hco3 = nc.getValue();
+      f.anaroh.tE     = sheet.getRow(6).getCell(1).getNumericCellValue();
+      f.anaroh.pHtE   = sheet.getRow(7).getCell(1).getNumericCellValue();
+      f.anaroh.lF     = sheet.getRow(8).getCell(1).getNumericCellValue();
+      f.anaroh.ca     = sheet.getRow(9).getCell(1).getNumericCellValue();
+      f.anaroh.mg     = sheet.getRow(10).getCell(1).getNumericCellValue();
+      f.anaroh.ks     = sheet.getRow(11).getCell(1).getNumericCellValue();
+      f.anaroh.cl     = sheet.getRow(12).getCell(1).getNumericCellValue();
+      f.anaroh.so4    = sheet.getRow(13).getCell(1).getNumericCellValue();
+      f.anaroh.pHggW  = sheet.getRow(14).getCell(1).getNumericCellValue();
+      f.anaroh.no3    = sheet.getRow(15).getCell(1).getNumericCellValue();
+      f.anaroh.sitE   = sheet.getRow(16).getCell(1).getNumericCellValue();
+      f.anaroh.h2co3  = sheet.getRow(17).getCell(1).getNumericCellValue();
+      f.anaroh.co3    = sheet.getRow(18).getCell(1).getNumericCellValue();
+      f.anaroh.hco3   = sheet.getRow(19).getCell(1).getNumericCellValue();
 
       //GRENZWERTE AUSLESEN
-      String anlage = sheet.getCell(4, 2).getContents();
+      String anlage = df.formatCellValue(sheet.getRow(2).getCell(4));
       int anlageint = anlage.length();//Länge des STrings als Kriterium für die if Abfrage
       if (anlageint == 8) {
         f.checkboxAnlage1.setSelected(true);
         f.checkboxAnlage2.setSelected(false);
-        c1 = sheet.getCell(4, 3);
-        nc = (NumberCell) c1;
-        f.bedingungen.EF = nc.getValue();
-
-        c1 = sheet.getCell(4, 4);
-        nc = (NumberCell) c1;
-        f.bedingungen.siMax = nc.getValue();
-
-        c1 = sheet.getCell(4, 5);
-        nc = (NumberCell) c1;
-        f.bedingungen.clMax = nc.getValue();
-
-        c1 = sheet.getCell(4, 6);
-        nc = (NumberCell) c1;
-        f.bedingungen.so4Max = nc.getValue();
-
-        c1 = sheet.getCell(4, 7);
-        nc = (NumberCell) c1;
-        f.bedingungen.roMax = nc.getValue();
-
-        c1 = sheet.getCell(4, 8);
-        nc = (NumberCell) c1;
-        f.bedingungen.tKT = nc.getValue();
-
-        c1 = sheet.getCell(4, 9);
-        nc = (NumberCell) c1;
-        f.bedingungen.tW = nc.getValue();
-
-        c1 = sheet.getCell(4, 10);
-        nc = (NumberCell) c1;
-        f.bedingungen.caMax = nc.getValue();
+        f.bedingungen.EF     = sheet.getRow(3).getCell(4).getNumericCellValue();
+        f.bedingungen.siMax  = sheet.getRow(4).getCell(4).getNumericCellValue();
+        f.bedingungen.clMax  = sheet.getRow(5).getCell(4).getNumericCellValue();
+        f.bedingungen.so4Max = sheet.getRow(6).getCell(4).getNumericCellValue();
+        f.bedingungen.roMax  = sheet.getRow(7).getCell(4).getNumericCellValue();
+        f.bedingungen.tKT    = sheet.getRow(8).getCell(4).getNumericCellValue();
+        f.bedingungen.tW     = sheet.getRow(9).getCell(4).getNumericCellValue();
+        f.bedingungen.caMax  = sheet.getRow(10).getCell(4).getNumericCellValue();
       }
       else {
         f.checkboxAnlage1.setSelected(false);
         f.checkboxAnlage2.setSelected(true);
-        c1 = sheet.getCell(4, 3);
-        nc = (NumberCell) c1;
-        f.bedingungen2.siMax = nc.getValue();
-
-        c1 = sheet.getCell(4, 4);
-        nc = (NumberCell) c1;
-        f.bedingungen2.dhMin = nc.getValue();
-
-        c1 = sheet.getCell(4, 5);
-        nc = (NumberCell) c1;
-        f.bedingungen2.dhMax = nc.getValue();
-
-        c1 = sheet.getCell(4, 6);
-        nc = (NumberCell) c1;
-        f.bedingungen2.lF = nc.getValue();
-
-        c1 = sheet.getCell(4, 7);
-        nc = (NumberCell) c1;
-        f.bedingungen2.alkMin = nc.getValue();
-
-        c1 = sheet.getCell(4, 8);
-        nc = (NumberCell) c1;
-        f.bedingungen2.tLW = nc.getValue();
-
-        c1 = sheet.getCell(4, 9);
-        nc = (NumberCell) c1;
-        f.bedingungen2.roMax = nc.getValue();
-
-        /*/c1 = sheet.getCell(4,10);
-                    nc = (NumberCell) c1;
-                    f.bedingungen.caMax = nc.getValue();
-        */
+        f.bedingungen2.siMax  = sheet.getRow(3).getCell(4).getNumericCellValue();
+        f.bedingungen2.dhMin  = sheet.getRow(4).getCell(4).getNumericCellValue();
+        f.bedingungen2.dhMax  = sheet.getRow(5).getCell(4).getNumericCellValue();
+        f.bedingungen2.lF     = sheet.getRow(6).getCell(4).getNumericCellValue();
+        f.bedingungen2.alkMin = sheet.getRow(7).getCell(4).getNumericCellValue();
+        f.bedingungen2.tLW    = sheet.getRow(8).getCell(4).getNumericCellValue();
+        f.bedingungen2.roMax  = sheet.getRow(9).getCell(4).getNumericCellValue();
       }
 
       //WIRTSCHAFTSDATEN IMPORT//
-      c1 = sheet.getCell(7, 2);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.stadtWasser = nc.getValue();
-
-      c1 = sheet.getCell(7, 3);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.abWasser = nc.getValue();
-
-      c1 = sheet.getCell(7, 4);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.regenWasser = nc.getValue();
-
-      c1 = sheet.getCell(7, 5);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.energie = nc.getValue();
+      f.betriebsMittelKosten.stadtWasser  = sheet.getRow(2).getCell(7).getNumericCellValue();
+      f.betriebsMittelKosten.abWasser     = sheet.getRow(3).getCell(7).getNumericCellValue();
+      f.betriebsMittelKosten.regenWasser  = sheet.getRow(4).getCell(7).getNumericCellValue();
+      f.betriebsMittelKosten.energie      = sheet.getRow(5).getCell(7).getNumericCellValue();
 
       if (anlageint == 8) {
-        c1 = sheet.getCell(7, 6);
-        nc = (NumberCell) c1;
-        f.betriebsMittelKosten.leistung = nc.getValue();
+        f.betriebsMittelKosten.leistung  = sheet.getRow(6).getCell(7).getNumericCellValue();
       }
       else {
-        c1 = sheet.getCell(7, 7);
-        nc = (NumberCell) c1;
-        f.betriebsMittelKosten.leistung2 = nc.getValue();
-
+        f.betriebsMittelKosten.leistung2 = sheet.getRow(7).getCell(7).getNumericCellValue();
       }
 
-      c1 = sheet.getCell(7, 8);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.auslastung = nc.getValue();
+      f.betriebsMittelKosten.auslastung     = sheet.getRow(8).getCell(7).getNumericCellValue();
+      f.betriebsMittelKosten.dosierMittel   = sheet.getRow(9).getCell(7).getNumericCellValue();
+      f.betriebsMittelKosten.dosierMenge    = sheet.getRow(10).getCell(7).getNumericCellValue();
+      f.betriebsMittelKosten.salzTabletten  = sheet.getRow(11).getCell(7).getNumericCellValue();
+      f.betriebsMittelKosten.salzSaeure     = sheet.getRow(12).getCell(7).getNumericCellValue();
+      f.betriebsMittelKosten.schwefelSaeure = sheet.getRow(13).getCell(7).getNumericCellValue();
+      f.betriebsMittelKosten.ro             = sheet.getRow(14).getCell(7).getNumericCellValue();
+      f.betriebsMittelKosten.roMenge        = sheet.getRow(15).getCell(7).getNumericCellValue();
 
-      c1 = sheet.getCell(7, 9);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.dosierMittel = nc.getValue();
-
-      c1 = sheet.getCell(7, 10);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.dosierMenge = nc.getValue();
-
-      c1 = sheet.getCell(7, 11);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.salzTabletten = nc.getValue();
-
-      c1 = sheet.getCell(7, 12);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.salzSaeure = nc.getValue();
-
-      c1 = sheet.getCell(7, 13);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.schwefelSaeure = nc.getValue();
-
-      c1 = sheet.getCell(7, 14);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.ro = nc.getValue();
-
-      c1 = sheet.getCell(7, 15);
-      nc = (NumberCell) c1;
-      f.betriebsMittelKosten.roMenge = nc.getValue();
-
-      f.betriebsMittelKosten.dosierMittelName = sheet.getCell(7, 16).
-          getContents();
+      f.betriebsMittelKosten.dosierMittelName = df.formatCellValue(sheet.getRow(16).getCell(7));
 
       workbook.close();
     }
 
     catch (java.io.IOException ioe) {
       System.out.println("IO Fehler" + ioe);
-      return;
-    }
-
-    catch (jxl.read.biff.BiffException be) {
-      System.out.println("IO Fehler" + be);
       return;
     }
 

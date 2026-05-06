@@ -8,7 +8,6 @@
 
     <path id="classpath">
         <fileset dir="${bin.dir}">
-            <include name="jxl.jar"/>
             <include name="hsqldb.jar"/>
             <include name="hsql.jar"/>
             <include name="poi-5.2.3.jar"/>

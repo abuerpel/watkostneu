@@ -12,11 +12,14 @@ import java.io.*;
 import javax.swing.*;
 import java.io.File;
 import java.util.Date;
-import jxl.Workbook;
-import jxl.write.*;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import java.io.FileOutputStream;
 import java.util.*;
 
 public class hauptmenue
@@ -413,76 +416,75 @@ public class hauptmenue
     fd.setLocation(positionX(fd.getWidth()), 200);
     fd.show();
     String dateiName = fd.getDirectory() + fd.getFile();
-    //Format für die Ausgabe der Werte vorgeben
-    NumberFormat nf1 = new NumberFormat("#.00");
-    WritableCellFormat nf1cell = new WritableCellFormat(nf1);
 
     try {
+      org.apache.poi.ss.usermodel.Workbook workbook = new HSSFWorkbook();
+      Sheet sheet1 = workbook.createSheet("Eingabeparameter");
+      Sheet sheet2 = workbook.createSheet("Threshhold Stabilisierung");
+      Sheet sheet3 = workbook.createSheet("Enthärtung");
+      Sheet sheet4 = workbook.createSheet("Entcarbonisierung");
+      Sheet sheet5 = workbook.createSheet("Umkehrosmose o. Eh.");
+      Sheet sheet6 = workbook.createSheet("Umkehrosmose m. Eh.");
+      Sheet sheet7 = workbook.createSheet("Schwefelsäuredosierung");
 
-      WritableWorkbook workbook = Workbook.createWorkbook(new File(dateiName));
-      WritableSheet sheet1 = workbook.createSheet("Eingabeparameter", 0);
-      WritableSheet sheet2 = workbook.createSheet("Threshhold Stabilisierung",
-                                                  1);
-      WritableSheet sheet3 = workbook.createSheet("Enthärtung", 2);
-      WritableSheet sheet4 = workbook.createSheet("Entcarbonisierung", 3);
-      WritableSheet sheet5 = workbook.createSheet("Umkehrosmose o. Eh.", 4);
-      WritableSheet sheet6 = workbook.createSheet("Umkehrosmose m. Eh.", 5);
-      WritableSheet sheet7 = workbook.createSheet("Schwefelsäuredosierung", 6);
+      // Format für die Ausgabe der Werte vorgeben
+      CellStyle nf1cell = workbook.createCellStyle();
+      nf1cell.setDataFormat(workbook.createDataFormat().getFormat("#.00"));
 
-      try {
+      {
         //rohanalyse
-        jxl.write.Label labelA1 = new jxl.write.Label(0, 0, "Rohwasseranalyse");
-        jxl.write.Label labelA2 = new jxl.write.Label(0, 2, "Analysennummer:");
-        jxl.write.Label labelA3 = new jxl.write.Label(0, 3, "Kunde");
-        jxl.write.Label labelA4 = new jxl.write.Label(0, 4, "Projekt");
-        jxl.write.Label labelA5 = new jxl.write.Label(0, 5, "Bearbeiter");
-        jxl.write.Label labelA6 = new jxl.write.Label(0, 6, "TE°C");
-        jxl.write.Label labelA7 = new jxl.write.Label(0, 7, "pH TE");
-        jxl.write.Label labelA8 = new jxl.write.Label(0, 8, "LF K25");
-        jxl.write.Label labelA9 = new jxl.write.Label(0, 9, "Calcium mg/l");
-        jxl.write.Label labelA10 = new jxl.write.Label(0, 10, "Magnesium mg/l");
-        jxl.write.Label labelA11 = new jxl.write.Label(0, 11, "KS 4,3 mmol/l");
-        jxl.write.Label labelA12 = new jxl.write.Label(0, 12, "Chlorid mg/l");
-        jxl.write.Label labelA13 = new jxl.write.Label(0, 13, "Sulfat mg/l");
-        jxl.write.Label labelA14 = new jxl.write.Label(0, 14, "GGW pH TE");
-        jxl.write.Label labelA15 = new jxl.write.Label(0, 15, "Nitrat mg/l");
-        jxl.write.Label labelA16 = new jxl.write.Label(0, 16, "SI TE");
-        jxl.write.Label labelA17 = new jxl.write.Label(0, 17, "Co2 mg/l");
-        jxl.write.Label labelA18 = new jxl.write.Label(0, 18, "Co3 mg/l");
-        jxl.write.Label labelA19 = new jxl.write.Label(0, 19, "HCo3 mg/l");
+        LabelW labelA1 = new LabelW(0, 0, "Rohwasseranalyse");
+        LabelW labelA2 = new LabelW(0, 2, "Analysennummer:");
+        LabelW labelA3 = new LabelW(0, 3, "Kunde");
+        LabelW labelA4 = new LabelW(0, 4, "Projekt");
+        LabelW labelA5 = new LabelW(0, 5, "Bearbeiter");
+        LabelW labelA6 = new LabelW(0, 6, "TE°C");
+        LabelW labelA7 = new LabelW(0, 7, "pH TE");
+        LabelW labelA8 = new LabelW(0, 8, "LF K25");
+        LabelW labelA9 = new LabelW(0, 9, "Calcium mg/l");
+        LabelW labelA10 = new LabelW(0, 10, "Magnesium mg/l");
+        LabelW labelA11 = new LabelW(0, 11, "KS 4,3 mmol/l");
+        LabelW labelA12 = new LabelW(0, 12, "Chlorid mg/l");
+        LabelW labelA13 = new LabelW(0, 13, "Sulfat mg/l");
+        LabelW labelA14 = new LabelW(0, 14, "GGW pH TE");
+        LabelW labelA15 = new LabelW(0, 15, "Nitrat mg/l");
+        LabelW labelA16 = new LabelW(0, 16, "SI TE");
+        LabelW labelA17 = new LabelW(0, 17, "Co2 mg/l");
+        LabelW labelA18 = new LabelW(0, 18, "Co3 mg/l");
+        LabelW labelA19 = new LabelW(0, 19, "HCo3 mg/l");
         //
-        sheet1.addCell(labelA1);
-        sheet1.addCell(labelA2);
-        sheet1.addCell(labelA3);
-        sheet1.addCell(labelA4);
-        sheet1.addCell(labelA5);
-        sheet1.addCell(labelA6);
-        sheet1.addCell(labelA7);
-        sheet1.addCell(labelA8);
-        sheet1.addCell(labelA9);
-        sheet1.addCell(labelA10);
-        sheet1.addCell(labelA11);
-        sheet1.addCell(labelA12);
-        sheet1.addCell(labelA13);
-        sheet1.addCell(labelA14);
-        sheet1.addCell(labelA15);
-        sheet1.addCell(labelA16);
-        sheet1.addCell(labelA17);
-        sheet1.addCell(labelA18);
-        sheet1.addCell(labelA19);
+        addCell(sheet1, labelA1);
+        addCell(sheet1, labelA2);
+        addCell(sheet1, labelA3);
+        addCell(sheet1, labelA4);
+        addCell(sheet1, labelA5);
+        addCell(sheet1, labelA6);
+        addCell(sheet1, labelA7);
+        addCell(sheet1, labelA8);
+        addCell(sheet1, labelA9);
+        addCell(sheet1, labelA10);
+        addCell(sheet1, labelA11);
+        addCell(sheet1, labelA12);
+        addCell(sheet1, labelA13);
+        addCell(sheet1, labelA14);
+        addCell(sheet1, labelA15);
+        addCell(sheet1, labelA16);
+        addCell(sheet1, labelA17);
+        addCell(sheet1, labelA18);
+        addCell(sheet1, labelA19);
 
         //Grenzwerte
-        jxl.write.Label labelB1 = new jxl.write.Label(3, 0, "Grenzwerte");
-        jxl.write.Label labelB2 = new jxl.write.Label(3, 2, "Anlage");
-        jxl.write.Label labelB3 = new jxl.write.Label(3, 3, "Eindickungsfaktor");
-        jxl.write.Label labelB4 = new jxl.write.Label(3, 4,
+        LabelW labelB1 = new LabelW(3, 0, "Grenzwerte");
+        LabelW labelB2 = new LabelW(3, 2, "Anlage");
+        LabelW labelB3 = new LabelW(3, 3, "Eindickungsfaktor");
+        LabelW labelB4 = new LabelW(3, 4,
             "max. Sättigungsindex ");
-        jxl.write.Label labelB5 = new jxl.write.Label(3, 5, "max. Chlorid");
-        jxl.write.Label labelB6 = new jxl.write.Label(3, 6, "max. Sulfat");
-        jxl.write.Label labelB7 = new jxl.write.Label(3, 7, "max. SI RO.");
-        jxl.write.Label labelB8 = new jxl.write.Label(3, 8, "T KT");
-        jxl.write.Label labelB9 = new jxl.write.Label(3, 9, "T Wand");
-        jxl.write.Label labelB10 = new jxl.write.Label(3, 10,
+        LabelW labelB5 = new LabelW(3, 5, "max. Chlorid");
+        LabelW labelB6 = new LabelW(3, 6, "max. Sulfat");
+        LabelW labelB7 = new LabelW(3, 7, "max. SI RO.");
+        LabelW labelB8 = new LabelW(3, 8, "T KT");
+        LabelW labelB9 = new LabelW(3, 9, "T Wand");
+        LabelW labelB10 = new LabelW(3, 10,
             "Calciumgehalt Speisewasser");
 
         if (f.baufbereitung == false) { //Luftwäscher
@@ -498,138 +500,138 @@ public class hauptmenue
 
         }
 
-        sheet1.addCell(labelB1);
-        sheet1.addCell(labelB2);
-        sheet1.addCell(labelB3);
-        sheet1.addCell(labelB4);
-        sheet1.addCell(labelB5);
-        sheet1.addCell(labelB6);
-        sheet1.addCell(labelB7);
-        sheet1.addCell(labelB8);
-        sheet1.addCell(labelB9);
-        sheet1.addCell(labelB10);
+        addCell(sheet1, labelB1);
+        addCell(sheet1, labelB2);
+        addCell(sheet1, labelB3);
+        addCell(sheet1, labelB4);
+        addCell(sheet1, labelB5);
+        addCell(sheet1, labelB6);
+        addCell(sheet1, labelB7);
+        addCell(sheet1, labelB8);
+        addCell(sheet1, labelB9);
+        addCell(sheet1, labelB10);
 
         //Kosten
-        jxl.write.Label labelC1 = new jxl.write.Label(6, 0,
+        LabelW labelC1 = new LabelW(6, 0,
             "Wirtschaftsdaten");
-        jxl.write.Label labelC2 = new jxl.write.Label(6, 2,
+        LabelW labelC2 = new LabelW(6, 2,
             "Stadtwasser EUR/m³");
-        jxl.write.Label labelC3 = new jxl.write.Label(6, 3,
+        LabelW labelC3 = new LabelW(6, 3,
             "Schmutzwasser EUR/m³");
-        jxl.write.Label labelC4 = new jxl.write.Label(6, 4,
+        LabelW labelC4 = new LabelW(6, 4,
             "Regenwassersiel EUR/m³");
-        jxl.write.Label labelC5 = new jxl.write.Label(6, 5, "Energie EUR/kWh");
-        jxl.write.Label labelC6 = new jxl.write.Label(6, 6, "Kühlleistung kW");
-        jxl.write.Label labelC7
-            = new jxl.write.Label(6, 7,
+        LabelW labelC5 = new LabelW(6, 5, "Energie EUR/kWh");
+        LabelW labelC6 = new LabelW(6, 6, "Kühlleistung kW");
+        LabelW labelC7
+            = new LabelW(6, 7,
                                   "Luftwäscherleistung kW");
-        jxl.write.Label labelC8 = new jxl.write.Label(6, 8, "Auslastung %");
-        jxl.write.Label labelC9 = new jxl.write.Label(6, 9,
+        LabelW labelC8 = new LabelW(6, 8, "Auslastung %");
+        LabelW labelC9 = new LabelW(6, 9,
             "Dosiermittel EUR/kg");
-        jxl.write.Label labelC10 = new jxl.write.Label(6, 10, "Dosierhöhe g/m³");
-        jxl.write.Label labelC11 = new jxl.write.Label(6, 11,
+        LabelW labelC10 = new LabelW(6, 10, "Dosierhöhe g/m³");
+        LabelW labelC11 = new LabelW(6, 11,
             "Salztabletten EUR/kg");
-        jxl.write.Label labelC12 = new jxl.write.Label(6, 12,
+        LabelW labelC12 = new LabelW(6, 12,
             "Salzsäure EUR/kg");
-        jxl.write.Label labelC13 = new jxl.write.Label(6, 13,
+        LabelW labelC13 = new LabelW(6, 13,
             "Schwefelsäure EUR/kg");
-        jxl.write.Label labelC14 = new jxl.write.Label(6, 14,
+        LabelW labelC14 = new LabelW(6, 14,
             "RO Dosiermittel EUR/kg");
-        jxl.write.Label labelC15 = new jxl.write.Label(6, 15,
+        LabelW labelC15 = new LabelW(6, 15,
             "RO Dosierhöhe g/m³");
-        jxl.write.Label labelC16 = new jxl.write.Label(6, 16, "Dosiermittel");
+        LabelW labelC16 = new LabelW(6, 16, "Dosiermittel");
 
         //
-        sheet1.addCell(labelC1);
-        sheet1.addCell(labelC2);
-        sheet1.addCell(labelC3);
-        sheet1.addCell(labelC4);
-        sheet1.addCell(labelC5);
-        sheet1.addCell(labelC6);
-        sheet1.addCell(labelC7);
-        sheet1.addCell(labelC8);
-        sheet1.addCell(labelC9);
-        sheet1.addCell(labelC10);
-        sheet1.addCell(labelC11);
-        sheet1.addCell(labelC12);
-        sheet1.addCell(labelC13);
-        sheet1.addCell(labelC14);
-        sheet1.addCell(labelC15);
-        sheet1.addCell(labelC16);
+        addCell(sheet1, labelC1);
+        addCell(sheet1, labelC2);
+        addCell(sheet1, labelC3);
+        addCell(sheet1, labelC4);
+        addCell(sheet1, labelC5);
+        addCell(sheet1, labelC6);
+        addCell(sheet1, labelC7);
+        addCell(sheet1, labelC8);
+        addCell(sheet1, labelC9);
+        addCell(sheet1, labelC10);
+        addCell(sheet1, labelC11);
+        addCell(sheet1, labelC12);
+        addCell(sheet1, labelC13);
+        addCell(sheet1, labelC14);
+        addCell(sheet1, labelC15);
+        addCell(sheet1, labelC16);
 
         // EINGABEWERTE EINFÜGEN
 
-        jxl.write.Label labelWA1 = new jxl.write.Label(1, 2,
+        LabelW labelWA1 = new LabelW(1, 2,
             f.anaroh.analysenNummer);
-        jxl.write.Label labelWA2 = new jxl.write.Label(1, 3, f.anaroh.kunde);
-        jxl.write.Label labelWA3 = new jxl.write.Label(1, 4, f.anaroh.projekt);
-        jxl.write.Label labelWA4 = new jxl.write.Label(1, 5,
+        LabelW labelWA2 = new LabelW(1, 3, f.anaroh.kunde);
+        LabelW labelWA3 = new LabelW(1, 4, f.anaroh.projekt);
+        LabelW labelWA4 = new LabelW(1, 5,
             f.anaroh.bearbeiter);
-        jxl.write.Number numberWA5 = new jxl.write.Number(1, 6, f.anaroh.tE,
+        NumberW numberWA5 = new NumberW(1, 6, f.anaroh.tE,
             nf1cell);
-        jxl.write.Number numberWA6 = new jxl.write.Number(1, 7, f.anaroh.pHtE,
+        NumberW numberWA6 = new NumberW(1, 7, f.anaroh.pHtE,
             nf1cell);
-        jxl.write.Number numberWA7 = new jxl.write.Number(1, 8, f.anaroh.lF,
+        NumberW numberWA7 = new NumberW(1, 8, f.anaroh.lF,
             nf1cell);
-        jxl.write.Number numberWA8 = new jxl.write.Number(1, 9, f.anaroh.ca,
+        NumberW numberWA8 = new NumberW(1, 9, f.anaroh.ca,
             nf1cell);
-        jxl.write.Number numberWA9 = new jxl.write.Number(1, 10, f.anaroh.mg,
+        NumberW numberWA9 = new NumberW(1, 10, f.anaroh.mg,
             nf1cell);
-        jxl.write.Number numberWA10 = new jxl.write.Number(1, 11, f.anaroh.ks,
+        NumberW numberWA10 = new NumberW(1, 11, f.anaroh.ks,
             nf1cell);
-        jxl.write.Number numberWA11 = new jxl.write.Number(1, 12, f.anaroh.cl,
+        NumberW numberWA11 = new NumberW(1, 12, f.anaroh.cl,
             nf1cell);
-        jxl.write.Number numberWA12 = new jxl.write.Number(1, 13, f.anaroh.so4,
+        NumberW numberWA12 = new NumberW(1, 13, f.anaroh.so4,
             nf1cell);
-        jxl.write.Number numberWA13 = new jxl.write.Number(1, 14,
+        NumberW numberWA13 = new NumberW(1, 14,
             f.anaroh.pHggW, nf1cell);
-        jxl.write.Number numberWA14 = new jxl.write.Number(1, 15, f.anaroh.no3,
+        NumberW numberWA14 = new NumberW(1, 15, f.anaroh.no3,
             nf1cell);
-        jxl.write.Number numberWA15 = new jxl.write.Number(1, 16, f.anaroh.sitE,
+        NumberW numberWA15 = new NumberW(1, 16, f.anaroh.sitE,
             nf1cell);
-        jxl.write.Number numberWA16 = new jxl.write.Number(1, 17,
+        NumberW numberWA16 = new NumberW(1, 17,
             f.anaroh.h2co3,
             nf1cell);
-        jxl.write.Number numberWA17 = new jxl.write.Number(1, 18, f.anaroh.co3,
+        NumberW numberWA17 = new NumberW(1, 18, f.anaroh.co3,
             nf1cell);
-        jxl.write.Number numberWA18 = new jxl.write.Number(1, 19, f.anaroh.hco3,
+        NumberW numberWA18 = new NumberW(1, 19, f.anaroh.hco3,
             nf1cell);
 
-        sheet1.addCell(labelWA1);
-        sheet1.addCell(labelWA2);
-        sheet1.addCell(labelWA3);
-        sheet1.addCell(labelWA4);
-        sheet1.addCell(numberWA5);
-        sheet1.addCell(numberWA6);
-        sheet1.addCell(numberWA7);
-        sheet1.addCell(numberWA8);
-        sheet1.addCell(numberWA9);
-        sheet1.addCell(numberWA10);
-        sheet1.addCell(numberWA11);
-        sheet1.addCell(numberWA12);
-        sheet1.addCell(numberWA13);
-        sheet1.addCell(numberWA14);
-        sheet1.addCell(numberWA15);
-        sheet1.addCell(numberWA16);
-        sheet1.addCell(numberWA17);
-        sheet1.addCell(numberWA18);
+        addCell(sheet1, labelWA1);
+        addCell(sheet1, labelWA2);
+        addCell(sheet1, labelWA3);
+        addCell(sheet1, labelWA4);
+        addCell(sheet1, numberWA5);
+        addCell(sheet1, numberWA6);
+        addCell(sheet1, numberWA7);
+        addCell(sheet1, numberWA8);
+        addCell(sheet1, numberWA9);
+        addCell(sheet1, numberWA10);
+        addCell(sheet1, numberWA11);
+        addCell(sheet1, numberWA12);
+        addCell(sheet1, numberWA13);
+        addCell(sheet1, numberWA14);
+        addCell(sheet1, numberWA15);
+        addCell(sheet1, numberWA16);
+        addCell(sheet1, numberWA17);
+        addCell(sheet1, numberWA18);
         //Grenzwerte einfügen
-        jxl.write.Label labelGW1 = new jxl.write.Label(4, 2, "Kühlturm");
-        jxl.write.Number numberGW2 = new jxl.write.Number(4, 3,
+        LabelW labelGW1 = new LabelW(4, 2, "Kühlturm");
+        NumberW numberGW2 = new NumberW(4, 3,
             f.bedingungen.EF, nf1cell);
-        jxl.write.Number numberGW3 = new jxl.write.Number(4, 4,
+        NumberW numberGW3 = new NumberW(4, 4,
             f.bedingungen.siMax, nf1cell);
-        jxl.write.Number numberGW4 = new jxl.write.Number(4, 5,
+        NumberW numberGW4 = new NumberW(4, 5,
             f.bedingungen.clMax, nf1cell);
-        jxl.write.Number numberGW5 = new jxl.write.Number(4, 6,
+        NumberW numberGW5 = new NumberW(4, 6,
             f.bedingungen.so4Max, nf1cell);
-        jxl.write.Number numberGW6 = new jxl.write.Number(4, 7,
+        NumberW numberGW6 = new NumberW(4, 7,
             f.bedingungen.roMax, nf1cell);
-        jxl.write.Number numberGW7 = new jxl.write.Number(4, 8,
+        NumberW numberGW7 = new NumberW(4, 8,
             f.bedingungen.tKT, nf1cell);
-        jxl.write.Number numberGW8 = new jxl.write.Number(4, 9,
+        NumberW numberGW8 = new NumberW(4, 9,
             f.bedingungen.tW, nf1cell);
-        jxl.write.Number numberGW9 = new jxl.write.Number(4, 10,
+        NumberW numberGW9 = new NumberW(4, 10,
             f.bedingungen.caMax, nf1cell);
         if (f.baufbereitung == false) { //falls Luftwäscher
           labelGW1.setString("Luftwäscher");
@@ -643,63 +645,63 @@ public class hauptmenue
           //numberGW8.setCellFormat();
         }
         //Grenzwerte Einfügen
-        sheet1.addCell(labelGW1);
-        sheet1.addCell(numberGW2);
-        sheet1.addCell(numberGW3);
-        sheet1.addCell(numberGW4);
-        sheet1.addCell(numberGW5);
-        sheet1.addCell(numberGW6);
-        sheet1.addCell(numberGW7);
-        sheet1.addCell(numberGW8);
-        sheet1.addCell(numberGW9);
+        addCell(sheet1, labelGW1);
+        addCell(sheet1, numberGW2);
+        addCell(sheet1, numberGW3);
+        addCell(sheet1, numberGW4);
+        addCell(sheet1, numberGW5);
+        addCell(sheet1, numberGW6);
+        addCell(sheet1, numberGW7);
+        addCell(sheet1, numberGW8);
+        addCell(sheet1, numberGW9);
 
         //Kosten
-        jxl.write.Number numberWK1 = new jxl.write.Number(7, 2,
+        NumberW numberWK1 = new NumberW(7, 2,
             f.betriebsMittelKosten.stadtWasser, nf1cell);
-        jxl.write.Number numberWK2 = new jxl.write.Number(7, 3,
+        NumberW numberWK2 = new NumberW(7, 3,
             f.betriebsMittelKosten.abWasser, nf1cell);
-        jxl.write.Number numberWK3 = new jxl.write.Number(7, 4,
+        NumberW numberWK3 = new NumberW(7, 4,
             f.betriebsMittelKosten.regenWasser, nf1cell);
-        jxl.write.Number numberWK4 = new jxl.write.Number(7, 5,
+        NumberW numberWK4 = new NumberW(7, 5,
             f.betriebsMittelKosten.energie, nf1cell);
-        jxl.write.Number numberWK5 = new jxl.write.Number(7, 6,
+        NumberW numberWK5 = new NumberW(7, 6,
             f.betriebsMittelKosten.leistung, nf1cell);
-        jxl.write.Number numberWK6 = new jxl.write.Number(7, 7,
+        NumberW numberWK6 = new NumberW(7, 7,
             f.betriebsMittelKosten.leistung2, nf1cell);
-        jxl.write.Number numberWK7 = new jxl.write.Number(7, 8,
+        NumberW numberWK7 = new NumberW(7, 8,
             f.betriebsMittelKosten.auslastung, nf1cell);
-        jxl.write.Number numberWK8 = new jxl.write.Number(7, 9,
+        NumberW numberWK8 = new NumberW(7, 9,
             f.betriebsMittelKosten.dosierMittel, nf1cell);
-        jxl.write.Number numberWK9 = new jxl.write.Number(7, 10,
+        NumberW numberWK9 = new NumberW(7, 10,
             f.betriebsMittelKosten.dosierMenge, nf1cell);
-        jxl.write.Number numberWK10 = new jxl.write.Number(7, 11,
+        NumberW numberWK10 = new NumberW(7, 11,
             f.betriebsMittelKosten.salzTabletten, nf1cell);
-        jxl.write.Number numberWK11 = new jxl.write.Number(7, 12,
+        NumberW numberWK11 = new NumberW(7, 12,
             f.betriebsMittelKosten.salzSaeure, nf1cell);
-        jxl.write.Number numberWK12 = new jxl.write.Number(7, 13,
+        NumberW numberWK12 = new NumberW(7, 13,
             f.betriebsMittelKosten.schwefelSaeure, nf1cell);
-        jxl.write.Number numberWK13 = new jxl.write.Number(7, 14,
+        NumberW numberWK13 = new NumberW(7, 14,
             f.betriebsMittelKosten.ro, nf1cell);
-        jxl.write.Number numberWK14 = new jxl.write.Number(7, 15,
+        NumberW numberWK14 = new NumberW(7, 15,
             f.betriebsMittelKosten.roMenge, nf1cell);
-        jxl.write.Label labelWK15 = new jxl.write.Label(7, 16,
+        LabelW labelWK15 = new LabelW(7, 16,
             f.betriebsMittelKosten.dosierMittelName, nf1cell);
 
-        sheet1.addCell(numberWK1);
-        sheet1.addCell(numberWK2);
-        sheet1.addCell(numberWK3);
-        sheet1.addCell(numberWK4);
-        sheet1.addCell(numberWK5);
-        sheet1.addCell(numberWK6);
-        sheet1.addCell(numberWK7);
-        sheet1.addCell(numberWK8);
-        sheet1.addCell(numberWK9);
-        sheet1.addCell(numberWK10);
-        sheet1.addCell(numberWK11);
-        sheet1.addCell(numberWK12);
-        sheet1.addCell(numberWK13);
-        sheet1.addCell(numberWK14);
-        sheet1.addCell(labelWK15);
+        addCell(sheet1, numberWK1);
+        addCell(sheet1, numberWK2);
+        addCell(sheet1, numberWK3);
+        addCell(sheet1, numberWK4);
+        addCell(sheet1, numberWK5);
+        addCell(sheet1, numberWK6);
+        addCell(sheet1, numberWK7);
+        addCell(sheet1, numberWK8);
+        addCell(sheet1, numberWK9);
+        addCell(sheet1, numberWK10);
+        addCell(sheet1, numberWK11);
+        addCell(sheet1, numberWK12);
+        addCell(sheet1, numberWK13);
+        addCell(sheet1, numberWK14);
+        addCell(sheet1, labelWK15);
 
 //
 
@@ -717,31 +719,31 @@ public class hauptmenue
 
 
 //Umlaufwasseranalyse THRESH
-        jxl.write.Label labelD1 = new jxl.write.Label(3, 0, "Umlaufwasser");
-        //jxl.write.Label labelD2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
-        jxl.write.Label labelD2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
-        jxl.write.Label labelD3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelD4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelD5 = new jxl.write.Label(3, 5, "TW°C");
-        jxl.write.Label labelD6 = new jxl.write.Label(3, 6, "LF 25 ");
-        jxl.write.Label labelD7 = new jxl.write.Label(3, 7, "Calcium mg/l");
-        jxl.write.Label labelD8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
-        jxl.write.Label labelD9 = new jxl.write.Label(3, 9, "Na. ber. mg/l");
-        jxl.write.Label labelD10 = new jxl.write.Label(3, 10, "KS 4,3 mmol/l");
-        jxl.write.Label labelD11 = new jxl.write.Label(3, 11, "Chlorid mg/l");
-        jxl.write.Label labelD12 = new jxl.write.Label(3, 12, "Sulfat mg/l");
-        jxl.write.Label labelD13 = new jxl.write.Label(3, 13, "Nitrat mg/l");
-        jxl.write.Label labelD14 = new jxl.write.Label(3, 14, "pH KTNV");
-        jxl.write.Label labelD15 = new jxl.write.Label(3, 15, "GGW pH TKT");
-        jxl.write.Label labelD16 = new jxl.write.Label(3, 16, "SI TKT");
-        jxl.write.Label labelD17 = new jxl.write.Label(3, 17, "GGW pH W");
-        jxl.write.Label labelD18 = new jxl.write.Label(3, 18, "SI W");
-        jxl.write.Label labelD19 = new jxl.write.Label(3, 19,
+        LabelW labelD1 = new LabelW(3, 0, "Umlaufwasser");
+        //LabelW labelD2 = new LabelW(3, 1, "Aufbereitungsart");
+        LabelW labelD2 = new LabelW(3, 2, "Verschnitt RW %");
+        LabelW labelD3 = new LabelW(3, 3, "Eindickung E");
+        LabelW labelD4 = new LabelW(3, 4, "TKT°C");
+        LabelW labelD5 = new LabelW(3, 5, "TW°C");
+        LabelW labelD6 = new LabelW(3, 6, "LF 25 ");
+        LabelW labelD7 = new LabelW(3, 7, "Calcium mg/l");
+        LabelW labelD8 = new LabelW(3, 8, "Magnesium mg/l");
+        LabelW labelD9 = new LabelW(3, 9, "Na. ber. mg/l");
+        LabelW labelD10 = new LabelW(3, 10, "KS 4,3 mmol/l");
+        LabelW labelD11 = new LabelW(3, 11, "Chlorid mg/l");
+        LabelW labelD12 = new LabelW(3, 12, "Sulfat mg/l");
+        LabelW labelD13 = new LabelW(3, 13, "Nitrat mg/l");
+        LabelW labelD14 = new LabelW(3, 14, "pH KTNV");
+        LabelW labelD15 = new LabelW(3, 15, "GGW pH TKT");
+        LabelW labelD16 = new LabelW(3, 16, "SI TKT");
+        LabelW labelD17 = new LabelW(3, 17, "GGW pH W");
+        LabelW labelD18 = new LabelW(3, 18, "SI W");
+        LabelW labelD19 = new LabelW(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelD20 = new jxl.write.Label(3, 20, "Ionenstärke I");
-        jxl.write.Label labelD21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
-        jxl.write.Label labelD22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
-        jxl.write.Label labelD23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
+        LabelW labelD20 = new LabelW(3, 20, "Ionenstärke I");
+        LabelW labelD21 = new LabelW(3, 21, "H2Co3 mg/l");
+        LabelW labelD22 = new LabelW(3, 22, "HCo3 mg/l");
+        LabelW labelD23 = new LabelW(3, 23, "GCo3 mg/l");
         if (f.baufbereitung == false) {
           labelD4.setString("T LW)");
           labelD5.setString("");
@@ -750,56 +752,56 @@ public class hauptmenue
           labelD17.setString("");
           labelD18.setString("");
         }
-        sheet2.addCell(labelD1);
-        sheet2.addCell(labelD2);
-        sheet2.addCell(labelD3);
-        sheet2.addCell(labelD4);
-        sheet2.addCell(labelD5);
-        sheet2.addCell(labelD6);
-        sheet2.addCell(labelD7);
-        sheet2.addCell(labelD8);
-        sheet2.addCell(labelD9);
-        sheet2.addCell(labelD10);
-        sheet2.addCell(labelD11);
-        sheet2.addCell(labelD12);
-        sheet2.addCell(labelD13);
-        sheet2.addCell(labelD14);
-        sheet2.addCell(labelD15);
-        sheet2.addCell(labelD16);
-        sheet2.addCell(labelD17);
-        sheet2.addCell(labelD18);
-        sheet2.addCell(labelD19);
-        sheet2.addCell(labelD20);
-        sheet2.addCell(labelD21);
-        sheet2.addCell(labelD22);
-        sheet2.addCell(labelD23);
+        addCell(sheet2, labelD1);
+        addCell(sheet2, labelD2);
+        addCell(sheet2, labelD3);
+        addCell(sheet2, labelD4);
+        addCell(sheet2, labelD5);
+        addCell(sheet2, labelD6);
+        addCell(sheet2, labelD7);
+        addCell(sheet2, labelD8);
+        addCell(sheet2, labelD9);
+        addCell(sheet2, labelD10);
+        addCell(sheet2, labelD11);
+        addCell(sheet2, labelD12);
+        addCell(sheet2, labelD13);
+        addCell(sheet2, labelD14);
+        addCell(sheet2, labelD15);
+        addCell(sheet2, labelD16);
+        addCell(sheet2, labelD17);
+        addCell(sheet2, labelD18);
+        addCell(sheet2, labelD19);
+        addCell(sheet2, labelD20);
+        addCell(sheet2, labelD21);
+        addCell(sheet2, labelD22);
+        addCell(sheet2, labelD23);
 
         //Umlaufwasseranalyse ENTHÄRTUNG
-        jxl.write.Label labelEHU1 = new jxl.write.Label(3, 0, "Umlaufwasser");
-        //jxl.write.Label labelEHU2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
-        jxl.write.Label labelEHU2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
-        jxl.write.Label labelEHU3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelEHU4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelEHU5 = new jxl.write.Label(3, 5, "TW°C");
-        jxl.write.Label labelEHU6 = new jxl.write.Label(3, 6, "LF 25 ");
-        jxl.write.Label labelEHU7 = new jxl.write.Label(3, 7, "Calcium mg/l");
-        jxl.write.Label labelEHU8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
-        jxl.write.Label labelEHU9 = new jxl.write.Label(3, 9, "Na. ber. mg/l");
-        jxl.write.Label labelEHU10 = new jxl.write.Label(3, 10, "KS 4,3 mmol/l");
-        jxl.write.Label labelEHU11 = new jxl.write.Label(3, 11, "Chlorid mg/l");
-        jxl.write.Label labelEHU12 = new jxl.write.Label(3, 12, "Sulfat mg/l");
-        jxl.write.Label labelEHU13 = new jxl.write.Label(3, 13, "Nitrat mg/l");
-        jxl.write.Label labelEHU14 = new jxl.write.Label(3, 14, "pH KTNV");
-        jxl.write.Label labelEHU15 = new jxl.write.Label(3, 15, "GGW pH TKT");
-        jxl.write.Label labelEHU16 = new jxl.write.Label(3, 16, "SI TKT");
-        jxl.write.Label labelEHU17 = new jxl.write.Label(3, 17, "GGW pH W");
-        jxl.write.Label labelEHU18 = new jxl.write.Label(3, 18, "SI W");
-        jxl.write.Label labelEHU19 = new jxl.write.Label(3, 19,
+        LabelW labelEHU1 = new LabelW(3, 0, "Umlaufwasser");
+        //LabelW labelEHU2 = new LabelW(3, 1, "Aufbereitungsart");
+        LabelW labelEHU2 = new LabelW(3, 2, "Verschnitt RW %");
+        LabelW labelEHU3 = new LabelW(3, 3, "Eindickung E");
+        LabelW labelEHU4 = new LabelW(3, 4, "TKT°C");
+        LabelW labelEHU5 = new LabelW(3, 5, "TW°C");
+        LabelW labelEHU6 = new LabelW(3, 6, "LF 25 ");
+        LabelW labelEHU7 = new LabelW(3, 7, "Calcium mg/l");
+        LabelW labelEHU8 = new LabelW(3, 8, "Magnesium mg/l");
+        LabelW labelEHU9 = new LabelW(3, 9, "Na. ber. mg/l");
+        LabelW labelEHU10 = new LabelW(3, 10, "KS 4,3 mmol/l");
+        LabelW labelEHU11 = new LabelW(3, 11, "Chlorid mg/l");
+        LabelW labelEHU12 = new LabelW(3, 12, "Sulfat mg/l");
+        LabelW labelEHU13 = new LabelW(3, 13, "Nitrat mg/l");
+        LabelW labelEHU14 = new LabelW(3, 14, "pH KTNV");
+        LabelW labelEHU15 = new LabelW(3, 15, "GGW pH TKT");
+        LabelW labelEHU16 = new LabelW(3, 16, "SI TKT");
+        LabelW labelEHU17 = new LabelW(3, 17, "GGW pH W");
+        LabelW labelEHU18 = new LabelW(3, 18, "SI W");
+        LabelW labelEHU19 = new LabelW(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelEHU20 = new jxl.write.Label(3, 20, "Ionenstärke I");
-        jxl.write.Label labelEHU21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
-        jxl.write.Label labelEHU22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
-        jxl.write.Label labelEHU23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
+        LabelW labelEHU20 = new LabelW(3, 20, "Ionenstärke I");
+        LabelW labelEHU21 = new LabelW(3, 21, "H2Co3 mg/l");
+        LabelW labelEHU22 = new LabelW(3, 22, "HCo3 mg/l");
+        LabelW labelEHU23 = new LabelW(3, 23, "GCo3 mg/l");
         if (f.baufbereitung == false) {
           labelD4.setString("T LW)");
           labelD5.setString("");
@@ -809,55 +811,55 @@ public class hauptmenue
           labelD18.setString("");
         }
         //
-        sheet3.addCell(labelEHU1);
-        sheet3.addCell(labelEHU2);
-        sheet3.addCell(labelEHU3);
-        sheet3.addCell(labelEHU4);
-        sheet3.addCell(labelEHU5);
-        sheet3.addCell(labelEHU6);
-        sheet3.addCell(labelEHU7);
-        sheet3.addCell(labelEHU8);
-        sheet3.addCell(labelEHU9);
-        sheet3.addCell(labelEHU10);
-        sheet3.addCell(labelEHU11);
-        sheet3.addCell(labelEHU12);
-        sheet3.addCell(labelEHU13);
-        sheet3.addCell(labelEHU14);
-        sheet3.addCell(labelEHU15);
-        sheet3.addCell(labelEHU16);
-        sheet3.addCell(labelEHU17);
-        sheet3.addCell(labelEHU18);
-        sheet3.addCell(labelEHU19);
-        sheet3.addCell(labelEHU20);
-        sheet3.addCell(labelEHU21);
-        sheet3.addCell(labelEHU22);
-        sheet3.addCell(labelEHU23);
+        addCell(sheet3, labelEHU1);
+        addCell(sheet3, labelEHU2);
+        addCell(sheet3, labelEHU3);
+        addCell(sheet3, labelEHU4);
+        addCell(sheet3, labelEHU5);
+        addCell(sheet3, labelEHU6);
+        addCell(sheet3, labelEHU7);
+        addCell(sheet3, labelEHU8);
+        addCell(sheet3, labelEHU9);
+        addCell(sheet3, labelEHU10);
+        addCell(sheet3, labelEHU11);
+        addCell(sheet3, labelEHU12);
+        addCell(sheet3, labelEHU13);
+        addCell(sheet3, labelEHU14);
+        addCell(sheet3, labelEHU15);
+        addCell(sheet3, labelEHU16);
+        addCell(sheet3, labelEHU17);
+        addCell(sheet3, labelEHU18);
+        addCell(sheet3, labelEHU19);
+        addCell(sheet3, labelEHU20);
+        addCell(sheet3, labelEHU21);
+        addCell(sheet3, labelEHU22);
+        addCell(sheet3, labelEHU23);
         //Umlaufwasseranalyse ENTHÄRTUNG
-        jxl.write.Label labelECU1 = new jxl.write.Label(3, 0, "Umlaufwasser");
-        //jxl.write.Label labelECU2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
-        jxl.write.Label labelECU2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
-        jxl.write.Label labelECU3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelECU4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelECU5 = new jxl.write.Label(3, 5, "TW°C");
-        jxl.write.Label labelECU6 = new jxl.write.Label(3, 6, "LF 25 ");
-        jxl.write.Label labelECU7 = new jxl.write.Label(3, 7, "Calcium mg/l");
-        jxl.write.Label labelECU8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
-        jxl.write.Label labelECU9 = new jxl.write.Label(3, 9, "Na. ber. mg/l");
-        jxl.write.Label labelECU10 = new jxl.write.Label(3, 10, "KS 4,3 mmol/l");
-        jxl.write.Label labelECU11 = new jxl.write.Label(3, 11, "Chlorid mg/l");
-        jxl.write.Label labelECU12 = new jxl.write.Label(3, 12, "Sulfat mg/l");
-        jxl.write.Label labelECU13 = new jxl.write.Label(3, 13, "Nitrat mg/l");
-        jxl.write.Label labelECU14 = new jxl.write.Label(3, 14, "pH KTNV");
-        jxl.write.Label labelECU15 = new jxl.write.Label(3, 15, "GGW pH TKT");
-        jxl.write.Label labelECU16 = new jxl.write.Label(3, 16, "SI TKT");
-        jxl.write.Label labelECU17 = new jxl.write.Label(3, 17, "GGW pH W");
-        jxl.write.Label labelECU18 = new jxl.write.Label(3, 18, "SI W");
-        jxl.write.Label labelECU19 = new jxl.write.Label(3, 19,
+        LabelW labelECU1 = new LabelW(3, 0, "Umlaufwasser");
+        //LabelW labelECU2 = new LabelW(3, 1, "Aufbereitungsart");
+        LabelW labelECU2 = new LabelW(3, 2, "Verschnitt RW %");
+        LabelW labelECU3 = new LabelW(3, 3, "Eindickung E");
+        LabelW labelECU4 = new LabelW(3, 4, "TKT°C");
+        LabelW labelECU5 = new LabelW(3, 5, "TW°C");
+        LabelW labelECU6 = new LabelW(3, 6, "LF 25 ");
+        LabelW labelECU7 = new LabelW(3, 7, "Calcium mg/l");
+        LabelW labelECU8 = new LabelW(3, 8, "Magnesium mg/l");
+        LabelW labelECU9 = new LabelW(3, 9, "Na. ber. mg/l");
+        LabelW labelECU10 = new LabelW(3, 10, "KS 4,3 mmol/l");
+        LabelW labelECU11 = new LabelW(3, 11, "Chlorid mg/l");
+        LabelW labelECU12 = new LabelW(3, 12, "Sulfat mg/l");
+        LabelW labelECU13 = new LabelW(3, 13, "Nitrat mg/l");
+        LabelW labelECU14 = new LabelW(3, 14, "pH KTNV");
+        LabelW labelECU15 = new LabelW(3, 15, "GGW pH TKT");
+        LabelW labelECU16 = new LabelW(3, 16, "SI TKT");
+        LabelW labelECU17 = new LabelW(3, 17, "GGW pH W");
+        LabelW labelECU18 = new LabelW(3, 18, "SI W");
+        LabelW labelECU19 = new LabelW(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelECU20 = new jxl.write.Label(3, 20, "Ionenstärke I");
-        jxl.write.Label labelECU21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
-        jxl.write.Label labelECU22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
-        jxl.write.Label labelECU23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
+        LabelW labelECU20 = new LabelW(3, 20, "Ionenstärke I");
+        LabelW labelECU21 = new LabelW(3, 21, "H2Co3 mg/l");
+        LabelW labelECU22 = new LabelW(3, 22, "HCo3 mg/l");
+        LabelW labelECU23 = new LabelW(3, 23, "GCo3 mg/l");
         if (f.baufbereitung == false) {
           labelD4.setString("T LW)");
           labelD5.setString("");
@@ -868,58 +870,58 @@ public class hauptmenue
         }
         //
         //
-        sheet4.addCell(labelECU1);
-        sheet4.addCell(labelECU2);
-        sheet4.addCell(labelECU3);
-        sheet4.addCell(labelECU4);
-        sheet4.addCell(labelECU5);
-        sheet4.addCell(labelECU6);
-        sheet4.addCell(labelECU7);
-        sheet4.addCell(labelECU8);
-        sheet4.addCell(labelECU9);
-        sheet4.addCell(labelECU10);
-        sheet4.addCell(labelECU11);
-        sheet4.addCell(labelECU12);
-        sheet4.addCell(labelECU13);
-        sheet4.addCell(labelECU14);
-        sheet4.addCell(labelECU15);
-        sheet4.addCell(labelECU16);
-        sheet4.addCell(labelECU17);
-        sheet4.addCell(labelECU18);
-        sheet4.addCell(labelECU19);
-        sheet4.addCell(labelECU20);
-        sheet4.addCell(labelECU21);
-        sheet4.addCell(labelECU22);
-        sheet4.addCell(labelECU23);
+        addCell(sheet4, labelECU1);
+        addCell(sheet4, labelECU2);
+        addCell(sheet4, labelECU3);
+        addCell(sheet4, labelECU4);
+        addCell(sheet4, labelECU5);
+        addCell(sheet4, labelECU6);
+        addCell(sheet4, labelECU7);
+        addCell(sheet4, labelECU8);
+        addCell(sheet4, labelECU9);
+        addCell(sheet4, labelECU10);
+        addCell(sheet4, labelECU11);
+        addCell(sheet4, labelECU12);
+        addCell(sheet4, labelECU13);
+        addCell(sheet4, labelECU14);
+        addCell(sheet4, labelECU15);
+        addCell(sheet4, labelECU16);
+        addCell(sheet4, labelECU17);
+        addCell(sheet4, labelECU18);
+        addCell(sheet4, labelECU19);
+        addCell(sheet4, labelECU20);
+        addCell(sheet4, labelECU21);
+        addCell(sheet4, labelECU22);
+        addCell(sheet4, labelECU23);
 
         //
         //
         //Umlaufwasseranalyse ENTHÄRTUNG
-        jxl.write.Label labelUOU1 = new jxl.write.Label(3, 0, "Umlaufwasser");
-        //jxl.write.Label labelUOU2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
-        jxl.write.Label labelUOU2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
-        jxl.write.Label labelUOU3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelUOU4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelUOU5 = new jxl.write.Label(3, 5, "TW°C");
-        jxl.write.Label labelUOU6 = new jxl.write.Label(3, 6, "LF 25 ");
-        jxl.write.Label labelUOU7 = new jxl.write.Label(3, 7, "Calcium mg/l");
-        jxl.write.Label labelUOU8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
-        jxl.write.Label labelUOU9 = new jxl.write.Label(3, 9, "Na. ber. mg/l");
-        jxl.write.Label labelUOU10 = new jxl.write.Label(3, 10, "KS 4,3 mmol/l");
-        jxl.write.Label labelUOU11 = new jxl.write.Label(3, 11, "Chlorid mg/l");
-        jxl.write.Label labelUOU12 = new jxl.write.Label(3, 12, "Sulfat mg/l");
-        jxl.write.Label labelUOU13 = new jxl.write.Label(3, 13, "Nitrat mg/l");
-        jxl.write.Label labelUOU14 = new jxl.write.Label(3, 14, "pH KTNV");
-        jxl.write.Label labelUOU15 = new jxl.write.Label(3, 15, "GGW pH TKT");
-        jxl.write.Label labelUOU16 = new jxl.write.Label(3, 16, "SI TKT");
-        jxl.write.Label labelUOU17 = new jxl.write.Label(3, 17, "GGW pH W");
-        jxl.write.Label labelUOU18 = new jxl.write.Label(3, 18, "SI W");
-        jxl.write.Label labelUOU19 = new jxl.write.Label(3, 19,
+        LabelW labelUOU1 = new LabelW(3, 0, "Umlaufwasser");
+        //LabelW labelUOU2 = new LabelW(3, 1, "Aufbereitungsart");
+        LabelW labelUOU2 = new LabelW(3, 2, "Verschnitt RW %");
+        LabelW labelUOU3 = new LabelW(3, 3, "Eindickung E");
+        LabelW labelUOU4 = new LabelW(3, 4, "TKT°C");
+        LabelW labelUOU5 = new LabelW(3, 5, "TW°C");
+        LabelW labelUOU6 = new LabelW(3, 6, "LF 25 ");
+        LabelW labelUOU7 = new LabelW(3, 7, "Calcium mg/l");
+        LabelW labelUOU8 = new LabelW(3, 8, "Magnesium mg/l");
+        LabelW labelUOU9 = new LabelW(3, 9, "Na. ber. mg/l");
+        LabelW labelUOU10 = new LabelW(3, 10, "KS 4,3 mmol/l");
+        LabelW labelUOU11 = new LabelW(3, 11, "Chlorid mg/l");
+        LabelW labelUOU12 = new LabelW(3, 12, "Sulfat mg/l");
+        LabelW labelUOU13 = new LabelW(3, 13, "Nitrat mg/l");
+        LabelW labelUOU14 = new LabelW(3, 14, "pH KTNV");
+        LabelW labelUOU15 = new LabelW(3, 15, "GGW pH TKT");
+        LabelW labelUOU16 = new LabelW(3, 16, "SI TKT");
+        LabelW labelUOU17 = new LabelW(3, 17, "GGW pH W");
+        LabelW labelUOU18 = new LabelW(3, 18, "SI W");
+        LabelW labelUOU19 = new LabelW(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelUOU20 = new jxl.write.Label(3, 20, "Ionenstärke I");
-        jxl.write.Label labelUOU21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
-        jxl.write.Label labelUOU22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
-        jxl.write.Label labelUOU23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
+        LabelW labelUOU20 = new LabelW(3, 20, "Ionenstärke I");
+        LabelW labelUOU21 = new LabelW(3, 21, "H2Co3 mg/l");
+        LabelW labelUOU22 = new LabelW(3, 22, "HCo3 mg/l");
+        LabelW labelUOU23 = new LabelW(3, 23, "GCo3 mg/l");
         if (f.baufbereitung == false) {
           labelD4.setString("T LW)");
           labelD5.setString("");
@@ -930,57 +932,57 @@ public class hauptmenue
         }
         //
         //
-        sheet5.addCell(labelUOU1);
-        sheet5.addCell(labelUOU2);
-        sheet5.addCell(labelUOU3);
-        sheet5.addCell(labelUOU4);
-        sheet5.addCell(labelUOU5);
-        sheet5.addCell(labelUOU6);
-        sheet5.addCell(labelUOU7);
-        sheet5.addCell(labelUOU8);
-        sheet5.addCell(labelUOU9);
-        sheet5.addCell(labelUOU10);
-        sheet5.addCell(labelUOU11);
-        sheet5.addCell(labelUOU12);
-        sheet5.addCell(labelUOU13);
-        sheet5.addCell(labelUOU14);
-        sheet5.addCell(labelUOU15);
-        sheet5.addCell(labelUOU16);
-        sheet5.addCell(labelUOU17);
-        sheet5.addCell(labelUOU18);
-        sheet5.addCell(labelUOU19);
-        sheet5.addCell(labelUOU20);
-        sheet5.addCell(labelUOU21);
-        sheet5.addCell(labelUOU22);
-        sheet5.addCell(labelUOU23);
+        addCell(sheet5, labelUOU1);
+        addCell(sheet5, labelUOU2);
+        addCell(sheet5, labelUOU3);
+        addCell(sheet5, labelUOU4);
+        addCell(sheet5, labelUOU5);
+        addCell(sheet5, labelUOU6);
+        addCell(sheet5, labelUOU7);
+        addCell(sheet5, labelUOU8);
+        addCell(sheet5, labelUOU9);
+        addCell(sheet5, labelUOU10);
+        addCell(sheet5, labelUOU11);
+        addCell(sheet5, labelUOU12);
+        addCell(sheet5, labelUOU13);
+        addCell(sheet5, labelUOU14);
+        addCell(sheet5, labelUOU15);
+        addCell(sheet5, labelUOU16);
+        addCell(sheet5, labelUOU17);
+        addCell(sheet5, labelUOU18);
+        addCell(sheet5, labelUOU19);
+        addCell(sheet5, labelUOU20);
+        addCell(sheet5, labelUOU21);
+        addCell(sheet5, labelUOU22);
+        addCell(sheet5, labelUOU23);
 
         //
         //Umlaufwasseranalyse ENTHÄRTUNG
-        jxl.write.Label labelUMU1 = new jxl.write.Label(3, 0, "Umlaufwasser");
-        //jxl.write.Label labelUMU2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
-        jxl.write.Label labelUMU2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
-        jxl.write.Label labelUMU3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelUMU4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelUMU5 = new jxl.write.Label(3, 5, "TW°C");
-        jxl.write.Label labelUMU6 = new jxl.write.Label(3, 6, "LF 25 ");
-        jxl.write.Label labelUMU7 = new jxl.write.Label(3, 7, "Calcium mg/l");
-        jxl.write.Label labelUMU8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
-        jxl.write.Label labelUMU9 = new jxl.write.Label(3, 9, "Na. ber. mg/l");
-        jxl.write.Label labelUMU10 = new jxl.write.Label(3, 10, "KS 4,3 mmol/l");
-        jxl.write.Label labelUMU11 = new jxl.write.Label(3, 11, "Chlorid mg/l");
-        jxl.write.Label labelUMU12 = new jxl.write.Label(3, 12, "Sulfat mg/l");
-        jxl.write.Label labelUMU13 = new jxl.write.Label(3, 13, "Nitrat mg/l");
-        jxl.write.Label labelUMU14 = new jxl.write.Label(3, 14, "pH KTNV");
-        jxl.write.Label labelUMU15 = new jxl.write.Label(3, 15, "GGW pH TKT");
-        jxl.write.Label labelUMU16 = new jxl.write.Label(3, 16, "SI TKT");
-        jxl.write.Label labelUMU17 = new jxl.write.Label(3, 17, "GGW pH W");
-        jxl.write.Label labelUMU18 = new jxl.write.Label(3, 18, "SI W");
-        jxl.write.Label labelUMU19 = new jxl.write.Label(3, 19,
+        LabelW labelUMU1 = new LabelW(3, 0, "Umlaufwasser");
+        //LabelW labelUMU2 = new LabelW(3, 1, "Aufbereitungsart");
+        LabelW labelUMU2 = new LabelW(3, 2, "Verschnitt RW %");
+        LabelW labelUMU3 = new LabelW(3, 3, "Eindickung E");
+        LabelW labelUMU4 = new LabelW(3, 4, "TKT°C");
+        LabelW labelUMU5 = new LabelW(3, 5, "TW°C");
+        LabelW labelUMU6 = new LabelW(3, 6, "LF 25 ");
+        LabelW labelUMU7 = new LabelW(3, 7, "Calcium mg/l");
+        LabelW labelUMU8 = new LabelW(3, 8, "Magnesium mg/l");
+        LabelW labelUMU9 = new LabelW(3, 9, "Na. ber. mg/l");
+        LabelW labelUMU10 = new LabelW(3, 10, "KS 4,3 mmol/l");
+        LabelW labelUMU11 = new LabelW(3, 11, "Chlorid mg/l");
+        LabelW labelUMU12 = new LabelW(3, 12, "Sulfat mg/l");
+        LabelW labelUMU13 = new LabelW(3, 13, "Nitrat mg/l");
+        LabelW labelUMU14 = new LabelW(3, 14, "pH KTNV");
+        LabelW labelUMU15 = new LabelW(3, 15, "GGW pH TKT");
+        LabelW labelUMU16 = new LabelW(3, 16, "SI TKT");
+        LabelW labelUMU17 = new LabelW(3, 17, "GGW pH W");
+        LabelW labelUMU18 = new LabelW(3, 18, "SI W");
+        LabelW labelUMU19 = new LabelW(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelUMU20 = new jxl.write.Label(3, 20, "Ionenstärke I");
-        jxl.write.Label labelUMU21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
-        jxl.write.Label labelUMU22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
-        jxl.write.Label labelUMU23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
+        LabelW labelUMU20 = new LabelW(3, 20, "Ionenstärke I");
+        LabelW labelUMU21 = new LabelW(3, 21, "H2Co3 mg/l");
+        LabelW labelUMU22 = new LabelW(3, 22, "HCo3 mg/l");
+        LabelW labelUMU23 = new LabelW(3, 23, "GCo3 mg/l");
         if (f.baufbereitung == false) {
           labelD4.setString("T LW)");
           labelD5.setString("");
@@ -991,56 +993,56 @@ public class hauptmenue
         }
         //
         //
-        sheet6.addCell(labelUMU1);
-        sheet6.addCell(labelUMU2);
-        sheet6.addCell(labelUMU3);
-        sheet6.addCell(labelUMU4);
-        sheet6.addCell(labelUMU5);
-        sheet6.addCell(labelUMU6);
-        sheet6.addCell(labelUMU7);
-        sheet6.addCell(labelUMU8);
-        sheet6.addCell(labelUMU9);
-        sheet6.addCell(labelUMU10);
-        sheet6.addCell(labelUMU11);
-        sheet6.addCell(labelUMU12);
-        sheet6.addCell(labelUMU13);
-        sheet6.addCell(labelUMU14);
-        sheet6.addCell(labelUMU15);
-        sheet6.addCell(labelUMU16);
-        sheet6.addCell(labelUMU17);
-        sheet6.addCell(labelUMU18);
-        sheet6.addCell(labelUMU19);
-        sheet6.addCell(labelUMU20);
-        sheet6.addCell(labelUMU21);
-        sheet6.addCell(labelUMU22);
-        sheet6.addCell(labelUMU23);
+        addCell(sheet6, labelUMU1);
+        addCell(sheet6, labelUMU2);
+        addCell(sheet6, labelUMU3);
+        addCell(sheet6, labelUMU4);
+        addCell(sheet6, labelUMU5);
+        addCell(sheet6, labelUMU6);
+        addCell(sheet6, labelUMU7);
+        addCell(sheet6, labelUMU8);
+        addCell(sheet6, labelUMU9);
+        addCell(sheet6, labelUMU10);
+        addCell(sheet6, labelUMU11);
+        addCell(sheet6, labelUMU12);
+        addCell(sheet6, labelUMU13);
+        addCell(sheet6, labelUMU14);
+        addCell(sheet6, labelUMU15);
+        addCell(sheet6, labelUMU16);
+        addCell(sheet6, labelUMU17);
+        addCell(sheet6, labelUMU18);
+        addCell(sheet6, labelUMU19);
+        addCell(sheet6, labelUMU20);
+        addCell(sheet6, labelUMU21);
+        addCell(sheet6, labelUMU22);
+        addCell(sheet6, labelUMU23);
         //
         //Umlaufwasseranalyse ENTHÄRTUNG
-        jxl.write.Label labelSDU1 = new jxl.write.Label(3, 0, "Umlaufwasser");
-        //jxl.write.Label labelSDU2 = new jxl.write.Label(3, 1, "Aufbereitungsart");
-        jxl.write.Label labelSDU2 = new jxl.write.Label(3, 2, "Verschnitt RW %");
-        jxl.write.Label labelSDU3 = new jxl.write.Label(3, 3, "Eindickung E");
-        jxl.write.Label labelSDU4 = new jxl.write.Label(3, 4, "TKT°C");
-        jxl.write.Label labelSDU5 = new jxl.write.Label(3, 5, "TW°C");
-        jxl.write.Label labelSDU6 = new jxl.write.Label(3, 6, "LF 25 ");
-        jxl.write.Label labelSDU7 = new jxl.write.Label(3, 7, "Calcium mg/l");
-        jxl.write.Label labelSDU8 = new jxl.write.Label(3, 8, "Magnesium mg/l");
-        jxl.write.Label labelSDU9 = new jxl.write.Label(3, 9, "Na. ber. mg/l");
-        jxl.write.Label labelSDU10 = new jxl.write.Label(3, 10, "KS 4,3 mmol/l");
-        jxl.write.Label labelSDU11 = new jxl.write.Label(3, 11, "Chlorid mg/l");
-        jxl.write.Label labelSDU12 = new jxl.write.Label(3, 12, "Sulfat mg/l");
-        jxl.write.Label labelSDU13 = new jxl.write.Label(3, 13, "Nitrat mg/l");
-        jxl.write.Label labelSDU14 = new jxl.write.Label(3, 14, "pH KTNV");
-        jxl.write.Label labelSDU15 = new jxl.write.Label(3, 15, "GGW pH TKT");
-        jxl.write.Label labelSDU16 = new jxl.write.Label(3, 16, "SI TKT");
-        jxl.write.Label labelSDU17 = new jxl.write.Label(3, 17, "GGW pH W");
-        jxl.write.Label labelSDU18 = new jxl.write.Label(3, 18, "SI W");
-        jxl.write.Label labelSDU19 = new jxl.write.Label(3, 19,
+        LabelW labelSDU1 = new LabelW(3, 0, "Umlaufwasser");
+        //LabelW labelSDU2 = new LabelW(3, 1, "Aufbereitungsart");
+        LabelW labelSDU2 = new LabelW(3, 2, "Verschnitt RW %");
+        LabelW labelSDU3 = new LabelW(3, 3, "Eindickung E");
+        LabelW labelSDU4 = new LabelW(3, 4, "TKT°C");
+        LabelW labelSDU5 = new LabelW(3, 5, "TW°C");
+        LabelW labelSDU6 = new LabelW(3, 6, "LF 25 ");
+        LabelW labelSDU7 = new LabelW(3, 7, "Calcium mg/l");
+        LabelW labelSDU8 = new LabelW(3, 8, "Magnesium mg/l");
+        LabelW labelSDU9 = new LabelW(3, 9, "Na. ber. mg/l");
+        LabelW labelSDU10 = new LabelW(3, 10, "KS 4,3 mmol/l");
+        LabelW labelSDU11 = new LabelW(3, 11, "Chlorid mg/l");
+        LabelW labelSDU12 = new LabelW(3, 12, "Sulfat mg/l");
+        LabelW labelSDU13 = new LabelW(3, 13, "Nitrat mg/l");
+        LabelW labelSDU14 = new LabelW(3, 14, "pH KTNV");
+        LabelW labelSDU15 = new LabelW(3, 15, "GGW pH TKT");
+        LabelW labelSDU16 = new LabelW(3, 16, "SI TKT");
+        LabelW labelSDU17 = new LabelW(3, 17, "GGW pH W");
+        LabelW labelSDU18 = new LabelW(3, 18, "SI W");
+        LabelW labelSDU19 = new LabelW(3, 19,
             "Salzgehalt mmol/l");
-        jxl.write.Label labelSDU20 = new jxl.write.Label(3, 20, "Ionenstärke I");
-        jxl.write.Label labelSDU21 = new jxl.write.Label(3, 21, "H2Co3 mg/l");
-        jxl.write.Label labelSDU22 = new jxl.write.Label(3, 22, "HCo3 mg/l");
-        jxl.write.Label labelSDU23 = new jxl.write.Label(3, 23, "GCo3 mg/l");
+        LabelW labelSDU20 = new LabelW(3, 20, "Ionenstärke I");
+        LabelW labelSDU21 = new LabelW(3, 21, "H2Co3 mg/l");
+        LabelW labelSDU22 = new LabelW(3, 22, "HCo3 mg/l");
+        LabelW labelSDU23 = new LabelW(3, 23, "GCo3 mg/l");
         if (f.baufbereitung == false) {
           labelD4.setString("T LW)");
           labelD5.setString("");
@@ -1051,438 +1053,438 @@ public class hauptmenue
         }
 //
 //
-        sheet7.addCell(labelSDU1);
-        sheet7.addCell(labelSDU2);
-        sheet7.addCell(labelSDU3);
-        sheet7.addCell(labelSDU4);
-        sheet7.addCell(labelSDU5);
-        sheet7.addCell(labelSDU6);
-        sheet7.addCell(labelSDU7);
-        sheet7.addCell(labelSDU8);
-        sheet7.addCell(labelSDU9);
-        sheet7.addCell(labelSDU10);
-        sheet7.addCell(labelSDU11);
-        sheet7.addCell(labelSDU12);
-        sheet7.addCell(labelSDU13);
-        sheet7.addCell(labelSDU14);
-        sheet7.addCell(labelSDU15);
-        sheet7.addCell(labelSDU16);
-        sheet7.addCell(labelSDU17);
-        sheet7.addCell(labelSDU18);
-        sheet7.addCell(labelSDU19);
-        sheet7.addCell(labelSDU20);
-        sheet7.addCell(labelSDU21);
-        sheet7.addCell(labelSDU22);
-        sheet7.addCell(labelSDU23);
+        addCell(sheet7, labelSDU1);
+        addCell(sheet7, labelSDU2);
+        addCell(sheet7, labelSDU3);
+        addCell(sheet7, labelSDU4);
+        addCell(sheet7, labelSDU5);
+        addCell(sheet7, labelSDU6);
+        addCell(sheet7, labelSDU7);
+        addCell(sheet7, labelSDU8);
+        addCell(sheet7, labelSDU9);
+        addCell(sheet7, labelSDU10);
+        addCell(sheet7, labelSDU11);
+        addCell(sheet7, labelSDU12);
+        addCell(sheet7, labelSDU13);
+        addCell(sheet7, labelSDU14);
+        addCell(sheet7, labelSDU15);
+        addCell(sheet7, labelSDU16);
+        addCell(sheet7, labelSDU17);
+        addCell(sheet7, labelSDU18);
+        addCell(sheet7, labelSDU19);
+        addCell(sheet7, labelSDU20);
+        addCell(sheet7, labelSDU21);
+        addCell(sheet7, labelSDU22);
+        addCell(sheet7, labelSDU23);
 
 //VERBRAUCH  THRESH
-        jxl.write.Label labelTHM1 = new jxl.write.Label(6, 0,
+        LabelW labelTHM1 = new LabelW(6, 0,
             "Verbrauchsmengen");
-        jxl.write.Label labelTHM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
-        jxl.write.Label labelTHM3 = new jxl.write.Label(6, 3,
+        LabelW labelTHM2 = new LabelW(6, 2, "Energie kWh/a");
+        LabelW labelTHM3 = new LabelW(6, 3,
             "Zusatzwasser m³/a");
-        jxl.write.Label labelTHM4 = new jxl.write.Label(6, 4,
+        LabelW labelTHM4 = new LabelW(6, 4,
             "Schmutzwassersiel m³/a");
-        jxl.write.Label labelTHM5 = new jxl.write.Label(6, 5,
+        LabelW labelTHM5 = new LabelW(6, 5,
             "Regenwassersiel m³/a");
-        jxl.write.Label labelTHM6 = new jxl.write.Label(6, 6,
+        LabelW labelTHM6 = new LabelW(6, 6,
             "Dosiermittel kg/a");
-        jxl.write.Label labelTHM7 = new jxl.write.Label(6, 7,
+        LabelW labelTHM7 = new LabelW(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelTHM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
-        jxl.write.Label labelTHM9 = new jxl.write.Label(6, 9,
+        LabelW labelTHM8 = new LabelW(6, 8, "Salzsäure kg/a");
+        LabelW labelTHM9 = new LabelW(6, 9,
             "Schwefelsäure kg/l");
-        jxl.write.Label labelTHM10 = new jxl.write.Label(6, 10,
+        LabelW labelTHM10 = new LabelW(6, 10,
             "RO Dosiermittel kg/a");
 
         //
-        sheet2.addCell(labelTHM1);
-        sheet2.addCell(labelTHM2);
-        sheet2.addCell(labelTHM3);
-        sheet2.addCell(labelTHM4);
-        sheet2.addCell(labelTHM5);
-        sheet2.addCell(labelTHM6);
-        sheet2.addCell(labelTHM7);
-        sheet2.addCell(labelTHM8);
-        sheet2.addCell(labelTHM9);
-        sheet2.addCell(labelTHM10);
+        addCell(sheet2, labelTHM1);
+        addCell(sheet2, labelTHM2);
+        addCell(sheet2, labelTHM3);
+        addCell(sheet2, labelTHM4);
+        addCell(sheet2, labelTHM5);
+        addCell(sheet2, labelTHM6);
+        addCell(sheet2, labelTHM7);
+        addCell(sheet2, labelTHM8);
+        addCell(sheet2, labelTHM9);
+        addCell(sheet2, labelTHM10);
 
         //VERBRAUCH  EH
-        jxl.write.Label labelEHM1 = new jxl.write.Label(6, 0,
+        LabelW labelEHM1 = new LabelW(6, 0,
             "Verbrauchsmengen");
-        jxl.write.Label labelEHM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
-        jxl.write.Label labelEHM3 = new jxl.write.Label(6, 3,
+        LabelW labelEHM2 = new LabelW(6, 2, "Energie kWh/a");
+        LabelW labelEHM3 = new LabelW(6, 3,
             "Zusatzwasser m³/a");
-        jxl.write.Label labelEHM4 = new jxl.write.Label(6, 4,
+        LabelW labelEHM4 = new LabelW(6, 4,
             "Schmutzwassersiel m³/a");
-        jxl.write.Label labelEHM5 = new jxl.write.Label(6, 5,
+        LabelW labelEHM5 = new LabelW(6, 5,
             "Regenwassersiel m³/a");
-        jxl.write.Label labelEHM6 = new jxl.write.Label(6, 6,
+        LabelW labelEHM6 = new LabelW(6, 6,
             "Dosiermittel kg/a");
-        jxl.write.Label labelEHM7 = new jxl.write.Label(6, 7,
+        LabelW labelEHM7 = new LabelW(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelEHM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
-        jxl.write.Label labelEHM9 = new jxl.write.Label(6, 9,
+        LabelW labelEHM8 = new LabelW(6, 8, "Salzsäure kg/a");
+        LabelW labelEHM9 = new LabelW(6, 9,
             "Schwefelsäure kg/l");
-        jxl.write.Label labelEHM10 = new jxl.write.Label(6, 10,
+        LabelW labelEHM10 = new LabelW(6, 10,
             "RO Dosiermittel kg/a");
 
         //
-        sheet3.addCell(labelEHM1);
-        sheet3.addCell(labelEHM2);
-        sheet3.addCell(labelEHM3);
-        sheet3.addCell(labelEHM4);
-        sheet3.addCell(labelEHM5);
-        sheet3.addCell(labelEHM6);
-        sheet3.addCell(labelEHM7);
-        sheet3.addCell(labelEHM8);
-        sheet3.addCell(labelEHM9);
-        sheet3.addCell(labelEHM10);
+        addCell(sheet3, labelEHM1);
+        addCell(sheet3, labelEHM2);
+        addCell(sheet3, labelEHM3);
+        addCell(sheet3, labelEHM4);
+        addCell(sheet3, labelEHM5);
+        addCell(sheet3, labelEHM6);
+        addCell(sheet3, labelEHM7);
+        addCell(sheet3, labelEHM8);
+        addCell(sheet3, labelEHM9);
+        addCell(sheet3, labelEHM10);
 
         //VERBRAUCH  EC
-        jxl.write.Label labelECM1 = new jxl.write.Label(6, 0,
+        LabelW labelECM1 = new LabelW(6, 0,
             "Verbrauchsmengen");
-        jxl.write.Label labelECM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
-        jxl.write.Label labelECM3 = new jxl.write.Label(6, 3,
+        LabelW labelECM2 = new LabelW(6, 2, "Energie kWh/a");
+        LabelW labelECM3 = new LabelW(6, 3,
             "Zusatzwasser m³/a");
-        jxl.write.Label labelECM4 = new jxl.write.Label(6, 4,
+        LabelW labelECM4 = new LabelW(6, 4,
             "Schmutzwassersiel m³/a");
-        jxl.write.Label labelECM5 = new jxl.write.Label(6, 5,
+        LabelW labelECM5 = new LabelW(6, 5,
             "Regenwassersiel m³/a");
-        jxl.write.Label labelECM6 = new jxl.write.Label(6, 6,
+        LabelW labelECM6 = new LabelW(6, 6,
             "Dosiermittel kg/a");
-        jxl.write.Label labelECM7 = new jxl.write.Label(6, 7,
+        LabelW labelECM7 = new LabelW(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelECM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
-        jxl.write.Label labelECM9 = new jxl.write.Label(6, 9,
+        LabelW labelECM8 = new LabelW(6, 8, "Salzsäure kg/a");
+        LabelW labelECM9 = new LabelW(6, 9,
             "Schwefelsäure kg/l");
-        jxl.write.Label labelECM10 = new jxl.write.Label(6, 10,
+        LabelW labelECM10 = new LabelW(6, 10,
             "RO Dosiermittel kg/a");
 
         //
-        sheet4.addCell(labelECM1);
-        sheet4.addCell(labelECM2);
-        sheet4.addCell(labelECM3);
-        sheet4.addCell(labelECM4);
-        sheet4.addCell(labelECM5);
-        sheet4.addCell(labelECM6);
-        sheet4.addCell(labelECM7);
-        sheet4.addCell(labelECM8);
-        sheet4.addCell(labelECM9);
-        sheet4.addCell(labelECM10);
+        addCell(sheet4, labelECM1);
+        addCell(sheet4, labelECM2);
+        addCell(sheet4, labelECM3);
+        addCell(sheet4, labelECM4);
+        addCell(sheet4, labelECM5);
+        addCell(sheet4, labelECM6);
+        addCell(sheet4, labelECM7);
+        addCell(sheet4, labelECM8);
+        addCell(sheet4, labelECM9);
+        addCell(sheet4, labelECM10);
 
         //
 //VERBRAUCH  UO
-        jxl.write.Label labelUOM1 = new jxl.write.Label(6, 0,
+        LabelW labelUOM1 = new LabelW(6, 0,
             "Verbrauchsmengen");
-        jxl.write.Label labelUOM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
-        jxl.write.Label labelUOM3 = new jxl.write.Label(6, 3,
+        LabelW labelUOM2 = new LabelW(6, 2, "Energie kWh/a");
+        LabelW labelUOM3 = new LabelW(6, 3,
             "Zusatzwasser m³/a");
-        jxl.write.Label labelUOM4 = new jxl.write.Label(6, 4,
+        LabelW labelUOM4 = new LabelW(6, 4,
             "Schmutzwassersiel m³/a");
-        jxl.write.Label labelUOM5 = new jxl.write.Label(6, 5,
+        LabelW labelUOM5 = new LabelW(6, 5,
             "Regenwassersiel m³/a");
-        jxl.write.Label labelUOM6 = new jxl.write.Label(6, 6,
+        LabelW labelUOM6 = new LabelW(6, 6,
             "Dosiermittel kg/a");
-        jxl.write.Label labelUOM7 = new jxl.write.Label(6, 7,
+        LabelW labelUOM7 = new LabelW(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelUOM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
-        jxl.write.Label labelUOM9 = new jxl.write.Label(6, 9,
+        LabelW labelUOM8 = new LabelW(6, 8, "Salzsäure kg/a");
+        LabelW labelUOM9 = new LabelW(6, 9,
             "Schwefelsäure kg/l");
-        jxl.write.Label labelUOM10 = new jxl.write.Label(6, 10,
+        LabelW labelUOM10 = new LabelW(6, 10,
             "RO Dosiermittel kg/a");
 
         //
-        sheet5.addCell(labelUOM1);
-        sheet5.addCell(labelUOM2);
-        sheet5.addCell(labelUOM3);
-        sheet5.addCell(labelUOM4);
-        sheet5.addCell(labelUOM5);
-        sheet5.addCell(labelUOM6);
-        sheet5.addCell(labelUOM7);
-        sheet5.addCell(labelUOM8);
-        sheet5.addCell(labelUOM9);
-        sheet5.addCell(labelUOM10);
+        addCell(sheet5, labelUOM1);
+        addCell(sheet5, labelUOM2);
+        addCell(sheet5, labelUOM3);
+        addCell(sheet5, labelUOM4);
+        addCell(sheet5, labelUOM5);
+        addCell(sheet5, labelUOM6);
+        addCell(sheet5, labelUOM7);
+        addCell(sheet5, labelUOM8);
+        addCell(sheet5, labelUOM9);
+        addCell(sheet5, labelUOM10);
 
         //VERBRAUCH  THRESH
-        jxl.write.Label labelUMM1 = new jxl.write.Label(6, 0,
+        LabelW labelUMM1 = new LabelW(6, 0,
             "Verbrauchsmengen");
-        jxl.write.Label labelUMM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
-        jxl.write.Label labelUMM3 = new jxl.write.Label(6, 3,
+        LabelW labelUMM2 = new LabelW(6, 2, "Energie kWh/a");
+        LabelW labelUMM3 = new LabelW(6, 3,
             "Zusatzwasser m³/a");
-        jxl.write.Label labelUMM4 = new jxl.write.Label(6, 4,
+        LabelW labelUMM4 = new LabelW(6, 4,
             "Schmutzwassersiel m³/a");
-        jxl.write.Label labelUMM5 = new jxl.write.Label(6, 5,
+        LabelW labelUMM5 = new LabelW(6, 5,
             "Regenwassersiel m³/a");
-        jxl.write.Label labelUMM6 = new jxl.write.Label(6, 6,
+        LabelW labelUMM6 = new LabelW(6, 6,
             "Dosiermittel kg/a");
-        jxl.write.Label labelUMM7 = new jxl.write.Label(6, 7,
+        LabelW labelUMM7 = new LabelW(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelUMM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
-        jxl.write.Label labelUMM9 = new jxl.write.Label(6, 9,
+        LabelW labelUMM8 = new LabelW(6, 8, "Salzsäure kg/a");
+        LabelW labelUMM9 = new LabelW(6, 9,
             "Schwefelsäure kg/l");
-        jxl.write.Label labelUMM10 = new jxl.write.Label(6, 10,
+        LabelW labelUMM10 = new LabelW(6, 10,
             "RO Dosiermittel kg/a");
 
         //
-        sheet6.addCell(labelUMM1);
-        sheet6.addCell(labelUMM2);
-        sheet6.addCell(labelUMM3);
-        sheet6.addCell(labelUMM4);
-        sheet6.addCell(labelUMM5);
-        sheet6.addCell(labelUMM6);
-        sheet6.addCell(labelUMM7);
-        sheet6.addCell(labelUMM8);
-        sheet6.addCell(labelUMM9);
-        sheet6.addCell(labelUMM10);
+        addCell(sheet6, labelUMM1);
+        addCell(sheet6, labelUMM2);
+        addCell(sheet6, labelUMM3);
+        addCell(sheet6, labelUMM4);
+        addCell(sheet6, labelUMM5);
+        addCell(sheet6, labelUMM6);
+        addCell(sheet6, labelUMM7);
+        addCell(sheet6, labelUMM8);
+        addCell(sheet6, labelUMM9);
+        addCell(sheet6, labelUMM10);
 //
 
         //VERBRAUCH  THRESH
-        jxl.write.Label labelSDM1 = new jxl.write.Label(6, 0,
+        LabelW labelSDM1 = new LabelW(6, 0,
             "Verbrauchsmengen");
-        jxl.write.Label labelSDM2 = new jxl.write.Label(6, 2, "Energie kWh/a");
-        jxl.write.Label labelSDM3 = new jxl.write.Label(6, 3,
+        LabelW labelSDM2 = new LabelW(6, 2, "Energie kWh/a");
+        LabelW labelSDM3 = new LabelW(6, 3,
             "Zusatzwasser m³/a");
-        jxl.write.Label labelSDM4 = new jxl.write.Label(6, 4,
+        LabelW labelSDM4 = new LabelW(6, 4,
             "Schmutzwassersiel m³/a");
-        jxl.write.Label labelSDM5 = new jxl.write.Label(6, 5,
+        LabelW labelSDM5 = new LabelW(6, 5,
             "Regenwassersiel m³/a");
-        jxl.write.Label labelSDM6 = new jxl.write.Label(6, 6,
+        LabelW labelSDM6 = new LabelW(6, 6,
             "Dosiermittel kg/a");
-        jxl.write.Label labelSDM7 = new jxl.write.Label(6, 7,
+        LabelW labelSDM7 = new LabelW(6, 7,
             "Salztabletten kg/a ");
-        jxl.write.Label labelSDM8 = new jxl.write.Label(6, 8, "Salzsäure kg/a");
-        jxl.write.Label labelSDM9 = new jxl.write.Label(6, 9,
+        LabelW labelSDM8 = new LabelW(6, 8, "Salzsäure kg/a");
+        LabelW labelSDM9 = new LabelW(6, 9,
             "Schwefelsäure kg/l");
-        jxl.write.Label labelSDM10 = new jxl.write.Label(6, 10,
+        LabelW labelSDM10 = new LabelW(6, 10,
             "RO Dosiermittel kg/a");
 
         //
-        sheet7.addCell(labelSDM1);
-        sheet7.addCell(labelSDM2);
-        sheet7.addCell(labelSDM3);
-        sheet7.addCell(labelSDM4);
-        sheet7.addCell(labelSDM5);
-        sheet7.addCell(labelSDM6);
-        sheet7.addCell(labelSDM7);
-        sheet7.addCell(labelSDM8);
-        sheet7.addCell(labelSDM9);
-        sheet7.addCell(labelSDM10);
+        addCell(sheet7, labelSDM1);
+        addCell(sheet7, labelSDM2);
+        addCell(sheet7, labelSDM3);
+        addCell(sheet7, labelSDM4);
+        addCell(sheet7, labelSDM5);
+        addCell(sheet7, labelSDM6);
+        addCell(sheet7, labelSDM7);
+        addCell(sheet7, labelSDM8);
+        addCell(sheet7, labelSDM9);
+        addCell(sheet7, labelSDM10);
 
         //Kosten TH
-        jxl.write.Label labelTHK1 = new jxl.write.Label(6, 11, "Kosten");
-        jxl.write.Label labelTHK2 = new jxl.write.Label(6, 13, "Energie EUR/a");
-        jxl.write.Label labelTHK3 = new jxl.write.Label(6, 14,
+        LabelW labelTHK1 = new LabelW(6, 11, "Kosten");
+        LabelW labelTHK2 = new LabelW(6, 13, "Energie EUR/a");
+        LabelW labelTHK3 = new LabelW(6, 14,
             "Zusatzwasser EUR/a");
-        jxl.write.Label labelTHK4 = new jxl.write.Label(6, 15,
+        LabelW labelTHK4 = new LabelW(6, 15,
             "Schmutzwassersiel EUR/a");
-        jxl.write.Label labelTHK5 = new jxl.write.Label(6, 16,
+        LabelW labelTHK5 = new LabelW(6, 16,
             "Regenwassersiel EUR/a");
-        jxl.write.Label labelTHK6 = new jxl.write.Label(6, 17,
+        LabelW labelTHK6 = new LabelW(6, 17,
             "Dosiermittel EUR/a");
-        jxl.write.Label labelTHK7 = new jxl.write.Label(6, 18,
+        LabelW labelTHK7 = new LabelW(6, 18,
             "Salztabletten EUR/a ");
-        jxl.write.Label labelTHK8 = new jxl.write.Label(6, 19,
+        LabelW labelTHK8 = new LabelW(6, 19,
             "Salzsäure EUR/a");
-        jxl.write.Label labelTHK9 = new jxl.write.Label(6, 20,
+        LabelW labelTHK9 = new LabelW(6, 20,
             "Schwefelsäure EUR/l");
-        jxl.write.Label labelTHK10 = new jxl.write.Label(6, 21,
+        LabelW labelTHK10 = new LabelW(6, 21,
             "RO Dosiermittel EUR/a");
-        jxl.write.Label labelTHK11 = new jxl.write.Label(9, 23,
+        LabelW labelTHK11 = new LabelW(9, 23,
             "Gesamtkosten EUR/a");
 
         //
-        sheet2.addCell(labelTHK1);
-        sheet2.addCell(labelTHK2);
-        sheet2.addCell(labelTHK3);
-        sheet2.addCell(labelTHK4);
-        sheet2.addCell(labelTHK5);
-        sheet2.addCell(labelTHK6);
-        sheet2.addCell(labelTHK7);
-        sheet2.addCell(labelTHK8);
-        sheet2.addCell(labelTHK9);
-        sheet2.addCell(labelTHK10);
-        sheet2.addCell(labelTHK11);
+        addCell(sheet2, labelTHK1);
+        addCell(sheet2, labelTHK2);
+        addCell(sheet2, labelTHK3);
+        addCell(sheet2, labelTHK4);
+        addCell(sheet2, labelTHK5);
+        addCell(sheet2, labelTHK6);
+        addCell(sheet2, labelTHK7);
+        addCell(sheet2, labelTHK8);
+        addCell(sheet2, labelTHK9);
+        addCell(sheet2, labelTHK10);
+        addCell(sheet2, labelTHK11);
 
         //
         //Kosten
-        jxl.write.Label labelEHK1 = new jxl.write.Label(6, 11, "Kosten");
-        jxl.write.Label labelEHK2 = new jxl.write.Label(6, 13, "Energie EUR/a");
-        jxl.write.Label labelEHK3 = new jxl.write.Label(6, 14,
+        LabelW labelEHK1 = new LabelW(6, 11, "Kosten");
+        LabelW labelEHK2 = new LabelW(6, 13, "Energie EUR/a");
+        LabelW labelEHK3 = new LabelW(6, 14,
             "Zusatzwasser EUR/a");
-        jxl.write.Label labelEHK4 = new jxl.write.Label(6, 15,
+        LabelW labelEHK4 = new LabelW(6, 15,
             "Schmutzwassersiel EUR/a");
-        jxl.write.Label labelEHK5 = new jxl.write.Label(6, 16,
+        LabelW labelEHK5 = new LabelW(6, 16,
             "Regenwassersiel EUR/a");
-        jxl.write.Label labelEHK6 = new jxl.write.Label(6, 17,
+        LabelW labelEHK6 = new LabelW(6, 17,
             "Dosiermittel EUR/a");
-        jxl.write.Label labelEHK7 = new jxl.write.Label(6, 18,
+        LabelW labelEHK7 = new LabelW(6, 18,
             "Salztabletten EUR/a ");
-        jxl.write.Label labelEHK8 = new jxl.write.Label(6, 19,
+        LabelW labelEHK8 = new LabelW(6, 19,
             "Salzsäure EUR/a");
-        jxl.write.Label labelEHK9 = new jxl.write.Label(6, 20,
+        LabelW labelEHK9 = new LabelW(6, 20,
             "Schwefelsäure EUR/l");
-        jxl.write.Label labelEHK10 = new jxl.write.Label(6, 21,
+        LabelW labelEHK10 = new LabelW(6, 21,
             "RO Dosiermittel EUR/a");
-        jxl.write.Label labelEHK11 = new jxl.write.Label(6, 22,
+        LabelW labelEHK11 = new LabelW(6, 22,
             "Gesamtkosten EUR/a");
 
 //
-        sheet3.addCell(labelEHK1);
-        sheet3.addCell(labelEHK2);
-        sheet3.addCell(labelEHK3);
-        sheet3.addCell(labelEHK4);
-        sheet3.addCell(labelEHK5);
-        sheet3.addCell(labelEHK6);
-        sheet3.addCell(labelEHK7);
-        sheet3.addCell(labelEHK8);
-        sheet3.addCell(labelEHK9);
-        sheet3.addCell(labelEHK10);
-        sheet3.addCell(labelEHK11);
+        addCell(sheet3, labelEHK1);
+        addCell(sheet3, labelEHK2);
+        addCell(sheet3, labelEHK3);
+        addCell(sheet3, labelEHK4);
+        addCell(sheet3, labelEHK5);
+        addCell(sheet3, labelEHK6);
+        addCell(sheet3, labelEHK7);
+        addCell(sheet3, labelEHK8);
+        addCell(sheet3, labelEHK9);
+        addCell(sheet3, labelEHK10);
+        addCell(sheet3, labelEHK11);
 
         //Kosten EC
-        jxl.write.Label labelECK1 = new jxl.write.Label(6, 11, "Kosten");
-        jxl.write.Label labelECK2 = new jxl.write.Label(6, 13, "Energie EUR/a");
-        jxl.write.Label labelECK3 = new jxl.write.Label(6, 14,
+        LabelW labelECK1 = new LabelW(6, 11, "Kosten");
+        LabelW labelECK2 = new LabelW(6, 13, "Energie EUR/a");
+        LabelW labelECK3 = new LabelW(6, 14,
             "Zusatzwasser EUR/a");
-        jxl.write.Label labelECK4 = new jxl.write.Label(6, 15,
+        LabelW labelECK4 = new LabelW(6, 15,
             "Schmutzwassersiel EUR/a");
-        jxl.write.Label labelECK5 = new jxl.write.Label(6, 16,
+        LabelW labelECK5 = new LabelW(6, 16,
             "Regenwassersiel EUR/a");
-        jxl.write.Label labelECK6 = new jxl.write.Label(6, 17,
+        LabelW labelECK6 = new LabelW(6, 17,
             "Dosiermittel EUR/a");
-        jxl.write.Label labelECK7 = new jxl.write.Label(6, 18,
+        LabelW labelECK7 = new LabelW(6, 18,
             "Salztabletten EUR/a ");
-        jxl.write.Label labelECK8 = new jxl.write.Label(6, 19,
+        LabelW labelECK8 = new LabelW(6, 19,
             "Salzsäure EUR/a");
-        jxl.write.Label labelECK9 = new jxl.write.Label(6, 20,
+        LabelW labelECK9 = new LabelW(6, 20,
             "Schwefelsäure EUR/l");
-        jxl.write.Label labelECK10 = new jxl.write.Label(6, 21,
+        LabelW labelECK10 = new LabelW(6, 21,
             "RO Dosiermittel EUR/a");
-        jxl.write.Label labelECK11 = new jxl.write.Label(6, 22,
+        LabelW labelECK11 = new LabelW(6, 22,
             "Gesamtkosten EUR/a");
 
 //
-        sheet4.addCell(labelECK1);
-        sheet4.addCell(labelECK2);
-        sheet4.addCell(labelECK3);
-        sheet4.addCell(labelECK4);
-        sheet4.addCell(labelECK5);
-        sheet4.addCell(labelECK6);
-        sheet4.addCell(labelECK7);
-        sheet4.addCell(labelECK8);
-        sheet4.addCell(labelECK9);
-        sheet4.addCell(labelECK10);
-        sheet4.addCell(labelECK11);
+        addCell(sheet4, labelECK1);
+        addCell(sheet4, labelECK2);
+        addCell(sheet4, labelECK3);
+        addCell(sheet4, labelECK4);
+        addCell(sheet4, labelECK5);
+        addCell(sheet4, labelECK6);
+        addCell(sheet4, labelECK7);
+        addCell(sheet4, labelECK8);
+        addCell(sheet4, labelECK9);
+        addCell(sheet4, labelECK10);
+        addCell(sheet4, labelECK11);
 
 //
         //Kosten
-        jxl.write.Label labelUOK1 = new jxl.write.Label(6, 11, "Kosten");
-        jxl.write.Label labelUOK2 = new jxl.write.Label(6, 13, "Energie EUR/a");
-        jxl.write.Label labelUOK3 = new jxl.write.Label(6, 14,
+        LabelW labelUOK1 = new LabelW(6, 11, "Kosten");
+        LabelW labelUOK2 = new LabelW(6, 13, "Energie EUR/a");
+        LabelW labelUOK3 = new LabelW(6, 14,
             "Zusatzwasser EUR/a");
-        jxl.write.Label labelUOK4 = new jxl.write.Label(6, 15,
+        LabelW labelUOK4 = new LabelW(6, 15,
             "Schmutzwassersiel EUR/a");
-        jxl.write.Label labelUOK5 = new jxl.write.Label(6, 16,
+        LabelW labelUOK5 = new LabelW(6, 16,
             "Regenwassersiel EUR/a");
-        jxl.write.Label labelUOK6 = new jxl.write.Label(6, 17,
+        LabelW labelUOK6 = new LabelW(6, 17,
             "Dosiermittel EUR/a");
-        jxl.write.Label labelUOK7 = new jxl.write.Label(6, 18,
+        LabelW labelUOK7 = new LabelW(6, 18,
             "Salztabletten EUR/a ");
-        jxl.write.Label labelUOK8 = new jxl.write.Label(6, 19,
+        LabelW labelUOK8 = new LabelW(6, 19,
             "Salzsäure EUR/a");
-        jxl.write.Label labelUOK9 = new jxl.write.Label(6, 20,
+        LabelW labelUOK9 = new LabelW(6, 20,
             "Schwefelsäure EUR/l");
-        jxl.write.Label labelUOK10 = new jxl.write.Label(6, 21,
+        LabelW labelUOK10 = new LabelW(6, 21,
             "RO Dosiermittel EUR/a");
-        jxl.write.Label labelUOK11 = new jxl.write.Label(6, 22,
+        LabelW labelUOK11 = new LabelW(6, 22,
             "Gesamtkosten EUR/a");
 
         //
-        sheet5.addCell(labelUOK1);
-        sheet5.addCell(labelUOK2);
-        sheet5.addCell(labelUOK3);
-        sheet5.addCell(labelUOK4);
-        sheet5.addCell(labelUOK5);
-        sheet5.addCell(labelUOK6);
-        sheet5.addCell(labelUOK7);
-        sheet5.addCell(labelUOK8);
-        sheet5.addCell(labelUOK9);
-        sheet5.addCell(labelUOK10);
-        sheet5.addCell(labelUOK11);
+        addCell(sheet5, labelUOK1);
+        addCell(sheet5, labelUOK2);
+        addCell(sheet5, labelUOK3);
+        addCell(sheet5, labelUOK4);
+        addCell(sheet5, labelUOK5);
+        addCell(sheet5, labelUOK6);
+        addCell(sheet5, labelUOK7);
+        addCell(sheet5, labelUOK8);
+        addCell(sheet5, labelUOK9);
+        addCell(sheet5, labelUOK10);
+        addCell(sheet5, labelUOK11);
 //
 
         //Kosten UM
-        jxl.write.Label labelUMK1 = new jxl.write.Label(6, 11, "Kosten");
-        jxl.write.Label labelUMK2 = new jxl.write.Label(6, 13, "Energie EUR/a");
-        jxl.write.Label labelUMK3 = new jxl.write.Label(6, 14,
+        LabelW labelUMK1 = new LabelW(6, 11, "Kosten");
+        LabelW labelUMK2 = new LabelW(6, 13, "Energie EUR/a");
+        LabelW labelUMK3 = new LabelW(6, 14,
             "Zusatzwasser EUR/a");
-        jxl.write.Label labelUMK4 = new jxl.write.Label(6, 15,
+        LabelW labelUMK4 = new LabelW(6, 15,
             "Schmutzwassersiel EUR/a");
-        jxl.write.Label labelUMK5 = new jxl.write.Label(6, 16,
+        LabelW labelUMK5 = new LabelW(6, 16,
             "Regenwassersiel EUR/a");
-        jxl.write.Label labelUMK6 = new jxl.write.Label(6, 17,
+        LabelW labelUMK6 = new LabelW(6, 17,
             "Dosiermittel EUR/a");
-        jxl.write.Label labelUMK7 = new jxl.write.Label(6, 18,
+        LabelW labelUMK7 = new LabelW(6, 18,
             "Salztabletten EUR/a ");
-        jxl.write.Label labelUMK8 = new jxl.write.Label(6, 19,
+        LabelW labelUMK8 = new LabelW(6, 19,
             "Salzsäure EUR/a");
-        jxl.write.Label labelUMK9 = new jxl.write.Label(6, 20,
+        LabelW labelUMK9 = new LabelW(6, 20,
             "Schwefelsäure EUR/l");
-        jxl.write.Label labelUMK10 = new jxl.write.Label(6, 21,
+        LabelW labelUMK10 = new LabelW(6, 21,
             "RO Dosiermittel EUR/a");
-        jxl.write.Label labelUMK11 = new jxl.write.Label(6, 22,
+        LabelW labelUMK11 = new LabelW(6, 22,
             "Gesamtkosten EUR/a");
 
         //
-        sheet6.addCell(labelUMK1);
-        sheet6.addCell(labelUMK2);
-        sheet6.addCell(labelUMK3);
-        sheet6.addCell(labelUMK4);
-        sheet6.addCell(labelUMK5);
-        sheet6.addCell(labelUMK6);
-        sheet6.addCell(labelUMK7);
-        sheet6.addCell(labelUMK8);
-        sheet6.addCell(labelUMK9);
-        sheet6.addCell(labelUMK10);
-        sheet6.addCell(labelUMK11);
+        addCell(sheet6, labelUMK1);
+        addCell(sheet6, labelUMK2);
+        addCell(sheet6, labelUMK3);
+        addCell(sheet6, labelUMK4);
+        addCell(sheet6, labelUMK5);
+        addCell(sheet6, labelUMK6);
+        addCell(sheet6, labelUMK7);
+        addCell(sheet6, labelUMK8);
+        addCell(sheet6, labelUMK9);
+        addCell(sheet6, labelUMK10);
+        addCell(sheet6, labelUMK11);
 
 //
 
         //Kosten SD
-        jxl.write.Label labelSDK1 = new jxl.write.Label(6, 11, "Kosten");
-        jxl.write.Label labelSDK2 = new jxl.write.Label(6, 13, "Energie EUR/a");
-        jxl.write.Label labelSDK3 = new jxl.write.Label(6, 14,
+        LabelW labelSDK1 = new LabelW(6, 11, "Kosten");
+        LabelW labelSDK2 = new LabelW(6, 13, "Energie EUR/a");
+        LabelW labelSDK3 = new LabelW(6, 14,
             "Zusatzwasser EUR/a");
-        jxl.write.Label labelSDK4 = new jxl.write.Label(6, 15,
+        LabelW labelSDK4 = new LabelW(6, 15,
             "Schmutzwassersiel EUR/a");
-        jxl.write.Label labelSDK5 = new jxl.write.Label(6, 16,
+        LabelW labelSDK5 = new LabelW(6, 16,
             "Regenwassersiel EUR/a");
-        jxl.write.Label labelSDK6 = new jxl.write.Label(6, 17,
+        LabelW labelSDK6 = new LabelW(6, 17,
             "Dosiermittel EUR/a");
-        jxl.write.Label labelSDK7 = new jxl.write.Label(6, 18,
+        LabelW labelSDK7 = new LabelW(6, 18,
             "Salztabletten EUR/a ");
-        jxl.write.Label labelSDK8 = new jxl.write.Label(6, 19,
+        LabelW labelSDK8 = new LabelW(6, 19,
             "Salzsäure EUR/a");
-        jxl.write.Label labelSDK9 = new jxl.write.Label(6, 20,
+        LabelW labelSDK9 = new LabelW(6, 20,
             "Schwefelsäure EUR/l");
-        jxl.write.Label labelSDK10 = new jxl.write.Label(6, 21,
+        LabelW labelSDK10 = new LabelW(6, 21,
             "RO Dosiermittel EUR/a");
-        jxl.write.Label labelSDK11 = new jxl.write.Label(6, 22,
+        LabelW labelSDK11 = new LabelW(6, 22,
             "Gesamtkosten EUR/a");
 
 //
-        sheet7.addCell(labelSDK1);
-        sheet7.addCell(labelSDK2);
-        sheet7.addCell(labelSDK3);
-        sheet7.addCell(labelSDK4);
-        sheet7.addCell(labelSDK5);
-        sheet7.addCell(labelSDK6);
-        sheet7.addCell(labelSDK7);
-        sheet7.addCell(labelSDK8);
-        sheet7.addCell(labelSDK9);
-        sheet7.addCell(labelSDK10);
-        sheet7.addCell(labelSDK11);
+        addCell(sheet7, labelSDK1);
+        addCell(sheet7, labelSDK2);
+        addCell(sheet7, labelSDK3);
+        addCell(sheet7, labelSDK4);
+        addCell(sheet7, labelSDK5);
+        addCell(sheet7, labelSDK6);
+        addCell(sheet7, labelSDK7);
+        addCell(sheet7, labelSDK8);
+        addCell(sheet7, labelSDK9);
+        addCell(sheet7, labelSDK10);
+        addCell(sheet7, labelSDK11);
 
 //
 
@@ -1494,129 +1496,129 @@ public class hauptmenue
 ///
           f.threshhold();
         //Umlaufwasseranalyse
-        jxl.write.Label labelUW1 = new jxl.write.Label(4, 0,
+        LabelW labelUW1 = new LabelW(4, 0,
             f.aufbereitung, nf1cell);
-        jxl.write.Number numberUW2 = new jxl.write.Number(4, 2,
+        NumberW numberUW2 = new NumberW(4, 2,
             f.anauml.verSchnitt, nf1cell);
-        jxl.write.Number numberUW3 = new jxl.write.Number(4, 3,
+        NumberW numberUW3 = new NumberW(4, 3,
             f.anauml.eindickung, nf1cell);
-        jxl.write.Number numberUW4 = new jxl.write.Number(4, 4, f.anauml.tKT,
+        NumberW numberUW4 = new NumberW(4, 4, f.anauml.tKT,
             nf1cell);
-        jxl.write.Number numberUW5 = new jxl.write.Number(4, 5, f.anauml.tW,
+        NumberW numberUW5 = new NumberW(4, 5, f.anauml.tW,
             nf1cell);
-        jxl.write.Number numberUW6 = new jxl.write.Number(4, 6, f.anauml.lF,
+        NumberW numberUW6 = new NumberW(4, 6, f.anauml.lF,
             nf1cell);
-        jxl.write.Number numberUW7 = new jxl.write.Number(4, 7, f.anauml.ca,
+        NumberW numberUW7 = new NumberW(4, 7, f.anauml.ca,
             nf1cell);
-        jxl.write.Number numberUW8 = new jxl.write.Number(4, 8, f.anauml.mg,
+        NumberW numberUW8 = new NumberW(4, 8, f.anauml.mg,
             nf1cell);
-        jxl.write.Number numberUW9 = new jxl.write.Number(4, 9, f.anauml.na,
+        NumberW numberUW9 = new NumberW(4, 9, f.anauml.na,
             nf1cell);
-        jxl.write.Number numberUW10 = new jxl.write.Number(4, 10, f.anauml.ks,
+        NumberW numberUW10 = new NumberW(4, 10, f.anauml.ks,
             nf1cell);
-        jxl.write.Number numberUW11 = new jxl.write.Number(4, 11, f.anauml.cl,
+        NumberW numberUW11 = new NumberW(4, 11, f.anauml.cl,
             nf1cell);
-        jxl.write.Number numberUW12 = new jxl.write.Number(4, 12, f.anauml.so4,
+        NumberW numberUW12 = new NumberW(4, 12, f.anauml.so4,
             nf1cell);
-        jxl.write.Number numberUW13 = new jxl.write.Number(4, 13, f.anauml.no3,
+        NumberW numberUW13 = new NumberW(4, 13, f.anauml.no3,
             nf1cell);
-        jxl.write.Number numberUW14 = new jxl.write.Number(4, 14,
+        NumberW numberUW14 = new NumberW(4, 14,
             f.anauml.pHKTnV, nf1cell);
-        jxl.write.Number numberUW15 = new jxl.write.Number(4, 15,
+        NumberW numberUW15 = new NumberW(4, 15,
             f.anauml.pHTKT, nf1cell);
-        jxl.write.Number numberUW16 = new jxl.write.Number(4, 16,
+        NumberW numberUW16 = new NumberW(4, 16,
             f.anauml.siTKT, nf1cell);
-        jxl.write.Number numberUW17 = new jxl.write.Number(4, 17,
+        NumberW numberUW17 = new NumberW(4, 17,
             f.anauml.pHggWW, nf1cell);
-        jxl.write.Number numberUW18 = new jxl.write.Number(4, 18, f.anauml.sIW,
+        NumberW numberUW18 = new NumberW(4, 18, f.anauml.sIW,
             nf1cell);
-        jxl.write.Number numberUW19 = new jxl.write.Number(4, 19, f.anauml.salz,
+        NumberW numberUW19 = new NumberW(4, 19, f.anauml.salz,
             nf1cell);
-        jxl.write.Number numberUW20 = new jxl.write.Number(4, 20,
+        NumberW numberUW20 = new NumberW(4, 20,
             f.anauml.ionen, nf1cell);
-        jxl.write.Number numberUW21 = new jxl.write.Number(4, 21,
+        NumberW numberUW21 = new NumberW(4, 21,
             f.anauml.h2co3, nf1cell);
-        jxl.write.Number numberUW22 = new jxl.write.Number(4, 22, f.anauml.hco3,
+        NumberW numberUW22 = new NumberW(4, 22, f.anauml.hco3,
             nf1cell);
-        jxl.write.Number numberUW23 = new jxl.write.Number(4, 23, f.anauml.co3,
+        NumberW numberUW23 = new NumberW(4, 23, f.anauml.co3,
             nf1cell);
 
-        sheet2.addCell(labelUW1);
-        sheet2.addCell(numberUW2);
-        sheet2.addCell(numberUW3);
-        sheet2.addCell(numberUW4);
-        sheet2.addCell(numberUW5);
-        sheet2.addCell(numberUW6);
-        sheet2.addCell(numberUW7);
-        sheet2.addCell(numberUW8);
-        sheet2.addCell(numberUW9);
-        sheet2.addCell(numberUW10);
-        sheet2.addCell(numberUW11);
-        sheet2.addCell(numberUW12);
-        sheet2.addCell(numberUW13);
-        sheet2.addCell(numberUW14);
-        sheet2.addCell(numberUW15);
-        sheet2.addCell(numberUW16);
-        sheet2.addCell(numberUW17);
-        sheet2.addCell(numberUW18);
-        sheet2.addCell(numberUW19);
-        sheet2.addCell(numberUW20);
-        sheet2.addCell(numberUW21);
-        sheet2.addCell(numberUW22);
-        sheet2.addCell(numberUW23);
+        addCell(sheet2, labelUW1);
+        addCell(sheet2, numberUW2);
+        addCell(sheet2, numberUW3);
+        addCell(sheet2, numberUW4);
+        addCell(sheet2, numberUW5);
+        addCell(sheet2, numberUW6);
+        addCell(sheet2, numberUW7);
+        addCell(sheet2, numberUW8);
+        addCell(sheet2, numberUW9);
+        addCell(sheet2, numberUW10);
+        addCell(sheet2, numberUW11);
+        addCell(sheet2, numberUW12);
+        addCell(sheet2, numberUW13);
+        addCell(sheet2, numberUW14);
+        addCell(sheet2, numberUW15);
+        addCell(sheet2, numberUW16);
+        addCell(sheet2, numberUW17);
+        addCell(sheet2, numberUW18);
+        addCell(sheet2, numberUW19);
+        addCell(sheet2, numberUW20);
+        addCell(sheet2, numberUW21);
+        addCell(sheet2, numberUW22);
+        addCell(sheet2, numberUW23);
 
 //VERBRAUCH
 
-        jxl.write.Number numberVB1 = new jxl.write.Number(7, 2,
+        NumberW numberVB1 = new NumberW(7, 2,
             f.betrkost.enVer, nf1cell);
-        jxl.write.Number numberVB2 = new jxl.write.Number(7, 3,
+        NumberW numberVB2 = new NumberW(7, 3,
             f.betrkost.stadtWasserVer, nf1cell);
-        jxl.write.Number numberVB3 = new jxl.write.Number(7, 4,
+        NumberW numberVB3 = new NumberW(7, 4,
             f.betrkost.abWasserVer, nf1cell);
-        jxl.write.Number numberVB4 = new jxl.write.Number(7, 5,
+        NumberW numberVB4 = new NumberW(7, 5,
             f.betrkost.regenSielVer, nf1cell);
-        jxl.write.Number numberVB5 = new jxl.write.Number(7, 6,
+        NumberW numberVB5 = new NumberW(7, 6,
             f.betrkost.dosMittelVer, nf1cell);
-        jxl.write.Number numberVB6 = new jxl.write.Number(7, 7,
+        NumberW numberVB6 = new NumberW(7, 7,
             f.betrkost.salzTabVer, nf1cell);
-        jxl.write.Number numberVB7 = new jxl.write.Number(7, 8,
+        NumberW numberVB7 = new NumberW(7, 8,
             f.betrkost.salzSaeureVer, nf1cell);
-        jxl.write.Number numberVB8 = new jxl.write.Number(7, 9,
+        NumberW numberVB8 = new NumberW(7, 9,
             f.betrkost.schwefelSaeureVer, nf1cell);
-        jxl.write.Number numberVB9 = new jxl.write.Number(7, 10,
+        NumberW numberVB9 = new NumberW(7, 10,
             f.betrkost.roVer, nf1cell);
 
-        sheet2.addCell(numberVB1);
-        sheet2.addCell(numberVB2);
-        sheet2.addCell(numberVB3);
-        sheet2.addCell(numberVB4);
-        sheet2.addCell(numberVB5);
-        sheet2.addCell(numberVB6);
-        sheet2.addCell(numberVB7);
-        sheet2.addCell(numberVB8);
-        sheet2.addCell(numberVB9);
+        addCell(sheet2, numberVB1);
+        addCell(sheet2, numberVB2);
+        addCell(sheet2, numberVB3);
+        addCell(sheet2, numberVB4);
+        addCell(sheet2, numberVB5);
+        addCell(sheet2, numberVB6);
+        addCell(sheet2, numberVB7);
+        addCell(sheet2, numberVB8);
+        addCell(sheet2, numberVB9);
 
 //KOSTEN
 
-        jxl.write.Number numberKO1 = new jxl.write.Number(7, 13,
+        NumberW numberKO1 = new NumberW(7, 13,
             f.betrkost.enKost, nf1cell);
-        jxl.write.Number numberKO2 = new jxl.write.Number(7, 14,
+        NumberW numberKO2 = new NumberW(7, 14,
             f.betrkost.stadtWasserKost, nf1cell);
-        jxl.write.Number numberKO3 = new jxl.write.Number(7, 15,
+        NumberW numberKO3 = new NumberW(7, 15,
             f.betrkost.abWasserKost, nf1cell);
-        jxl.write.Number numberKO4 = new jxl.write.Number(7, 16,
+        NumberW numberKO4 = new NumberW(7, 16,
             f.betrkost.regenSielKost, nf1cell);
-        jxl.write.Number numberKO5 = new jxl.write.Number(7, 17,
+        NumberW numberKO5 = new NumberW(7, 17,
             f.betrkost.dosMittelKost, nf1cell);
-        jxl.write.Number numberKO6 = new jxl.write.Number(7, 18,
+        NumberW numberKO6 = new NumberW(7, 18,
             f.betrkost.salzTabKost, nf1cell);
-        jxl.write.Number numberKO7 = new jxl.write.Number(7, 19,
+        NumberW numberKO7 = new NumberW(7, 19,
             f.betrkost.salzSaeureKost, nf1cell);
-        jxl.write.Number numberKO8 = new jxl.write.Number(7, 20,
+        NumberW numberKO8 = new NumberW(7, 20,
             f.betrkost.schwefelSaeureKost, nf1cell);
-        jxl.write.Number numberKO9 = new jxl.write.Number(7, 21,
+        NumberW numberKO9 = new NumberW(7, 21,
             f.betrkost.roKost, nf1cell);
-        jxl.write.Number numberKO10 = new jxl.write.Number(7, 23,
+        NumberW numberKO10 = new NumberW(7, 23,
             f.betrkost.enKost + f.betrkost.stadtWasserKost +
             f.betrkost.abWasserKost +
             f.betrkost.regenSielKost + f.betrkost.dosMittelKost +
@@ -1624,84 +1626,84 @@ public class hauptmenue
             f.betrkost.schwefelSaeureKost + f.betrkost.roKost +
             f.anlkost.jahresBetrag, nf1cell);
 
-        sheet2.addCell(numberKO1);
-        sheet2.addCell(numberKO2);
-        sheet2.addCell(numberKO3);
-        sheet2.addCell(numberKO4);
-        sheet2.addCell(numberKO5);
-        sheet2.addCell(numberKO6);
-        sheet2.addCell(numberKO7);
-        sheet2.addCell(numberKO8);
-        sheet2.addCell(numberKO9);
-        sheet2.addCell(numberKO10);
+        addCell(sheet2, numberKO1);
+        addCell(sheet2, numberKO2);
+        addCell(sheet2, numberKO3);
+        addCell(sheet2, numberKO4);
+        addCell(sheet2, numberKO5);
+        addCell(sheet2, numberKO6);
+        addCell(sheet2, numberKO7);
+        addCell(sheet2, numberKO8);
+        addCell(sheet2, numberKO9);
+        addCell(sheet2, numberKO10);
         //******ANLAGE THRESHOLD*************************************************
 
-         jxl.write.Label labelG1 = new jxl.write.Label(9, 0,
+         LabelW labelG1 = new LabelW(9, 0,
              "Anlageinformationen");
-        sheet2.addCell(labelG1);
+        addCell(sheet2, labelG1);
 
-        jxl.write.Label labelG15 = new jxl.write.Label(9, 3,
+        LabelW labelG15 = new LabelW(9, 3,
             "Anlage,Typ:");
-        sheet2.addCell(labelG15);
-        jxl.write.Label LabelAK15 = new jxl.write.Label(10, 3,
+        addCell(sheet2, labelG15);
+        LabelW LabelAK15 = new LabelW(10, 3,
             f.anlkost.typ3, nf1cell);
-        sheet2.addCell(LabelAK15);
+        addCell(sheet2, LabelAK15);
 
-        jxl.write.Label labelG16 = new jxl.write.Label(9, 4,
+        LabelW labelG16 = new LabelW(9, 4,
             "Dosier und Schutzbehälter:");
-        sheet2.addCell(labelG16);
-        jxl.write.Label labelAK16 = new jxl.write.Label(10, 4,
+        addCell(sheet2, labelG16);
+        LabelW labelAK16 = new LabelW(10, 4,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
-        sheet2.addCell(labelAK16);
+        addCell(sheet2, labelAK16);
 
-        jxl.write.Label labelG17 = new jxl.write.Label(9, 5,
+        LabelW labelG17 = new LabelW(9, 5,
             "Werkstoff:");
-        sheet2.addCell(labelG17);
-        jxl.write.Label LabelAK17 = new jxl.write.Label(10, 5,
+        addCell(sheet2, labelG17);
+        LabelW LabelAK17 = new LabelW(10, 5,
             f.anlkost.ws3, nf1cell);
 
-        jxl.write.Label labelG18 = new jxl.write.Label(9, 6,
+        LabelW labelG18 = new LabelW(9, 6,
             "Steuerung::");
-        sheet2.addCell(labelG18);
-        sheet2.addCell(LabelAK17);
-        jxl.write.Label LabelAK18 = new jxl.write.Label(10, 6,
+        addCell(sheet2, labelG18);
+        addCell(sheet2, LabelAK17);
+        LabelW LabelAK18 = new LabelW(10, 6,
             f.anlkost.st3, nf1cell);
-        sheet2.addCell(LabelAK18);
+        addCell(sheet2, LabelAK18);
 
-        jxl.write.Label labelG19 = new jxl.write.Label(9, 7,
+        LabelW labelG19 = new LabelW(9, 7,
             "Wassermengenzähler:");
-        sheet2.addCell(labelG19);
-        jxl.write.Label NumberAK19 = new jxl.write.Label(10, 7,
+        addCell(sheet2, labelG19);
+        LabelW NumberAK19 = new LabelW(10, 7,
             f.anlkost.wz3, nf1cell);
-        sheet2.addCell(NumberAK19);
+        addCell(sheet2, NumberAK19);
 
-        jxl.write.Label labelG20 = new jxl.write.Label(9, 8,
+        LabelW labelG20 = new LabelW(9, 8,
             "Richtpreis einschl. Montage:");
-        sheet2.addCell(labelG20);
-        jxl.write.Number NumberAK20 = new jxl.write.Number(10, 8,
+        addCell(sheet2, labelG20);
+        NumberW NumberAK20 = new NumberW(10, 8,
             f.anlkost.aP3, nf1cell);
-        sheet2.addCell(NumberAK20);
+        addCell(sheet2, NumberAK20);
 
-        jxl.write.Label labelG21 = new jxl.write.Label(9, 9,
+        LabelW labelG21 = new LabelW(9, 9,
             "Systemtrenner und Feinfilter:");
-        sheet2.addCell(labelG21);
-        jxl.write.Number NumberAK21 = new jxl.write.Number(10, 9,
+        addCell(sheet2, labelG21);
+        NumberW NumberAK21 = new NumberW(10, 9,
             f.anlkost.stffP, nf1cell);
-        sheet2.addCell(NumberAK21);
+        addCell(sheet2, NumberAK21);
 
-        jxl.write.Label labelG22 = new jxl.write.Label(9, 11,
+        LabelW labelG22 = new LabelW(9, 11,
             "Gesamtanlagenpreis:");
-        sheet2.addCell(labelG22);
-        jxl.write.Number NumberAK22 = new jxl.write.Number(10, 11,
+        addCell(sheet2, labelG22);
+        NumberW NumberAK22 = new NumberW(10, 11,
             f.anlkost.summe, nf1cell);
-        sheet2.addCell(NumberAK22);
+        addCell(sheet2, NumberAK22);
 
-        jxl.write.Label labelG23 = new jxl.write.Label(9, 12,
+        LabelW labelG23 = new LabelW(9, 12,
             "Anlagenkosten/Jahr:");
-        sheet2.addCell(labelG23);
-        jxl.write.Number NumberAK23 = new jxl.write.Number(10, 12,
+        addCell(sheet2, labelG23);
+        NumberW NumberAK23 = new NumberW(10, 12,
             f.anlkost.jahresBetrag, nf1cell);
-        sheet2.addCell(NumberAK23);
+        addCell(sheet2, NumberAK23);
         //} // Ende der for Schleife
         //**********
 
@@ -1709,135 +1711,135 @@ public class hauptmenue
          f.enthaertung();
 
 //Umlaufwasseranalyse
-        jxl.write.Label labelEHUW1 = new jxl.write.Label(4, 0,
+        LabelW labelEHUW1 = new LabelW(4, 0,
             f.aufbereitung, nf1cell);
-        jxl.write.Number numberEHUW2 = new jxl.write.Number(4, 2,
+        NumberW numberEHUW2 = new NumberW(4, 2,
             f.anauml.verSchnitt, nf1cell);
-        jxl.write.Number numberEHUW3 = new jxl.write.Number(4, 3,
+        NumberW numberEHUW3 = new NumberW(4, 3,
             f.anauml.eindickung, nf1cell);
-        jxl.write.Number numberEHUW4 = new jxl.write.Number(4, 4, f.anauml.tKT,
+        NumberW numberEHUW4 = new NumberW(4, 4, f.anauml.tKT,
             nf1cell);
-        jxl.write.Number numberEHUW5 = new jxl.write.Number(4, 5, f.anauml.tW,
+        NumberW numberEHUW5 = new NumberW(4, 5, f.anauml.tW,
             nf1cell);
-        jxl.write.Number numberEHUW6 = new jxl.write.Number(4, 6, f.anauml.lF,
+        NumberW numberEHUW6 = new NumberW(4, 6, f.anauml.lF,
             nf1cell);
-        jxl.write.Number numberEHUW7 = new jxl.write.Number(4, 7, f.anauml.ca,
+        NumberW numberEHUW7 = new NumberW(4, 7, f.anauml.ca,
             nf1cell);
-        jxl.write.Number numberEHUW8 = new jxl.write.Number(4, 8, f.anauml.mg,
+        NumberW numberEHUW8 = new NumberW(4, 8, f.anauml.mg,
             nf1cell);
-        jxl.write.Number numberEHUW9 = new jxl.write.Number(4, 9, f.anauml.na,
+        NumberW numberEHUW9 = new NumberW(4, 9, f.anauml.na,
             nf1cell);
-        jxl.write.Number numberEHUW10 = new jxl.write.Number(4, 10, f.anauml.ks,
+        NumberW numberEHUW10 = new NumberW(4, 10, f.anauml.ks,
             nf1cell);
-        jxl.write.Number numberEHUW11 = new jxl.write.Number(4, 11, f.anauml.cl,
+        NumberW numberEHUW11 = new NumberW(4, 11, f.anauml.cl,
             nf1cell);
-        jxl.write.Number numberEHUW12 = new jxl.write.Number(4, 12,
+        NumberW numberEHUW12 = new NumberW(4, 12,
             f.anauml.so4,
             nf1cell);
-        jxl.write.Number numberEHUW13 = new jxl.write.Number(4, 13,
+        NumberW numberEHUW13 = new NumberW(4, 13,
             f.anauml.no3,
             nf1cell);
-        jxl.write.Number numberEHUW14 = new jxl.write.Number(4, 14,
+        NumberW numberEHUW14 = new NumberW(4, 14,
             f.anauml.pHKTnV, nf1cell);
-        jxl.write.Number numberEHUW15 = new jxl.write.Number(4, 15,
+        NumberW numberEHUW15 = new NumberW(4, 15,
             f.anauml.pHTKT, nf1cell);
-        jxl.write.Number numberEHUW16 = new jxl.write.Number(4, 16,
+        NumberW numberEHUW16 = new NumberW(4, 16,
             f.anauml.siTKT, nf1cell);
-        jxl.write.Number numberEHUW17 = new jxl.write.Number(4, 17,
+        NumberW numberEHUW17 = new NumberW(4, 17,
             f.anauml.pHggWW, nf1cell);
-        jxl.write.Number numberEHUW18 = new jxl.write.Number(4, 18,
+        NumberW numberEHUW18 = new NumberW(4, 18,
             f.anauml.sIW,
             nf1cell);
-        jxl.write.Number numberEHUW19 = new jxl.write.Number(4, 19,
+        NumberW numberEHUW19 = new NumberW(4, 19,
             f.anauml.salz,
             nf1cell);
-        jxl.write.Number numberEHUW20 = new jxl.write.Number(4, 20,
+        NumberW numberEHUW20 = new NumberW(4, 20,
             f.anauml.ionen, nf1cell);
-        jxl.write.Number numberEHUW21 = new jxl.write.Number(4, 21,
+        NumberW numberEHUW21 = new NumberW(4, 21,
             f.anauml.h2co3, nf1cell);
-        jxl.write.Number numberEHUW22 = new jxl.write.Number(4, 22,
+        NumberW numberEHUW22 = new NumberW(4, 22,
             f.anauml.hco3,
             nf1cell);
-        jxl.write.Number numberEHUW23 = new jxl.write.Number(4, 23,
+        NumberW numberEHUW23 = new NumberW(4, 23,
             f.anauml.co3,
             nf1cell);
 
-        sheet3.addCell(labelEHUW1);
-        sheet3.addCell(numberEHUW2);
+        addCell(sheet3, labelEHUW1);
+        addCell(sheet3, numberEHUW2);
 
-        sheet3.addCell(numberEHUW3);
-        sheet3.addCell(numberEHUW4);
-        sheet3.addCell(numberEHUW5);
-        sheet3.addCell(numberEHUW6);
-        sheet3.addCell(numberEHUW7);
-        sheet3.addCell(numberEHUW8);
-        sheet3.addCell(numberEHUW9);
-        sheet3.addCell(numberEHUW10);
-        sheet3.addCell(numberEHUW11);
-        sheet3.addCell(numberEHUW12);
-        sheet3.addCell(numberEHUW13);
-        sheet3.addCell(numberEHUW14);
-        sheet3.addCell(numberEHUW15);
-        sheet3.addCell(numberEHUW16);
-        sheet3.addCell(numberEHUW17);
-        sheet3.addCell(numberEHUW18);
-        sheet3.addCell(numberEHUW19);
-        sheet3.addCell(numberEHUW20);
-        sheet3.addCell(numberEHUW21);
-        sheet3.addCell(numberEHUW22);
-        sheet3.addCell(numberEHUW23);
+        addCell(sheet3, numberEHUW3);
+        addCell(sheet3, numberEHUW4);
+        addCell(sheet3, numberEHUW5);
+        addCell(sheet3, numberEHUW6);
+        addCell(sheet3, numberEHUW7);
+        addCell(sheet3, numberEHUW8);
+        addCell(sheet3, numberEHUW9);
+        addCell(sheet3, numberEHUW10);
+        addCell(sheet3, numberEHUW11);
+        addCell(sheet3, numberEHUW12);
+        addCell(sheet3, numberEHUW13);
+        addCell(sheet3, numberEHUW14);
+        addCell(sheet3, numberEHUW15);
+        addCell(sheet3, numberEHUW16);
+        addCell(sheet3, numberEHUW17);
+        addCell(sheet3, numberEHUW18);
+        addCell(sheet3, numberEHUW19);
+        addCell(sheet3, numberEHUW20);
+        addCell(sheet3, numberEHUW21);
+        addCell(sheet3, numberEHUW22);
+        addCell(sheet3, numberEHUW23);
 //VERBRAUCH
 
-        jxl.write.Number numberEHVB1 = new jxl.write.Number(7, 2,
+        NumberW numberEHVB1 = new NumberW(7, 2,
             f.betrkost.enVer, nf1cell);
-        jxl.write.Number numberEHVB2 = new jxl.write.Number(7, 3,
+        NumberW numberEHVB2 = new NumberW(7, 3,
             f.betrkost.stadtWasserVer, nf1cell);
-        jxl.write.Number numberEHVB3 = new jxl.write.Number(7, 4,
+        NumberW numberEHVB3 = new NumberW(7, 4,
             f.betrkost.abWasserVer, nf1cell);
-        jxl.write.Number numberEHVB4 = new jxl.write.Number(7, 5,
+        NumberW numberEHVB4 = new NumberW(7, 5,
             f.betrkost.regenSielVer, nf1cell);
-        jxl.write.Number numberEHVB5 = new jxl.write.Number(7, 6,
+        NumberW numberEHVB5 = new NumberW(7, 6,
             f.betrkost.dosMittelVer, nf1cell);
-        jxl.write.Number numberEHVB6 = new jxl.write.Number(7, 7,
+        NumberW numberEHVB6 = new NumberW(7, 7,
             f.betrkost.salzTabVer, nf1cell);
-        jxl.write.Number numberEHVB7 = new jxl.write.Number(7, 8,
+        NumberW numberEHVB7 = new NumberW(7, 8,
             f.betrkost.salzSaeureVer, nf1cell);
-        jxl.write.Number numberEHVB8 = new jxl.write.Number(7, 9,
+        NumberW numberEHVB8 = new NumberW(7, 9,
             f.betrkost.schwefelSaeureVer, nf1cell);
-        jxl.write.Number numberEHVB9 = new jxl.write.Number(7, 10,
+        NumberW numberEHVB9 = new NumberW(7, 10,
             f.betrkost.roVer, nf1cell);
 
-        sheet3.addCell(numberEHVB1);
-        sheet3.addCell(numberEHVB2);
-        sheet3.addCell(numberEHVB3);
-        sheet3.addCell(numberEHVB4);
-        sheet3.addCell(numberEHVB5);
-        sheet3.addCell(numberEHVB6);
-        sheet3.addCell(numberEHVB7);
-        sheet3.addCell(numberEHVB8);
-        sheet3.addCell(numberEHVB9);
+        addCell(sheet3, numberEHVB1);
+        addCell(sheet3, numberEHVB2);
+        addCell(sheet3, numberEHVB3);
+        addCell(sheet3, numberEHVB4);
+        addCell(sheet3, numberEHVB5);
+        addCell(sheet3, numberEHVB6);
+        addCell(sheet3, numberEHVB7);
+        addCell(sheet3, numberEHVB8);
+        addCell(sheet3, numberEHVB9);
 
 //KOSTEN
 
-        jxl.write.Number numberEHKO1 = new jxl.write.Number(7, 13,
+        NumberW numberEHKO1 = new NumberW(7, 13,
             f.betrkost.enKost, nf1cell);
-        jxl.write.Number numberEHKO2 = new jxl.write.Number(7, 14,
+        NumberW numberEHKO2 = new NumberW(7, 14,
             f.betrkost.stadtWasserKost, nf1cell);
-        jxl.write.Number numberEHKO3 = new jxl.write.Number(7, 15,
+        NumberW numberEHKO3 = new NumberW(7, 15,
             f.betrkost.abWasserKost, nf1cell);
-        jxl.write.Number numberEHKO4 = new jxl.write.Number(7, 16,
+        NumberW numberEHKO4 = new NumberW(7, 16,
             f.betrkost.regenSielKost, nf1cell);
-        jxl.write.Number numberEHKO5 = new jxl.write.Number(7, 17,
+        NumberW numberEHKO5 = new NumberW(7, 17,
             f.betrkost.dosMittelKost, nf1cell);
-        jxl.write.Number numberEHKO6 = new jxl.write.Number(7, 18,
+        NumberW numberEHKO6 = new NumberW(7, 18,
             f.betrkost.salzTabKost, nf1cell);
-        jxl.write.Number numberEHKO7 = new jxl.write.Number(7, 19,
+        NumberW numberEHKO7 = new NumberW(7, 19,
             f.betrkost.salzSaeureKost, nf1cell);
-        jxl.write.Number numberEHKO8 = new jxl.write.Number(7, 20,
+        NumberW numberEHKO8 = new NumberW(7, 20,
             f.betrkost.schwefelSaeureKost, nf1cell);
-        jxl.write.Number numberEHKO9 = new jxl.write.Number(7, 21,
+        NumberW numberEHKO9 = new NumberW(7, 21,
             f.betrkost.roKost, nf1cell);
-        jxl.write.Number numberEHKO10 = new jxl.write.Number(7, 22,
+        NumberW numberEHKO10 = new NumberW(7, 22,
             f.betrkost.enKost + f.betrkost.stadtWasserKost +
             f.betrkost.abWasserKost +
             f.betrkost.regenSielKost + f.betrkost.dosMittelKost +
@@ -1845,140 +1847,140 @@ public class hauptmenue
             f.betrkost.schwefelSaeureKost + f.betrkost.roKost +
             f.anlkost.jahresBetrag, nf1cell);
 
-        sheet3.addCell(numberEHKO1);
-        sheet3.addCell(numberEHKO2);
-        sheet3.addCell(numberEHKO3);
-        sheet3.addCell(numberEHKO4);
-        sheet3.addCell(numberEHKO5);
-        sheet3.addCell(numberEHKO6);
-        sheet3.addCell(numberEHKO7);
-        sheet3.addCell(numberEHKO8);
-        sheet3.addCell(numberEHKO9);
-        sheet3.addCell(numberEHKO10);
+        addCell(sheet3, numberEHKO1);
+        addCell(sheet3, numberEHKO2);
+        addCell(sheet3, numberEHKO3);
+        addCell(sheet3, numberEHKO4);
+        addCell(sheet3, numberEHKO5);
+        addCell(sheet3, numberEHKO6);
+        addCell(sheet3, numberEHKO7);
+        addCell(sheet3, numberEHKO8);
+        addCell(sheet3, numberEHKO9);
+        addCell(sheet3, numberEHKO10);
 //*******************ANLAGE ENTHÄRTUNG*******+
 
 
-         jxl.write.Label labelEHG1 = new jxl.write.Label(9, 0,
+         LabelW labelEHG1 = new LabelW(9, 0,
              "Anlageinformationen");
-        sheet3.addCell(labelEHG1);
-        jxl.write.Label labelEHAK1 = new jxl.write.Label(10, 0,
+        addCell(sheet3, labelEHG1);
+        LabelW labelEHAK1 = new LabelW(10, 0,
             f.anlkost.aufbereitungsart, nf1cell);
-        sheet3.addCell(labelEHAK1);
+        addCell(sheet3, labelEHAK1);
 
-        jxl.write.Label labelEHG2 = new jxl.write.Label(9, 2,
+        LabelW labelEHG2 = new LabelW(9, 2,
             "Anlage,Typ:");
-        sheet3.addCell(labelEHG2);
-        jxl.write.Label labelEHAK2 = new jxl.write.Label(10, 2, f.anlkost.typ1,
+        addCell(sheet3, labelEHG2);
+        LabelW labelEHAK2 = new LabelW(10, 2, f.anlkost.typ1,
             nf1cell);
-        sheet3.addCell(labelEHAK2);
+        addCell(sheet3, labelEHAK2);
 
-        jxl.write.Label labelEHG3 = new jxl.write.Label(9, 3,
+        LabelW labelEHG3 = new LabelW(9, 3,
             "Kapazität:");
-        sheet3.addCell(labelEHG3);
-        jxl.write.Number numberEHAK3 = new jxl.write.Number(10, 3,
+        addCell(sheet3, labelEHG3);
+        NumberW numberEHAK3 = new NumberW(10, 3,
             f.anlkost.kap1, nf1cell);
-        sheet3.addCell(numberEHAK3);
+        addCell(sheet3, numberEHAK3);
 
-        jxl.write.Label labelEHG4 = new jxl.write.Label(9, 4,
+        LabelW labelEHG4 = new LabelW(9, 4,
             "Verrohrung:");
-        sheet3.addCell(labelEHG4);
-        jxl.write.Label labelEHAK4 = new jxl.write.Label(10, 4,
+        addCell(sheet3, labelEHG4);
+        LabelW labelEHAK4 = new LabelW(10, 4,
             f.anlkost.nennweite1, nf1cell);
-        sheet3.addCell(labelEHAK4);
+        addCell(sheet3, labelEHAK4);
 
-        jxl.write.Label labelEHG5 = new jxl.write.Label(9, 5,
+        LabelW labelEHG5 = new LabelW(9, 5,
             "Werkstoff:");
-        sheet3.addCell(labelEHG5);
-        jxl.write.Label labelEHAK5 = new jxl.write.Label(10, 5, f.anlkost.ws1,
+        addCell(sheet3, labelEHG5);
+        LabelW labelEHAK5 = new LabelW(10, 5, f.anlkost.ws1,
             nf1cell);
-        sheet3.addCell(labelEHAK5);
+        addCell(sheet3, labelEHAK5);
 
-        jxl.write.Label labelEHG6 = new jxl.write.Label(9, 6,
+        LabelW labelEHG6 = new LabelW(9, 6,
             "Steuerung:");
-        sheet3.addCell(labelEHG6);
-        jxl.write.Label labelEHAK6 = new jxl.write.Label(10, 6, f.anlkost.st1,
+        addCell(sheet3, labelEHG6);
+        LabelW labelEHAK6 = new LabelW(10, 6, f.anlkost.st1,
             nf1cell);
-        sheet3.addCell(labelEHAK6);
+        addCell(sheet3, labelEHAK6);
 
-        jxl.write.Label labelEHG7 = new jxl.write.Label(9, 7,
+        LabelW labelEHG7 = new LabelW(9, 7,
             "Wassermengenzähler:");
-        sheet3.addCell(labelEHG7);
-        jxl.write.Label labelEHAK7 = new jxl.write.Label(10, 7, f.anlkost.wz1,
+        addCell(sheet3, labelEHG7);
+        LabelW labelEHAK7 = new LabelW(10, 7, f.anlkost.wz1,
             nf1cell);
-        sheet3.addCell(labelEHAK7);
+        addCell(sheet3, labelEHAK7);
 
-        jxl.write.Label labelEHG9 = new jxl.write.Label(9, 8,
+        LabelW labelEHG9 = new LabelW(9, 8,
             "Richtpreis einschl. Montage:");
-        sheet3.addCell(labelEHG9);
-        jxl.write.Number numberEHAK9 = new jxl.write.Number(10, 8,
+        addCell(sheet3, labelEHG9);
+        NumberW numberEHAK9 = new NumberW(10, 8,
             f.anlkost.aP1, nf1cell);
-        sheet3.addCell(numberEHAK9);
+        addCell(sheet3, numberEHAK9);
         //
         //
 
 
-        jxl.write.Label labelEHG15 = new jxl.write.Label(9, 10,
+        LabelW labelEHG15 = new LabelW(9, 10,
             "Anlage,Typ:");
-        sheet3.addCell(labelEHG15);
-        jxl.write.Label labelEHAK15 = new jxl.write.Label(10, 10,
+        addCell(sheet3, labelEHG15);
+        LabelW labelEHAK15 = new LabelW(10, 10,
             f.anlkost.typ3, nf1cell);
-        sheet3.addCell(labelEHAK15);
+        addCell(sheet3, labelEHAK15);
 
-        jxl.write.Label labelEHG16 = new jxl.write.Label(9, 11,
+        LabelW labelEHG16 = new LabelW(9, 11,
             "Dosier und Schutzbehälter:");
-        sheet3.addCell(labelEHG16);
-        jxl.write.Label labelEHAK16 = new jxl.write.Label(10, 11,
+        addCell(sheet3, labelEHG16);
+        LabelW labelEHAK16 = new LabelW(10, 11,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
-        sheet3.addCell(labelEHAK16);
+        addCell(sheet3, labelEHAK16);
 
-        jxl.write.Label labelEHG17 = new jxl.write.Label(9, 12,
+        LabelW labelEHG17 = new LabelW(9, 12,
             "Werkstoff:");
-        sheet3.addCell(labelEHG17);
-        jxl.write.Label labelEHAK17 = new jxl.write.Label(10, 12,
+        addCell(sheet3, labelEHG17);
+        LabelW labelEHAK17 = new LabelW(10, 12,
             f.anlkost.ws3, nf1cell);
 
-        jxl.write.Label labelEHG18 = new jxl.write.Label(9, 13,
+        LabelW labelEHG18 = new LabelW(9, 13,
             "Steuerung::");
-        sheet3.addCell(labelEHG18);
-        sheet3.addCell(labelEHAK17);
-        jxl.write.Label labelEHAK18 = new jxl.write.Label(10, 13,
+        addCell(sheet3, labelEHG18);
+        addCell(sheet3, labelEHAK17);
+        LabelW labelEHAK18 = new LabelW(10, 13,
             f.anlkost.st3, nf1cell);
-        sheet3.addCell(labelEHAK18);
+        addCell(sheet3, labelEHAK18);
 
-        jxl.write.Label labelEHG19 = new jxl.write.Label(9, 14,
+        LabelW labelEHG19 = new LabelW(9, 14,
             "Wassermengenzähler:");
-        sheet3.addCell(labelEHG19);
-        jxl.write.Label numberEHAK19 = new jxl.write.Label(10, 14,
+        addCell(sheet3, labelEHG19);
+        LabelW numberEHAK19 = new LabelW(10, 14,
             f.anlkost.wz3, nf1cell);
-        sheet3.addCell(numberEHAK19);
+        addCell(sheet3, numberEHAK19);
 
-        jxl.write.Label labelEHG20 = new jxl.write.Label(9, 15,
+        LabelW labelEHG20 = new LabelW(9, 15,
             "Richtpreis einschl. Montage:");
-        sheet3.addCell(labelEHG20);
-        jxl.write.Number numberEHAK20 = new jxl.write.Number(10, 15,
+        addCell(sheet3, labelEHG20);
+        NumberW numberEHAK20 = new NumberW(10, 15,
             f.anlkost.aP3, nf1cell);
-        sheet3.addCell(numberEHAK20);
+        addCell(sheet3, numberEHAK20);
 
-        jxl.write.Label labelEHG21 = new jxl.write.Label(9, 16,
+        LabelW labelEHG21 = new LabelW(9, 16,
             "Systemtrenner und Feinfilter:");
-        sheet3.addCell(labelEHG21);
-        jxl.write.Number numberEHAK21 = new jxl.write.Number(10, 16,
+        addCell(sheet3, labelEHG21);
+        NumberW numberEHAK21 = new NumberW(10, 16,
             f.anlkost.stffP, nf1cell);
-        sheet3.addCell(numberEHAK21);
+        addCell(sheet3, numberEHAK21);
 
-        jxl.write.Label labelEHG22 = new jxl.write.Label(9, 18,
+        LabelW labelEHG22 = new LabelW(9, 18,
             "Gesamtanlagenpreis:");
-        sheet3.addCell(labelEHG22);
-        jxl.write.Number numberEHAK22 = new jxl.write.Number(10, 18,
+        addCell(sheet3, labelEHG22);
+        NumberW numberEHAK22 = new NumberW(10, 18,
             f.anlkost.summe, nf1cell);
-        sheet3.addCell(numberEHAK22);
+        addCell(sheet3, numberEHAK22);
 
-        jxl.write.Label labelEHG23 = new jxl.write.Label(9, 19,
+        LabelW labelEHG23 = new LabelW(9, 19,
             "Anlagenkosten/Jahr:");
-        sheet3.addCell(labelEHG23);
-        jxl.write.Number numberEHAK23 = new jxl.write.Number(10, 19,
+        addCell(sheet3, labelEHG23);
+        NumberW numberEHAK23 = new NumberW(10, 19,
             f.anlkost.jahresBetrag, nf1cell);
-        sheet3.addCell(numberEHAK23);
+        addCell(sheet3, numberEHAK23);
 //} // Ende der for Schleife
 //*************************ENDE ANLAGE ENTHÄRTUNG*******
 
@@ -1986,134 +1988,134 @@ public class hauptmenue
          f.entcarbonisierung();
 
 //Umlaufwasseranalyse
-        jxl.write.Label labelECUW1 = new jxl.write.Label(4, 0,
+        LabelW labelECUW1 = new LabelW(4, 0,
             f.aufbereitung, nf1cell);
-        jxl.write.Number numberECUW2 = new jxl.write.Number(4, 2,
+        NumberW numberECUW2 = new NumberW(4, 2,
             f.anauml.verSchnitt, nf1cell);
-        jxl.write.Number numberECUW3 = new jxl.write.Number(4, 3,
+        NumberW numberECUW3 = new NumberW(4, 3,
             f.anauml.eindickung, nf1cell);
-        jxl.write.Number numberECUW4 = new jxl.write.Number(4, 4, f.anauml.tKT,
+        NumberW numberECUW4 = new NumberW(4, 4, f.anauml.tKT,
             nf1cell);
-        jxl.write.Number numberECUW5 = new jxl.write.Number(4, 5, f.anauml.tW,
+        NumberW numberECUW5 = new NumberW(4, 5, f.anauml.tW,
             nf1cell);
-        jxl.write.Number numberECUW6 = new jxl.write.Number(4, 6, f.anauml.lF,
+        NumberW numberECUW6 = new NumberW(4, 6, f.anauml.lF,
             nf1cell);
-        jxl.write.Number numberECUW7 = new jxl.write.Number(4, 7, f.anauml.ca,
+        NumberW numberECUW7 = new NumberW(4, 7, f.anauml.ca,
             nf1cell);
-        jxl.write.Number numberECUW8 = new jxl.write.Number(4, 8, f.anauml.mg,
+        NumberW numberECUW8 = new NumberW(4, 8, f.anauml.mg,
             nf1cell);
-        jxl.write.Number numberECUW9 = new jxl.write.Number(4, 9, f.anauml.na,
+        NumberW numberECUW9 = new NumberW(4, 9, f.anauml.na,
             nf1cell);
-        jxl.write.Number numberECUW10 = new jxl.write.Number(4, 10, f.anauml.ks,
+        NumberW numberECUW10 = new NumberW(4, 10, f.anauml.ks,
             nf1cell);
-        jxl.write.Number numberECUW11 = new jxl.write.Number(4, 11, f.anauml.cl,
+        NumberW numberECUW11 = new NumberW(4, 11, f.anauml.cl,
             nf1cell);
-        jxl.write.Number numberECUW12 = new jxl.write.Number(4, 12,
+        NumberW numberECUW12 = new NumberW(4, 12,
             f.anauml.so4,
             nf1cell);
-        jxl.write.Number numberECUW13 = new jxl.write.Number(4, 13,
+        NumberW numberECUW13 = new NumberW(4, 13,
             f.anauml.no3,
             nf1cell);
-        jxl.write.Number numberECUW14 = new jxl.write.Number(4, 14,
+        NumberW numberECUW14 = new NumberW(4, 14,
             f.anauml.pHKTnV, nf1cell);
-        jxl.write.Number numberECUW15 = new jxl.write.Number(4, 15,
+        NumberW numberECUW15 = new NumberW(4, 15,
             f.anauml.pHTKT, nf1cell);
-        jxl.write.Number numberECUW16 = new jxl.write.Number(4, 16,
+        NumberW numberECUW16 = new NumberW(4, 16,
             f.anauml.siTKT, nf1cell);
-        jxl.write.Number numberECUW17 = new jxl.write.Number(4, 17,
+        NumberW numberECUW17 = new NumberW(4, 17,
             f.anauml.pHggWW, nf1cell);
-        jxl.write.Number numberECUW18 = new jxl.write.Number(4, 18,
+        NumberW numberECUW18 = new NumberW(4, 18,
             f.anauml.sIW,
             nf1cell);
-        jxl.write.Number numberECUW19 = new jxl.write.Number(4, 19,
+        NumberW numberECUW19 = new NumberW(4, 19,
             f.anauml.salz,
             nf1cell);
-        jxl.write.Number numberECUW20 = new jxl.write.Number(4, 20,
+        NumberW numberECUW20 = new NumberW(4, 20,
             f.anauml.ionen, nf1cell);
-        jxl.write.Number numberECUW21 = new jxl.write.Number(4, 21,
+        NumberW numberECUW21 = new NumberW(4, 21,
             f.anauml.h2co3, nf1cell);
-        jxl.write.Number numberECUW22 = new jxl.write.Number(4, 22,
+        NumberW numberECUW22 = new NumberW(4, 22,
             f.anauml.hco3,
             nf1cell);
-        jxl.write.Number numberECUW23 = new jxl.write.Number(4, 23,
+        NumberW numberECUW23 = new NumberW(4, 23,
             f.anauml.co3,
             nf1cell);
 
-        sheet4.addCell(labelECUW1);
-        sheet4.addCell(numberECUW2);
+        addCell(sheet4, labelECUW1);
+        addCell(sheet4, numberECUW2);
 
-        sheet4.addCell(numberECUW3);
-        sheet4.addCell(numberECUW4);
-        sheet4.addCell(numberECUW5);
-        sheet4.addCell(numberECUW6);
-        sheet4.addCell(numberECUW7);
-        sheet4.addCell(numberECUW8);
-        sheet4.addCell(numberECUW9);
-        sheet4.addCell(numberECUW10);
-        sheet4.addCell(numberECUW11);
-        sheet4.addCell(numberECUW12);
-        sheet4.addCell(numberECUW13);
-        sheet4.addCell(numberECUW14);
-        sheet4.addCell(numberECUW15);
-        sheet4.addCell(numberECUW16);
-        sheet4.addCell(numberECUW17);
-        sheet4.addCell(numberECUW18);
-        sheet4.addCell(numberECUW19);
-        sheet4.addCell(numberECUW20);
-        sheet4.addCell(numberECUW21);
-        sheet4.addCell(numberECUW22);
-        sheet4.addCell(numberECUW23);
+        addCell(sheet4, numberECUW3);
+        addCell(sheet4, numberECUW4);
+        addCell(sheet4, numberECUW5);
+        addCell(sheet4, numberECUW6);
+        addCell(sheet4, numberECUW7);
+        addCell(sheet4, numberECUW8);
+        addCell(sheet4, numberECUW9);
+        addCell(sheet4, numberECUW10);
+        addCell(sheet4, numberECUW11);
+        addCell(sheet4, numberECUW12);
+        addCell(sheet4, numberECUW13);
+        addCell(sheet4, numberECUW14);
+        addCell(sheet4, numberECUW15);
+        addCell(sheet4, numberECUW16);
+        addCell(sheet4, numberECUW17);
+        addCell(sheet4, numberECUW18);
+        addCell(sheet4, numberECUW19);
+        addCell(sheet4, numberECUW20);
+        addCell(sheet4, numberECUW21);
+        addCell(sheet4, numberECUW22);
+        addCell(sheet4, numberECUW23);
 //VERBRAUCH
 
-        jxl.write.Number numberECVB1 = new jxl.write.Number(7, 2,
+        NumberW numberECVB1 = new NumberW(7, 2,
             f.betrkost.enVer, nf1cell);
-        jxl.write.Number numberECVB2 = new jxl.write.Number(7, 3,
+        NumberW numberECVB2 = new NumberW(7, 3,
             f.betrkost.stadtWasserVer, nf1cell);
-        jxl.write.Number numberECVB3 = new jxl.write.Number(7, 4,
+        NumberW numberECVB3 = new NumberW(7, 4,
             f.betrkost.abWasserVer, nf1cell);
-        jxl.write.Number numberECVB4 = new jxl.write.Number(7, 5,
+        NumberW numberECVB4 = new NumberW(7, 5,
             f.betrkost.regenSielVer, nf1cell);
-        jxl.write.Number numberECVB5 = new jxl.write.Number(7, 6,
+        NumberW numberECVB5 = new NumberW(7, 6,
             f.betrkost.dosMittelVer, nf1cell);
-        jxl.write.Number numberECVB6 = new jxl.write.Number(7, 7,
+        NumberW numberECVB6 = new NumberW(7, 7,
             f.betrkost.salzTabVer, nf1cell);
-        jxl.write.Number numberECVB7 = new jxl.write.Number(7, 8,
+        NumberW numberECVB7 = new NumberW(7, 8,
             f.betrkost.salzSaeureVer, nf1cell);
-        jxl.write.Number numberECVB8 = new jxl.write.Number(7, 9,
+        NumberW numberECVB8 = new NumberW(7, 9,
             f.betrkost.schwefelSaeureVer, nf1cell);
-        jxl.write.Number numberECVB9 = new jxl.write.Number(7, 10,
+        NumberW numberECVB9 = new NumberW(7, 10,
             f.betrkost.roVer, nf1cell);
-        sheet4.addCell(numberECVB1);
-        sheet4.addCell(numberECVB2);
-        sheet4.addCell(numberECVB3);
-        sheet4.addCell(numberECVB4);
-        sheet4.addCell(numberECVB5);
-        sheet4.addCell(numberECVB6);
-        sheet4.addCell(numberECVB7);
-        sheet4.addCell(numberECVB8);
-        sheet4.addCell(numberECVB9);
+        addCell(sheet4, numberECVB1);
+        addCell(sheet4, numberECVB2);
+        addCell(sheet4, numberECVB3);
+        addCell(sheet4, numberECVB4);
+        addCell(sheet4, numberECVB5);
+        addCell(sheet4, numberECVB6);
+        addCell(sheet4, numberECVB7);
+        addCell(sheet4, numberECVB8);
+        addCell(sheet4, numberECVB9);
 
 //KOSTEN
 
-        jxl.write.Number numberECKO1 = new jxl.write.Number(7, 13,
+        NumberW numberECKO1 = new NumberW(7, 13,
             f.betrkost.enKost, nf1cell);
-        jxl.write.Number numberECKO2 = new jxl.write.Number(7, 14,
+        NumberW numberECKO2 = new NumberW(7, 14,
             f.betrkost.stadtWasserKost, nf1cell);
-        jxl.write.Number numberECKO3 = new jxl.write.Number(7, 15,
+        NumberW numberECKO3 = new NumberW(7, 15,
             f.betrkost.abWasserKost, nf1cell);
-        jxl.write.Number numberECKO4 = new jxl.write.Number(7, 16,
+        NumberW numberECKO4 = new NumberW(7, 16,
             f.betrkost.regenSielKost, nf1cell);
-        jxl.write.Number numberECKO5 = new jxl.write.Number(7, 17,
+        NumberW numberECKO5 = new NumberW(7, 17,
             f.betrkost.dosMittelKost, nf1cell);
-        jxl.write.Number numberECKO6 = new jxl.write.Number(7, 18,
+        NumberW numberECKO6 = new NumberW(7, 18,
             f.betrkost.salzTabKost, nf1cell);
-        jxl.write.Number numberECKO7 = new jxl.write.Number(7, 19,
+        NumberW numberECKO7 = new NumberW(7, 19,
             f.betrkost.salzSaeureKost, nf1cell);
-        jxl.write.Number numberECKO8 = new jxl.write.Number(7, 20,
+        NumberW numberECKO8 = new NumberW(7, 20,
             f.betrkost.schwefelSaeureKost, nf1cell);
-        jxl.write.Number numberECKO9 = new jxl.write.Number(7, 21,
+        NumberW numberECKO9 = new NumberW(7, 21,
             f.betrkost.roKost, nf1cell);
-        jxl.write.Number numberECKO10 = new jxl.write.Number(7, 22,
+        NumberW numberECKO10 = new NumberW(7, 22,
             f.betrkost.enKost + f.betrkost.stadtWasserKost +
             f.betrkost.abWasserKost +
             f.betrkost.regenSielKost + f.betrkost.dosMittelKost +
@@ -2121,283 +2123,283 @@ public class hauptmenue
             f.betrkost.schwefelSaeureKost + f.betrkost.roKost +
             f.anlkost.jahresBetrag, nf1cell);
 
-        sheet4.addCell(numberECKO1);
-        sheet4.addCell(numberECKO2);
-        sheet4.addCell(numberECKO3);
-        sheet4.addCell(numberECKO4);
-        sheet4.addCell(numberECKO5);
-        sheet4.addCell(numberECKO6);
-        sheet4.addCell(numberECKO7);
-        sheet4.addCell(numberECKO8);
-        sheet4.addCell(numberECKO9);
-        sheet4.addCell(numberECKO10);
+        addCell(sheet4, numberECKO1);
+        addCell(sheet4, numberECKO2);
+        addCell(sheet4, numberECKO3);
+        addCell(sheet4, numberECKO4);
+        addCell(sheet4, numberECKO5);
+        addCell(sheet4, numberECKO6);
+        addCell(sheet4, numberECKO7);
+        addCell(sheet4, numberECKO8);
+        addCell(sheet4, numberECKO9);
+        addCell(sheet4, numberECKO10);
 
 //*****ANLAGE ENTCARBONISIERUNG*******
 
 
 
 
-         jxl.write.Label labelECG1 = new jxl.write.Label(9, 0,
+         LabelW labelECG1 = new LabelW(9, 0,
              "Anlageinformationen");
-        sheet4.addCell(labelECG1);
-        jxl.write.Label labelECAK1 = new jxl.write.Label(10, 0,
+        addCell(sheet4, labelECG1);
+        LabelW labelECAK1 = new LabelW(10, 0,
             f.anlkost.aufbereitungsart, nf1cell);
-        sheet4.addCell(labelECAK1);
+        addCell(sheet4, labelECAK1);
 
-        jxl.write.Label labelECG2 = new jxl.write.Label(9, 2,
+        LabelW labelECG2 = new LabelW(9, 2,
             "Anlage,Typ:");
-        sheet4.addCell(labelECG2);
-        jxl.write.Label labelECAK2 = new jxl.write.Label(10, 2, f.anlkost.typ1,
+        addCell(sheet4, labelECG2);
+        LabelW labelECAK2 = new LabelW(10, 2, f.anlkost.typ1,
             nf1cell);
-        sheet4.addCell(labelECAK2);
+        addCell(sheet4, labelECAK2);
 
-        jxl.write.Label labelECG3 = new jxl.write.Label(9, 3,
+        LabelW labelECG3 = new LabelW(9, 3,
             "Kapazität:");
-        sheet4.addCell(labelECG3);
-        jxl.write.Number numberECAK3 = new jxl.write.Number(10, 3,
+        addCell(sheet4, labelECG3);
+        NumberW numberECAK3 = new NumberW(10, 3,
             f.anlkost.kap1, nf1cell);
-        sheet4.addCell(numberECAK3);
+        addCell(sheet4, numberECAK3);
 
-        jxl.write.Label labelECG4 = new jxl.write.Label(9, 4,
+        LabelW labelECG4 = new LabelW(9, 4,
             "Verrohrung:");
-        sheet4.addCell(labelECG4);
-        jxl.write.Label labelECAK4 = new jxl.write.Label(10, 4,
+        addCell(sheet4, labelECG4);
+        LabelW labelECAK4 = new LabelW(10, 4,
             f.anlkost.nennweite1, nf1cell);
-        sheet4.addCell(labelECAK4);
+        addCell(sheet4, labelECAK4);
 
-        jxl.write.Label labelECG5 = new jxl.write.Label(9, 5,
+        LabelW labelECG5 = new LabelW(9, 5,
             "Werkstoff:");
-        sheet4.addCell(labelECG5);
-        jxl.write.Label labelECAK5 = new jxl.write.Label(10, 5, f.anlkost.ws1,
+        addCell(sheet4, labelECG5);
+        LabelW labelECAK5 = new LabelW(10, 5, f.anlkost.ws1,
             nf1cell);
-        sheet4.addCell(labelECAK5);
+        addCell(sheet4, labelECAK5);
 
-        jxl.write.Label labelECG6 = new jxl.write.Label(9, 6,
+        LabelW labelECG6 = new LabelW(9, 6,
             "Steuerung:");
-        sheet4.addCell(labelECG6);
-        jxl.write.Label labelECAK6 = new jxl.write.Label(10, 6, f.anlkost.st1,
+        addCell(sheet4, labelECG6);
+        LabelW labelECAK6 = new LabelW(10, 6, f.anlkost.st1,
             nf1cell);
-        sheet4.addCell(labelECAK6);
+        addCell(sheet4, labelECAK6);
 
-        jxl.write.Label labelECG7 = new jxl.write.Label(9, 7,
+        LabelW labelECG7 = new LabelW(9, 7,
             "Wassermengenzähler:");
-        sheet4.addCell(labelECG7);
-        jxl.write.Label labelECAK7 = new jxl.write.Label(10, 7, f.anlkost.wz1,
+        addCell(sheet4, labelECG7);
+        LabelW labelECAK7 = new LabelW(10, 7, f.anlkost.wz1,
             nf1cell);
-        sheet4.addCell(labelECAK7);
+        addCell(sheet4, labelECAK7);
 
-        jxl.write.Label labelECG8 = new jxl.write.Label(9, 8,
+        LabelW labelECG8 = new LabelW(9, 8,
             "Neutralfilter:");
-        sheet4.addCell(labelECG8);
-        jxl.write.Label labelECAK8 = new jxl.write.Label(10, 8, f.anlkost.nf,
+        addCell(sheet4, labelECG8);
+        LabelW labelECAK8 = new LabelW(10, 8, f.anlkost.nf,
             nf1cell);
-        sheet4.addCell(labelECAK8);
+        addCell(sheet4, labelECAK8);
 
-        jxl.write.Label labelECG9 = new jxl.write.Label(9, 9,
+        LabelW labelECG9 = new LabelW(9, 9,
             "Richtpreis einschl. Montage:");
-        sheet4.addCell(labelECG9);
-        jxl.write.Number numberECAK9 = new jxl.write.Number(10, 9,
+        addCell(sheet4, labelECG9);
+        NumberW numberECAK9 = new NumberW(10, 9,
             f.anlkost.aP1, nf1cell);
-        sheet4.addCell(numberECAK9);
+        addCell(sheet4, numberECAK9);
         //
         //
 
-        jxl.write.Label labelECG15 = new jxl.write.Label(9, 11,
+        LabelW labelECG15 = new LabelW(9, 11,
             "Anlage,Typ:");
-        sheet4.addCell(labelECG15);
-        jxl.write.Label labelECAK15 = new jxl.write.Label(10, 11,
+        addCell(sheet4, labelECG15);
+        LabelW labelECAK15 = new LabelW(10, 11,
             f.anlkost.typ3, nf1cell);
-        sheet4.addCell(labelECAK15);
+        addCell(sheet4, labelECAK15);
 
-        jxl.write.Label labelECG16 = new jxl.write.Label(9, 12,
+        LabelW labelECG16 = new LabelW(9, 12,
             "Dosier und Schutzbehälter:");
-        sheet4.addCell(labelECG16);
-        jxl.write.Label labelECAK16 = new jxl.write.Label(10, 12,
+        addCell(sheet4, labelECG16);
+        LabelW labelECAK16 = new LabelW(10, 12,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
-        sheet4.addCell(labelECAK16);
+        addCell(sheet4, labelECAK16);
 
-        jxl.write.Label labelECG17 = new jxl.write.Label(9, 13,
+        LabelW labelECG17 = new LabelW(9, 13,
             "Werkstoff:");
-        sheet4.addCell(labelECG17);
-        jxl.write.Label labelECAK17 = new jxl.write.Label(10, 13,
+        addCell(sheet4, labelECG17);
+        LabelW labelECAK17 = new LabelW(10, 13,
             f.anlkost.ws3, nf1cell);
 
-        jxl.write.Label labelECG18 = new jxl.write.Label(9, 14,
+        LabelW labelECG18 = new LabelW(9, 14,
             "Steuerung::");
-        sheet4.addCell(labelECG18);
-        sheet4.addCell(labelECAK17);
-        jxl.write.Label labelECAK18 = new jxl.write.Label(10, 14,
+        addCell(sheet4, labelECG18);
+        addCell(sheet4, labelECAK17);
+        LabelW labelECAK18 = new LabelW(10, 14,
             f.anlkost.st3, nf1cell);
-        sheet4.addCell(labelECAK18);
+        addCell(sheet4, labelECAK18);
 
-        jxl.write.Label labelECG19 = new jxl.write.Label(9, 15,
+        LabelW labelECG19 = new LabelW(9, 15,
             "Wassermengenzähler:");
-        sheet4.addCell(labelECG19);
-        jxl.write.Label numberECAK19 = new jxl.write.Label(10, 15,
+        addCell(sheet4, labelECG19);
+        LabelW numberECAK19 = new LabelW(10, 15,
             f.anlkost.wz3, nf1cell);
-        sheet4.addCell(numberECAK19);
+        addCell(sheet4, numberECAK19);
 
-        jxl.write.Label labelECG20 = new jxl.write.Label(9, 16,
+        LabelW labelECG20 = new LabelW(9, 16,
             "Richtpreis einschl. Montage:");
-        sheet4.addCell(labelECG20);
-        jxl.write.Number numberECAK20 = new jxl.write.Number(10, 16,
+        addCell(sheet4, labelECG20);
+        NumberW numberECAK20 = new NumberW(10, 16,
             f.anlkost.aP3, nf1cell);
-        sheet4.addCell(numberECAK20);
+        addCell(sheet4, numberECAK20);
 
-        jxl.write.Label labelECG21 = new jxl.write.Label(9, 17,
+        LabelW labelECG21 = new LabelW(9, 17,
             "Systemtrenner und Feinfilter:");
-        sheet4.addCell(labelECG21);
-        jxl.write.Number numberECAK21 = new jxl.write.Number(10, 17,
+        addCell(sheet4, labelECG21);
+        NumberW numberECAK21 = new NumberW(10, 17,
             f.anlkost.stffP, nf1cell);
-        sheet4.addCell(numberECAK21);
+        addCell(sheet4, numberECAK21);
 
-        jxl.write.Label labelECG22 = new jxl.write.Label(9, 19,
+        LabelW labelECG22 = new LabelW(9, 19,
             "Gesamtanlagenpreis:");
-        sheet4.addCell(labelECG22);
-        jxl.write.Number numberECAK22 = new jxl.write.Number(10, 19,
+        addCell(sheet4, labelECG22);
+        NumberW numberECAK22 = new NumberW(10, 19,
             f.anlkost.summe, nf1cell);
-        sheet4.addCell(numberECAK22);
+        addCell(sheet4, numberECAK22);
 
-        jxl.write.Label labelECG23 = new jxl.write.Label(9, 20,
+        LabelW labelECG23 = new LabelW(9, 20,
             "Anlagenkosten/Jahr:");
-        sheet4.addCell(labelECG23);
-        jxl.write.Number numberECAK23 = new jxl.write.Number(10, 20,
+        addCell(sheet4, labelECG23);
+        NumberW numberECAK23 = new NumberW(10, 20,
             f.anlkost.jahresBetrag, nf1cell);
-        sheet4.addCell(numberECAK23);
+        addCell(sheet4, numberECAK23);
 //************************************
 //UMKEHROSMOSE OHNE ENTHÄRTUNG
          f.umkehrosmoseo();
 
 //Umlaufwasseranalyse
-        jxl.write.Label labelUOOUW1 = new jxl.write.Label(4, 0,
+        LabelW labelUOOUW1 = new LabelW(4, 0,
             f.aufbereitung, nf1cell);
-        jxl.write.Number numberUOOUW2 = new jxl.write.Number(4, 2,
+        NumberW numberUOOUW2 = new NumberW(4, 2,
             f.anauml.verSchnitt, nf1cell);
-        jxl.write.Number numberUOOUW3 = new jxl.write.Number(4, 3,
+        NumberW numberUOOUW3 = new NumberW(4, 3,
             f.anauml.eindickung, nf1cell);
-        jxl.write.Number numberUOOUW4 = new jxl.write.Number(4, 4, f.anauml.tKT,
+        NumberW numberUOOUW4 = new NumberW(4, 4, f.anauml.tKT,
             nf1cell);
-        jxl.write.Number numberUOOUW5 = new jxl.write.Number(4, 5, f.anauml.tW,
+        NumberW numberUOOUW5 = new NumberW(4, 5, f.anauml.tW,
             nf1cell);
-        jxl.write.Number numberUOOUW6 = new jxl.write.Number(4, 6, f.anauml.lF,
+        NumberW numberUOOUW6 = new NumberW(4, 6, f.anauml.lF,
             nf1cell);
-        jxl.write.Number numberUOOUW7 = new jxl.write.Number(4, 7, f.anauml.ca,
+        NumberW numberUOOUW7 = new NumberW(4, 7, f.anauml.ca,
             nf1cell);
-        jxl.write.Number numberUOOUW8 = new jxl.write.Number(4, 8, f.anauml.mg,
+        NumberW numberUOOUW8 = new NumberW(4, 8, f.anauml.mg,
             nf1cell);
-        jxl.write.Number numberUOOUW9 = new jxl.write.Number(4, 9, f.anauml.na,
+        NumberW numberUOOUW9 = new NumberW(4, 9, f.anauml.na,
             nf1cell);
-        jxl.write.Number numberUOOUW10 = new jxl.write.Number(4, 10,
+        NumberW numberUOOUW10 = new NumberW(4, 10,
             f.anauml.ks,
             nf1cell);
-        jxl.write.Number numberUOOUW11 = new jxl.write.Number(4, 11,
+        NumberW numberUOOUW11 = new NumberW(4, 11,
             f.anauml.cl,
             nf1cell);
-        jxl.write.Number numberUOOUW12 = new jxl.write.Number(4, 12,
+        NumberW numberUOOUW12 = new NumberW(4, 12,
             f.anauml.so4,
             nf1cell);
-        jxl.write.Number numberUOOUW13 = new jxl.write.Number(4, 13,
+        NumberW numberUOOUW13 = new NumberW(4, 13,
             f.anauml.no3,
             nf1cell);
-        jxl.write.Number numberUOOUW14 = new jxl.write.Number(4, 14,
+        NumberW numberUOOUW14 = new NumberW(4, 14,
             f.anauml.pHKTnV, nf1cell);
-        jxl.write.Number numberUOOUW15 = new jxl.write.Number(4, 15,
+        NumberW numberUOOUW15 = new NumberW(4, 15,
             f.anauml.pHTKT, nf1cell);
-        jxl.write.Number numberUOOUW16 = new jxl.write.Number(4, 16,
+        NumberW numberUOOUW16 = new NumberW(4, 16,
             f.anauml.siTKT, nf1cell);
-        jxl.write.Number numberUOOUW17 = new jxl.write.Number(4, 17,
+        NumberW numberUOOUW17 = new NumberW(4, 17,
             f.anauml.pHggWW, nf1cell);
-        jxl.write.Number numberUOOUW18 = new jxl.write.Number(4, 18,
+        NumberW numberUOOUW18 = new NumberW(4, 18,
             f.anauml.sIW,
             nf1cell);
-        jxl.write.Number numberUOOUW19 = new jxl.write.Number(4, 19,
+        NumberW numberUOOUW19 = new NumberW(4, 19,
             f.anauml.salz,
             nf1cell);
-        jxl.write.Number numberUOOUW20 = new jxl.write.Number(4, 20,
+        NumberW numberUOOUW20 = new NumberW(4, 20,
             f.anauml.ionen, nf1cell);
-        jxl.write.Number numberUOOUW21 = new jxl.write.Number(4, 21,
+        NumberW numberUOOUW21 = new NumberW(4, 21,
             f.anauml.h2co3, nf1cell);
-        jxl.write.Number numberUOOUW22 = new jxl.write.Number(4, 22,
+        NumberW numberUOOUW22 = new NumberW(4, 22,
             f.anauml.hco3,
             nf1cell);
-        jxl.write.Number numberUOOUW23 = new jxl.write.Number(4, 23,
+        NumberW numberUOOUW23 = new NumberW(4, 23,
             f.anauml.co3,
             nf1cell);
-        sheet5.addCell(labelUOOUW1);
-        sheet5.addCell(numberUOOUW2);
-        sheet5.addCell(numberUOOUW3);
-        sheet5.addCell(numberUOOUW4);
-        sheet5.addCell(numberUOOUW5);
-        sheet5.addCell(numberUOOUW6);
-        sheet5.addCell(numberUOOUW7);
-        sheet5.addCell(numberUOOUW8);
-        sheet5.addCell(numberUOOUW9);
-        sheet5.addCell(numberUOOUW10);
-        sheet5.addCell(numberUOOUW11);
-        sheet5.addCell(numberUOOUW12);
-        sheet5.addCell(numberUOOUW13);
-        sheet5.addCell(numberUOOUW14);
-        sheet5.addCell(numberUOOUW15);
-        sheet5.addCell(numberUOOUW16);
-        sheet5.addCell(numberUOOUW17);
-        sheet5.addCell(numberUOOUW18);
-        sheet5.addCell(numberUOOUW19);
-        sheet5.addCell(numberUOOUW20);
-        sheet5.addCell(numberUOOUW21);
-        sheet5.addCell(numberUOOUW22);
-        sheet5.addCell(numberUOOUW23);
+        addCell(sheet5, labelUOOUW1);
+        addCell(sheet5, numberUOOUW2);
+        addCell(sheet5, numberUOOUW3);
+        addCell(sheet5, numberUOOUW4);
+        addCell(sheet5, numberUOOUW5);
+        addCell(sheet5, numberUOOUW6);
+        addCell(sheet5, numberUOOUW7);
+        addCell(sheet5, numberUOOUW8);
+        addCell(sheet5, numberUOOUW9);
+        addCell(sheet5, numberUOOUW10);
+        addCell(sheet5, numberUOOUW11);
+        addCell(sheet5, numberUOOUW12);
+        addCell(sheet5, numberUOOUW13);
+        addCell(sheet5, numberUOOUW14);
+        addCell(sheet5, numberUOOUW15);
+        addCell(sheet5, numberUOOUW16);
+        addCell(sheet5, numberUOOUW17);
+        addCell(sheet5, numberUOOUW18);
+        addCell(sheet5, numberUOOUW19);
+        addCell(sheet5, numberUOOUW20);
+        addCell(sheet5, numberUOOUW21);
+        addCell(sheet5, numberUOOUW22);
+        addCell(sheet5, numberUOOUW23);
 //VERBRAUCH
 
-        jxl.write.Number numberUOOVB1 = new jxl.write.Number(7, 2,
+        NumberW numberUOOVB1 = new NumberW(7, 2,
             f.betrkost.enVer, nf1cell);
-        jxl.write.Number numberUOOVB2 = new jxl.write.Number(7, 3,
+        NumberW numberUOOVB2 = new NumberW(7, 3,
             f.betrkost.stadtWasserVer, nf1cell);
-        jxl.write.Number numberUOOVB3 = new jxl.write.Number(7, 4,
+        NumberW numberUOOVB3 = new NumberW(7, 4,
             f.betrkost.abWasserVer, nf1cell);
-        jxl.write.Number numberUOOVB4 = new jxl.write.Number(7, 5,
+        NumberW numberUOOVB4 = new NumberW(7, 5,
             f.betrkost.regenSielVer, nf1cell);
-        jxl.write.Number numberUOOVB5 = new jxl.write.Number(7, 6,
+        NumberW numberUOOVB5 = new NumberW(7, 6,
             f.betrkost.dosMittelVer, nf1cell);
-        jxl.write.Number numberUOOVB6 = new jxl.write.Number(7, 7,
+        NumberW numberUOOVB6 = new NumberW(7, 7,
             f.betrkost.salzTabVer, nf1cell);
-        jxl.write.Number numberUOOVB7 = new jxl.write.Number(7, 8,
+        NumberW numberUOOVB7 = new NumberW(7, 8,
             f.betrkost.salzSaeureVer, nf1cell);
-        jxl.write.Number numberUOOVB8 = new jxl.write.Number(7, 9,
+        NumberW numberUOOVB8 = new NumberW(7, 9,
             f.betrkost.schwefelSaeureVer, nf1cell);
-        jxl.write.Number numberUOOVB9 = new jxl.write.Number(7, 10,
+        NumberW numberUOOVB9 = new NumberW(7, 10,
             f.betrkost.roVer, nf1cell);
 
-        sheet5.addCell(numberUOOVB1);
-        sheet5.addCell(numberUOOVB2);
-        sheet5.addCell(numberUOOVB3);
-        sheet5.addCell(numberUOOVB4);
-        sheet5.addCell(numberUOOVB5);
-        sheet5.addCell(numberUOOVB6);
-        sheet5.addCell(numberUOOVB7);
-        sheet5.addCell(numberUOOVB8);
-        sheet5.addCell(numberUOOVB9);
+        addCell(sheet5, numberUOOVB1);
+        addCell(sheet5, numberUOOVB2);
+        addCell(sheet5, numberUOOVB3);
+        addCell(sheet5, numberUOOVB4);
+        addCell(sheet5, numberUOOVB5);
+        addCell(sheet5, numberUOOVB6);
+        addCell(sheet5, numberUOOVB7);
+        addCell(sheet5, numberUOOVB8);
+        addCell(sheet5, numberUOOVB9);
 
 //KOSTEN
 
-        jxl.write.Number numberUOOKO1 = new jxl.write.Number(7, 13,
+        NumberW numberUOOKO1 = new NumberW(7, 13,
             f.betrkost.enKost, nf1cell);
-        jxl.write.Number numberUOOKO2 = new jxl.write.Number(7, 14,
+        NumberW numberUOOKO2 = new NumberW(7, 14,
             f.betrkost.stadtWasserKost, nf1cell);
-        jxl.write.Number numberUOOKO3 = new jxl.write.Number(7, 15,
+        NumberW numberUOOKO3 = new NumberW(7, 15,
             f.betrkost.abWasserKost, nf1cell);
-        jxl.write.Number numberUOOKO4 = new jxl.write.Number(7, 16,
+        NumberW numberUOOKO4 = new NumberW(7, 16,
             f.betrkost.regenSielKost, nf1cell);
-        jxl.write.Number numberUOOKO5 = new jxl.write.Number(7, 17,
+        NumberW numberUOOKO5 = new NumberW(7, 17,
             f.betrkost.dosMittelKost, nf1cell);
-        jxl.write.Number numberUOOKO6 = new jxl.write.Number(7, 18,
+        NumberW numberUOOKO6 = new NumberW(7, 18,
             f.betrkost.salzTabKost, nf1cell);
-        jxl.write.Number numberUOOKO7 = new jxl.write.Number(7, 19,
+        NumberW numberUOOKO7 = new NumberW(7, 19,
             f.betrkost.salzSaeureKost, nf1cell);
-        jxl.write.Number numberUOOKO8 = new jxl.write.Number(7, 20,
+        NumberW numberUOOKO8 = new NumberW(7, 20,
             f.betrkost.schwefelSaeureKost, nf1cell);
-        jxl.write.Number numberUOOKO9 = new jxl.write.Number(7, 21,
+        NumberW numberUOOKO9 = new NumberW(7, 21,
             f.betrkost.roKost, nf1cell);
-        jxl.write.Number numberUOOKO10 = new jxl.write.Number(7, 22,
+        NumberW numberUOOKO10 = new NumberW(7, 22,
             f.betrkost.enKost + f.betrkost.stadtWasserKost +
             f.betrkost.abWasserKost +
              f.betrkost.regenSielKost + f.betrkost.dosMittelKost +
@@ -2405,125 +2407,125 @@ public class hauptmenue
              f.betrkost.schwefelSaeureKost + f.betrkost.roKost +
              f.anlkost.jahresBetrag, nf1cell);
 
-        sheet5.addCell(numberUOOKO1);
-        sheet5.addCell(numberUOOKO2);
-        sheet5.addCell(numberUOOKO3);
-        sheet5.addCell(numberUOOKO4);
-        sheet5.addCell(numberUOOKO5);
-        sheet5.addCell(numberUOOKO6);
-        sheet5.addCell(numberUOOKO7);
-        sheet5.addCell(numberUOOKO8);
-        sheet5.addCell(numberUOOKO9);
-        sheet5.addCell(numberUOOKO10);
+        addCell(sheet5, numberUOOKO1);
+        addCell(sheet5, numberUOOKO2);
+        addCell(sheet5, numberUOOKO3);
+        addCell(sheet5, numberUOOKO4);
+        addCell(sheet5, numberUOOKO5);
+        addCell(sheet5, numberUOOKO6);
+        addCell(sheet5, numberUOOKO7);
+        addCell(sheet5, numberUOOKO8);
+        addCell(sheet5, numberUOOKO9);
+        addCell(sheet5, numberUOOKO10);
 
 //UMKEHROSMOSE OHNE ENTHÄRTUNG*******************************
         //ANLAGE
 
 
-        jxl.write.Label labelUOOG1 = new jxl.write.Label(9, 0,
+        LabelW labelUOOG1 = new LabelW(9, 0,
             "Anlageinformationen");
-        sheet5.addCell(labelUOOG1);
-        jxl.write.Label labelUOOAK1 = new jxl.write.Label(10, 0,
+        addCell(sheet5, labelUOOG1);
+        LabelW labelUOOAK1 = new LabelW(10, 0,
             f.anlkost.aufbereitungsart, nf1cell);
-        sheet5.addCell(labelUOOAK1);
+        addCell(sheet5, labelUOOAK1);
 
-        jxl.write.Label labelUOOG10 = new jxl.write.Label(9, 2,
+        LabelW labelUOOG10 = new LabelW(9, 2,
             "Anlage,Typ:");
-        sheet5.addCell(labelUOOG10);
-        jxl.write.Label labelUOOAK10 = new jxl.write.Label(10, 2,
+        addCell(sheet5, labelUOOG10);
+        LabelW labelUOOAK10 = new LabelW(10, 2,
             f.anlkost.typ2, nf1cell);
-        sheet5.addCell(labelUOOAK10);
+        addCell(sheet5, labelUOOAK10);
 
-        jxl.write.Label labelUOOG11 = new jxl.write.Label(9, 3,
+        LabelW labelUOOG11 = new LabelW(9, 3,
             "Leistung:");
-        sheet5.addCell(labelUOOG11);
-        jxl.write.Number numberUOOAK11 = new jxl.write.Number(10, 3,
+        addCell(sheet5, labelUOOG11);
+        NumberW numberUOOAK11 = new NumberW(10, 3,
             f.anlkost.kap2, nf1cell);
-        sheet5.addCell(numberUOOAK11);
+        addCell(sheet5, numberUOOAK11);
 
-        jxl.write.Label labelUOOG12 = new jxl.write.Label(9, 4,
+        LabelW labelUOOG12 = new LabelW(9, 4,
             "Verrohrung:");
-        sheet5.addCell(labelUOOG12);
-        jxl.write.Label labelUOOAK12 = new jxl.write.Label(10, 4,
+        addCell(sheet5, labelUOOG12);
+        LabelW labelUOOAK12 = new LabelW(10, 4,
             f.anlkost.ws2, nf1cell);
-        sheet5.addCell(labelUOOAK12);
+        addCell(sheet5, labelUOOAK12);
 
-        jxl.write.Label labelUOOG13 = new jxl.write.Label(9, 5,
+        LabelW labelUOOG13 = new LabelW(9, 5,
             "Steuerung:");
-        sheet5.addCell(labelUOOG13);
-        jxl.write.Label labelUOOAK13 = new jxl.write.Label(10, 5,
+        addCell(sheet5, labelUOOG13);
+        LabelW labelUOOAK13 = new LabelW(10, 5,
             f.anlkost.st2, nf1cell);
-        sheet5.addCell(labelUOOAK13);
+        addCell(sheet5, labelUOOAK13);
 
-        jxl.write.Label labelUOOG14 = new jxl.write.Label(9, 6,
+        LabelW labelUOOG14 = new LabelW(9, 6,
             "Richtpreis einschl. Montage::");
-        sheet5.addCell(labelUOOG14);
-        jxl.write.Number numberUOOAK14 = new jxl.write.Number(10, 6,
+        addCell(sheet5, labelUOOG14);
+        NumberW numberUOOAK14 = new NumberW(10, 6,
             f.anlkost.aP2, nf1cell);
-        sheet5.addCell(numberUOOAK14);
+        addCell(sheet5, numberUOOAK14);
 
-        jxl.write.Label labelUOOG15 = new jxl.write.Label(9, 8,
+        LabelW labelUOOG15 = new LabelW(9, 8,
             "Anlage,Typ:");
-        sheet5.addCell(labelUOOG15);
-        jxl.write.Label labelUOOAK15 = new jxl.write.Label(10, 8,
+        addCell(sheet5, labelUOOG15);
+        LabelW labelUOOAK15 = new LabelW(10, 8,
             f.anlkost.typ3, nf1cell);
-        sheet5.addCell(labelUOOAK15);
+        addCell(sheet5, labelUOOAK15);
 
-        jxl.write.Label labelUOOG16 = new jxl.write.Label(9, 9,
+        LabelW labelUOOG16 = new LabelW(9, 9,
             "Dosier und Schutzbehälter:");
-        sheet5.addCell(labelUOOG16);
-        jxl.write.Label labelUOOAK16 = new jxl.write.Label(10, 9,
+        addCell(sheet5, labelUOOG16);
+        LabelW labelUOOAK16 = new LabelW(10, 9,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
-        sheet5.addCell(labelUOOAK16);
+        addCell(sheet5, labelUOOAK16);
 
-        jxl.write.Label labelUOOG17 = new jxl.write.Label(9, 10,
+        LabelW labelUOOG17 = new LabelW(9, 10,
             "Werkstoff:");
-        sheet5.addCell(labelUOOG17);
-        jxl.write.Label labelUOOAK17 = new jxl.write.Label(10, 10,
+        addCell(sheet5, labelUOOG17);
+        LabelW labelUOOAK17 = new LabelW(10, 10,
             f.anlkost.ws3, nf1cell);
 
-        jxl.write.Label labelUOOG18 = new jxl.write.Label(9, 11,
+        LabelW labelUOOG18 = new LabelW(9, 11,
             "Steuerung::");
-        sheet5.addCell(labelUOOG18);
-        sheet5.addCell(labelUOOAK17);
-        jxl.write.Label labelUOOAK18 = new jxl.write.Label(10, 11,
+        addCell(sheet5, labelUOOG18);
+        addCell(sheet5, labelUOOAK17);
+        LabelW labelUOOAK18 = new LabelW(10, 11,
             f.anlkost.st3, nf1cell);
-        sheet5.addCell(labelUOOAK18);
+        addCell(sheet5, labelUOOAK18);
 
-        jxl.write.Label labelUOOG19 = new jxl.write.Label(9, 12,
+        LabelW labelUOOG19 = new LabelW(9, 12,
             "Wassermengenzähler:");
-        sheet5.addCell(labelUOOG19);
-        jxl.write.Label numberUOOAK19 = new jxl.write.Label(10, 12,
+        addCell(sheet5, labelUOOG19);
+        LabelW numberUOOAK19 = new LabelW(10, 12,
             f.anlkost.wz3, nf1cell);
-        sheet5.addCell(numberUOOAK19);
+        addCell(sheet5, numberUOOAK19);
 
-        jxl.write.Label labelUOOG20 = new jxl.write.Label(9, 13,
+        LabelW labelUOOG20 = new LabelW(9, 13,
             "Richtpreis einschl. Montage:");
-        sheet5.addCell(labelUOOG20);
-        jxl.write.Number numberUOOAK20 = new jxl.write.Number(10, 13,
+        addCell(sheet5, labelUOOG20);
+        NumberW numberUOOAK20 = new NumberW(10, 13,
             f.anlkost.aP3, nf1cell);
-        sheet5.addCell(numberUOOAK20);
+        addCell(sheet5, numberUOOAK20);
 
-        jxl.write.Label labelUOOG21 = new jxl.write.Label(9, 14,
+        LabelW labelUOOG21 = new LabelW(9, 14,
             "Systemtrenner und Feinfilter:");
-        sheet5.addCell(labelUOOG21);
-        jxl.write.Number numberUOOAK21 = new jxl.write.Number(10, 14,
+        addCell(sheet5, labelUOOG21);
+        NumberW numberUOOAK21 = new NumberW(10, 14,
             f.anlkost.stffP, nf1cell);
-        sheet5.addCell(numberUOOAK21);
+        addCell(sheet5, numberUOOAK21);
 
-        jxl.write.Label labelUOOG22 = new jxl.write.Label(9, 16,
+        LabelW labelUOOG22 = new LabelW(9, 16,
             "Gesamtanlagenpreis:");
-        sheet5.addCell(labelUOOG22);
-        jxl.write.Number numberUOOAK22 = new jxl.write.Number(10, 16,
+        addCell(sheet5, labelUOOG22);
+        NumberW numberUOOAK22 = new NumberW(10, 16,
             f.anlkost.summe, nf1cell);
-        sheet5.addCell(numberUOOAK22);
+        addCell(sheet5, numberUOOAK22);
 
-        jxl.write.Label labelUOOG23 = new jxl.write.Label(9, 17,
+        LabelW labelUOOG23 = new LabelW(9, 17,
             "Anlagenkosten/Jahr:");
-        sheet5.addCell(labelUOOG23);
-        jxl.write.Number numberUOOAK23 = new jxl.write.Number(10, 17,
+        addCell(sheet5, labelUOOG23);
+        NumberW numberUOOAK23 = new NumberW(10, 17,
             f.anlkost.jahresBetrag, nf1cell);
-        sheet5.addCell(numberUOOAK23);
+        addCell(sheet5, numberUOOAK23);
         //} // Ende der for Schleife
 
         // ************************************************
@@ -2531,136 +2533,136 @@ public class hauptmenue
         f.umkehrosmosem();
 
 //Umlaufwasseranalyse
-        jxl.write.Label labelUOMUW1 = new jxl.write.Label(4, 0,
+        LabelW labelUOMUW1 = new LabelW(4, 0,
             f.aufbereitung, nf1cell);
-        jxl.write.Number numberUOMUW2 = new jxl.write.Number(4, 2,
+        NumberW numberUOMUW2 = new NumberW(4, 2,
             f.anauml.verSchnitt, nf1cell);
-        jxl.write.Number numberUOMUW3 = new jxl.write.Number(4, 3,
+        NumberW numberUOMUW3 = new NumberW(4, 3,
             f.anauml.eindickung, nf1cell);
-        jxl.write.Number numberUOMUW4 = new jxl.write.Number(4, 4, f.anauml.tKT,
+        NumberW numberUOMUW4 = new NumberW(4, 4, f.anauml.tKT,
             nf1cell);
-        jxl.write.Number numberUOMUW5 = new jxl.write.Number(4, 5, f.anauml.tW,
+        NumberW numberUOMUW5 = new NumberW(4, 5, f.anauml.tW,
             nf1cell);
-        jxl.write.Number numberUOMUW6 = new jxl.write.Number(4, 6, f.anauml.lF,
+        NumberW numberUOMUW6 = new NumberW(4, 6, f.anauml.lF,
             nf1cell);
-        jxl.write.Number numberUOMUW7 = new jxl.write.Number(4, 7, f.anauml.ca,
+        NumberW numberUOMUW7 = new NumberW(4, 7, f.anauml.ca,
             nf1cell);
-        jxl.write.Number numberUOMUW8 = new jxl.write.Number(4, 8, f.anauml.mg,
+        NumberW numberUOMUW8 = new NumberW(4, 8, f.anauml.mg,
             nf1cell);
-        jxl.write.Number numberUOMUW9 = new jxl.write.Number(4, 9, f.anauml.na,
+        NumberW numberUOMUW9 = new NumberW(4, 9, f.anauml.na,
             nf1cell);
-        jxl.write.Number numberUOMUW10 = new jxl.write.Number(4, 10,
+        NumberW numberUOMUW10 = new NumberW(4, 10,
             f.anauml.ks,
             nf1cell);
-        jxl.write.Number numberUOMUW11 = new jxl.write.Number(4, 11,
+        NumberW numberUOMUW11 = new NumberW(4, 11,
             f.anauml.cl,
             nf1cell);
-        jxl.write.Number numberUOMUW12 = new jxl.write.Number(4, 12,
+        NumberW numberUOMUW12 = new NumberW(4, 12,
             f.anauml.so4,
             nf1cell);
-        jxl.write.Number numberUOMUW13 = new jxl.write.Number(4, 13,
+        NumberW numberUOMUW13 = new NumberW(4, 13,
             f.anauml.no3,
             nf1cell);
-        jxl.write.Number numberUOMUW14 = new jxl.write.Number(4, 14,
+        NumberW numberUOMUW14 = new NumberW(4, 14,
             f.anauml.pHKTnV, nf1cell);
-        jxl.write.Number numberUOMUW15 = new jxl.write.Number(4, 15,
+        NumberW numberUOMUW15 = new NumberW(4, 15,
             f.anauml.pHTKT, nf1cell);
-        jxl.write.Number numberUOMUW16 = new jxl.write.Number(4, 16,
+        NumberW numberUOMUW16 = new NumberW(4, 16,
             f.anauml.siTKT, nf1cell);
-        jxl.write.Number numberUOMUW17 = new jxl.write.Number(4, 17,
+        NumberW numberUOMUW17 = new NumberW(4, 17,
             f.anauml.pHggWW, nf1cell);
-        jxl.write.Number numberUOMUW18 = new jxl.write.Number(4, 18,
+        NumberW numberUOMUW18 = new NumberW(4, 18,
             f.anauml.sIW,
             nf1cell);
-        jxl.write.Number numberUOMUW19 = new jxl.write.Number(4, 19,
+        NumberW numberUOMUW19 = new NumberW(4, 19,
             f.anauml.salz,
             nf1cell);
-        jxl.write.Number numberUOMUW20 = new jxl.write.Number(4, 20,
+        NumberW numberUOMUW20 = new NumberW(4, 20,
             f.anauml.ionen, nf1cell);
-        jxl.write.Number numberUOMUW21 = new jxl.write.Number(4, 21,
+        NumberW numberUOMUW21 = new NumberW(4, 21,
             f.anauml.h2co3, nf1cell);
-        jxl.write.Number numberUOMUW22 = new jxl.write.Number(4, 22,
+        NumberW numberUOMUW22 = new NumberW(4, 22,
             f.anauml.hco3,
             nf1cell);
-        jxl.write.Number numberUOMUW23 = new jxl.write.Number(4, 23,
+        NumberW numberUOMUW23 = new NumberW(4, 23,
             f.anauml.co3,
             nf1cell);
 
-        sheet6.addCell(labelUOMUW1);
-        sheet6.addCell(numberUOMUW2);
-        sheet6.addCell(numberUOMUW3);
-        sheet6.addCell(numberUOMUW4);
-        sheet6.addCell(numberUOMUW5);
-        sheet6.addCell(numberUOMUW6);
-        sheet6.addCell(numberUOMUW7);
-        sheet6.addCell(numberUOMUW8);
-        sheet6.addCell(numberUOMUW9);
-        sheet6.addCell(numberUOMUW10);
-        sheet6.addCell(numberUOMUW11);
-        sheet6.addCell(numberUOMUW12);
-        sheet6.addCell(numberUOMUW13);
-        sheet6.addCell(numberUOMUW14);
-        sheet6.addCell(numberUOMUW15);
-        sheet6.addCell(numberUOMUW16);
-        sheet6.addCell(numberUOMUW17);
-        sheet6.addCell(numberUOMUW18);
-        sheet6.addCell(numberUOMUW19);
-        sheet6.addCell(numberUOMUW20);
-        sheet6.addCell(numberUOMUW21);
-        sheet6.addCell(numberUOMUW22);
-        sheet6.addCell(numberUOMUW23);
+        addCell(sheet6, labelUOMUW1);
+        addCell(sheet6, numberUOMUW2);
+        addCell(sheet6, numberUOMUW3);
+        addCell(sheet6, numberUOMUW4);
+        addCell(sheet6, numberUOMUW5);
+        addCell(sheet6, numberUOMUW6);
+        addCell(sheet6, numberUOMUW7);
+        addCell(sheet6, numberUOMUW8);
+        addCell(sheet6, numberUOMUW9);
+        addCell(sheet6, numberUOMUW10);
+        addCell(sheet6, numberUOMUW11);
+        addCell(sheet6, numberUOMUW12);
+        addCell(sheet6, numberUOMUW13);
+        addCell(sheet6, numberUOMUW14);
+        addCell(sheet6, numberUOMUW15);
+        addCell(sheet6, numberUOMUW16);
+        addCell(sheet6, numberUOMUW17);
+        addCell(sheet6, numberUOMUW18);
+        addCell(sheet6, numberUOMUW19);
+        addCell(sheet6, numberUOMUW20);
+        addCell(sheet6, numberUOMUW21);
+        addCell(sheet6, numberUOMUW22);
+        addCell(sheet6, numberUOMUW23);
 //VERBRAUCH
 
-        jxl.write.Number numberUOMVB1 = new jxl.write.Number(7, 2,
+        NumberW numberUOMVB1 = new NumberW(7, 2,
             f.betrkost.enVer, nf1cell);
-        jxl.write.Number numberUOMVB2 = new jxl.write.Number(7, 3,
+        NumberW numberUOMVB2 = new NumberW(7, 3,
             f.betrkost.stadtWasserVer, nf1cell);
-        jxl.write.Number numberUOMVB3 = new jxl.write.Number(7, 4,
+        NumberW numberUOMVB3 = new NumberW(7, 4,
             f.betrkost.abWasserVer, nf1cell);
-        jxl.write.Number numberUOMVB4 = new jxl.write.Number(7, 5,
+        NumberW numberUOMVB4 = new NumberW(7, 5,
             f.betrkost.regenSielVer, nf1cell);
-        jxl.write.Number numberUOMVB5 = new jxl.write.Number(7, 6,
+        NumberW numberUOMVB5 = new NumberW(7, 6,
             f.betrkost.dosMittelVer, nf1cell);
-        jxl.write.Number numberUOMVB6 = new jxl.write.Number(7, 7,
+        NumberW numberUOMVB6 = new NumberW(7, 7,
             f.betrkost.salzTabVer, nf1cell);
-        jxl.write.Number numberUOMVB7 = new jxl.write.Number(7, 8,
+        NumberW numberUOMVB7 = new NumberW(7, 8,
             f.betrkost.salzSaeureVer, nf1cell);
-        jxl.write.Number numberUOMVB8 = new jxl.write.Number(7, 9,
+        NumberW numberUOMVB8 = new NumberW(7, 9,
             f.betrkost.schwefelSaeureVer, nf1cell);
-        jxl.write.Number numberUOMVB9 = new jxl.write.Number(7, 10,
+        NumberW numberUOMVB9 = new NumberW(7, 10,
             f.betrkost.roVer, nf1cell);
 
-        sheet6.addCell(numberUOMVB1);
-        sheet6.addCell(numberUOMVB2);
-        sheet6.addCell(numberUOMVB3);
-        sheet6.addCell(numberUOMVB4);
-        sheet6.addCell(numberUOMVB5);
-        sheet6.addCell(numberUOMVB6);
-        sheet6.addCell(numberUOMVB7);
-        sheet6.addCell(numberUOMVB8);
-        sheet6.addCell(numberUOMVB9);
+        addCell(sheet6, numberUOMVB1);
+        addCell(sheet6, numberUOMVB2);
+        addCell(sheet6, numberUOMVB3);
+        addCell(sheet6, numberUOMVB4);
+        addCell(sheet6, numberUOMVB5);
+        addCell(sheet6, numberUOMVB6);
+        addCell(sheet6, numberUOMVB7);
+        addCell(sheet6, numberUOMVB8);
+        addCell(sheet6, numberUOMVB9);
 
 //KOSTEN
 
-        jxl.write.Number numberUOMKO1 = new jxl.write.Number(7, 13,
+        NumberW numberUOMKO1 = new NumberW(7, 13,
             f.betrkost.enKost, nf1cell);
-        jxl.write.Number numberUOMKO2 = new jxl.write.Number(7, 14,
+        NumberW numberUOMKO2 = new NumberW(7, 14,
             f.betrkost.stadtWasserKost, nf1cell);
-        jxl.write.Number numberUOMKO3 = new jxl.write.Number(7, 15,
+        NumberW numberUOMKO3 = new NumberW(7, 15,
             f.betrkost.abWasserKost, nf1cell);
-        jxl.write.Number numberUOMKO4 = new jxl.write.Number(7, 16,
+        NumberW numberUOMKO4 = new NumberW(7, 16,
             f.betrkost.regenSielKost, nf1cell);
-        jxl.write.Number numberUOMKO5 = new jxl.write.Number(7, 17,
+        NumberW numberUOMKO5 = new NumberW(7, 17,
             f.betrkost.dosMittelKost, nf1cell);
-        jxl.write.Number numberUOMKO6 = new jxl.write.Number(7, 18,
+        NumberW numberUOMKO6 = new NumberW(7, 18,
             f.betrkost.salzTabKost, nf1cell);
-        jxl.write.Number numberUOMKO7 = new jxl.write.Number(7, 19,
+        NumberW numberUOMKO7 = new NumberW(7, 19,
             f.betrkost.salzSaeureKost, nf1cell);
-        jxl.write.Number numberUOMKO8 = new jxl.write.Number(7, 20,
+        NumberW numberUOMKO8 = new NumberW(7, 20,
             f.betrkost.schwefelSaeureKost, nf1cell);
-        jxl.write.Number numberUOMKO9 = new jxl.write.Number(7, 21,
+        NumberW numberUOMKO9 = new NumberW(7, 21,
             f.betrkost.roKost, nf1cell);
-        jxl.write.Number numberUOMKO10 = new jxl.write.Number(7, 22,
+        NumberW numberUOMKO10 = new NumberW(7, 22,
             f.betrkost.enKost + f.betrkost.stadtWasserKost +
             f.betrkost.abWasserKost +
              f.betrkost.regenSielKost + f.betrkost.dosMittelKost +
@@ -2668,183 +2670,183 @@ public class hauptmenue
              f.betrkost.schwefelSaeureKost + f.betrkost.roKost +
              f.anlkost.jahresBetrag, nf1cell);
 
-        sheet6.addCell(numberUOMKO1);
-        sheet6.addCell(numberUOMKO2);
-        sheet6.addCell(numberUOMKO3);
-        sheet6.addCell(numberUOMKO4);
-        sheet6.addCell(numberUOMKO5);
-        sheet6.addCell(numberUOMKO6);
-        sheet6.addCell(numberUOMKO7);
-        sheet6.addCell(numberUOMKO8);
-        sheet6.addCell(numberUOMKO9);
-        sheet6.addCell(numberUOMKO10);
+        addCell(sheet6, numberUOMKO1);
+        addCell(sheet6, numberUOMKO2);
+        addCell(sheet6, numberUOMKO3);
+        addCell(sheet6, numberUOMKO4);
+        addCell(sheet6, numberUOMKO5);
+        addCell(sheet6, numberUOMKO6);
+        addCell(sheet6, numberUOMKO7);
+        addCell(sheet6, numberUOMKO8);
+        addCell(sheet6, numberUOMKO9);
+        addCell(sheet6, numberUOMKO10);
 
         //*********ANLAGE UMKEHROSMOSE MIT ENTHÄRTUNG****************
 
 
-         jxl.write.Label labelUOMG1 = new jxl.write.Label(9, 0,
+         LabelW labelUOMG1 = new LabelW(9, 0,
              "Anlageinformation für Aufbereitungsart:");
-        sheet6.addCell(labelUOMG1);
-        jxl.write.Label labelUOMAK1 = new jxl.write.Label(10, 0,
+        addCell(sheet6, labelUOMG1);
+        LabelW labelUOMAK1 = new LabelW(10, 0,
             f.anlkost.aufbereitungsart, nf1cell);
-        sheet6.addCell(labelUOMAK1);
+        addCell(sheet6, labelUOMAK1);
 
-        jxl.write.Label labelUOMG2 = new jxl.write.Label(9, 2,
+        LabelW labelUOMG2 = new LabelW(9, 2,
             "Anlage,Typ:");
-        sheet6.addCell(labelUOMG2);
-        jxl.write.Label labelUOMAK2 = new jxl.write.Label(10, 2, f.anlkost.typ1,
+        addCell(sheet6, labelUOMG2);
+        LabelW labelUOMAK2 = new LabelW(10, 2, f.anlkost.typ1,
             nf1cell);
-        sheet6.addCell(labelUOMAK2);
+        addCell(sheet6, labelUOMAK2);
 
-        jxl.write.Label labelUOMG3 = new jxl.write.Label(9, 3,
+        LabelW labelUOMG3 = new LabelW(9, 3,
             "Kapazität:");
-        sheet6.addCell(labelUOMG3);
-        jxl.write.Number numberlUOMAK3 = new jxl.write.Number(10, 3,
+        addCell(sheet6, labelUOMG3);
+        NumberW numberlUOMAK3 = new NumberW(10, 3,
             f.anlkost.kap1, nf1cell);
-        sheet6.addCell(numberlUOMAK3);
+        addCell(sheet6, numberlUOMAK3);
 
-        jxl.write.Label labelUOMG4 = new jxl.write.Label(9, 4,
+        LabelW labelUOMG4 = new LabelW(9, 4,
             "Verrohrung:");
-        sheet6.addCell(labelUOMG4);
-        jxl.write.Label labelUOMAK4 = new jxl.write.Label(10, 4,
+        addCell(sheet6, labelUOMG4);
+        LabelW labelUOMAK4 = new LabelW(10, 4,
             f.anlkost.nennweite1, nf1cell);
-        sheet6.addCell(labelUOMAK4);
+        addCell(sheet6, labelUOMAK4);
 
-        jxl.write.Label labelUOMG5 = new jxl.write.Label(9, 5,
+        LabelW labelUOMG5 = new LabelW(9, 5,
             "Werkstoff:");
-        sheet6.addCell(labelUOMG5);
-        jxl.write.Label labelUOMAK5 = new jxl.write.Label(10, 5, f.anlkost.ws1,
+        addCell(sheet6, labelUOMG5);
+        LabelW labelUOMAK5 = new LabelW(10, 5, f.anlkost.ws1,
             nf1cell);
-        sheet6.addCell(labelUOMAK5);
+        addCell(sheet6, labelUOMAK5);
 
-        jxl.write.Label labelUOMG6 = new jxl.write.Label(9, 6,
+        LabelW labelUOMG6 = new LabelW(9, 6,
             "Steuerung:");
-        sheet6.addCell(labelUOMG6);
-        jxl.write.Label labelUOMAK6 = new jxl.write.Label(10, 6, f.anlkost.st1,
+        addCell(sheet6, labelUOMG6);
+        LabelW labelUOMAK6 = new LabelW(10, 6, f.anlkost.st1,
             nf1cell);
-        sheet6.addCell(labelUOMAK6);
+        addCell(sheet6, labelUOMAK6);
 
-        jxl.write.Label labelUOMG7 = new jxl.write.Label(9, 7,
+        LabelW labelUOMG7 = new LabelW(9, 7,
             "Wassermengenzähler:");
-        sheet6.addCell(labelUOMG7);
-        jxl.write.Label labelUOMAK7 = new jxl.write.Label(10, 7, f.anlkost.wz1,
+        addCell(sheet6, labelUOMG7);
+        LabelW labelUOMAK7 = new LabelW(10, 7, f.anlkost.wz1,
             nf1cell);
-        sheet6.addCell(labelUOMAK7);
+        addCell(sheet6, labelUOMAK7);
 
-        jxl.write.Label labelUOMG9 = new jxl.write.Label(9, 8,
+        LabelW labelUOMG9 = new LabelW(9, 8,
             "Richtpreis einschl. Montage:");
-        sheet6.addCell(labelUOMG9);
-        jxl.write.Number numberlUOMAK9 = new jxl.write.Number(10, 8,
+        addCell(sheet6, labelUOMG9);
+        NumberW numberlUOMAK9 = new NumberW(10, 8,
             f.anlkost.aP1, nf1cell);
-        sheet6.addCell(numberlUOMAK9);
+        addCell(sheet6, numberlUOMAK9);
         //
         //
 
-        jxl.write.Label labelUOMG10 = new jxl.write.Label(9, 10,
+        LabelW labelUOMG10 = new LabelW(9, 10,
             "Anlage,Typ:");
-        sheet6.addCell(labelUOMG10);
-        jxl.write.Label labelUOMAK10 = new jxl.write.Label(10, 10,
+        addCell(sheet6, labelUOMG10);
+        LabelW labelUOMAK10 = new LabelW(10, 10,
             f.anlkost.typ2, nf1cell);
-        sheet6.addCell(labelUOMAK10);
+        addCell(sheet6, labelUOMAK10);
 
-        jxl.write.Label labelUOMG11 = new jxl.write.Label(9, 11,
+        LabelW labelUOMG11 = new LabelW(9, 11,
             "Leistung:");
-        sheet6.addCell(labelUOMG11);
-        jxl.write.Number numberlUOMAK11 = new jxl.write.Number(10, 11,
+        addCell(sheet6, labelUOMG11);
+        NumberW numberlUOMAK11 = new NumberW(10, 11,
             f.anlkost.kap2, nf1cell);
-        sheet6.addCell(numberlUOMAK11);
+        addCell(sheet6, numberlUOMAK11);
 
-        jxl.write.Label labelUOMG12 = new jxl.write.Label(9, 12,
+        LabelW labelUOMG12 = new LabelW(9, 12,
             "Verrohrung:");
-        sheet6.addCell(labelUOMG12);
-        jxl.write.Label labelUOMAK12 = new jxl.write.Label(10, 12,
+        addCell(sheet6, labelUOMG12);
+        LabelW labelUOMAK12 = new LabelW(10, 12,
             f.anlkost.ws2, nf1cell);
-        sheet6.addCell(labelUOMAK12);
+        addCell(sheet6, labelUOMAK12);
 
-        jxl.write.Label labelUOMG13 = new jxl.write.Label(9, 13,
+        LabelW labelUOMG13 = new LabelW(9, 13,
             "Steuerung:");
-        sheet6.addCell(labelUOMG13);
-        jxl.write.Label labelUOMAK13 = new jxl.write.Label(10, 13,
+        addCell(sheet6, labelUOMG13);
+        LabelW labelUOMAK13 = new LabelW(10, 13,
             f.anlkost.st2, nf1cell);
-        sheet6.addCell(labelUOMAK13);
+        addCell(sheet6, labelUOMAK13);
 
-        /*jxl.write.Label labelUOMG14 = new jxl.write.Label(13, 0,
+        /*LabelW labelUOMG14 = new LabelW(13, 0,
                    "Dosierstation:");
-                   sheet6.addCell(labelUOMG14);
+                   addCell(sheet6, labelUOMG14);
 
-                   jxl.write.Label labelUOMG15 = new jxl.write.Label(14, 0,
+                   LabelW labelUOMG15 = new LabelW(14, 0,
                    "Dosierstation:");
-                   sheet6.addCell(labelUOMG15);
+                   addCell(sheet6, labelUOMG15);
          */
-        jxl.write.Label labelUOMG14 = new jxl.write.Label(9, 14,
+        LabelW labelUOMG14 = new LabelW(9, 14,
             "Richtpreis einschl. Montage::");
-        sheet6.addCell(labelUOMG14);
-        jxl.write.Number numberlUOMAK14 = new jxl.write.Number(10, 14,
+        addCell(sheet6, labelUOMG14);
+        NumberW numberlUOMAK14 = new NumberW(10, 14,
             f.anlkost.aP2, nf1cell);
-        sheet6.addCell(numberlUOMAK14);
+        addCell(sheet6, numberlUOMAK14);
 
-        jxl.write.Label labelUOMG15 = new jxl.write.Label(9, 16,
+        LabelW labelUOMG15 = new LabelW(9, 16,
             "Anlage,Typ:");
-        sheet6.addCell(labelUOMG15);
-        jxl.write.Label labelUOMAK15 = new jxl.write.Label(10, 16,
+        addCell(sheet6, labelUOMG15);
+        LabelW labelUOMAK15 = new LabelW(10, 16,
             f.anlkost.typ3, nf1cell);
-        sheet6.addCell(labelUOMAK15);
+        addCell(sheet6, labelUOMAK15);
 
-        jxl.write.Label labelUOMG16 = new jxl.write.Label(9, 17,
+        LabelW labelUOMG16 = new LabelW(9, 17,
             "Dosier und Schutzbehälter:");
-        sheet6.addCell(labelUOMG16);
-        jxl.write.Label labelUOMAK16 = new jxl.write.Label(10, 17,
+        addCell(sheet6, labelUOMG16);
+        LabelW labelUOMAK16 = new LabelW(10, 17,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
-        sheet6.addCell(labelUOMAK16);
+        addCell(sheet6, labelUOMAK16);
 
-        jxl.write.Label labelUOMG17 = new jxl.write.Label(9, 18,
+        LabelW labelUOMG17 = new LabelW(9, 18,
             "Werkstoff:");
-        sheet6.addCell(labelUOMG17);
-        jxl.write.Label labelUOMAK17 = new jxl.write.Label(10, 18,
+        addCell(sheet6, labelUOMG17);
+        LabelW labelUOMAK17 = new LabelW(10, 18,
             f.anlkost.ws3, nf1cell);
 
-        jxl.write.Label labelUOMG18 = new jxl.write.Label(9, 19,
+        LabelW labelUOMG18 = new LabelW(9, 19,
             "Steuerung::");
-        sheet6.addCell(labelUOMG18);
-        sheet6.addCell(labelUOMAK17);
-        jxl.write.Label labelUOMAK18 = new jxl.write.Label(10, 19,
+        addCell(sheet6, labelUOMG18);
+        addCell(sheet6, labelUOMAK17);
+        LabelW labelUOMAK18 = new LabelW(10, 19,
             f.anlkost.st3, nf1cell);
-        sheet6.addCell(labelUOMAK18);
+        addCell(sheet6, labelUOMAK18);
 
-        jxl.write.Label labelUOMG19 = new jxl.write.Label(9, 20,
+        LabelW labelUOMG19 = new LabelW(9, 20,
             "Wassermengenzähler:");
-        sheet6.addCell(labelUOMG19);
-        jxl.write.Label numberlUOMAK19 = new jxl.write.Label(10, 20,
+        addCell(sheet6, labelUOMG19);
+        LabelW numberlUOMAK19 = new LabelW(10, 20,
             f.anlkost.wz3, nf1cell);
-        sheet6.addCell(numberlUOMAK19);
+        addCell(sheet6, numberlUOMAK19);
 
-        jxl.write.Label labelUOMG20 = new jxl.write.Label(9, 21,
+        LabelW labelUOMG20 = new LabelW(9, 21,
             "Richtpreis einschl. Montage:");
-        sheet6.addCell(labelUOMG20);
-        jxl.write.Number numberlUOMAK20 = new jxl.write.Number(10, 21,
+        addCell(sheet6, labelUOMG20);
+        NumberW numberlUOMAK20 = new NumberW(10, 21,
             f.anlkost.aP3, nf1cell);
-        sheet6.addCell(numberlUOMAK20);
+        addCell(sheet6, numberlUOMAK20);
 
-        jxl.write.Label labelUOMG21 = new jxl.write.Label(9, 22,
+        LabelW labelUOMG21 = new LabelW(9, 22,
             "Systemtrenner und Feinfilter:");
-        sheet6.addCell(labelUOMG21);
-        jxl.write.Number numberlUOMAK21 = new jxl.write.Number(10, 22,
+        addCell(sheet6, labelUOMG21);
+        NumberW numberlUOMAK21 = new NumberW(10, 22,
             f.anlkost.stffP, nf1cell);
-        sheet6.addCell(numberlUOMAK21);
+        addCell(sheet6, numberlUOMAK21);
 
-        jxl.write.Label labelUOMG22 = new jxl.write.Label(9, 24,
+        LabelW labelUOMG22 = new LabelW(9, 24,
             "Gesamtanlagenpreis:");
-        sheet6.addCell(labelUOMG22);
-        jxl.write.Number numberlUOMAK22 = new jxl.write.Number(10, 24,
+        addCell(sheet6, labelUOMG22);
+        NumberW numberlUOMAK22 = new NumberW(10, 24,
             f.anlkost.summe, nf1cell);
-        sheet6.addCell(numberlUOMAK22);
+        addCell(sheet6, numberlUOMAK22);
 
-        jxl.write.Label labelUOMG23 = new jxl.write.Label(9, 25,
+        LabelW labelUOMG23 = new LabelW(9, 25,
             "Anlagenkosten/Jahr:");
-        sheet6.addCell(labelUOMG23);
-        jxl.write.Number numberlUOMAK23 = new jxl.write.Number(10, 25,
+        addCell(sheet6, labelUOMG23);
+        NumberW numberlUOMAK23 = new NumberW(10, 25,
             f.anlkost.jahresBetrag, nf1cell);
-        sheet6.addCell(numberlUOMAK23);
+        addCell(sheet6, numberlUOMAK23);
         //} // Ende der for Schleife
 
         //**********************************************************
@@ -2853,134 +2855,134 @@ public class hauptmenue
          f.schwefelsaeuredos();
 
 //Umlaufwasseranalyse
-        jxl.write.Label labelSDUW1 = new jxl.write.Label(4, 0,
+        LabelW labelSDUW1 = new LabelW(4, 0,
             f.aufbereitung, nf1cell);
-        jxl.write.Number numberSDUW2 = new jxl.write.Number(4, 2,
+        NumberW numberSDUW2 = new NumberW(4, 2,
             f.anauml.verSchnitt, nf1cell);
-        jxl.write.Number numberSDUW3 = new jxl.write.Number(4, 3,
+        NumberW numberSDUW3 = new NumberW(4, 3,
             f.anauml.eindickung, nf1cell);
-        jxl.write.Number numberSDUW4 = new jxl.write.Number(4, 4, f.anauml.tKT,
+        NumberW numberSDUW4 = new NumberW(4, 4, f.anauml.tKT,
             nf1cell);
-        jxl.write.Number numberSDUW5 = new jxl.write.Number(4, 5, f.anauml.tW,
+        NumberW numberSDUW5 = new NumberW(4, 5, f.anauml.tW,
             nf1cell);
-        jxl.write.Number numberSDUW6 = new jxl.write.Number(4, 6, f.anauml.lF,
+        NumberW numberSDUW6 = new NumberW(4, 6, f.anauml.lF,
             nf1cell);
-        jxl.write.Number numberSDUW7 = new jxl.write.Number(4, 7, f.anauml.ca,
+        NumberW numberSDUW7 = new NumberW(4, 7, f.anauml.ca,
             nf1cell);
-        jxl.write.Number numberSDUW8 = new jxl.write.Number(4, 8, f.anauml.mg,
+        NumberW numberSDUW8 = new NumberW(4, 8, f.anauml.mg,
             nf1cell);
-        jxl.write.Number numberSDUW9 = new jxl.write.Number(4, 9, f.anauml.na,
+        NumberW numberSDUW9 = new NumberW(4, 9, f.anauml.na,
             nf1cell);
-        jxl.write.Number numberSDUW10 = new jxl.write.Number(4, 10, f.anauml.ks,
+        NumberW numberSDUW10 = new NumberW(4, 10, f.anauml.ks,
             nf1cell);
-        jxl.write.Number numberSDUW11 = new jxl.write.Number(4, 11, f.anauml.cl,
+        NumberW numberSDUW11 = new NumberW(4, 11, f.anauml.cl,
             nf1cell);
-        jxl.write.Number numberSDUW12 = new jxl.write.Number(4, 12,
+        NumberW numberSDUW12 = new NumberW(4, 12,
             f.anauml.so4,
             nf1cell);
-        jxl.write.Number numberSDUW13 = new jxl.write.Number(4, 13,
+        NumberW numberSDUW13 = new NumberW(4, 13,
             f.anauml.no3,
             nf1cell);
-        jxl.write.Number numberSDUW14 = new jxl.write.Number(4, 14,
+        NumberW numberSDUW14 = new NumberW(4, 14,
             f.anauml.pHKTnV, nf1cell);
-        jxl.write.Number numberSDUW15 = new jxl.write.Number(4, 15,
+        NumberW numberSDUW15 = new NumberW(4, 15,
             f.anauml.pHTKT, nf1cell);
-        jxl.write.Number numberSDUW16 = new jxl.write.Number(4, 16,
+        NumberW numberSDUW16 = new NumberW(4, 16,
             f.anauml.siTKT, nf1cell);
-        jxl.write.Number numberSDUW17 = new jxl.write.Number(4, 17,
+        NumberW numberSDUW17 = new NumberW(4, 17,
             f.anauml.pHggWW, nf1cell);
-        jxl.write.Number numberSDUW18 = new jxl.write.Number(4, 18,
+        NumberW numberSDUW18 = new NumberW(4, 18,
             f.anauml.sIW,
             nf1cell);
-        jxl.write.Number numberSDUW19 = new jxl.write.Number(4, 19,
+        NumberW numberSDUW19 = new NumberW(4, 19,
             f.anauml.salz,
             nf1cell);
-        jxl.write.Number numberSDUW20 = new jxl.write.Number(4, 20,
+        NumberW numberSDUW20 = new NumberW(4, 20,
             f.anauml.ionen, nf1cell);
-        jxl.write.Number numberSDUW21 = new jxl.write.Number(4, 21,
+        NumberW numberSDUW21 = new NumberW(4, 21,
             f.anauml.h2co3, nf1cell);
-        jxl.write.Number numberSDUW22 = new jxl.write.Number(4, 22,
+        NumberW numberSDUW22 = new NumberW(4, 22,
             f.anauml.hco3,
             nf1cell);
-        jxl.write.Number numberSDUW23 = new jxl.write.Number(4, 23,
+        NumberW numberSDUW23 = new NumberW(4, 23,
             f.anauml.co3,
             nf1cell);
 
-        sheet7.addCell(labelSDUW1);
-        sheet7.addCell(numberSDUW2);
+        addCell(sheet7, labelSDUW1);
+        addCell(sheet7, numberSDUW2);
 
-        sheet7.addCell(numberSDUW3);
-        sheet7.addCell(numberSDUW4);
-        sheet7.addCell(numberSDUW5);
-        sheet7.addCell(numberSDUW6);
-        sheet7.addCell(numberSDUW7);
-        sheet7.addCell(numberSDUW8);
-        sheet7.addCell(numberSDUW9);
-        sheet7.addCell(numberSDUW10);
-        sheet7.addCell(numberSDUW11);
-        sheet7.addCell(numberSDUW12);
-        sheet7.addCell(numberSDUW13);
-        sheet7.addCell(numberSDUW14);
-        sheet7.addCell(numberSDUW15);
-        sheet7.addCell(numberSDUW16);
-        sheet7.addCell(numberSDUW17);
-        sheet7.addCell(numberSDUW18);
-        sheet7.addCell(numberSDUW19);
-        sheet7.addCell(numberSDUW20);
-        sheet7.addCell(numberSDUW21);
-        sheet7.addCell(numberSDUW22);
-        sheet7.addCell(numberSDUW23);
+        addCell(sheet7, numberSDUW3);
+        addCell(sheet7, numberSDUW4);
+        addCell(sheet7, numberSDUW5);
+        addCell(sheet7, numberSDUW6);
+        addCell(sheet7, numberSDUW7);
+        addCell(sheet7, numberSDUW8);
+        addCell(sheet7, numberSDUW9);
+        addCell(sheet7, numberSDUW10);
+        addCell(sheet7, numberSDUW11);
+        addCell(sheet7, numberSDUW12);
+        addCell(sheet7, numberSDUW13);
+        addCell(sheet7, numberSDUW14);
+        addCell(sheet7, numberSDUW15);
+        addCell(sheet7, numberSDUW16);
+        addCell(sheet7, numberSDUW17);
+        addCell(sheet7, numberSDUW18);
+        addCell(sheet7, numberSDUW19);
+        addCell(sheet7, numberSDUW20);
+        addCell(sheet7, numberSDUW21);
+        addCell(sheet7, numberSDUW22);
+        addCell(sheet7, numberSDUW23);
 //VERBRAUCH
-        jxl.write.Number numberSDVB1 = new jxl.write.Number(7, 2,
+        NumberW numberSDVB1 = new NumberW(7, 2,
             f.betrkost.enVer, nf1cell);
-        jxl.write.Number numberSDVB2 = new jxl.write.Number(7, 3,
+        NumberW numberSDVB2 = new NumberW(7, 3,
             f.betrkost.stadtWasserVer, nf1cell);
-        jxl.write.Number numberSDVB3 = new jxl.write.Number(7, 4,
+        NumberW numberSDVB3 = new NumberW(7, 4,
             f.betrkost.abWasserVer, nf1cell);
-        jxl.write.Number numberSDVB4 = new jxl.write.Number(7, 5,
+        NumberW numberSDVB4 = new NumberW(7, 5,
             f.betrkost.regenSielVer, nf1cell);
-        jxl.write.Number numberSDVB5 = new jxl.write.Number(7, 6,
+        NumberW numberSDVB5 = new NumberW(7, 6,
             f.betrkost.dosMittelVer, nf1cell);
-        jxl.write.Number numberSDVB6 = new jxl.write.Number(7, 7,
+        NumberW numberSDVB6 = new NumberW(7, 7,
             f.betrkost.salzTabVer, nf1cell);
-        jxl.write.Number numberSDVB7 = new jxl.write.Number(7, 8,
+        NumberW numberSDVB7 = new NumberW(7, 8,
             f.betrkost.salzSaeureVer, nf1cell);
-        jxl.write.Number numberSDVB8 = new jxl.write.Number(7, 9,
+        NumberW numberSDVB8 = new NumberW(7, 9,
             f.betrkost.schwefelSaeureVer, nf1cell);
-        jxl.write.Number numberSDVB9 = new jxl.write.Number(7, 10,
+        NumberW numberSDVB9 = new NumberW(7, 10,
             f.betrkost.roVer, nf1cell);
 
-        sheet7.addCell(numberSDVB1);
-        sheet7.addCell(numberSDVB2);
-        sheet7.addCell(numberSDVB3);
-        sheet7.addCell(numberSDVB4);
-        sheet7.addCell(numberSDVB5);
-        sheet7.addCell(numberSDVB6);
-        sheet7.addCell(numberSDVB7);
-        sheet7.addCell(numberSDVB8);
-        sheet7.addCell(numberSDVB9);
+        addCell(sheet7, numberSDVB1);
+        addCell(sheet7, numberSDVB2);
+        addCell(sheet7, numberSDVB3);
+        addCell(sheet7, numberSDVB4);
+        addCell(sheet7, numberSDVB5);
+        addCell(sheet7, numberSDVB6);
+        addCell(sheet7, numberSDVB7);
+        addCell(sheet7, numberSDVB8);
+        addCell(sheet7, numberSDVB9);
 
 //KOSTEN
 
-        jxl.write.Number numberSDKO1 = new jxl.write.Number(7, 13,
+        NumberW numberSDKO1 = new NumberW(7, 13,
             f.betrkost.enKost, nf1cell);
-        jxl.write.Number numberSDKO2 = new jxl.write.Number(7, 14,
+        NumberW numberSDKO2 = new NumberW(7, 14,
             f.betrkost.stadtWasserKost, nf1cell);
-        jxl.write.Number numberSDKO3 = new jxl.write.Number(7, 15,
+        NumberW numberSDKO3 = new NumberW(7, 15,
             f.betrkost.abWasserKost, nf1cell);
-        jxl.write.Number numberSDKO4 = new jxl.write.Number(7, 16,
+        NumberW numberSDKO4 = new NumberW(7, 16,
             f.betrkost.regenSielKost, nf1cell);
-        jxl.write.Number numberSDKO5 = new jxl.write.Number(7, 17,
+        NumberW numberSDKO5 = new NumberW(7, 17,
             f.betrkost.dosMittelKost, nf1cell);
-        jxl.write.Number numberSDKO6 = new jxl.write.Number(7, 18,
+        NumberW numberSDKO6 = new NumberW(7, 18,
             f.betrkost.salzTabKost, nf1cell);
-        jxl.write.Number numberSDKO7 = new jxl.write.Number(7, 19,
+        NumberW numberSDKO7 = new NumberW(7, 19,
             f.betrkost.salzSaeureKost, nf1cell);
-        jxl.write.Number numberSDKO8 = new jxl.write.Number(7, 20,
+        NumberW numberSDKO8 = new NumberW(7, 20,
             f.betrkost.schwefelSaeureKost, nf1cell);
-        jxl.write.Number numberSDKO9 = new jxl.write.Number(7, 21,
+        NumberW numberSDKO9 = new NumberW(7, 21,
             f.betrkost.roKost, nf1cell);
-        jxl.write.Number numberSDKO10 = new jxl.write.Number(7, 22,
+        NumberW numberSDKO10 = new NumberW(7, 22,
             f.betrkost.enKost + f.betrkost.stadtWasserKost +
             f.betrkost.abWasserKost +
             f.betrkost.regenSielKost + f.betrkost.dosMittelKost +
@@ -2988,132 +2990,130 @@ public class hauptmenue
             f.betrkost.schwefelSaeureKost + f.betrkost.roKost +
             f.anlkost.jahresBetrag, nf1cell);
 
-        sheet7.addCell(numberSDKO1);
-        sheet7.addCell(numberSDKO2);
-        sheet7.addCell(numberSDKO3);
-        sheet7.addCell(numberSDKO4);
-        sheet7.addCell(numberSDKO5);
-        sheet7.addCell(numberSDKO6);
-        sheet7.addCell(numberSDKO7);
-        sheet7.addCell(numberSDKO8);
-        sheet7.addCell(numberSDKO9);
-        sheet7.addCell(numberSDKO10);
+        addCell(sheet7, numberSDKO1);
+        addCell(sheet7, numberSDKO2);
+        addCell(sheet7, numberSDKO3);
+        addCell(sheet7, numberSDKO4);
+        addCell(sheet7, numberSDKO5);
+        addCell(sheet7, numberSDKO6);
+        addCell(sheet7, numberSDKO7);
+        addCell(sheet7, numberSDKO8);
+        addCell(sheet7, numberSDKO9);
+        addCell(sheet7, numberSDKO10);
 
 //*****************ANLAGE SCHWEFELSÄUREDOSIERUNG**************************
-         jxl.write.Label labelSDG1 = new jxl.write.Label(9, 0,
+         LabelW labelSDG1 = new LabelW(9, 0,
              "Anlageinformationen");
-        sheet7.addCell(labelSDG1);
-        jxl.write.Label labelSDAK1 = new jxl.write.Label(10, 0,
+        addCell(sheet7, labelSDG1);
+        LabelW labelSDAK1 = new LabelW(10, 0,
             f.anlkost.aufbereitungsart, nf1cell);
-        sheet7.addCell(labelSDAK1);
+        addCell(sheet7, labelSDAK1);
 
-        jxl.write.Label labelSDG2 = new jxl.write.Label(9, 2,
+        LabelW labelSDG2 = new LabelW(9, 2,
             "Anlage,Typ:");
-        sheet7.addCell(labelSDG2);
-        jxl.write.Label labelSDAK2 = new jxl.write.Label(10, 2, f.anlkost.typ1,
+        addCell(sheet7, labelSDG2);
+        LabelW labelSDAK2 = new LabelW(10, 2, f.anlkost.typ1,
             nf1cell);
-        sheet7.addCell(labelSDAK2);
+        addCell(sheet7, labelSDAK2);
 
-        jxl.write.Label labelSDG3 = new jxl.write.Label(9, 3,
+        LabelW labelSDG3 = new LabelW(9, 3,
             "Dosier und Schutzbehälter:");
-        sheet7.addCell(labelSDG3);
-        jxl.write.Label labelSDAK3 = new jxl.write.Label(10, 3,
+        addCell(sheet7, labelSDG3);
+        LabelW labelSDAK3 = new LabelW(10, 3,
             "V " + Double.toString(f.anlkost.kap1), nf1cell);
-        sheet7.addCell(labelSDAK3);
+        addCell(sheet7, labelSDAK3);
 
-        jxl.write.Label labelSDG4 = new jxl.write.Label(9, 4,
+        LabelW labelSDG4 = new LabelW(9, 4,
             "Werkstoff:");
-        sheet7.addCell(labelSDG4);
-        jxl.write.Label labelSDAK4 = new jxl.write.Label(10, 4, f.anlkost.ws1,
+        addCell(sheet7, labelSDG4);
+        LabelW labelSDAK4 = new LabelW(10, 4, f.anlkost.ws1,
             nf1cell);
-        sheet7.addCell(labelSDAK4);
+        addCell(sheet7, labelSDAK4);
 
-        jxl.write.Label labelSDG5 = new jxl.write.Label(9, 5,
+        LabelW labelSDG5 = new LabelW(9, 5,
             "Steuerung:");
-        sheet7.addCell(labelSDG5);
-        jxl.write.Label labelSDAK5 = new jxl.write.Label(10, 5, f.anlkost.st1,
+        addCell(sheet7, labelSDG5);
+        LabelW labelSDAK5 = new LabelW(10, 5, f.anlkost.st1,
             nf1cell);
-        sheet7.addCell(labelSDAK5);
+        addCell(sheet7, labelSDAK5);
 
-        jxl.write.Label labelSDG6 = new jxl.write.Label(9, 6,
+        LabelW labelSDG6 = new LabelW(9, 6,
             "Richtpreis einschl. Montage:");
-        sheet7.addCell(labelSDG6);
-        jxl.write.Number numberSDAK6 = new jxl.write.Number(10, 6,
+        addCell(sheet7, labelSDG6);
+        NumberW numberSDAK6 = new NumberW(10, 6,
             f.anlkost.aP1, nf1cell);
-        sheet7.addCell(numberSDAK6);
+        addCell(sheet7, numberSDAK6);
 
-        jxl.write.Label labelSDG15 = new jxl.write.Label(9, 8,
+        LabelW labelSDG15 = new LabelW(9, 8,
             "Anlage,Typ:");
-        sheet7.addCell(labelSDG15);
-        jxl.write.Label labelSDAK15 = new jxl.write.Label(10, 8,
+        addCell(sheet7, labelSDG15);
+        LabelW labelSDAK15 = new LabelW(10, 8,
             f.anlkost.typ3, nf1cell);
-        sheet7.addCell(labelSDAK15);
+        addCell(sheet7, labelSDAK15);
 
-        jxl.write.Label labelSDG16 = new jxl.write.Label(9, 9,
+        LabelW labelSDG16 = new LabelW(9, 9,
             "Dosier und Schutzbehälter:");
-        sheet7.addCell(labelSDG16);
-        jxl.write.Label labelSDAK16 = new jxl.write.Label(10, 9,
+        addCell(sheet7, labelSDG16);
+        LabelW labelSDAK16 = new LabelW(10, 9,
             "V " + Double.toString(f.anlkost.kap3), nf1cell);
-        sheet7.addCell(labelSDAK16);
+        addCell(sheet7, labelSDAK16);
 
-        jxl.write.Label labelSDG17 = new jxl.write.Label(9, 10,
+        LabelW labelSDG17 = new LabelW(9, 10,
             "Werkstoff:");
-        sheet7.addCell(labelSDG17);
-        jxl.write.Label labelSDAK17 = new jxl.write.Label(10, 10,
+        addCell(sheet7, labelSDG17);
+        LabelW labelSDAK17 = new LabelW(10, 10,
             f.anlkost.ws3, nf1cell);
 
-        jxl.write.Label labelSDG18 = new jxl.write.Label(9, 11,
+        LabelW labelSDG18 = new LabelW(9, 11,
             "Steuerung::");
-        sheet7.addCell(labelSDG18);
-        sheet7.addCell(labelSDAK17);
-        jxl.write.Label labelSDAK18 = new jxl.write.Label(10, 11,
+        addCell(sheet7, labelSDG18);
+        addCell(sheet7, labelSDAK17);
+        LabelW labelSDAK18 = new LabelW(10, 11,
             f.anlkost.st3, nf1cell);
-        sheet7.addCell(labelSDAK18);
+        addCell(sheet7, labelSDAK18);
 
-        jxl.write.Label labelSDG19 = new jxl.write.Label(9, 12,
+        LabelW labelSDG19 = new LabelW(9, 12,
             "Wassermengenzähler:");
-        sheet7.addCell(labelSDG19);
-        jxl.write.Label numberSDAK19 = new jxl.write.Label(10, 12,
+        addCell(sheet7, labelSDG19);
+        LabelW numberSDAK19 = new LabelW(10, 12,
             f.anlkost.wz3, nf1cell);
-        sheet7.addCell(numberSDAK19);
+        addCell(sheet7, numberSDAK19);
 
-        jxl.write.Label labelSDG20 = new jxl.write.Label(9, 13,
+        LabelW labelSDG20 = new LabelW(9, 13,
             "Richtpreis einschl. Montage:");
-        sheet7.addCell(labelSDG20);
-        jxl.write.Number numberSDAK20 = new jxl.write.Number(10, 13,
+        addCell(sheet7, labelSDG20);
+        NumberW numberSDAK20 = new NumberW(10, 13,
             f.anlkost.aP3, nf1cell);
-        sheet7.addCell(numberSDAK20);
+        addCell(sheet7, numberSDAK20);
 
-        jxl.write.Label labelSDG21 = new jxl.write.Label(9, 14,
+        LabelW labelSDG21 = new LabelW(9, 14,
             "Systemtrenner und Feinfilter:");
-        sheet7.addCell(labelSDG21);
-        jxl.write.Number numberSDAK21 = new jxl.write.Number(10, 14,
+        addCell(sheet7, labelSDG21);
+        NumberW numberSDAK21 = new NumberW(10, 14,
             f.anlkost.stffP, nf1cell);
-        sheet7.addCell(numberSDAK21);
+        addCell(sheet7, numberSDAK21);
 
-        jxl.write.Label labelSDG22 = new jxl.write.Label(9, 16,
+        LabelW labelSDG22 = new LabelW(9, 16,
             "Gesamtanlagenpreis:");
-        sheet7.addCell(labelSDG22);
-        jxl.write.Number numberSDAK22 = new jxl.write.Number(10, 16,
+        addCell(sheet7, labelSDG22);
+        NumberW numberSDAK22 = new NumberW(10, 16,
             f.anlkost.summe, nf1cell);
-        sheet7.addCell(numberSDAK22);
+        addCell(sheet7, numberSDAK22);
 
-        jxl.write.Label labelSDG23 = new jxl.write.Label(9, 17,
+        LabelW labelSDG23 = new LabelW(9, 17,
             "Anlagenkosten/Jahr:");
-        sheet7.addCell(labelSDG23);
-        jxl.write.Number numberSDAK23 = new jxl.write.Number(10, 17,
+        addCell(sheet7, labelSDG23);
+        NumberW numberSDAK23 = new NumberW(10, 17,
             f.anlkost.jahresBetrag, nf1cell);
-        sheet7.addCell(numberSDAK23);
+        addCell(sheet7, numberSDAK23);
 
         //*************************************************
 
 
-         workbook.write();
+         try (FileOutputStream out = new FileOutputStream(new File(dateiName))) {
+          workbook.write(out);
+        }
         workbook.close();
-      }
-
-      catch (jxl.write.WriteException IOE) {
-        System.out.println("IO Fehler" + IOE);
       }
 
     }
@@ -3385,6 +3385,40 @@ public class hauptmenue
 
      }
   }
+
+  // POI-Hilfsklassen: ahmen jxl.write.Label / jxl.write.Number nach,
+  // damit die mechanische Migration die ursprueglichen Variablenketten
+  // (inkl. setString-Re-Assignment) unveraendert lassen konnte.
+  private static class LabelW {
+    final int col, row;
+    String text;
+    LabelW(int c, int r, String t) { col = c; row = r; text = t; }
+    LabelW(int c, int r, String t, CellStyle style) { col = c; row = r; text = t; }
+    void setString(String s) { text = s; }
+  }
+
+  private static class NumberW {
+    final int col, row;
+    double value;
+    final CellStyle style;
+    NumberW(int c, int r, double v) { col = c; row = r; value = v; style = null; }
+    NumberW(int c, int r, double v, CellStyle s) { col = c; row = r; value = v; style = s; }
+    void setValue(double v) { value = v; }
+  }
+
+  private static void addCell(Sheet sheet, LabelW lbl) {
+    Row row = sheet.getRow(lbl.row);
+    if (row == null) row = sheet.createRow(lbl.row);
+    row.createCell(lbl.col).setCellValue(lbl.text != null ? lbl.text : "");
+  }
+
+  private static void addCell(Sheet sheet, NumberW num) {
+    Row row = sheet.getRow(num.row);
+    if (row == null) row = sheet.createRow(num.row);
+    Cell c = row.createCell(num.col);
+    c.setCellValue(num.value);
+    if (num.style != null) c.setCellStyle(num.style);
+  }
 }
 /*//ANLAGE
 void anlage()
@@ -3393,214 +3427,214 @@ void anlage()
       if (f.aufbereitung == "Enthärtung" ||
           f.aufbereitung == "Entcarbonisierung" ||
           f.aufbereitung == "Umkehrosmose m. v. Enthärtung") {
-        jxl.write.Label labelG1 = new jxl.write.Label(0, 0,
+        LabelW labelG1 = new LabelW(0, 0,
           "Anlageinformation für Aufbereitungsart:");
-       sheet2.addCell(labelG1);
-        jxl.write.Label LabelAK1 = new jxl.write.Label(i++, 1,
+       addCell(sheet2, labelG1);
+        LabelW LabelAK1 = new LabelW(i++, 1,
             f.anlkost.aufbereitungsart, nf1cell);
-         sheet7.addCell(LabelAK1);
+         addCell(sheet7, LabelAK1);
 
-         jxl.write.Label labelG2 = new jxl.write.Label(i, 0,
+         LabelW labelG2 = new LabelW(i, 0,
           "Anlage,Typ:");
-       sheet7.addCell(labelG2);
-        jxl.write.Label LabelAK2 = new jxl.write.Label(i++, 1, f.anlkost.typ1,
+       addCell(sheet7, labelG2);
+        LabelW LabelAK2 = new LabelW(i++, 1, f.anlkost.typ1,
             nf1cell);
-        sheet7.addCell(LabelAK2);
+        addCell(sheet7, LabelAK2);
 
-        jxl.write.Label labelG3 = new jxl.write.Label(i, 0,
+        LabelW labelG3 = new LabelW(i, 0,
           "Kapazität:");
-       sheet7.addCell(labelG3);
-       jxl.write.Number numberAK3 = new jxl.write.Number(i++, 1,
+       addCell(sheet7, labelG3);
+       NumberW numberAK3 = new NumberW(i++, 1,
             f.anlkost.kap1, nf1cell);
-        sheet7.addCell(numberAK3);
+        addCell(sheet7, numberAK3);
 
-        jxl.write.Label labelG4 = new jxl.write.Label(i, 0,
+        LabelW labelG4 = new LabelW(i, 0,
           "Verrohrung:");
-       sheet7.addCell(labelG4);
-        jxl.write.Label LabelAK4 = new jxl.write.Label(i++, 1,
+       addCell(sheet7, labelG4);
+        LabelW LabelAK4 = new LabelW(i++, 1,
             f.anlkost.nennweite1, nf1cell);
-        sheet7.addCell(LabelAK4);
+        addCell(sheet7, LabelAK4);
 
-        jxl.write.Label labelG5 = new jxl.write.Label(i, 0,
+        LabelW labelG5 = new LabelW(i, 0,
           "Werkstoff:");
-       sheet7.addCell(labelG5);
-        jxl.write.Label LabelAK5 = new jxl.write.Label(i++, 1, f.anlkost.ws1,
+       addCell(sheet7, labelG5);
+        LabelW LabelAK5 = new LabelW(i++, 1, f.anlkost.ws1,
             nf1cell);
-        sheet7.addCell(LabelAK5);
+        addCell(sheet7, LabelAK5);
 
-        jxl.write.Label labelG6 = new jxl.write.Label(i, 0,
+        LabelW labelG6 = new LabelW(i, 0,
           "Steuerung:");
-       sheet7.addCell(labelG6);
-        jxl.write.Label LabelAK6 = new jxl.write.Label(i++, 1, f.anlkost.st1,
+       addCell(sheet7, labelG6);
+        LabelW LabelAK6 = new LabelW(i++, 1, f.anlkost.st1,
             nf1cell);
-        sheet7.addCell(LabelAK6);
+        addCell(sheet7, LabelAK6);
 
-        jxl.write.Label labelG7 = new jxl.write.Label(i, 0,
+        LabelW labelG7 = new LabelW(i, 0,
           "Wassermengenzähler:");
-       sheet7.addCell(labelG7);
-        jxl.write.Label LabelAK7 = new jxl.write.Label(i++, 1, f.anlkost.wz1,
+       addCell(sheet7, labelG7);
+        LabelW LabelAK7 = new LabelW(i++, 1, f.anlkost.wz1,
             nf1cell);
-        sheet7.addCell(LabelAK7);
+        addCell(sheet7, LabelAK7);
 
 
         if (f.anlkost.verfahren == "Entcarbonisierung") {
-          jxl.write.Label labelG8 = new jxl.write.Label(i, 0,
+          LabelW labelG8 = new LabelW(i, 0,
           "Neutralfilter:");
-       sheet7.addCell(labelG8);
-          jxl.write.Label LabelAK8 = new jxl.write.Label(i++, 1, f.anlkost.nf,
+       addCell(sheet7, labelG8);
+          LabelW LabelAK8 = new LabelW(i++, 1, f.anlkost.nf,
               nf1cell);
-          sheet7.addCell(LabelAK8);
+          addCell(sheet7, LabelAK8);
         }
-        jxl.write.Label labelG9 = new jxl.write.Label(i, 0,
+        LabelW labelG9 = new LabelW(i, 0,
            "Richtpreis einschl. Montage:");
-        sheet7.addCell(labelG9);
-        jxl.write.Number numberAK9 = new jxl.write.Number(i++, 1,
+        addCell(sheet7, labelG9);
+        NumberW numberAK9 = new NumberW(i++, 1,
             f.anlkost.aP1, nf1cell);
-         sheet7.addCell(numberAK9);
+         addCell(sheet7, numberAK9);
         //
         //
         if (f.aufbereitung == "Umkehrosmose m. v. Enthärtung" ||
             f.aufbereitung == "Umkehrosmose o. v. Enthärtung") {
 
-          jxl.write.Label labelG10 = new jxl.write.Label(i, 0,
+          LabelW labelG10 = new LabelW(i, 0,
           "Anlage,Typ:");
-           sheet7.addCell(labelG10);
-          jxl.write.Label LabelAK10 = new jxl.write.Label(i++, 1,
+           addCell(sheet7, labelG10);
+          LabelW LabelAK10 = new LabelW(i++, 1,
               f.anlkost.typ2, nf1cell);
-          sheet7.addCell(LabelAK10);
+          addCell(sheet7, LabelAK10);
 
-          jxl.write.Label labelG11 = new jxl.write.Label(i, 0,
+          LabelW labelG11 = new LabelW(i, 0,
           "Leistung:");
-          sheet7.addCell(labelG11);
-          jxl.write.Number numberAK11 = new jxl.write.Number(i++, 1,
+          addCell(sheet7, labelG11);
+          NumberW numberAK11 = new NumberW(i++, 1,
               f.anlkost.kap2, nf1cell);
-          sheet7.addCell(numberAK11);
+          addCell(sheet7, numberAK11);
 
-          jxl.write.Label labelG12 = new jxl.write.Label(i, 0,
+          LabelW labelG12 = new LabelW(i, 0,
           "Verrohrung:");
-          sheet7.addCell(labelG12);
-          jxl.write.Label LabelAK12 = new jxl.write.Label(i++, 1,
+          addCell(sheet7, labelG12);
+          LabelW LabelAK12 = new LabelW(i++, 1,
               f.anlkost.ws2, nf1cell);
-          sheet7.addCell(LabelAK12);
+          addCell(sheet7, LabelAK12);
 
-          jxl.write.Label labelG13 = new jxl.write.Label(i, 0,
+          LabelW labelG13 = new LabelW(i, 0,
           "Steuerung:");
-          sheet7.addCell(labelG13);
-          jxl.write.Label LabelAK13 = new jxl.write.Label(i++, 1,
+          addCell(sheet7, labelG13);
+          LabelW LabelAK13 = new LabelW(i++, 1,
               f.anlkost.st2, nf1cell);
-          sheet7.addCell(LabelAK13);
+          addCell(sheet7, LabelAK13);
 
 
-          jxl.write.Label labelG14 = new jxl.write.Label(i, 0,
+          LabelW labelG14 = new LabelW(i, 0,
           "Richtpreis einschl. Montage::");
-          sheet7.addCell(labelG14);
-          jxl.write.Number NumberAK14 = new jxl.write.Number(i++, 1,
+          addCell(sheet7, labelG14);
+          NumberW NumberAK14 = new NumberW(i++, 1,
               f.anlkost.aP2, nf1cell);
-          sheet7.addCell(NumberAK14);
+          addCell(sheet7, NumberAK14);
 
 
         }
       }
       if (f.aufbereitung == "Schwefelsäuredosierung")
       {
-        jxl.write.Label labelG2 = new jxl.write.Label(i, 0,
+        LabelW labelG2 = new LabelW(i, 0,
           "Anlage,Typ:");
-          sheet7.addCell(labelG2);
-        jxl.write.Label LabelAK2 = new jxl.write.Label(i++, 1, f.anlkost.typ1,
+          addCell(sheet7, labelG2);
+        LabelW LabelAK2 = new LabelW(i++, 1, f.anlkost.typ1,
            nf1cell);
-       sheet7.addCell(LabelAK2);
+       addCell(sheet7, LabelAK2);
 
-       jxl.write.Label labelG3 = new jxl.write.Label(i, 0,
+       LabelW labelG3 = new LabelW(i, 0,
           "Dosier und Schutzbehälter:");
-          sheet7.addCell(labelG3);
-       jxl.write.Label labelAK3 = new jxl.write.Label(i++, 1,
+          addCell(sheet7, labelG3);
+       LabelW labelAK3 = new LabelW(i++, 1,
            "V " + Double.toString(f.anlkost.kap1), nf1cell);
-       sheet7.addCell(labelAK3);
+       addCell(sheet7, labelAK3);
 
-       jxl.write.Label labelG4 = new jxl.write.Label(i, 0,
+       LabelW labelG4 = new LabelW(i, 0,
           "Werkstoff:");
-          sheet7.addCell(labelG4);
-       jxl.write.Label LabelAK4 = new jxl.write.Label(i++, 1, f.anlkost.ws1,
+          addCell(sheet7, labelG4);
+       LabelW LabelAK4 = new LabelW(i++, 1, f.anlkost.ws1,
            nf1cell);
-       sheet7.addCell(LabelAK4);
+       addCell(sheet7, LabelAK4);
 
-       jxl.write.Label labelG5 = new jxl.write.Label(i, 0,
+       LabelW labelG5 = new LabelW(i, 0,
           "Steuerung:");
-          sheet7.addCell(labelG5);
-       jxl.write.Label LabelAK5 = new jxl.write.Label(i++, 1, f.anlkost.st1,
+          addCell(sheet7, labelG5);
+       LabelW LabelAK5 = new LabelW(i++, 1, f.anlkost.st1,
            nf1cell);
-       sheet7.addCell(LabelAK5);
+       addCell(sheet7, LabelAK5);
 
-       jxl.write.Label labelG6 = new jxl.write.Label(i, 0,
+       LabelW labelG6 = new LabelW(i, 0,
           "Richtpreis einschl. Montage:");
-          sheet7.addCell(labelG6);
-       jxl.write.Number numberAK6 = new jxl.write.Number(i++, 1,
+          addCell(sheet7, labelG6);
+       NumberW numberAK6 = new NumberW(i++, 1,
            f.anlkost.aP1, nf1cell);
-       sheet7.addCell(numberAK6);
+       addCell(sheet7, numberAK6);
      }
 
-     jxl.write.Label labelG15 = new jxl.write.Label(i, 0,
+     LabelW labelG15 = new LabelW(i, 0,
           "Anlage,Typ:");
-          sheet7.addCell(labelG15);
-     jxl.write.Label LabelAK15 = new jxl.write.Label(i++, 1,
+          addCell(sheet7, labelG15);
+     LabelW LabelAK15 = new LabelW(i++, 1,
           f.anlkost.typ3, nf1cell);
-     sheet7.addCell(LabelAK15);
+     addCell(sheet7, LabelAK15);
 
-     jxl.write.Label labelG16 = new jxl.write.Label(i, 0,
+     LabelW labelG16 = new LabelW(i, 0,
           "Dosier und Schutzbehälter:");
-          sheet7.addCell(labelG16);
-          jxl.write.Label labelAK16 = new jxl.write.Label(i++, 1,
+          addCell(sheet7, labelG16);
+          LabelW labelAK16 = new LabelW(i++, 1,
           "V " + Double.toString(f.anlkost.kap3), nf1cell);
-      sheet7.addCell(labelAK16);
+      addCell(sheet7, labelAK16);
 
-      jxl.write.Label labelG17 = new jxl.write.Label(i, 0,
+      LabelW labelG17 = new LabelW(i, 0,
           "Werkstoff:");
-          sheet7.addCell(labelG17);
-  jxl.write.Label LabelAK17 = new jxl.write.Label(i++, 1,
+          addCell(sheet7, labelG17);
+  LabelW LabelAK17 = new LabelW(i++, 1,
           f.anlkost.ws3, nf1cell);
 
-jxl.write.Label labelG18 = new jxl.write.Label(i, 0,
+LabelW labelG18 = new LabelW(i, 0,
           "Steuerung::");
-          sheet7.addCell(labelG18);
-sheet7.addCell(LabelAK17);
-      jxl.write.Label LabelAK18 = new jxl.write.Label(i++, 1,
+          addCell(sheet7, labelG18);
+addCell(sheet7, LabelAK17);
+      LabelW LabelAK18 = new LabelW(i++, 1,
           f.anlkost.st3, nf1cell);
-sheet7.addCell(LabelAK18);
+addCell(sheet7, LabelAK18);
 
-jxl.write.Label labelG19 = new jxl.write.Label(i, 0,
+LabelW labelG19 = new LabelW(i, 0,
           "Wassermengenzähler:");
-          sheet7.addCell(labelG19);
-          jxl.write.Label NumberAK19 = new jxl.write.Label(i++, 1,
+          addCell(sheet7, labelG19);
+          LabelW NumberAK19 = new LabelW(i++, 1,
         f.anlkost.wz3, nf1cell);
-        sheet7.addCell(NumberAK19);
+        addCell(sheet7, NumberAK19);
 
-      jxl.write.Label labelG20 = new jxl.write.Label(i, 0,
+      LabelW labelG20 = new LabelW(i, 0,
                     "Richtpreis einschl. Montage:");
-      sheet7.addCell(labelG20);
-      jxl.write.Number NumberAK20 = new jxl.write.Number(i++, 1,
+      addCell(sheet7, labelG20);
+      NumberW NumberAK20 = new NumberW(i++, 1,
          f.anlkost.aP3, nf1cell);
-      sheet7.addCell(NumberAK20);
+      addCell(sheet7, NumberAK20);
 
-     jxl.write.Label labelG21 = new jxl.write.Label(i, 0,
+     LabelW labelG21 = new LabelW(i, 0,
           "Systemtrenner und Feinfilter:");
-          sheet7.addCell(labelG21);
-     jxl.write.Number NumberAK21 = new jxl.write.Number(i++, 1,
+          addCell(sheet7, labelG21);
+     NumberW NumberAK21 = new NumberW(i++, 1,
          f.anlkost.stffP, nf1cell);
-     sheet7.addCell(NumberAK21);
+     addCell(sheet7, NumberAK21);
 
-     jxl.write.Label labelG22 = new jxl.write.Label(i, 0,
+     LabelW labelG22 = new LabelW(i, 0,
           "Gesamtanlagenpreis:");
-          sheet7.addCell(labelG22);
-     jxl.write.Number NumberAK22 = new jxl.write.Number(i++, 1,
+          addCell(sheet7, labelG22);
+     NumberW NumberAK22 = new NumberW(i++, 1,
          f.anlkost.summe, nf1cell);
-    sheet7.addCell(NumberAK22);
+    addCell(sheet7, NumberAK22);
 
-    jxl.write.Label labelG23 = new jxl.write.Label(i, 0,
+    LabelW labelG23 = new LabelW(i, 0,
           "Anlagenkosten/Jahr:");
-          sheet7.addCell(labelG23);
-     jxl.write.Number NumberAK23 = new jxl.write.Number(i++, 1,
+          addCell(sheet7, labelG23);
+     NumberW NumberAK23 = new NumberW(i++, 1,
          f.anlkost.jahresBetrag, nf1cell);
-     sheet7.addCell(NumberAK23);
+     addCell(sheet7, NumberAK23);
     //} // Ende der for Schleife
 
 */

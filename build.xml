@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Watkost4" default="compile" basedir=".">
+<project name="Watkost5" default="compile" basedir=".">
 
     <property name="src.dir"     value="Quellcode/src"/>
-    <property name="classes.dir" value="Watkost4/classes"/>
-    <property name="bin.dir"     value="Watkost4/bin"/>
+    <property name="classes.dir" value="Watkost5/classes"/>
+    <property name="bin.dir"     value="Watkost5/bin"/>
     <property name="main.class"  value="watkost"/>
 
     <path id="classpath">
@@ -47,7 +47,7 @@
     <target name="run" depends="compile" description="Programm starten">
         <java classname="${main.class}"
               fork="true"
-              dir="Watkost4">
+              dir="Watkost5">
             <classpath refid="classpath"/>
         </java>
     </target>

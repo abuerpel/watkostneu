@@ -82,10 +82,10 @@ INHALT
   │  SCHRITT 2  –  Programmdateien entpacken                       │
   └─────────────────────────────────────────────────────────────────┘
 
-  Entpacken Sie die Datei "Watkost4.zip" so, dass der Ordner
-  "Watkost4" direkt auf Laufwerk C:\ liegt:
+  Entpacken Sie die Datei "Watkost5.zip" so, dass der Ordner
+  "Watkost5" direkt auf Laufwerk C:\ liegt:
 
-      C:\Watkost4\
+      C:\Watkost5\
 
   ┌─────────────────────────────────────────────────────────────────┐
   │  WICHTIG: Der Ordner MUSS direkt unter C:\ liegen!             │
@@ -94,9 +94,9 @@ INHALT
 
   Die Verzeichnisstruktur nach dem Entpacken:
 
-      C:\Watkost4\
+      C:\Watkost5\
       │
-      ├── Watkost4.exe               ← Programm-Startdatei
+      ├── Watkost5.exe               ← Programm-Startdatei
       ├── Installationsanleitung.txt
       │
       ├── bin\                       ← Programmbibliotheken (nicht verändern)
@@ -116,7 +116,7 @@ INHALT
   │  SCHRITT 3  –  Desktop-Verknüpfung erstellen  (empfohlen)      │
   └─────────────────────────────────────────────────────────────────┘
 
-  Klicken Sie mit der rechten Maustaste auf  C:\Watkost4\Watkost4.exe
+  Klicken Sie mit der rechten Maustaste auf  C:\Watkost5\Watkost5.exe
   und wählen Sie "Verknüpfung erstellen".
   Ziehen Sie die Verknüpfung auf den Desktop oder in die Taskleiste.
 
@@ -127,7 +127,7 @@ INHALT
 
   Starten Sie das Programm durch Doppelklick auf:
 
-      C:\Watkost4\Watkost4.exe
+      C:\Watkost5\Watkost5.exe
 
   Das Hauptfenster erscheint. Sobald Sie eine Eingabemaske öffnen,
   werden Sie zur Passwort-Eingabe aufgefordert (siehe Abschnitt 4).
@@ -137,7 +137,7 @@ INHALT
   4.  JÄHRLICHES PASSWORT
 ════════════════════════════════════════════════════════════════════════
 
-  Watkost 4 ist durch ein jährliches Passwort geschützt.
+  Watkost 5 ist durch ein jährliches Passwort geschützt.
 
   Gültigkeit       Das Passwort gilt für ein Kalenderjahr und muss
                    zu Jahresbeginn erneuert werden.
@@ -159,7 +159,7 @@ INHALT
   5.  PROGRAMMÜBERSICHT
 ════════════════════════════════════════════════════════════════════════
 
-  Watkost 4 berechnet und bewertet Wasseraufbereitungsanlagen für:
+  Watkost 5 berechnet und bewertet Wasseraufbereitungsanlagen für:
 
     •  Kühlturmkreisläufe
     •  Luftwäscher
@@ -212,7 +212,7 @@ INHALT
   6.  DEINSTALLATION
 ════════════════════════════════════════════════════════════════════════
 
-  Löschen Sie den Ordner  C:\Watkost4\  vollständig.
+  Löschen Sie den Ordner  C:\Watkost5\  vollständig.
 
   Es werden keine Einträge in der Windows-Registrierung vorgenommen.
 
@@ -227,13 +227,13 @@ INHALT
   Problem:  Das Programm startet nicht
   ─────────────────────────────────────
   →  Prüfen Sie, ob Java 32-Bit installiert ist (siehe Abschnitt 1).
-  →  Prüfen Sie, ob der Ordner "Watkost4" direkt unter  C:\  liegt.
+  →  Prüfen Sie, ob der Ordner "Watkost5" direkt unter  C:\  liegt.
   →  Stellen Sie sicher, dass Sie Schreibrechte auf  C:\  haben.
 
 
   Problem:  Fehlermeldung „Keine JVM gefunden" / „EXE4J_JAVA_HOME"
   ──────────────────────────────────────────────────────────────────
-  Ursache: Watkost4.exe benötigt zwingend die 32-Bit-Version von Java.
+  Ursache: Watkost5.exe benötigt zwingend die 32-Bit-Version von Java.
            Eine rein 64-Bit-Installation wird NICHT erkannt.
 
   Lösung:
@@ -242,7 +242,7 @@ INHALT
      NICHT "Windows 64-bit".
   →  Installieren Sie diese 32-Bit-Version.
      (32-Bit und 64-Bit Java können gleichzeitig installiert sein.)
-  →  Starten Sie Watkost4.exe anschließend erneut.
+  →  Starten Sie Watkost5.exe anschließend erneut.
 
 
   Problem:  Passwort wird nicht akzeptiert
@@ -254,7 +254,7 @@ INHALT
 
   Problem:  Fehlermeldung beim Datenbankzugriff
   ───────────────────────────────────────────────
-  →  Prüfen Sie, ob der Ordner  C:\Watkost4\db\  vorhanden ist und
+  →  Prüfen Sie, ob der Ordner  C:\Watkost5\db\  vorhanden ist und
      die Dateien  watkost3db.script  und  watkost3db.properties
      enthält.
   →  Prüfen Sie, ob Sicherheitssoftware den Zugriff auf diesen Ordner
@@ -269,7 +269,7 @@ INHALT
 
 
 +========================================================================+
-|   Watkost 4  |  Copyright (c) Dr. H. Kacirek, N. Kacirek             |
+|   Watkost 5  |  Copyright (c) Dr. H. Kacirek, N. Kacirek             |
 |   Kontakt: Dr. Hartmut Kacirek  |  h.kacirek@t-online.de             |
 |   Stand: 05/2026                                                       |
 +========================================================================+

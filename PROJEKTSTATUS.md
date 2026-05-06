@@ -1,13 +1,13 @@
-# Projektstatus: Watkost4
+# Projektstatus: Watkost5
 
-**Stand:** 2026-04-21 (aktualisiert 3)  
+**Stand:** 2026-04-27  
 **Bearbeiter:** H. Kacirek
 
 ---
 
 ## Programmübersicht
 
-Watkost4 ist ein Java-Berechnungsprogramm zur Kostenkalkulation von Wasseraufbereitungsanlagen. Es besteht aus 65 Java-Klassen und nutzt eine HyperSQL-Datenbank sowie JExcelAPI für Excel-Export.
+Watkost5 ist ein Java-Berechnungsprogramm zur Kostenkalkulation von Wasseraufbereitungsanlagen. Es besteht aus 65 Java-Klassen und nutzt eine HyperSQL-Datenbank sowie JExcelAPI für Excel-Export.
 
 - **Sprache:** Java (Swing/AWT)
 - **Datenbank:** HyperSQL (hsqldb)
@@ -23,11 +23,11 @@ Watkost4 ist ein Java-Berechnungsprogramm zur Kostenkalkulation von Wasseraufber
 ```
 C:\watkostneu\
 ├── Quellcode/src/       ← 65 Java-Quelldateien (maßgebliche Version)
-├── Watkost4/
+├── Watkost5/
 │   ├── bin/             ← JAR-Bibliotheken, Icons, Sprachdatei
 │   ├── classes/         ← Kompilierte .class-Dateien
 │   ├── db/              ← HyperSQL-Datenbankdateien
-│   └── Watkost4.exe     ← Startprogramm
+│   └── Watkost5.exe     ← Startprogramm
 ├── Passwort4/           ← Passwort-Generator (separates Tool)
 ├── Watkost-Installation/← Installationspaket
 ├── watkost-texte/       ← Dokumentation
@@ -42,9 +42,9 @@ C:\watkostneu\
 
 | Bibliothek   | Datei                    | Status       | Verwendung           |
 |--------------|--------------------------|--------------|----------------------|
-| JExcelAPI    | Watkost4/bin/jxl.jar     | ✅ vorhanden | Excel-Export/-Import |
-| HyperSQL DB  | Watkost4/bin/hsqldb.jar  | ✅ vorhanden | Datenbankzugriff     |
-| HyperSQL alt | Watkost4/bin/hsql.jar    | ✅ vorhanden | Legacy-Imports       |
+| JExcelAPI    | Watkost5/bin/jxl.jar     | ✅ vorhanden | Excel-Export/-Import |
+| HyperSQL DB  | Watkost5/bin/hsqldb.jar  | ✅ vorhanden | Datenbankzugriff     |
+| HyperSQL alt | Watkost5/bin/hsql.jar    | ✅ vorhanden | Legacy-Imports       |
 
 ---
 
@@ -77,6 +77,8 @@ build.bat run      ← kompilieren und starten
 - [x] Zeilenenden-Fix: `\r\r\n` → `\r\n` in 7 Quelldateien nach Konvertierung
 - [x] Encoding-Fix: `-Dfile.encoding=Cp1252` im JVM-Start (JExcelAPI / WtkLg.xls)
 - [x] UI: Nachkommastellen für Chlorid, Sulfat, Magnesium im Hauptfenster auf 1 reduziert
+- [x] Bugfix: Drucken Umlaufwasseranalyse (Kühlturmkreislauf) — `umReport.java` elementAt(1200) → elementAt(200) (Tippfehler, ArrayIndexOutOfBoundsException)
+- [x] Installationsanleitung erstellt: `Watkost5/Installationsanleitung.txt`
 
 ## Offene Punkte
 
@@ -95,6 +97,7 @@ build.bat run      ← kompilieren und starten
 | 2026-04-21 | `build.xml`        | `-Dfile.encoding=Cp1252` für JVM-Start (JExcelAPI / JDK 18+) |
 | 2026-04-21 | 7 Quelldateien     | Zeilenenden `\r\r\n` → `\r\n` bereinigt (Fehler aus Cp1252→UTF-8-Konvertierung) |
 | 2026-04-21 | `hauptframe.java`  | Nachkommastellen Chlorid/Sulfat/Magnesium im Hauptfenster auf 1 (`String.format("%.1f")`) |
+| 2026-04-27 | `umReport.java`    | `elementAt(1200)` → `elementAt(200)` — Drucken Umlaufwasseranalyse (Kühlturmkreislauf) schlug fehl |
 
 ## Bekannte Warnungen beim Kompilieren
 
@@ -113,6 +116,6 @@ build.bat run      ← kompilieren und starten
 |------------------------------|-------------------------------------------|
 | Programmbeschreibung (PDF)   | watkost-texte/InhaltWatkost Ver 4.pdf     |
 | Englische Beschreibung       | watkost-texte/english/                    |
-| Installationsanleitung       | Watkost4/Readme.txt                       |
-| Fehlerprotokoll              | Watkost-Installation/Watkost4 Fehler.docx |
-| Bereitstellungsplan          | Passwort4/Watkost4 Bereitstellung.xls     |
+| Installationsanleitung       | Watkost5/Installationsanleitung.txt       |
+| Fehlerprotokoll              | Watkost-Installation/Watkost5 Fehler.docx |
+| Bereitstellungsplan          | Passwort4/Watkost5 Bereitstellung.xls     |

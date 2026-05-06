@@ -15,7 +15,7 @@ public class startframe
   static hauptframe anwendung;
   static data datenBank;
   public static String homeDir;
-  public static String version = "4.0";
+  public static String version = "5.0";
   public static Font fntTriline, fntAvantgarde;
   public static java.awt.Image logo;
   static int rowAna = 0; //Datensatz Rohanalysendatei

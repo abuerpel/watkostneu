@@ -3,13 +3,13 @@
 **/package cache/
 
 # Datenbankdateien (nur Lock und Log, nicht Schema/Properties)
-Watkost4/db/*.lck
-Watkost4/db/*.log
+Watkost5/db/*.lck
+Watkost5/db/*.log
 
 # Laufzeitdateien
-Watkost4/error.log
+Watkost5/error.log
 Passwort4/error.log
-Watkost4/nullnull
+Watkost5/nullnull
 
 # Temporaere Office-Dateien
 watkost-texte/~$*

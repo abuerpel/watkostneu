@@ -11,6 +11,17 @@
             <include name="jxl.jar"/>
             <include name="hsqldb.jar"/>
             <include name="hsql.jar"/>
+            <include name="poi-5.2.3.jar"/>
+            <include name="poi-ooxml-5.2.3.jar"/>
+            <include name="poi-ooxml-lite-5.2.3.jar"/>
+            <include name="log4j-api-2.18.0.jar"/>
+            <include name="commons-io-2.11.0.jar"/>
+            <include name="commons-codec-1.15.jar"/>
+            <include name="commons-collections4-4.4.jar"/>
+            <include name="commons-compress-1.21.jar"/>
+            <include name="curvesapi-1.07.jar"/>
+            <include name="SparseBitSet-1.2.jar"/>
+            <include name="xmlbeans-5.1.1.jar"/>
         </fileset>
         <pathelement location="${classes.dir}"/>
     </path>

@@ -6,10 +6,13 @@ import java.applet.*;
 import javax.swing.text.*;
 import java.util.*;
 import javax.swing.*;
-import jxl.Sheet;
 import java.io.File;
-import jxl.Cell;
-import jxl.Workbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
@@ -935,41 +938,23 @@ public class hauptframe
 
     //Beschriftungen aus EXCEL Tabelle auslesen
     try{
-    Workbook workbook = Workbook.getWorkbook(new File(startframe.homeDir +
-         "/../bin/wtkLg.xls"));
-     Sheet sheet = workbook.getSheet(0);
+    Workbook workbook = WorkbookFactory.create(new File(startframe.homeDir +
+         "/../bin/wtkLg.xls"), null, true);
+     Sheet sheet = workbook.getSheetAt(0);
+     DataFormatter df = new DataFormatter();
      int i, j, k, l;
-     /*
-     Vector liste = new Vector();
-     l = sheet.getColumns();
-     l = l - 1; //erste Spalte nicht
-     liste.setSize(l + 1); //nachsehen welche Sprachen in Tabelle verfügbar
-     for (j = 1; j < l + 1; j++) {
-       Cell s1 = sheet.getCell(j, 0);
-       liste.setElementAt(s1.getContents(), j);
-     }
-     sprachDialog sd = new sprachDialog(this, "Bitte Sprache wählen.", true,
-                                        liste);
-     sd.setAlwaysOnTop(true);
-     sd.setLocation(this.positionX(100), this.positionY(200));
-     sd.setSize(100, 200);
-     sd.setVisible(true);
-     */
-     k = sheet.getRows();
+     k = sheet.getLastRowNum() + 1;
      startframe.Texte.setSize(k);
      //i =  startframe.sprachIndex+1; //welche Sprache ist ausgewählt
     i=1;
      for (j = 0; j < k - 1; j++) {
-       Cell a1 = sheet.getCell(i, j);
-       String S = a1.getContents();
+       Row row = sheet.getRow(j);
+       Cell a1 = (row != null) ? row.getCell(i) : null;
+       String S = df.formatCellValue(a1);
        startframe.Texte.setElementAt(S, j);
      }
      workbook.close();
     }
-    catch (jxl.read.biff.BiffException IOE) {
-     System.out.println("IO Fehler" + IOE);
-   }
-
    catch (java.io.IOException IOE) {
      System.out.println("IO Fehler" + IOE);
    }
@@ -1836,17 +1821,19 @@ public class hauptframe
   public void sprache() {
     passwd pf = new passwd();
       try {
-      Workbook workbook = Workbook.getWorkbook(new File(startframe.homeDir +
-          "/../bin/wtkLg.xls"));
-      Sheet sheet = workbook.getSheet(0);
+      Workbook workbook = WorkbookFactory.create(new File(startframe.homeDir +
+          "/../bin/wtkLg.xls"), null, true);
+      Sheet sheet = workbook.getSheetAt(0);
+      DataFormatter df = new DataFormatter();
       int i, j, k, l;
       Vector liste = new Vector(); //Vector zur Aufnahme der Excel Sprachtabelle
-      l = sheet.getColumns();
+      Row row0 = sheet.getRow(0);
+      l = (row0 != null) ? row0.getLastCellNum() : 0;
       l = l - 1; //erste Spalte nicht
       liste.setSize(l + 1); //nachsehen welche Sprachen in Tabelle verfügbar
       for (j = 1; j < l + 1; j++) {
-        Cell s1 = sheet.getCell(j, 0);
-        liste.setElementAt(s1.getContents(), j);
+        Cell s1 = (row0 != null) ? row0.getCell(j) : null;
+        liste.setElementAt(df.formatCellValue(s1), j);
       }
       sprachDialog sd = new sprachDialog(this, startframe.Texte.elementAt(178).toString(), true,
                                          liste);
@@ -1854,19 +1841,16 @@ public class hauptframe
       sd.setLocation(this.positionX(100), this.positionY(200));
       sd.setSize(200, 100);
       sd.setVisible(true);
-      k = sheet.getRows();
+      k = sheet.getLastRowNum() + 1;
       startframe.Texte.setSize(k);
       i = startframe.sprachIndex + 1; //welche Sprache ist ausgewählt
       for (j = 0; j < k - 1; j++) {
-        Cell a1 = sheet.getCell(i, j);
-        String S = a1.getContents();
+        Row row = sheet.getRow(j);
+        Cell a1 = (row != null) ? row.getCell(i) : null;
+        String S = df.formatCellValue(a1);
         startframe.Texte.setElementAt(S, j);
       }
       workbook.close();
-    }
-
-    catch (jxl.read.biff.BiffException IOE) {
-      System.out.println("IO Fehler" + IOE);
     }
 
     catch (java.io.IOException IOE) {

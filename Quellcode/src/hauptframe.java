@@ -214,7 +214,7 @@ public class hauptframe
   //Construct the frame
   public hauptframe() {
     //Lookand Feel
-    //this.setIconImage();
+    this.setIconImage(Toolkit.getDefaultToolkit().getImage("bin/icon.png"));
     String LookAndFeel = UIManager.getCrossPlatformLookAndFeelClassName();
     try {
       UIManager.setLookAndFeel(LookAndFeel);

@@ -1,19 +1,56 @@
-Installationsanleitung:
+Watkost 5 â€“ Kurzanleitung
+=========================
 
-1. Sorgen Sie dafür, dass sich eine aktuelle JAVA-Version auf dem Rechner befindet. 
-1. Entpacken Sie die DateiWatkost5.zip
-2. Kopieren Sie den entpackten Ordner "Watkost5" bitte direkt auf C:\.
-3. Durch Anklicken des Watkost-Icons öffnen Sie die ausführbare Watkost-Datei. Erst wenn Sie jetzt eine Eingabemaske
-   anklicken, verlangt das Programm ein für das Jahr gültiges Passwort. Zum Beginn des neuen Kalenderjahres benötigen 
-   Sie ein neues Passwort.
+Wasseraufbereitungs-Berechnungsprogramm
+Copyright (c) Dr. H. Kacirek, N. Kacirek
+Kontakt: h.kacirek@t-online.de
+Stand: 05/2026
 
-	Die Anlagenkosten sind marktüblichen Preisen 2015 angepasst, als noch nicht aktualisiert.
-	Anlagen-Fabrikatsbezeichnungen sind weitgehend entfernt.
-	Das Berechnungsprogramm ist auch bei der Verwendung von salzreicherem Wasser (Brackwasserqualität) möglich.
-	
 
-Eine ausführliche Programmbeschreibung befindet sich als pdf-Datei im Ordner Watkost5.
+Installation
+------------
+
+1. Stellen Sie sicher, dass eine aktuelle 64-Bit-Java-Version (Java 8
+   oder hÃ¶her) auf dem Rechner installiert ist.
+   PrÃ¼fung in der Eingabeaufforderung:  java -version
+   Download: https://adoptium.net/  oder  https://www.java.com/
+
+2. Entpacken Sie die Datei "Watkost5.zip".
+
+3. Kopieren Sie den entpackten Ordner "Watkost5" direkt nach C:\.
+   (Pflicht: der Pfad muss C:\Watkost5\ lauten.)
+
+4. Doppelklick auf  C:\Watkost5\Watkost5.bat  startet das Programm.
+   Optional: Desktop-VerknÃ¼pfung mit dem W-Icon (icon3.ico) anlegen.
+
+
+Passwort
+--------
+
+Beim Ã–ffnen einer Eingabemaske verlangt das Programm ein Jahres-
+passwort. Das Passwort gilt fÃ¼r ein Kalenderjahr und muss zu Jahres-
+beginn erneuert werden. Nach 3 Fehleingaben wird das Programm beendet.
+
+Erzeugung Ã¼ber "Passwort4.exe" im Ordner "Passwort5".
+
+
+Hinweise
+--------
+
+- Anlagenkosten basieren auf marktÃ¼blichen Preisen Stand 2015 und
+  wurden noch nicht aktualisiert.
+- Fabrikatsbezeichnungen wurden weitgehend entfernt.
+- Das Programm arbeitet auch mit salzreicherem Wasser (Brackwasser-
+  qualitÃ¤t).
+- Berechnungen kÃ¶nnen als .xlsx-Datei (Excel) exportiert werden.
+- Sprachen: Deutsch, Englisch, DÃ¤nisch, Polnisch (Auswahl im MenÃ¼).
+
+
+Weitere Dokumentation
+---------------------
+
+- Installationsanleitung.txt    (ausfÃ¼hrliche Schritt-fÃ¼r-Schritt-Anleitung)
+- InhaltWatkost Ver 5.pdf       (vollstÃ¤ndige Programmbeschreibung)
 
 
 05/2026 Ka
-

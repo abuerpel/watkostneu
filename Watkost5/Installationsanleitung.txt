@@ -1,13 +1,13 @@
 
 +========================================================================+
 |                                                                        |
-|   W A T K O S T  4   –   Installationsanleitung                       |
+|   W A T K O S T  5   –   Installationsanleitung                        |
 |                                                                        |
 |   Wasseraufbereitungs-Berechnungsprogramm                              |
-|   für Planer, Ingenieurbüros und Fachpersonal                         |
+|   für Planer, Ingenieurbüros und Fachpersonal                          |
 |                                                                        |
-|   Copyright (c) Dr. H. Kacirek, N. Kacirek                            |
-|   Kontakt: h.kacirek@t-online.de   |   Stand: 05/2026                 |
+|   Copyright (c) Dr. H. Kacirek, N. Kacirek                             |
+|   Kontakt: h.kacirek@t-online.de   |   Stand: 05/2026                  |
 |                                                                        |
 +========================================================================+
 
@@ -27,28 +27,31 @@ INHALT
   1.  SYSTEMVORAUSSETZUNGEN
 ════════════════════════════════════════════════════════════════════════
 
-  Betriebssystem     Windows 7 / 8 / 10 / 11  (32- oder 64-Bit)
+  Betriebssystem     Windows 10 oder Windows 11
+                     (ältere Windows-Versionen werden nicht mehr getestet)
 
-  Java-Laufzeit      Java Runtime Environment (JRE), Version 8 oder höher
+  Java-Laufzeit      Java 8 oder höher, 64-Bit
+                     Empfohlen: OpenJDK / Eclipse Temurin 21 oder neuer.
 
-                     ┌─────────────────────────────────────────────────┐
-                     │  WICHTIG: 32-Bit-Java erforderlich!             │
-                     │                                                 │
-                     │  Auch auf einem 64-Bit-Windows-System muss      │
-                     │  die 32-Bit-Version (x86) von Java installiert  │
-                     │  sein. Die 64-Bit-Version allein genügt NICHT.  │
-                     └─────────────────────────────────────────────────┘
+                     Prüfung in PowerShell oder Eingabeaufforderung:
 
-                     Kostenloser Download:  www.java.com
-                     Auf der Download-Seite wählen:
-                       ✔  "Windows Offline"   (empfohlen)
-                       ✔  "Windows Online"
-                       ✘  "Windows 64-bit"    (funktioniert NICHT)
+                         java -version
 
-  Speicherplatz      ca. 20 MB auf der Festplatte
+                     Die Ausgabe sollte „64-Bit" enthalten, z. B.
+                         OpenJDK 64-Bit Server VM ...
 
-  Berechtigung       Schreibrechte auf Laufwerk C:\
-                     (für Programmordner und Einstellungsdateien)
+                     Kostenloser Download:
+                         https://adoptium.net/         (Eclipse Temurin)
+                         https://www.java.com/         (Oracle Java)
+
+                     Hinweis: Die früheren Watkost-Versionen benötigten
+                     32-Bit-Java. Ab Watkost 5 ist das nicht mehr nötig –
+                     das Programm läuft sauber auf 64-Bit-Java.
+
+  Speicherplatz      ca. 50 MB auf der Festplatte
+
+  Berechtigung       Schreibrechte auf  C:\Watkost5\
+                     (für Datenbank, Einstellungsdateien, Excel-Export)
 
 
 ════════════════════════════════════════════════════════════════════════
@@ -56,30 +59,24 @@ INHALT
 ════════════════════════════════════════════════════════════════════════
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  SCHRITT 1  –  Java 32-Bit installieren                        │
+  │  SCHRITT 1  –  Java prüfen oder installieren                    │
   └─────────────────────────────────────────────────────────────────┘
 
-  a)  Öffnen Sie die Eingabeaufforderung:
+  a)  Eingabeaufforderung öffnen:
       Windows-Taste + R  →  "cmd" eingeben  →  OK
 
-  b)  Prüfen Sie, ob 32-Bit-Java bereits vorhanden ist:
+  b)  Java-Version prüfen:
 
           java -version
 
-      Erscheint eine Versionsnummer (z. B. "java version 1.8.0_..."),
-      ist Java installiert.
-
-  c)  Falls Java fehlt oder nur als 64-Bit-Version vorliegt:
-      Laden Sie die 32-Bit-Version von  www.java.com  herunter
-      (Auswahl: "Windows Offline" – NICHT "Windows 64-bit")
-      und installieren Sie diese.
-
-  Hinweis: 32-Bit- und 64-Bit-Java können gleichzeitig auf
-           demselben Windows-System installiert sein.
+      Erscheint eine Ausgabe mit „64-Bit", ist alles in Ordnung.
+      Erscheint eine Fehlermeldung („Befehl nicht gefunden") oder
+      eine 32-Bit-Version, dann eine 64-Bit-JRE installieren
+      (siehe oben unter Systemvoraussetzungen).
 
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  SCHRITT 2  –  Programmdateien entpacken                       │
+  │  SCHRITT 2  –  Programmdateien entpacken                        │
   └─────────────────────────────────────────────────────────────────┘
 
   Entpacken Sie die Datei "Watkost5.zip" so, dass der Ordner
@@ -88,24 +85,29 @@ INHALT
       C:\Watkost5\
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  WICHTIG: Der Ordner MUSS direkt unter C:\ liegen!             │
-  │  Ein anderes Installationsverzeichnis wird nicht unterstützt.  │
+  │  WICHTIG: Der Ordner MUSS direkt unter C:\ liegen.              │
+  │  Ein anderes Installationsverzeichnis wird nicht unterstützt.   │
   └─────────────────────────────────────────────────────────────────┘
 
-  Die Verzeichnisstruktur nach dem Entpacken:
+  Verzeichnisstruktur nach dem Entpacken:
 
       C:\Watkost5\
       │
-      ├── Watkost5.exe               ← Programm-Startdatei
+      ├── Watkost5.bat               ← Programm-Startdatei
       ├── Installationsanleitung.txt
+      ├── InhaltWatkost Ver 5.pdf    ← ausführliche Programmbeschreibung
+      ├── prefs.ini                  ← Spracheinstellung
       │
       ├── bin\                       ← Programmbibliotheken (nicht verändern)
-      │     ├── jxl.jar
-      │     ├── hsqldb.jar
-      │     ├── hsql.jar
-      │     └── WtkLg.xls           ← Sprachdatei (nicht verändern!)
+      │     ├── poi-5.2.3.jar           (Apache POI – Excel-Lese/Schreib)
+      │     ├── poi-ooxml-5.2.3.jar     (Apache POI – .xlsx-Format)
+      │     ├── hsqldb-2.7.4-jdk8.jar   (HyperSQL-Datenbanktreiber)
+      │     ├── log4j-api/core-2.18.0   (Log4j – Protokollierung)
+      │     ├── icon3.ico, icon.png     (Programm-Icon „W")
+      │     ├── splash.GIF              (Startbildschirm)
+      │     └── WtkLg.xls               (Sprachdatei – nicht verändern!)
       │
-      ├── classes\                   ← Programmcode (nicht verändern)
+      ├── classes\                   ← kompilierter Programmcode
       │
       └── db\                        ← Datenbank (nicht verändern)
             ├── watkost3db.script
@@ -113,24 +115,46 @@ INHALT
 
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  SCHRITT 3  –  Desktop-Verknüpfung erstellen  (empfohlen)      │
+  │  SCHRITT 3  –  Desktop-Verknüpfung erstellen  (empfohlen)       │
   └─────────────────────────────────────────────────────────────────┘
 
-  Klicken Sie mit der rechten Maustaste auf  C:\Watkost5\Watkost5.exe
-  und wählen Sie "Verknüpfung erstellen".
-  Ziehen Sie die Verknüpfung auf den Desktop oder in die Taskleiste.
+  Variante A – per Rechtsklick:
+      Rechtsklick auf  C:\Watkost5\Watkost5.bat
+      →  "Senden an"  →  "Desktop (Verknüpfung erstellen)"
+      Anschließend: Rechtsklick auf die neue Verknüpfung → "Eigenschaften"
+      →  Reiter "Verknüpfung" → "Anderes Symbol..."
+      →  Datei  C:\Watkost5\bin\icon3.ico  auswählen → OK
+
+  Variante B – per PowerShell (komfortabler, mit W-Icon vorbelegt):
+
+      $ws = New-Object -ComObject WScript.Shell
+      $sc = $ws.CreateShortcut("$env:USERPROFILE\Desktop\Watkost5.lnk")
+      $sc.TargetPath       = "javaw.exe"
+      $sc.Arguments        = '-cp "bin\*;classes" watkost'
+      $sc.WorkingDirectory = "C:\Watkost5"
+      $sc.IconLocation     = "C:\Watkost5\bin\icon3.ico"
+      $sc.Save()
+
+  Anschließend per Rechtsklick auf die Verknüpfung
+  „An Start anheften" oder – bei laufendem Programm –
+  Rechtsklick auf das Taskleisten-Symbol → „An Taskleiste anheften".
 
 
 ════════════════════════════════════════════════════════════════════════
   3.  PROGRAMMSTART
 ════════════════════════════════════════════════════════════════════════
 
-  Starten Sie das Programm durch Doppelklick auf:
+  Doppelklick auf:
 
-      C:\Watkost5\Watkost5.exe
+      C:\Watkost5\Watkost5.bat        (oder die Desktop-Verknüpfung)
 
-  Das Hauptfenster erscheint. Sobald Sie eine Eingabemaske öffnen,
-  werden Sie zur Passwort-Eingabe aufgefordert (siehe Abschnitt 4).
+  Das Hauptfenster erscheint mit dem W-Icon in der Taskleiste.
+  Sobald Sie eine Eingabemaske öffnen, werden Sie zur Passwort-Eingabe
+  aufgefordert (siehe Abschnitt 4).
+
+  Hinweis zur alten Datei „Watkost5.exe":
+  Falls noch vorhanden, kann sie ignoriert oder gelöscht werden.
+  Sie wurde durch  Watkost5.bat  ersetzt und benötigte 32-Bit-Java.
 
 
 ════════════════════════════════════════════════════════════════════════
@@ -147,9 +171,9 @@ INHALT
 
   Passwort erzeugen:
   ──────────────────
-  Das Hilfsprogramm "Passwort4.exe" erstellt das gültige Jahrespasswort.
-  Es befindet sich im Ordner "Passwort4" auf dem Installationsmedium
-  oder wird separat vom Programmhersteller bereitgestellt.
+  Das Hilfsprogramm "Passwort4.exe" (im Ordner "Passwort5") erstellt
+  das gültige Jahrespasswort. Es wird separat vom Programmhersteller
+  bereitgestellt.
 
   Bei Fragen zum Passwort:
       Dr. Hartmut Kacirek  |  h.kacirek@t-online.de
@@ -185,10 +209,15 @@ INHALT
   Über Menü "Datei" › "Drucken" können alle Berechnungsergebnisse
   ausgedruckt werden.
 
+  Excel-Export:
+  ─────────────
+  Berechnungen können als .xlsx-Datei (Excel-Format) gespeichert
+  werden – kompatibel mit allen aktuellen Excel-Versionen.
+
   Datenspeicherung:
   ─────────────────
   Alle Analysen und Berechnungen werden automatisch in einer internen
-  Datenbank gespeichert und beim nächsten Programmstart geladen.
+  HyperSQL-Datenbank gespeichert und beim nächsten Programmstart geladen.
 
   Anlagenpreise:
   ──────────────
@@ -200,12 +229,13 @@ INHALT
   Sprache:
   ────────
   Unterstützte Sprachen: Deutsch, Englisch, Dänisch, Polnisch.
-  Die Sprachauswahl erfolgt über das Programmmenü.
+  Die Sprachauswahl erfolgt über das Programmmenü und wird in der
+  Datei  prefs.ini  gespeichert.
 
   Ausführliche Beschreibung:
   ──────────────────────────
-  Details zu allen Funktionen finden Sie in der PDF-Datei
-  "InhaltWatkost Ver 4.pdf".
+  Details zu allen Funktionen finden Sie in der Datei
+  "InhaltWatkost Ver 5.pdf"  im Ordner C:\Watkost5\.
 
 
 ════════════════════════════════════════════════════════════════════════
@@ -219,6 +249,9 @@ INHALT
   Hinweis:  Die Datei  C:\Windows\wtkdate.ini  (Datumsprüfung) kann
             ebenfalls manuell gelöscht werden.
 
+  Falls eine Desktop-Verknüpfung oder ein Eintrag im Startmenü
+  angelegt wurde: per Rechtsklick → „Löschen" bzw. „Von Start lösen".
+
 
 ════════════════════════════════════════════════════════════════════════
   7.  HINWEISE UND FEHLERBEHEBUNG
@@ -226,30 +259,32 @@ INHALT
 
   Problem:  Das Programm startet nicht
   ─────────────────────────────────────
-  →  Prüfen Sie, ob Java 32-Bit installiert ist (siehe Abschnitt 1).
+  →  Prüfen Sie, ob Java 64-Bit installiert ist (siehe Abschnitt 1).
   →  Prüfen Sie, ob der Ordner "Watkost5" direkt unter  C:\  liegt.
-  →  Stellen Sie sicher, dass Sie Schreibrechte auf  C:\  haben.
+  →  Stellen Sie sicher, dass Sie Schreibrechte auf  C:\Watkost5\  haben.
+  →  Starten Sie  Watkost5.bat  einmal aus der Eingabeaufforderung,
+     um Fehlermeldungen sichtbar zu machen:
+         cd C:\Watkost5
+         Watkost5.bat
 
 
-  Problem:  Fehlermeldung „Keine JVM gefunden" / „EXE4J_JAVA_HOME"
-  ──────────────────────────────────────────────────────────────────
-  Ursache: Watkost5.exe benötigt zwingend die 32-Bit-Version von Java.
-           Eine rein 64-Bit-Installation wird NICHT erkannt.
-
+  Problem:  „javaw" wird nicht gefunden
+  ──────────────────────────────────────
+  Ursache: Java ist nicht im Windows-PATH.
   Lösung:
-  →  Laden Sie Java 8 (32-Bit) von  www.java.com  herunter.
-     Wählen Sie auf der Download-Seite "Windows Offline" –
-     NICHT "Windows 64-bit".
-  →  Installieren Sie diese 32-Bit-Version.
-     (32-Bit und 64-Bit Java können gleichzeitig installiert sein.)
-  →  Starten Sie Watkost5.exe anschließend erneut.
+  →  Java neu installieren und Option „PATH-Variable setzen" aktivieren,
+     ODER
+  →  In der Datei  Watkost5.bat  den vollen Pfad zur javaw.exe eintragen,
+     z. B.  "C:\Program Files\Eclipse Adoptium\jre-21\bin\javaw.exe"
+     anstelle von einfach „javaw".
 
 
   Problem:  Passwort wird nicht akzeptiert
   ─────────────────────────────────────────
   →  Das Passwort ist jahresabhängig. Prüfen Sie, ob es für das
      aktuelle Kalenderjahr gültig ist.
-  →  Erzeugen Sie ein neues Passwort mit "Passwort4.exe".
+  →  Erzeugen Sie ein neues Passwort mit "Passwort4.exe"
+     (im Ordner "Passwort5").
 
 
   Problem:  Fehlermeldung beim Datenbankzugriff
@@ -268,8 +303,16 @@ INHALT
   →  Führen Sie zunächst eine Berechnung durch, bevor Sie drucken.
 
 
+  Problem:  Excel-Export öffnet sich nicht
+  ──────────────────────────────────────────
+  →  Prüfen Sie, ob ein Programm zum Öffnen von .xlsx-Dateien
+     installiert ist (z. B. Microsoft Excel oder LibreOffice Calc).
+  →  Die exportierte Datei wird im Standard-Speicherort des
+     Dialogfensters abgelegt.
+
+
 +========================================================================+
-|   Watkost 5  |  Copyright (c) Dr. H. Kacirek, N. Kacirek             |
-|   Kontakt: Dr. Hartmut Kacirek  |  h.kacirek@t-online.de             |
+|   Watkost 5  |  Copyright (c) Dr. H. Kacirek, N. Kacirek               |
+|   Kontakt: Dr. Hartmut Kacirek  |  h.kacirek@t-online.de               |
 |   Stand: 05/2026                                                       |
 +========================================================================+

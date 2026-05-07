@@ -951,6 +951,7 @@ public class hauptframe
        Row row = sheet.getRow(j);
        Cell a1 = (row != null) ? row.getCell(i) : null;
        String S = df.formatCellValue(a1);
+       S = S.replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh");
        startframe.Texte.setElementAt(S, j);
      }
      workbook.close();
@@ -1848,6 +1849,7 @@ public class hauptframe
         Row row = sheet.getRow(j);
         Cell a1 = (row != null) ? row.getCell(i) : null;
         String S = df.formatCellValue(a1);
+        S = S.replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh");
         startframe.Texte.setElementAt(S, j);
       }
       workbook.close();

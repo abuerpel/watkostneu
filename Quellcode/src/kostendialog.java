@@ -55,40 +55,40 @@ public class kostendialog
 
   //Construct the applet
   public kostendialog(Frame AufrufVonFenster, String text, boolean modal) {
-    super(AufrufVonFenster, startframe.Texte.elementAt(161).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"), true);
+    super(AufrufVonFenster, startframe.Texte.elementAt(161).toString(), true);
     this.addWindowListener(new fensterZu());
     this.setLayout(gridLayout1);
     panel1.setBackground(new Color(72, 157, 255));
     panel1.setLayout(gridLayout2);
     label1.setFont(new java.awt.Font("Dialog", 1, 10));
     label1.setForeground(Color.red);
-    label1.setText(startframe.Texte.elementAt(94).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label1.setText(startframe.Texte.elementAt(94).toString());
     label9.setForeground(Color.black);
-    label9.setText(startframe.Texte.elementAt(132).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label9.setText(startframe.Texte.elementAt(132).toString());
     label11.setForeground(Color.black);
-    label11.setText(startframe.Texte.elementAt(106).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label11.setText(startframe.Texte.elementAt(106).toString());
     labelDosK.setForeground(Color.black);
-    labelDosK.setText(startframe.Texte.elementAt(187).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    labelDosK.setText(startframe.Texte.elementAt(187).toString());
     labelDosH.setForeground(Color.black);
-    labelDosH.setText(startframe.Texte.elementAt(182).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    labelDosH.setText(startframe.Texte.elementAt(182).toString());
     label16.setForeground(Color.black);
-    label16.setText(startframe.Texte.elementAt(92).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label16.setText(startframe.Texte.elementAt(92).toString());
     label17.setForeground(Color.black);
-    label17.setText(startframe.Texte.elementAt(185).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label17.setText(startframe.Texte.elementAt(185).toString());
     label19.setForeground(Color.black);
-    label19.setText(startframe.Texte.elementAt(188).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label19.setText(startframe.Texte.elementAt(188).toString());
     label20.setForeground(Color.black);
-    label20.setText(startframe.Texte.elementAt(107).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label20.setText(startframe.Texte.elementAt(107).toString());
     labelAuslastung.setForeground(Color.black);
-    labelAuslastung.setText(startframe.Texte.elementAt(134).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    labelAuslastung.setText(startframe.Texte.elementAt(134).toString());
     label22.setForeground(Color.black);
-    label22.setText(startframe.Texte.elementAt(180).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label22.setText(startframe.Texte.elementAt(180).toString());
     label25.setForeground(Color.black);
-    label25.setText(startframe.Texte.elementAt(186).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label25.setText(startframe.Texte.elementAt(186).toString());
     label30.setForeground(Color.black);
-    label30.setText(startframe.Texte.elementAt(133).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label30.setText(startframe.Texte.elementAt(133).toString());
     label32.setForeground(Color.black);
-    label32.setText(startframe.Texte.elementAt(181).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label32.setText(startframe.Texte.elementAt(181).toString());
     textFieldStadtWasser.setText("textField1");
     textFieldKuehlleistung.setText("textField2");
     textFieldWaescherleistung.setText("");
@@ -106,11 +106,11 @@ public class kostendialog
     gridLayout2.setRows(9);
     gridLayout2.setVgap(4);
     label4.setForeground(Color.black);
-    label4.setText(startframe.Texte.elementAt(182).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label4.setText(startframe.Texte.elementAt(182).toString());
     textFieldROM.setText("textField8");
-    textFieldDosName.setText(startframe.Texte.elementAt(183).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    textFieldDosName.setText(startframe.Texte.elementAt(183).toString());
     label31.setForeground(Color.black);
-    label31.setText(startframe.Texte.elementAt(223).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+    label31.setText(startframe.Texte.elementAt(223).toString());
     //buttonOK.setBackground(Color.lightGray);
     buttonOK.setText("ok");
     this.add(panel1, null);
@@ -320,10 +320,10 @@ public class kostendialog
     if (gelesen == false) {
       gelesen = true;
       dialogframe meinDialog = new dialogframe();
-      warndialog keineZahl = new warndialog(meinDialog, startframe.Texte.elementAt(158).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"), true);
+      warndialog keineZahl = new warndialog(meinDialog, startframe.Texte.elementAt(158).toString(), true);
       keineZahl.setSize(300, 150);
       keineZahl.setLocation(positionX(300), positionY(150));
-      keineZahl.meldung(startframe.Texte.elementAt(159).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      keineZahl.meldung(startframe.Texte.elementAt(159).toString());
       keineZahl.setVisible(true);
       return;
     }
@@ -338,7 +338,7 @@ public class kostendialog
       rohKosten.stadtWasser = ptd(textFieldStadtWasser.getText());
     }
     catch (NumberFormatException e) {
-      textFieldStadtWasser.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldStadtWasser.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -346,7 +346,7 @@ public class kostendialog
       rohKosten.abWasser = ptd(textFieldAbWasser.getText());
     }
     catch (NumberFormatException e) {
-      textFieldAbWasser.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldAbWasser.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -354,7 +354,7 @@ public class kostendialog
       rohKosten.regenWasser = ptd(textFieldAbWasser2.getText());
     }
     catch (NumberFormatException e) {
-      textFieldAbWasser2.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldAbWasser2.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -362,7 +362,7 @@ public class kostendialog
       rohKosten.energie = ptd(textFieldEnergie.getText());
     }
     catch (NumberFormatException e) {
-      textFieldEnergie.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldEnergie.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -370,7 +370,7 @@ public class kostendialog
       rohKosten.leistung = ptd(textFieldKuehlleistung.getText());
     }
     catch (NumberFormatException e) {
-      textFieldKuehlleistung.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldKuehlleistung.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -379,7 +379,7 @@ public class kostendialog
                                                getText());
     }
     catch (NumberFormatException e) {
-      textFieldWaescherleistung.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldWaescherleistung.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -387,7 +387,7 @@ public class kostendialog
       rohKosten.auslastung = ptd(textFieldAuslastung.getText());
     }
     catch (NumberFormatException e) {
-      textFieldAuslastung.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldAuslastung.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -395,7 +395,7 @@ public class kostendialog
       rohKosten.dosierMittel = ptd(textFieldDosK.getText());
     }
     catch (NumberFormatException e) {
-      textFieldDosK.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldDosK.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -403,7 +403,7 @@ public class kostendialog
       rohKosten.dosierMenge = ptd(textFieldDosH.getText());
     }
     catch (NumberFormatException e) {
-      textFieldDosH.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldDosH.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -411,7 +411,7 @@ public class kostendialog
       rohKosten.salzTabletten = ptd(textFieldSalzTab.getText());
     }
     catch (NumberFormatException e) {
-      textFieldSalzTab.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldSalzTab.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -419,7 +419,7 @@ public class kostendialog
       rohKosten.salzSaeure = ptd(textFieldSalzSaeure.getText());
     }
     catch (NumberFormatException e) {
-      textFieldSalzSaeure.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldSalzSaeure.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -428,7 +428,7 @@ public class kostendialog
           getText());
     }
     catch (NumberFormatException e) {
-      textFieldSchwefelsaeure.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldSchwefelsaeure.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -436,7 +436,7 @@ public class kostendialog
       rohKosten.ro = ptd(textFieldROK.getText());
     }
     catch (NumberFormatException e) {
-      textFieldROK.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldROK.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
 
@@ -444,14 +444,14 @@ public class kostendialog
       rohKosten.roMenge = ptd(textFieldROM.getText());
     }
     catch (NumberFormatException e) {
-      textFieldROM.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+      textFieldROM.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
     try {
      rohKosten.dosierMittelName = textFieldDosName.getText();
    }
    catch (NumberFormatException e) {
-     textFieldROM.setText(startframe.Texte.elementAt(174).toString().replace("€/Kg", "€/kg").replace("€/KWh", "€/kWh"));
+     textFieldROM.setText(startframe.Texte.elementAt(174).toString());
      gelesen = false;
    }
 

@@ -261,7 +261,7 @@ public class hauptframe
   this.getContentPane().setBackground(new Color(55, 71, 100));
   gridLayout1.setColumns(1);
   gridLayout1.setRows(5);
-  gridLayout1.setVgap(2);
+  gridLayout1.setVgap(4);
   panel1.setBackground(new Color(55, 71, 100));
   panel1.setLayout(gridLayoutO1);
   panel2.setBackground(new Color(55, 71, 100));

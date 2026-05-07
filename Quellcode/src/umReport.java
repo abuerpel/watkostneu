@@ -91,7 +91,7 @@ public class umReport
     g.drawString(startframe.Texte.elementAt(199).toString(), 100, i);
     g.drawString(zahltostring( (analyse.cl), 5) + " mg/l Cl", 300, i);
     i = zaehlen(i, 15);
-    g.drawString(startframe.Texte.elementAt(1200).toString(), 100, i);
+    g.drawString(startframe.Texte.elementAt(200).toString(), 100, i);
     g.drawString(zahltostring( (analyse.so4), 5) + " mg/l SO4", 300, i);
     i = zaehlen(i, 15);
     g.drawString(startframe.Texte.elementAt(201).toString(), 100, i);

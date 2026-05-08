@@ -10,6 +10,25 @@ Watkost5/db/*.log
 Watkost5/error.log
 Passwort4/error.log
 Watkost5/nullnull
+Watkost5/prefs.ini
+/watkost_error.log
+/watkost_stderr.log
+
+# jpackage-Build-Output (Distribution, nicht im Quellcode-Repo)
+Watkost5/Watkost5.exe
+Watkost5/Watkost5_*.bak
+Watkost5/app/
+Watkost5/runtime/
+
+# Distributions-Archive
+/Watkost5.zip
+
+# DB-Backups
+/db_backup_*/
+
+# Claude Code Tool-State
+/.claude/
+/claude
 
 # Temporaere Office-Dateien
 watkost-texte/~$*

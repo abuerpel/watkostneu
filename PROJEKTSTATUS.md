@@ -1,6 +1,6 @@
 # Projektstatus: Watkost5
 
-**Stand:** 2026-04-27  
+**Stand:** 2026-05-08
 **Bearbeiter:** H. Kacirek
 
 ---
@@ -10,11 +10,12 @@
 Watkost5 ist ein Java-Berechnungsprogramm zur Kostenkalkulation von Wasseraufbereitungsanlagen. Es besteht aus 65 Java-Klassen und nutzt eine HyperSQL-Datenbank sowie JExcelAPI für Excel-Export.
 
 - **Sprache:** Java (Swing/AWT)
-- **Datenbank:** HyperSQL (hsqldb)
-- **Excel-Bibliothek:** JExcelAPI (jxl.jar)
+- **Datenbank:** HSQLDB 2.7.4 (Java-8-Variante, hsqldb-2.7.4-jdk8.jar) — seit 2026-05-06
+- **Excel-Bibliothek:** Apache POI 5.2.3 (HSSF + XSSF) — seit 2026-05-06
 - **Zielplattform:** Windows
 - **JDK:** 25.0.2 (installiert unter `C:\Program Files\jdk-25.0.2+10`)
-- **Versionskontrolle:** Git (initialisiert, Branch: master)
+- **Versionskontrolle:** Git (Branch: master, lokal-only — noch kein Remote)
+- **Distribution:** Watkost5.exe via `jpackage` mit eingebettetem JRE (seit 2026-05-08)
 
 ---
 
@@ -79,11 +80,18 @@ build.bat run      ← kompilieren und starten
 - [x] UI: Nachkommastellen für Chlorid, Sulfat, Magnesium im Hauptfenster auf 1 reduziert
 - [x] Bugfix: Drucken Umlaufwasseranalyse (Kühlturmkreislauf) — `umReport.java` elementAt(1200) → elementAt(200) (Tippfehler, ArrayIndexOutOfBoundsException)
 - [x] Installationsanleitung erstellt: `Watkost5/Installationsanleitung.txt`
+- [x] Migration JExcelAPI → Apache POI 5.2.3 (2026-05-06)
+- [x] Migration HSQLDB 1.8 → 2.7.4 (Java-8-Variante, 2026-05-06)
+- [x] Watkost5.exe per `jpackage` neu gebaut, mit eingebettetem JRE 25 (2026-05-08) — alte exe4j-EXE als `Watkost5_exe4j_2013.exe.bak` gesichert
+- [x] `startframe.homeDir` JAR-tauglich gemacht (`user.dir + "/classes/"` statt `getResource()`-Substring) — Voraussetzung für jpackage-EXE
 
 ## Offene Punkte
 
 - [ ] Ressourcen-Dateien (`splash.GIF`, Icons, `WtkLg.xls`) auch im Quellcode-Ordner ablegen
 - [ ] Veraltete Root-Dateien (`analysendialog.java`, `watkostberechnung.java`) entfernen
+- [ ] Git-Remote (GitHub privat) einrichten und pushen — gh CLI ist bereits installiert, Login + Repo-Erstellung stehen aus (siehe `memory/session_resume.md`)
+- [ ] Punkte→Komma-Konvertierung in Eingabefenstern (Analyse, Grenzwerte, Preise)
+- [ ] Sonderzeichen Dänisch/Polnisch in WtkLg.xls visuell verifizieren
 
 ---
 

@@ -29,12 +29,10 @@ public class startframe
   public startframe() {
     //startframe startframe = new startframe();
     char bs = 92, fs = 47; //windows backslash durch ffwslash ersetzen
-    homeDir = System.getProperty("user.dir").replace(bs, fs); // homePfad
-
-    url = startframe.class.getResource("startframe.class");
-    homeDir = url.getPath().trim();
-    int l = homeDir.length();
-    homeDir = homeDir.substring(0, (l - 16));
+    // homeDir zeigt auf das classes/-Unterverzeichnis des Watkost5-Installationsordners.
+    // Alle nachfolgenden Pfadangaben verwenden homeDir+"/../...", funktioniert sowohl
+    // bei .bat-Start (lose .class-Dateien) als auch in der jpackage-EXE (Klassen in JAR).
+    homeDir = System.getProperty("user.dir").replace(bs, fs) + "/classes/";
 
     //Schriften für Logoausdruck laden
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();

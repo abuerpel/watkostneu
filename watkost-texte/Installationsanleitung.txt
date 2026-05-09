@@ -1,0 +1,225 @@
+========================================================================
+  WATKOST 4  -  Installationsanleitung
+  Wasseraufbereitungs-Berechnungsprogramm
+  fuer Planer, Ingenieurbüros und Fachpersonal
+========================================================================
+
+Copyright (c) Dr. H. Kacirek, N. Kacirek
+------------------------------------------------------------------------
+
+
+INHALT
+------
+  1. Systemvoraussetzungen
+  2. Installation
+  3. Programmstart
+  4. Jährliches Passwort
+  5. Programmübersicht
+  6. Deinstallation
+  7. Hinweise und Fehlerbehebung
+
+
+------------------------------------------------------------------------
+1. SYSTEMVORAUSSETZUNGEN
+------------------------------------------------------------------------
+
+  Betriebssystem:   Windows 7 / 8 / 10 / 11 (32- oder 64-Bit)
+
+  Java-Laufzeit:    Java Runtime Environment (JRE), Version 8 oder höher
+                    Kostenloser Download: https://www.java.com
+
+  Speicherplatz:    ca. 20 MB auf der Festplatte
+
+  Berechtigung:     Schreibrechte auf Laufwerk C:\ erforderlich
+                    (für Programmordner und Einstellungsdateien)
+
+
+------------------------------------------------------------------------
+2. INSTALLATION
+------------------------------------------------------------------------
+
+  SCHRITT 1: Java prüfen
+  ----------------------
+  Öffnen Sie die Eingabeaufforderung (Windows-Taste + R, dann "cmd")
+  und geben Sie ein:
+
+      java -version
+
+  Wenn eine Versionsnummer erscheint (z. B. "java version 1.8.0_..."),
+  ist Java installiert. Andernfalls laden Sie Java von www.java.com herunter
+  und installieren Sie es.
+
+
+  SCHRITT 2: Programmdateien entpacken
+  -------------------------------------
+  Entpacken Sie die Datei "Watkost5.zip" so, dass der Ordner "Watkost5"
+  direkt auf Laufwerk C:\ liegt:
+
+      C:\Watkost5\
+
+  Die Verzeichnisstruktur muss nach dem Entpacken so aussehen:
+
+      C:\Watkost5\
+          Watkost5.exe        <-- Programm-Startdatei
+          Installationsanleitung.txt
+          bin\                <-- Programmbibliotheken und Konfiguration
+              jxl.jar
+              hsqldb.jar
+              hsql.jar
+              WtkLg.xls       <-- Sprachdatei (nicht verändern!)
+          classes\            <-- Programmcode (nicht verändern!)
+          db\                 <-- Datenbank (nicht verändern!)
+              watkost3db.script
+              watkost3db.properties
+
+  WICHTIG: Der Ordner "Watkost5" muss direkt unter C:\ liegen.
+           Ein anderes Installationsverzeichnis wird nicht unterstützt.
+
+
+  SCHRITT 3: Programm-Verknüpfung erstellen (empfohlen)
+  -------------------------------------------------------
+  Klicken Sie mit der rechten Maustaste auf "Watkost5.exe" und wählen Sie
+  "Verknüpfung erstellen". Ziehen Sie die Verknüpfung auf den Desktop
+  oder in die Taskleiste.
+
+
+------------------------------------------------------------------------
+3. PROGRAMMSTART
+------------------------------------------------------------------------
+
+  Starten Sie das Programm durch Doppelklick auf:
+
+      C:\Watkost5\Watkost5.exe
+
+  Beim ersten Start wird das Programm geladen und das Hauptfenster
+  erscheint. Sobald Sie eine Eingabemaske öffnen, werden Sie zur
+  Passwort-Eingabe aufgefordert (siehe Abschnitt 4).
+
+
+------------------------------------------------------------------------
+4. JÄHRLICHES PASSWORT
+------------------------------------------------------------------------
+
+  Watkost 5 verwendet ein jährliches Passwort zum Programmschutz.
+
+  - Das Passwort ist 12 Monate gültig und muss zu Beginn eines neuen
+    Kalenderjahres erneuert werden.
+
+  - Bei der Passwort-Eingabe haben Sie 3 Versuche. Nach 3 fehlerhaften
+    Eingaben wird das Programm beendet.
+
+  Passwort erzeugen:
+  ------------------
+  Das zugehörige Hilfsprogramm "Passwort4.exe" erzeugt das gültige
+  Jahrespasswort. Es befindet sich im Ordner "Passwort4" auf dem
+  Installationsmedium oder wird separat vom Programmhersteller
+  bereitgestellt.
+
+  Wenden Sie sich bei Fragen zum Passwort an:
+      Dr. Hartmut Kacirek
+      E-Mail: h.kacirek@t-online.de
+
+
+------------------------------------------------------------------------
+5. PROGRAMMÜBERSICHT
+------------------------------------------------------------------------
+
+  Watkost 5 berechnet und bewertet Wasseraufbereitungsanlagen für:
+
+  - Kühlturmkreisläufe
+  - Luftwäscher
+
+  Berechnungsmodule:
+  ------------------
+  - Rohwasseranalyse
+    Eingabe und Auswertung der Rohwasser-Analysedaten
+
+  - Umlaufwasseranalyse
+    Berechnung der Umlaufwasserqualität (Eindickung, Ionenkonzentration,
+    pH-Wert, Sättigungsindex, CO2, HCO3, CO3 u. a.)
+
+  - Betriebskosten
+    Berechnung der jährlichen Betriebskosten für Wasseraufbereitungs-
+    anlagen (Enthärtung, Entcarbonisierung, Umkehrosmose u. a.)
+
+  - Anlageninfo
+    Technische und wirtschaftliche Kenndaten der Aufbereitungsanlage
+
+  Druckfunktion:
+  --------------
+  Über Menü "Datei" > "Drucken" können alle Berechnungsergebnisse
+  ausgedruckt werden.
+
+  Datenspeicherung:
+  -----------------
+  Alle eingegebenen Analysen und Berechnungen werden automatisch in einer
+  internen Datenbank gespeichert und stehen beim nächsten Programmstart
+  wieder zur Verfügung.
+
+  Anlagenpreise:
+  --------------
+  Die hinterlegten Anlagenpreise entsprechen marktüblichen Preisen
+  (Stand 2015) und sind noch nicht aktualisiert.
+  Anlagen-Fabrikatsbezeichnungen wurden weitgehend entfernt.
+
+  Das Programm ist auch für salzreicheres Wasser (Brackwasserqualität)
+  geeignet.
+
+  Sprache:
+  --------
+  Das Programm unterstützt mehrere Sprachen (Deutsch, Englisch,
+  Dänisch, Polnisch). Die Sprachauswahl erfolgt über das Programm-
+  menü.
+
+  Ausführliche Programmbeschreibung:
+  -----------------------------------
+  Eine detaillierte Beschreibung aller Funktionen finden Sie in der
+  PDF-Datei "InhaltWatkost Ver 4.pdf".
+
+
+------------------------------------------------------------------------
+6. DEINSTALLATION
+------------------------------------------------------------------------
+
+  Löschen Sie den Ordner C:\Watkost5\ vollständig.
+  Es werden keine Einträge in der Windows-Registrierung vorgenommen.
+
+  Hinweis: Die Datei C:\Windows\wtkdate.ini (Datumsprüfung) kann
+  ebenfalls manuell gelöscht werden.
+
+
+------------------------------------------------------------------------
+7. HINWEISE UND FEHLERBEHEBUNG
+------------------------------------------------------------------------
+
+  Problem: Das Programm startet nicht
+  ------------------------------------
+  - Prüfen Sie, ob Java installiert ist (siehe Abschnitt 1).
+  - Prüfen Sie, ob der Ordner "Watkost5" direkt unter C:\ liegt.
+  - Stellen Sie sicher, dass Sie Schreibrechte auf C:\ haben.
+
+  Problem: Passwort wird nicht akzeptiert
+  -----------------------------------------
+  - Das Passwort ist jahresabhängig. Prüfen Sie, ob das verwendete
+    Passwort für das aktuelle Kalenderjahr gültig ist.
+  - Erzeugen Sie ein neues Passwort mit "Passwort4.exe".
+
+  Problem: Fehlermeldung beim Datenbankzugriff
+  ---------------------------------------------
+  - Prüfen Sie, ob der Ordner C:\Watkost5\db\ vorhanden ist und die
+    Dateien "watkost3db.script" und "watkost3db.properties" enthält.
+  - Stellen Sie sicher, dass keine Sicherheitssoftware den Zugriff
+    auf den Datenbankordner blockiert.
+
+  Problem: Drucken funktioniert nicht
+  -------------------------------------
+  - Prüfen Sie, ob ein Drucker installiert und als Standard-Drucker
+    eingerichtet ist.
+  - Führen Sie zunächst eine Berechnung durch, bevor Sie drucken.
+
+
+------------------------------------------------------------------------
+  Watkost 5  |  Copyright (c) Dr. H. Kacirek, N. Kacirek
+  Kontakt: Dr. Hartmut Kacirek  |  h.kacirek@t-online.de
+  Stand: 05/2026
+------------------------------------------------------------------------

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ProjectFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ProjectName>english</ProjectName>
+  <ProjectFileName>C:\Watkost\watkost-texte\english.lpj</ProjectFileName>
+  <ProjectDir>C:\Watkost\watkost-texte\english</ProjectDir>
+  <SrcImageDir>C:\Watkost\watkost-texte\english\ln_images_src</SrcImageDir>
+  <DstImageDir>C:\Watkost\watkost-texte\english\ln_images_dst</DstImageDir>
+  <SrcFileName>C:\Watkost\watkost-texte\english\ln_src_file.lth</SrcFileName>
+  <DstFileName>C:\Watkost\watkost-texte\english\ln_dst_file.lth</DstFileName>
+</ProjectFile>

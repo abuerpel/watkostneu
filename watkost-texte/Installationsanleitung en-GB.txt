@@ -1,0 +1,225 @@
+========================================================================
+  WATKOST 4  -  Installation Guide
+  Water treatment calculation programme
+  for planners, engineering firms and specialists
+========================================================================
+
+Copyright (c) Dr H. Kacirek, N. Kacirek
+------------------------------------------------------------------------
+
+
+CONTENTS
+------
+  1. System requirements
+  2. Installation
+  3. Starting the programme
+  4. Annual password
+  5. Programme overview
+  6. Uninstallation
+  7. Notes and troubleshooting
+
+
+------------------------------------------------------------------------
+1. SYSTEM REQUIREMENTS
+------------------------------------------------------------------------
+
+  Operating system:   Windows 7 / 8 / 10 / 11 (32- or 64-bit)
+
+  Java Runtime:    Java Runtime Environment (JRE), version 8 or higher
+                    Free download: https://www.java.com
+
+  Storage space:    approx. 20 MB on the hard drive
+
+  Permissions:     Write permissions required on drive C:\
+                    (for programme folder and settings files)
+
+
+------------------------------------------------------------------------
+2. INSTALLATION
+------------------------------------------------------------------------
+
+  STEP 1: Check Java
+  ----------------------
+  Open the Command Prompt (Windows key + R, then "cmd")
+  and enter:
+
+      java -version
+
+  If a version number appears (e.g. "java version 1.8.0_..."),
+  Java is installed. Otherwise, download Java from www.java.com
+  and install it.
+
+
+  STEP 2: Extract the programme files
+  -------------------------------------
+  Extract the file "Watkost5.zip" so that the folder "Watkost5"
+  is located directly on drive C:\:
+
+      C:\Watkost5\
+
+  The directory structure should look like this after extraction:
+
+      C:\Watkost5\
+          Watkost5.exe        <-- Program executable file
+          Installation Instructions.txt
+          bin\                <-- Program libraries and configuration
+              jxl.jar
+              hsqldb.jar
+              hsql.jar
+              WtkLg.xls       <-- Language file (do not modify!)
+          classes\            <-- Program code (do not modify!)
+          db\                 <-- Database (do not modify!)
+              watkost3db.script
+              watkost3db.properties
+
+  IMPORTANT: The "Watkost5" folder must be located directly under C:\.
+           A different installation directory is not supported.
+
+
+  STEP 3: Create a program shortcut (recommended)
+  -------------------------------------------------------
+  Right-click on "Watkost5.exe" and select
+  "Create shortcut". Drag the shortcut to the desktop
+  or to the taskbar.
+
+
+------------------------------------------------------------------------
+3. STARTING THE PROGRAM
+------------------------------------------------------------------------
+
+  Start the programme by double-clicking on:
+
+      C:\Watkost5\Watkost5.exe
+
+  When you start the programme for the first time, it will load and the main window
+  will appear. As soon as you open an input form, you will be prompted to
+  enter your password (see section 4).
+
+
+------------------------------------------------------------------------
+4. ANNUAL PASSWORD
+------------------------------------------------------------------------
+
+  Watkost 5 uses an annual password to protect the programme.
+
+  - The password is valid for 12 months and must be renewed at the start of a new
+    calendar year.
+
+  - You have 3 attempts to enter the password. After 3 incorrect
+    entries, the programme will close.
+
+  Generate password:
+  ------------------
+  The associated utility "Passwort4.exe" generates the valid
+  annual password. It is located in the "Passwort4" folder on the
+  installation medium or is provided separately by the programme manufacturer.
+  ------------------
+
+  If you have any questions regarding the password, please contact:
+      Dr Hartmut Kacirek
+      Email: h.kacirek@t-online.de
+
+
+------------------------------------------------------------------------
+5. PROGRAMME OVERVIEW
+------------------------------------------------------------------------
+
+  Watkost 5 calculates and evaluates water treatment systems for:
+
+  - Cooling tower circuits
+  - Air scrubbers
+
+  Calculation modules:
+  ------------------
+  - Raw water analysis
+    Input and evaluation of raw water analysis data
+
+  - Recirculating water analysis
+    Calculation of recirculating water quality (concentration, ion concentration,
+    pH value, saturation index, CO2, HCO3, CO3, etc.)
+
+  - Operating costs
+    Calculation of annual operating costs for water treatment
+    systems (softening, decarbonisation, reverse osmosis, etc.)
+
+  - System information
+    Technical and economic parameters of the treatment plant
+
+  Print function:
+  --------------
+  All calculation results can be printed via the "File" > "Print" menu.
+  -----------------
+
+  Data storage:
+  -----------------
+  All entered analyses and calculations are automatically saved in an
+  internal database and will be available again the next time the programme is launched
+  .
+
+  System prices:
+  --------------
+  The system prices stored correspond to standard market prices
+  (as of 2015) and have not yet been updated.
+  System brand names have largely been removed.
+
+  The programme is also suitable for water with a higher salt content (brackish water quality)
+  .
+
+  Language:
+  --------
+  The programme supports several languages (German, English,
+  Danish, Polish). The language is selected via the programme
+  menu.
+
+  Detailed programme description:
+  -----------------------------------
+  A detailed description of all functions can be found in the
+  PDF file "InhaltWatkost Ver 4.pdf".
+
+
+------------------------------------------------------------------------
+6. UNINSTALLATION
+------------------------------------------------------------------------
+
+  Delete the entire C:\Watkost5\ folder.
+  No entries are made in the Windows Registry.
+
+  Note: The file C:\Windows\wtkdate.ini (date check) can
+  also be deleted manually.
+
+
+------------------------------------------------------------------------
+7. NOTES AND TROUBLESHOOTING
+------------------------------------------------------------------------
+
+  Problem: The programme does not start
+  ------------------------------------
+  - Check whether Java is installed (see Section 1).
+  - Check whether the "Watkost5" folder is located directly under C:\.
+  - Ensure that you have write permissions for C:\.
+
+  Problem: Password is not accepted
+  -----------------------------------------
+  - The password is year-specific. Check whether the password used
+    is valid for the current calendar year.
+  - Generate a new password using "Passwort4.exe".
+
+  Problem: Error message when accessing the database
+  ---------------------------------------------
+  - Check whether the folder C:\Watkost5\db\ exists and contains the
+    files "watkost3db.script" and "watkost3db.properties".
+  - Ensure that no security software is blocking access
+    to the database folder.
+
+  Problem: Printing does not work
+  -------------------------------------
+  - Check whether a printer is installed and set as the default printer
+    .
+  - Perform a calculation first before printing.
+
+
+------------------------------------------------------------------------
+  Watkost 5  |  Copyright (c) Dr H. Kacirek, N. Kacirek
+  Contact: Dr Hartmut Kacirek  |  h.kacirek@t-online.de
+  Last updated: 05/2026
+------------------------------------------------------------------------

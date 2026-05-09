@@ -1,0 +1,4 @@
+Claude Dialog watkost
+Es gibt ein Problem bei der Installation. Dieses Problem tritt nicht auf, wenn der Benutzer eine alte Version von Watkost installiert hatte, sondern nur bei Neuinstallationen. Du hast eine Installationsanleitung erstellt. Dies wird befolgt. Kann ich Dir Screenshots der Fehlermeldungen senden?
+
+Das Entpacken und verschieben des Ordners auf C:\Watkost4 ist erfolgt. Die Prüfung, ob Java installiert ist, ergibt die Meldung „screenshot 1.docx“ im Ordner c:\watkostneu\watkost-texte. Der Doppelklick auf watkost4.exe ergibt dann die Fehlermeldung „screenshot 2.docx“.

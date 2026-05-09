@@ -1,0 +1,1781 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta content="HTML Tidy for Windows (vers 1st February 2003), see www.w3.org" name="generator" />
+    <link href="C:/Programme/linguatec/PT2006Pro/pt2005.css" rel="stylesheet" type="text/css" />
+    <title></title> 
+</head>
+<body>
+    <table cellspacing="0" cellpadding="2" width="521" border="0">
+        <tbody>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_0_0">Deutsch</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_1_0">Datei</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_2_0">neu</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_3_0">&ouml;ffnen</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_4_0">speichern</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_5_0">speichern unter</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_6_0">import</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_7_0">export</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_8_0">drucken</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="18">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_9_0">beenden</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="18">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_10_0">Rohwasseranalyse</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_11_0">Umlaufwasseranalyse</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_12_0">Anlageninfo</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_13_0">Betriebskosten</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_14_0">Bearbeiten</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_15_0">Rohwasseranalyse</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_16_0">Grenzwerte</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_17_0">Preise</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_18_0">Sprache</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_19_0">vor</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_20_0">zur&uuml;ck</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_21_0">Hilfe</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_22_0">Info</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_23_0">Aufbereitungsart:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_24_0">threshold Stabilisierung</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_25_0">Enth&auml;rtung</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_26_0">Entcarbonisierung</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_27_0">Umkehrosmose m. Enth&auml;rtung</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_28_0">Umkehrosmse o. Enth&auml;rtung</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_29_0">Schwefels&auml;uredosierung</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_30_0">Analyse</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_31_0">Grenzwerte</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_32_0">Preise</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_33_0">2. Siel</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_34_0">mit Kostenrechnung</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_35_0">Analysennummer:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_36_0">K&uuml;hlturmkreislauf</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_37_0">Luftw&auml;scher</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_38_0">keine gew&auml;hlt</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_39_0">Umlaufwasseranalyse</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_40_0">Verschnitt RW %:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_41_0">Eindickung E:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_42_0">TKT &deg;C:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_43_0">TLW &deg;C:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_44_0">TW &deg;C:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_45_0">LF 25 &micro;S/cm:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_46_0">Calcium mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_47_0">Magnesium mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_48_0">Na ber.</span> <span class="ltSentence" id="_ltid_48_1">Mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_49_0">Ks 4,3 mmol/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_50_0">Chlorid mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_51_0">Sulfat mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_52_0">Nitrat mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_53_0">pH KTNV:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_54_0">pH LWNV:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_55_0">GGW pH TKT:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_56_0">GGW pH TLW:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_57_0">SI TKT:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_58_0">SI TLW:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_59_0">GGW pH W:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_60_0">SI W:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_61_0">Salzgehalt mmol/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_62_0">Ionenst&auml;rke I:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_63_0">H2CO3 mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_64_0">HCO3 mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_65_0">CO3 mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_66_0">TLE &deg;C:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_67_0">GGW. pH TE:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_68_0">CO2 mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_69_0">Verbrauch:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_70_0">Energie kWh/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_71_0">Zusatzwasser m&sup3;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_72_0">Schmutzwasser m&sup3;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_73_0">Regenwassersiel m&sup3;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_74_0">Dosiermittel kg/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_75_0">Salztabletten kg/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_76_0">Salzs&auml;ure kg/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_77_0">Schwefels&auml;ure kg/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_78_0">RO Dosiermittel kg/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_79_0">Kosten</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_80_0">Energie &euro;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_81_0">Zusatzwasser &euro;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_82_0">Schmutzwassersiel &euro;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_83_0">Regenwassersiel &euro;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_84_0">Dosiermittel &euro;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_85_0">Salztabletten &euro;/a::</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_86_0">Salzs&auml;ure &euro;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_87_0">Schwefels&auml;ure &euro;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_88_0">RO Dosiermittel &euro;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_89_0">Anlagenkosten &euro;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_90_0">Summe &euro;/a:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_91_0">Rohwasseranalysendaten</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_92_0">Datensatz</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_93_0">l&ouml;schen</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_94_0">Kunde:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_95_0">Projekt:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_96_0">Bearbeiter:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_97_0">SI TE:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_98_0">TE &deg;C:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_99_0">pH TE:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_100_0">Chlorid max. mgl/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_101_0">Sulfat max mg/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_102_0">SI RO max:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_103_0">T K&uuml;hlturm &deg;C:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_104_0">T Wand &deg;C:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_105_0">max. Calciumgehalt im Speisewasser mmol/l:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_106_0">max. S&auml;ttigungsindex:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_107_0">min. H&auml;rte &deg;dH:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_108_0">max. H&auml;rte &deg;dH:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_109_0">max. Leitf&auml;higkeit:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_110_0">Mindesalkalit&auml;t:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_111_0">T W&auml;scher &deg;C:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_112_0">max. SIRO:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_113_0">K&uuml;hlleistung kW:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_114_0">Luftw&auml;scherleistung m&sup3;/h:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_115_0">Auslastung %(Jahresmittel):</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_116_0">Dosiermittel:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_117_0">Anlageinformation f&uuml;r Aufbereitungsart:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_118_0">Proportionaldosierstation RO</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_119_0">Datum</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_120_0">Anlage,Typ:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_121_0">Kapazit&auml;t:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_122_0">Verrohrung:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_123_0">Werkstoff:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_124_0">Steuerung:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_125_0">Wassemengenz&auml;hler:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_126_0">Richtpreis, einschl. Montage:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_127_0">Leistung:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_128_0">Dosierstation:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_129_0">Dosier und Schutzbeh&auml;lter:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_130_0">Systemtrenner und Feinfilter:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_131_0">Gesamtanlagenpreis:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_132_0">Anlagenkosten/Jahr:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_133_0">1) Montagekosten gesch&auml;tzt:</span> <span class="ltSentence" id="_ltid_133_1">10 % des Anlagenpreises</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_134_0">2) Berechnungsgrundlage: Verzinsung und Annuit&auml;t:17 %</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_135_0">Service und Reparatur 3% der Anlagenkosten</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_136_0">Neutralfilter</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_137_0">Watkost Version:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_138_0">Achtung</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_139_0">falsche Parameter Eingabe, bitte Zahl eingeben</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_140_0">bitte Grenzwerte eingeben:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_141_0">bitte Werte eingeben:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_142_0">ung&uuml;ltige Passw&ouml;rter.</span> <span class="ltSentence" id="_ltid_142_1">Programm wird beendet.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_143_0">Bitte ein g&uuml;ltiges Passwort eingeben.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_144_0">Das Programmpasswort l&auml;uft diesen Monat aus.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_145_0">Besorgen sie sich ein neues Passwort unter www.wat-nord.de</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_146_0">Schwefels&auml;uredosierung unsinnig</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_147_0">Chlorid oder Sulfatwert zu hoch.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_148_0">S&auml;ttigungsindex zu hoch.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_149_0">Eindickung nicht m&ouml;glich.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="40">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_150_0">Enth&auml;rtung unsinnig.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_151_0">Leitf&auml;higkeit zu hoch.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_152_0">Sulfat au&szlig;erhalb des Geltungsbereichs</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_153_0">Maximale Gesamth&auml;rte ueberschritten.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_154_0">Fehler</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_155_0">falsche Parameter Eingabe, Leitf&auml;higkeit zu niedrig.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_156_0">Diese Version ist g&uuml;ltig bis</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_157_0">Kostendialog</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_158_0">Bitte Sprache ausw&auml;hlen</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Verdana" size="2"><span class="ltSentence" id="_ltid_159_0">Geben sie die Datenbank frei und starten sie die Anwendung neu.</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_160_0">Stadtwasser EUR/m3</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_161_0">Regenwassersiel EUR/m3:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_162_0">RO Dosierh&ouml;he g/m3:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_163_0">Name:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_164_0">Dosierh&ouml;he g/m3:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_165_0">Reports</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_166_0">Umlaufwasseranalyse K&uuml;hlturmkreislauf</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_167_0">Verschneidungsgrad:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_168_0">Eindickungsfaktor E:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_169_0">K&uuml;hlturmtemperatur TKT:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_170_0">Wandtemperatur TW:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_171_0">Leitf&auml;higkeit:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_172_0">Calcium:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_173_0">Magnesium:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_174_0">Natrium ber.:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_175_0">S&auml;urekapazit&auml;t Ks 4,3:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_176_0">Chlorid:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_177_0">Sulfat:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_178_0">Nitrat:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_179_0">Hydrogencarbonat:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_180_0">Carbonat:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_181_0">Kohlens&auml;ure:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_182_0">Salzgehalt:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_183_0">Ionenst&auml;rke:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_184_0">pH-Wert im K&uuml;hlwasser:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_185_0">Gleichgewichts pH-Wert bei TKT:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_186_0">S&auml;ttigungsindex bei TKT:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_187_0">Gleichgewichts pH-Wert bei TW:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_188_0">S&auml;ttigungsindex bei TW:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_189_0">Betriebskosten K&uuml;hlturmkreislauf</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_190_0">Betriebskosten Luftw&auml;scher:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_191_0">Datum:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_192_0">Stadtwasserkosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_193_0">Abwasserkosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_194_0">Abwasserkosten Regensiel:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_195_0">Energiekosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_196_0">Luftleistung:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_197_0">Auslastung(Jahresmittel):</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_198_0">Chemikalienkosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_199_0">Dosiermittel:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_200_0">Dosierh&ouml;he:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_201_0">Salztabletten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_202_0">Salzs&auml;ure:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_203_0">Dosiermittel RO:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_204_0">Dosiermenge RO:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_205_0">Energieverbrauch:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_206_0">Zusatzwasserverbrauch:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_207_0">Abwassermenge:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_208_0">Abwassermenge Regensiel:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_209_0">Dosiermittelverbrauch:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_210_0">Salzverbrauch:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_211_0">Salzs&auml;ureverbrauch:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_212_0">Dosiermittelverbrauch RO:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_213_0">Energiekosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_214_0">Zusatzwasserkosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_215_0">Abwasserkosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_216_0">Abwasserkosten Regensiel:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_217_0">Dosiermittelkosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_218_0">Salzkosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_219_0">Salzs&auml;urekosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_220_0">Dosiermittelkosten RO:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_221_0">Anlagekosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_222_0">Summe Betriebskosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_223_0">K&uuml;hlleistung:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_224_0">Schwefels&auml;ure:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_225_0">Schwefels&auml;ureverbrauch:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_226_0">Schwefels&auml;urekosten:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_227_0">Entnahmetemperatur TE:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_228_0">gemessener pH-Wert bei TE:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_229_0">Gleichgewichts pH-Wert bei TE:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_230_0">S&auml;ttigungsindex bei TE:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_231_0">Umlaufwasseranalyse K&uuml;hlturmkreislauf:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_232_0">Umlaufwasseranalyse Luftw&auml;scher:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_233_0">W&auml;schertemperatur:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_234_0">pH-Wert im W&auml;scherwasser:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_235_0">Gleichsgewichts pH- Wert im W.:</span></font> 
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <p align="left">
+                        <font face="Arial" size="2"><span class="ltSentence" id="_ltid_236_0">S&auml;ttigungsindex im W&auml;scherwasser:</span></font> 
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

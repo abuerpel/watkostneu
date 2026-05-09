@@ -38,3 +38,7 @@ watkost-texte/~WRL*.tmp
 /analysendialog.java
 /watkostberechnung.java
 /watkostberechnung.txt
+
+# Lokale Hilfsverzeichnisse und Dateien (nicht im Repo)
+/Passwort5/
+/backlog.txt

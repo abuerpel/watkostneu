@@ -1,6 +1,6 @@
 # Projektstatus: Watkost5
 
-**Stand:** 2026-05-08
+**Stand:** 2026-05-10
 **Bearbeiter:** H. Kacirek
 
 ---
@@ -14,7 +14,7 @@ Watkost5 ist ein Java-Berechnungsprogramm zur Kostenkalkulation von Wasseraufber
 - **Excel-Bibliothek:** Apache POI 5.2.3 (HSSF + XSSF) — seit 2026-05-06
 - **Zielplattform:** Windows
 - **JDK:** 25.0.2 (installiert unter `C:\Program Files\jdk-25.0.2+10`)
-- **Versionskontrolle:** Git (Branch: master, lokal-only — noch kein Remote)
+- **Versionskontrolle:** Git (Branch: main, Remote `origin` = github.com/abuerpel/watkostneu, privat)
 - **Distribution:** Watkost5.exe via `jpackage` mit eingebettetem JRE (seit 2026-05-08)
 
 ---
@@ -84,12 +84,12 @@ build.bat run      ← kompilieren und starten
 - [x] Migration HSQLDB 1.8 → 2.7.4 (Java-8-Variante, 2026-05-06)
 - [x] Watkost5.exe per `jpackage` neu gebaut, mit eingebettetem JRE 25 (2026-05-08) — alte exe4j-EXE als `Watkost5_exe4j_2013.exe.bak` gesichert
 - [x] `startframe.homeDir` JAR-tauglich gemacht (`user.dir + "/classes/"` statt `getResource()`-Substring) — Voraussetzung für jpackage-EXE
+- [x] `startframe.homeDir` robust gegen fremdes Working Directory: aus Code-Source-Location (`getProtectionDomain().getCodeSource()`) abgeleitet (2026-05-10) — Freigabe-Dialog erscheint nicht mehr fälschlich, wenn die EXE per Verknüpfung mit anderem "Start in"-Pfad oder aus cmd in einem anderen Verzeichnis gestartet wird
 
 ## Offene Punkte
 
 - [ ] Ressourcen-Dateien (`splash.GIF`, Icons, `WtkLg.xls`) auch im Quellcode-Ordner ablegen
 - [ ] Veraltete Root-Dateien (`analysendialog.java`, `watkostberechnung.java`) entfernen
-- [ ] Git-Remote (GitHub privat) einrichten und pushen — gh CLI ist bereits installiert, Login + Repo-Erstellung stehen aus (siehe `memory/session_resume.md`)
 - [ ] Punkte→Komma-Konvertierung in Eingabefenstern (Analyse, Grenzwerte, Preise)
 - [ ] Sonderzeichen Dänisch/Polnisch in WtkLg.xls visuell verifizieren
 
@@ -106,6 +106,7 @@ build.bat run      ← kompilieren und starten
 | 2026-04-21 | 7 Quelldateien     | Zeilenenden `\r\r\n` → `\r\n` bereinigt (Fehler aus Cp1252→UTF-8-Konvertierung) |
 | 2026-04-21 | `hauptframe.java`  | Nachkommastellen Chlorid/Sulfat/Magnesium im Hauptfenster auf 1 (`String.format("%.1f")`) |
 | 2026-04-27 | `umReport.java`    | `elementAt(1200)` → `elementAt(200)` — Drucken Umlaufwasseranalyse (Kühlturmkreislauf) schlug fehl |
+| 2026-05-10 | `startframe.java`  | `homeDir` aus Code-Source-Location (statt `user.dir`) — Freigabe-Dialog erschien fälschlich, wenn die EXE aus fremdem Working Directory gestartet wurde (`prefs.ini` und `WtkLg.xls` wurden nicht gefunden) |
 
 ## Bekannte Warnungen beim Kompilieren
 

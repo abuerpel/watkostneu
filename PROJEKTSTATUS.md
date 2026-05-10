@@ -85,6 +85,7 @@ build.bat run      ← kompilieren und starten
 - [x] Watkost5.exe per `jpackage` neu gebaut, mit eingebettetem JRE 25 (2026-05-08) — alte exe4j-EXE als `Watkost5_exe4j_2013.exe.bak` gesichert
 - [x] `startframe.homeDir` JAR-tauglich gemacht (`user.dir + "/classes/"` statt `getResource()`-Substring) — Voraussetzung für jpackage-EXE
 - [x] `startframe.homeDir` robust gegen fremdes Working Directory: aus Code-Source-Location (`getProtectionDomain().getCodeSource()`) abgeleitet (2026-05-10) — Freigabe-Dialog erscheint nicht mehr fälschlich, wenn die EXE per Verknüpfung mit anderem "Start in"-Pfad oder aus cmd in einem anderen Verzeichnis gestartet wird
+- [x] `passwd.auswertung` Datumsprüfung locale-unabhängig via `Calendar` (2026-05-10) — `DateFormat.SHORT` (Locale.GERMAN) lieferte im gestrippten jpackage-Runtime ISO-Format `yyyy-MM-dd` statt `dd.MM.yy`, `auswertung` schlug daher fehl und der Freigabe-Dialog erschien beim Aufruf von Sprache/Analyse/Grenzwerte/Laden/Import/Info
 
 ## Offene Punkte
 
@@ -107,6 +108,7 @@ build.bat run      ← kompilieren und starten
 | 2026-04-21 | `hauptframe.java`  | Nachkommastellen Chlorid/Sulfat/Magnesium im Hauptfenster auf 1 (`String.format("%.1f")`) |
 | 2026-04-27 | `umReport.java`    | `elementAt(1200)` → `elementAt(200)` — Drucken Umlaufwasseranalyse (Kühlturmkreislauf) schlug fehl |
 | 2026-05-10 | `startframe.java`  | `homeDir` aus Code-Source-Location (statt `user.dir`) — Freigabe-Dialog erschien fälschlich, wenn die EXE aus fremdem Working Directory gestartet wurde (`prefs.ini` und `WtkLg.xls` wurden nicht gefunden) |
+| 2026-05-10 | `passwd.java`      | Datumsprüfung in `auswertung` via `Calendar` statt `DateFormat.SHORT(Locale.GERMAN)` — gestrippter jpackage-Runtime hat keine de-Locale-Daten und lieferte `yyyy-MM-dd` (substring(3,5)/substring(6,8) crashten mit `NumberFormatException`), sodass selbst gültige `prefs.ini`-Codes abgelehnt wurden |
 
 ## Bekannte Warnungen beim Kompilieren
 

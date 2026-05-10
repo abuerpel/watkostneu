@@ -85,11 +85,15 @@ public class passwd {
           + (Integer.parseInt(pwd.substring(11, 13)) * 12);
       codepwd = Integer.parseInt(pwd.substring(14,19));
       startframe.sprachIndex = Integer.parseInt(pwd.substring(19));
-      String t = datumformat.format(heute);
-      datumheute = (Integer.parseInt( (datumformat.format(heute)).substring(3,
-          5)))
-          +
-          (Integer.parseInt( (datumformat.format(heute)).substring(6, 8)) * 12); //bitverschiebung Monat
+      // Monat und 2-stelliges Jahr direkt aus Calendar lesen, damit die Pruefung
+      // nicht vom Locale-Datumsformat abhaengt. Im jpackage-EXE liefert
+      // DateFormat.SHORT (Locale.GERMAN) "yyyy-MM-dd" statt "dd.MM.yy", weil
+      // die de-Locale-Daten im gestrippten Runtime fehlen.
+      java.util.Calendar cal = java.util.Calendar.getInstance();
+      cal.setTime(heute);
+      int monatHeute = cal.get(java.util.Calendar.MONTH) + 1;
+      int jahrHeute = cal.get(java.util.Calendar.YEAR) % 100;
+      datumheute = monatHeute + (jahrHeute * 12);
       //codepruef = (kunde1 * datumpwd) + (kunde2 * (datumpwd>>1));
 
       codepruef = (int) Math.round((kunde1 * datumpwd) + ((kunde2 >> 1) *3) +  (Math.pow((datumpwd -50),2)));

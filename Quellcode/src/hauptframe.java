@@ -1204,17 +1204,17 @@ public class hauptframe
     catch (StringIndexOutOfBoundsException e) {
       textFieldCa.setText(dts(anauml.ca));
     }
-    textFieldMg.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.mg));
+    textFieldMg.setText(fmt(anauml.mg, 1));
 
-    textFieldNa.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.na));
+    textFieldNa.setText(fmt(anauml.na, 1));
 
-    textFieldKS43.setText(String.format(java.util.Locale.GERMAN, "%.2f", anauml.ks));
+    textFieldKS43.setText(fmt(anauml.ks, 2));
 
-    textFieldCl.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.cl));
+    textFieldCl.setText(fmt(anauml.cl, 1));
 
-    textFieldSu.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.so4));
+    textFieldSu.setText(fmt(anauml.so4, 1));
 
-    textFieldNo3.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.no3));
+    textFieldNo3.setText(fmt(anauml.no3, 1));
 
     try {
       textFieldpHKT.setText(dts(anauml.pHKTnV).substring(0, 4));
@@ -1246,11 +1246,11 @@ public class hauptframe
     catch (StringIndexOutOfBoundsException e) {
       textFieldSIW.setText(dts(anauml.sIW));
     }
-    textFieldSalzGehalt.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.salz));
-    textFieldI.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.ionen));
-    textFieldH2CO3.setText(String.format(java.util.Locale.GERMAN, "%.2f", anauml.h2co3));
-    textFieldHCO3.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.hco3));
-    textFieldCO3.setText(String.format(java.util.Locale.GERMAN, "%.1f", anauml.co3));
+    textFieldSalzGehalt.setText(fmt(anauml.salz, 1));
+    textFieldI.setText(fmt(anauml.ionen, 1));
+    textFieldH2CO3.setText(fmt(anauml.h2co3, 2));
+    textFieldHCO3.setText(fmt(anauml.hco3, 1));
+    textFieldCO3.setText(fmt(anauml.co3, 1));
 
     //verbrauch
     try {
@@ -1415,6 +1415,13 @@ public class hauptframe
 
   private static String dts(double v) {
     return Double.toString(v).replace('.', ',');
+  }
+
+  // Locale-unabhängige Formatierung mit n Nachkommastellen und Komma als Dezimaltrennzeichen.
+  // Die jpackage-EXE-Runtime ist via jlink gestripped und enthält keine de-Locale-Daten —
+  // String.format(Locale.GERMAN, ...) fällt dort auf ROOT (Punkt) zurück.
+  private static String fmt(double v, int n) {
+    return String.format(java.util.Locale.ROOT, "%." + n + "f", v).replace('.', ',');
   }
 
   public void oeffnekostendialog() {

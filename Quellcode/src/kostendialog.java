@@ -460,20 +460,20 @@ public class kostendialog
 
   public void auslesen(kosten kostenAus) {
     //aus dem array ins Fenster
-    textFieldStadtWasser.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.stadtWasser));
-    textFieldAbWasser.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.abWasser));
-    textFieldAbWasser2.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.regenWasser));
-    textFieldEnergie.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.energie));
-    textFieldKuehlleistung.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.leistung));
-    textFieldWaescherleistung.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.leistung2));
-    textFieldAuslastung.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.auslastung));
-    textFieldDosK.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.dosierMittel));
-    textFieldDosH.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.dosierMenge));
-    textFieldSalzTab.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.salzTabletten));
-    textFieldSalzSaeure.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.salzSaeure));
-    textFieldSchwefelsaeure.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.schwefelSaeure));
-    textFieldROK.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.ro));
-    textFieldROM.setText(String.format(java.util.Locale.GERMAN, "%.2f", kostenAus.roMenge));
+    textFieldStadtWasser.setText(fmt2(kostenAus.stadtWasser));
+    textFieldAbWasser.setText(fmt2(kostenAus.abWasser));
+    textFieldAbWasser2.setText(fmt2(kostenAus.regenWasser));
+    textFieldEnergie.setText(fmt2(kostenAus.energie));
+    textFieldKuehlleistung.setText(fmt2(kostenAus.leistung));
+    textFieldWaescherleistung.setText(fmt2(kostenAus.leistung2));
+    textFieldAuslastung.setText(fmt2(kostenAus.auslastung));
+    textFieldDosK.setText(fmt2(kostenAus.dosierMittel));
+    textFieldDosH.setText(fmt2(kostenAus.dosierMenge));
+    textFieldSalzTab.setText(fmt2(kostenAus.salzTabletten));
+    textFieldSalzSaeure.setText(fmt2(kostenAus.salzSaeure));
+    textFieldSchwefelsaeure.setText(fmt2(kostenAus.schwefelSaeure));
+    textFieldROK.setText(fmt2(kostenAus.ro));
+    textFieldROM.setText(fmt2(kostenAus.roMenge));
     textFieldDosName.setText(kostenAus.dosierMittelName);
   }
 
@@ -510,5 +510,9 @@ public class kostendialog
   }
   private static double ptd(String s) {
     return Double.parseDouble(s.replace(',', '.'));
+  }
+  // Locale-unabhängige Formatierung mit 2 Nachkommastellen (jpackage-Runtime ohne de-Locale).
+  private static String fmt2(double v) {
+    return String.format(java.util.Locale.ROOT, "%.2f", v).replace('.', ',');
   }
 }

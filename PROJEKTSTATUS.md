@@ -1,6 +1,6 @@
 # Projektstatus: Watkost5
 
-**Stand:** 2026-05-10
+**Stand:** 2026-05-16
 **Bearbeiter:** H. Kacirek
 
 ---
@@ -86,12 +86,14 @@ build.bat run      ← kompilieren und starten
 - [x] `startframe.homeDir` JAR-tauglich gemacht (`user.dir + "/classes/"` statt `getResource()`-Substring) — Voraussetzung für jpackage-EXE
 - [x] `startframe.homeDir` robust gegen fremdes Working Directory: aus Code-Source-Location (`getProtectionDomain().getCodeSource()`) abgeleitet (2026-05-10) — Freigabe-Dialog erscheint nicht mehr fälschlich, wenn die EXE per Verknüpfung mit anderem "Start in"-Pfad oder aus cmd in einem anderen Verzeichnis gestartet wird
 - [x] `passwd.auswertung` Datumsprüfung locale-unabhängig via `Calendar` (2026-05-10) — `DateFormat.SHORT` (Locale.GERMAN) lieferte im gestrippten jpackage-Runtime ISO-Format `yyyy-MM-dd` statt `dd.MM.yy`, `auswertung` schlug daher fehl und der Freigabe-Dialog erschien beim Aufruf von Sprache/Analyse/Grenzwerte/Laden/Import/Info
+- [x] Anzeige im Hauptfenster und Preise-Dialog locale-unabhängig auf Komma umgestellt (2026-05-16) — `String.format(Locale.GERMAN, "%.Nf", v)` durch `fmt(v,n)`-Helper mit `Locale.ROOT` + `.replace('.', ',')` ersetzt (11 Felder im Hauptfenster, 14 Felder im Preise-Dialog); selber Mechanismus wie der passwd-Datumsbug (gestrippter jlink-Runtime ohne de-Locale-Daten)
+- [x] Watkost5.exe mit Komma-Fix neu via `jpackage` gebaut und nach `Watkost5/` kopiert (2026-05-16)
 
 ## Offene Punkte
 
 - [ ] Ressourcen-Dateien (`splash.GIF`, Icons, `WtkLg.xls`) auch im Quellcode-Ordner ablegen
 - [ ] Veraltete Root-Dateien (`analysendialog.java`, `watkostberechnung.java`) entfernen
-- [ ] Punkte→Komma-Konvertierung in Eingabefenstern (Analyse, Grenzwerte, Preise)
+- [ ] Punkte→Komma-Konvertierung in Eingabefenstern Analyse + Grenzwerte (gleiche `Locale.GERMAN`-Pattern wie in `hauptframe`/`kostendialog` vermutlich vorhanden)
 - [ ] Sonderzeichen Dänisch/Polnisch in WtkLg.xls visuell verifizieren
 
 ---
@@ -109,6 +111,7 @@ build.bat run      ← kompilieren und starten
 | 2026-04-27 | `umReport.java`    | `elementAt(1200)` → `elementAt(200)` — Drucken Umlaufwasseranalyse (Kühlturmkreislauf) schlug fehl |
 | 2026-05-10 | `startframe.java`  | `homeDir` aus Code-Source-Location (statt `user.dir`) — Freigabe-Dialog erschien fälschlich, wenn die EXE aus fremdem Working Directory gestartet wurde (`prefs.ini` und `WtkLg.xls` wurden nicht gefunden) |
 | 2026-05-10 | `passwd.java`      | Datumsprüfung in `auswertung` via `Calendar` statt `DateFormat.SHORT(Locale.GERMAN)` — gestrippter jpackage-Runtime hat keine de-Locale-Daten und lieferte `yyyy-MM-dd` (substring(3,5)/substring(6,8) crashten mit `NumberFormatException`), sodass selbst gültige `prefs.ini`-Codes abgelehnt wurden |
+| 2026-05-16 | `hauptframe.java` + `kostendialog.java` | `String.format(Locale.GERMAN, "%.Nf", v)` durch `fmt(v,n)`-Helper mit `Locale.ROOT` + `.replace('.', ',')` ersetzt — gestrippter jpackage-Runtime ohne de-Locale-Daten zeigte im Hauptfenster (11 Felder) und im Preise-Dialog (14 Felder) Punkte statt Kommas (selber Mechanismus wie passwd-Bug) |
 
 ## Bekannte Warnungen beim Kompilieren
 

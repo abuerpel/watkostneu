@@ -200,7 +200,7 @@ public class grenzwertedialog2
     grenzwerte bedingungenE = new grenzwerte();
 
     try {
-      bedingungenE.siMax = Double.parseDouble(textFieldSIMax.getText());
+      bedingungenE.siMax = ptd(textFieldSIMax.getText());
     }
     catch (NumberFormatException e) {
       textFieldSIMax.setText(startframe.Texte.elementAt(174).toString());
@@ -210,7 +210,7 @@ public class grenzwertedialog2
     bedingungenE.clMax = 0.0;
     bedingungenE.so4Max = 0.0;
     try {
-      bedingungenE.roMax = Double.parseDouble(textFieldSImax2.getText());
+      bedingungenE.roMax = ptd(textFieldSImax2.getText());
     }
     catch (NumberFormatException e) {
       textFieldSImax2.setText(startframe.Texte.elementAt(174).toString());
@@ -218,7 +218,7 @@ public class grenzwertedialog2
     }
 
     try {
-      bedingungenE.dhMin = Double.parseDouble(textFieldHaerteMin.getText());
+      bedingungenE.dhMin = ptd(textFieldHaerteMin.getText());
     }
     catch (NumberFormatException e) {
       textFieldHaerteMin.setText(startframe.Texte.elementAt(174).toString());
@@ -226,7 +226,7 @@ public class grenzwertedialog2
     }
 
     try {
-      bedingungenE.dhMax = Double.parseDouble(textFieldHaerteMax.getText());
+      bedingungenE.dhMax = ptd(textFieldHaerteMax.getText());
     }
     catch (NumberFormatException e) {
       textFieldHaerteMax.setText(startframe.Texte.elementAt(174).toString());
@@ -234,7 +234,7 @@ public class grenzwertedialog2
     }
 
     try {
-      bedingungenE.alkMin = Double.parseDouble(textFieldAlkalitaetMin.getText());
+      bedingungenE.alkMin = ptd(textFieldAlkalitaetMin.getText());
     }
     catch (NumberFormatException e) {
       textFieldAlkalitaetMin.setText(startframe.Texte.elementAt(174).toString());
@@ -243,14 +243,14 @@ public class grenzwertedialog2
     bedingungenE.tW = 0.0;
     bedingungenE.tKT = 0.0;
     try {
-      bedingungenE.tLW = Double.parseDouble(textFieldTW.getText());
+      bedingungenE.tLW = ptd(textFieldTW.getText());
     }
     catch (NumberFormatException e) {
       textFieldTW.setText(startframe.Texte.elementAt(174).toString());
       gelesen = false;
     }
     try {
-      bedingungenE.lF = Double.parseDouble(textFieldLFMax.getText());
+      bedingungenE.lF = ptd(textFieldLFMax.getText());
     }
     catch (NumberFormatException e) {
       textFieldLFMax.setText(startframe.Texte.elementAt(174).toString());
@@ -260,13 +260,13 @@ public class grenzwertedialog2
   }
 
   public void auslesen(grenzwerte grenzAus) {
-    textFieldSIMax.setText(Double.toString(grenzAus.siMax));
-    textFieldSImax2.setText(Double.toString(grenzAus.roMax));
-    textFieldHaerteMin.setText(Double.toString(grenzAus.dhMin));
-    textFieldHaerteMax.setText(Double.toString(grenzAus.dhMax));
-    textFieldAlkalitaetMin.setText(Double.toString(grenzAus.alkMin));
-    textFieldTW.setText(Double.toString(grenzAus.tLW));
-    textFieldLFMax.setText(Double.toString(grenzAus.lF));
+    textFieldSIMax.setText(dts(grenzAus.siMax));
+    textFieldSImax2.setText(dts(grenzAus.roMax));
+    textFieldHaerteMin.setText(dts(grenzAus.dhMin));
+    textFieldHaerteMax.setText(dts(grenzAus.dhMax));
+    textFieldAlkalitaetMin.setText(dts(grenzAus.alkMin));
+    textFieldTW.setText(dts(grenzAus.tLW));
+    textFieldLFMax.setText(dts(grenzAus.lF));
 
   }
 
@@ -297,5 +297,12 @@ public class grenzwertedialog2
     if (taste == 10) {
       event.setKeyCode(9);
     }
+  }
+
+  private static String dts(double v) {
+    return Double.toString(v).replace('.', ',');
+  }
+  private static double ptd(String s) {
+    return Double.parseDouble(s.replace(',', '.'));
   }
 }

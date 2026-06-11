@@ -1,13 +1,13 @@
 # Projektstatus: Watkost5
 
-**Stand:** 2026-05-16
+**Stand:** 2026-06-11
 **Bearbeiter:** H. Kacirek
 
 ---
 
 ## Programmübersicht
 
-Watkost5 ist ein Java-Berechnungsprogramm zur Kostenkalkulation von Wasseraufbereitungsanlagen. Es besteht aus 65 Java-Klassen und nutzt eine HyperSQL-Datenbank sowie JExcelAPI für Excel-Export.
+Watkost5 ist ein Java-Berechnungsprogramm zur Kostenkalkulation von Wasseraufbereitungsanlagen. Es besteht aus 63 Java-Klassen und nutzt eine HyperSQL-Datenbank sowie JExcelAPI für Excel-Export.
 
 - **Sprache:** Java (Swing/AWT)
 - **Datenbank:** HSQLDB 2.7.4 (Java-8-Variante, hsqldb-2.7.4-jdk8.jar) — seit 2026-05-06
@@ -23,7 +23,7 @@ Watkost5 ist ein Java-Berechnungsprogramm zur Kostenkalkulation von Wasseraufber
 
 ```
 C:\watkostneu\
-├── Quellcode/src/       ← 65 Java-Quelldateien (maßgebliche Version)
+├── Quellcode/src/       ← 63 Java-Quelldateien (maßgebliche Version)
 ├── Watkost5/
 │   ├── bin/             ← JAR-Bibliotheken, Icons, Sprachdatei
 │   ├── classes/         ← Kompilierte .class-Dateien
@@ -90,6 +90,7 @@ build.bat run      ← kompilieren und starten
 - [x] Watkost5.exe mit Komma-Fix neu via `jpackage` gebaut und nach `Watkost5/` kopiert (2026-05-16)
 - [x] Grenzwerte-Dialog (sonst-Pfad, `grenzwertedialog2.java`) auf Komma umgestellt (2026-05-16) — 7 `Double.toString` durch `dts()` und 7 `Double.parseDouble` durch `ptd()` ersetzt; `dts/ptd`-Helper analog zu den anderen Dialogen ergänzt. `analysendialog.java` und `grenzwertedialog.java` (Kühlturmkreislauf-Pfad) verwendeten `dts()` bereits — kein Bug.
 - [x] Watkost5.exe nach Grenzwerte-Fix erneut via `jpackage` gebaut (2026-05-16)
+- [x] Toten Code entfernt: `anlageninfo.java` (2026-06-11) — Klasse wurde nirgends instanziert, der "Anlageninfo"-Button öffnet stattdessen `anlagenframe` mit `anlageReport`. 280 Zeilen ungenutzter Code entfernt.
 
 ---
 

@@ -92,6 +92,7 @@ build.bat run      ← kompilieren und starten
 - [x] Watkost5.exe nach Grenzwerte-Fix erneut via `jpackage` gebaut (2026-05-16)
 - [x] Toten Code entfernt: `anlageninfo.java` (2026-06-11) — Klasse wurde nirgends instanziert, der "Anlageninfo"-Button öffnet stattdessen `anlagenframe` mit `anlageReport`. 280 Zeilen ungenutzter Code entfernt.
 - [x] Watkost5.exe nach Cleanup neu via `jpackage` gebaut und getestet (2026-06-11) — startet sauber.
+- [x] Datenbank-Update (2026-06-11): `EHSTRASSENPREISE.K120` Preis 2.600 € → 3.800 €. Via jshell + JDBC (DB-Manager nicht persistent ohne Klick auf SQL-Ausführen).
 
 ---
 

@@ -93,6 +93,7 @@ build.bat run      ← kompilieren und starten
 - [x] Toten Code entfernt: `anlageninfo.java` (2026-06-11) — Klasse wurde nirgends instanziert, der "Anlageninfo"-Button öffnet stattdessen `anlagenframe` mit `anlageReport`. 280 Zeilen ungenutzter Code entfernt.
 - [x] Watkost5.exe nach Cleanup neu via `jpackage` gebaut und getestet (2026-06-11) — startet sauber.
 - [x] Datenbank-Update (2026-06-11): `EHSTRASSENPREISE.K120` Preis 2.600 € → 3.800 €. Via jshell + JDBC (DB-Manager nicht persistent ohne Klick auf SQL-Ausführen).
+- [x] Fix: Sauberer HSQLDB-Shutdown beim Programmende (2026-06-11) — `data.shutdown()` neu (SHUTDOWN + connection.close()), aufgerufen in `hauptframe.windowClosing` vor `System.exit(0)` (zuvor `System.exit(1)` ohne SHUTDOWN). Beseitigt stale `.lck`-Dateien nach jedem Programmende. Watkost5.exe neu via `jpackage` gebaut.
 
 ---
 
@@ -111,6 +112,7 @@ build.bat run      ← kompilieren und starten
 | 2026-05-10 | `passwd.java`      | Datumsprüfung in `auswertung` via `Calendar` statt `DateFormat.SHORT(Locale.GERMAN)` — gestrippter jpackage-Runtime hat keine de-Locale-Daten und lieferte `yyyy-MM-dd` (substring(3,5)/substring(6,8) crashten mit `NumberFormatException`), sodass selbst gültige `prefs.ini`-Codes abgelehnt wurden |
 | 2026-05-16 | `hauptframe.java` + `kostendialog.java` | `String.format(Locale.GERMAN, "%.Nf", v)` durch `fmt(v,n)`-Helper mit `Locale.ROOT` + `.replace('.', ',')` ersetzt — gestrippter jpackage-Runtime ohne de-Locale-Daten zeigte im Hauptfenster (11 Felder) und im Preise-Dialog (14 Felder) Punkte statt Kommas (selber Mechanismus wie passwd-Bug) |
 | 2026-05-16 | `grenzwertedialog2.java` | Anzeige (7 `Double.toString`) auf `dts()` umgestellt + Eingabe (7 `Double.parseDouble`) auf `ptd()` (toleriert Komma); `dts/ptd`-Helper analog zu kostendialog/analysendialog/grenzwertedialog ergänzt. Betraf nur den sonst-Pfad ohne Kühlturmkreislauf — die anderen Eingabedialoge hatten die Helper bereits. |
+| 2026-06-11 | `data.java` + `hauptframe.java` | `shutdown()`-Methode in `data` (SHUTDOWN + close), aufgerufen in `windowClosing` vor `System.exit(0)`. Vorher wurde `System.exit(1)` ohne SHUTDOWN aufgerufen → HSQLDB ließ stale `.lck`-Datei zurück, die beim nächsten Start eine Warnung verursachte. |
 
 ## Bekannte Warnungen beim Kompilieren
 

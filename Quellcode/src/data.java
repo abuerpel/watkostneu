@@ -83,6 +83,22 @@ public class data {
     }
   }
 
+  public void shutdown() {
+    if (verbindung == null) return;
+    try {
+      Statement s = verbindung.createStatement();
+      s.execute("SHUTDOWN");
+      s.close();
+    }
+    catch (java.sql.SQLException e) {
+    }
+    try {
+      verbindung.close();
+    }
+    catch (java.sql.SQLException e) {
+    }
+  }
+
 //
   public rohanalyse vor() {
     ResultSet rsbuffer = rs;

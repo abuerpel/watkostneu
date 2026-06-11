@@ -254,7 +254,8 @@ public class hauptframe
   this.addWindowListener(new java.awt.event.WindowAdapter() {
     public void windowClosing(WindowEvent e) {
       fenster_Zu(e);
-      System.exit(1);
+      if (startframe.datenBank != null) startframe.datenBank.shutdown();
+      System.exit(0);
     }
   });
   this.getContentPane().setLayout(gridLayout1);

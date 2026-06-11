@@ -93,7 +93,7 @@ build.bat run      ← kompilieren und starten
 - [x] Toten Code entfernt: `anlageninfo.java` (2026-06-11) — Klasse wurde nirgends instanziert, der "Anlageninfo"-Button öffnet stattdessen `anlagenframe` mit `anlageReport`. 280 Zeilen ungenutzter Code entfernt.
 - [x] Watkost5.exe nach Cleanup neu via `jpackage` gebaut und getestet (2026-06-11) — startet sauber.
 - [x] Datenbank-Update (2026-06-11): `EHSTRASSENPREISE.K120` Preis 2.600 € → 3.800 €. Via jshell + JDBC (DB-Manager nicht persistent ohne Klick auf SQL-Ausführen).
-- [x] Fix: Sauberer HSQLDB-Shutdown beim Programmende (2026-06-11) — `data.shutdown()` neu (SHUTDOWN + connection.close()), aufgerufen in `hauptframe.windowClosing` vor `System.exit(0)` (zuvor `System.exit(1)` ohne SHUTDOWN). Beseitigt stale `.lck`-Dateien nach jedem Programmende. Watkost5.exe neu via `jpackage` gebaut.
+- [x] Fix: Sauberer HSQLDB-Shutdown beim Programmende (2026-06-11) — `data.shutdown()` neu (SHUTDOWN + connection.close()), aufgerufen in `hauptframe.windowClosing` vor `System.exit(0)` (zuvor `System.exit(1)` ohne SHUTDOWN). Beseitigt stale `.lck`-Dateien nach jedem Programmende. Watkost5.exe neu via `jpackage` gebaut und in der EXE verifiziert (Lock nach Beenden weg, `modified=no`).
 
 ---
 

@@ -91,6 +91,7 @@ build.bat run      ← kompilieren und starten
 - [x] Grenzwerte-Dialog (sonst-Pfad, `grenzwertedialog2.java`) auf Komma umgestellt (2026-05-16) — 7 `Double.toString` durch `dts()` und 7 `Double.parseDouble` durch `ptd()` ersetzt; `dts/ptd`-Helper analog zu den anderen Dialogen ergänzt. `analysendialog.java` und `grenzwertedialog.java` (Kühlturmkreislauf-Pfad) verwendeten `dts()` bereits — kein Bug.
 - [x] Watkost5.exe nach Grenzwerte-Fix erneut via `jpackage` gebaut (2026-05-16)
 - [x] Toten Code entfernt: `anlageninfo.java` (2026-06-11) — Klasse wurde nirgends instanziert, der "Anlageninfo"-Button öffnet stattdessen `anlagenframe` mit `anlageReport`. 280 Zeilen ungenutzter Code entfernt.
+- [x] Watkost5.exe nach Cleanup neu via `jpackage` gebaut und getestet (2026-06-11) — startet sauber.
 
 ---
 

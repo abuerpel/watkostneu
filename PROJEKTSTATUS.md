@@ -1,6 +1,6 @@
 # Projektstatus: Watkost5
 
-**Stand:** 2026-06-11
+**Stand:** 2026-09-08
 **Bearbeiter:** H. Kacirek
 
 ---
@@ -94,6 +94,7 @@ build.bat run      ← kompilieren und starten
 - [x] Watkost5.exe nach Cleanup neu via `jpackage` gebaut und getestet (2026-06-11) — startet sauber.
 - [x] Datenbank-Update (2026-06-11): `EHSTRASSENPREISE.K120` Preis 2.600 € → 3.800 €. Via jshell + JDBC (DB-Manager nicht persistent ohne Klick auf SQL-Ausführen).
 - [x] Fix: Sauberer HSQLDB-Shutdown beim Programmende (2026-06-11) — `data.shutdown()` neu (SHUTDOWN + connection.close()), aufgerufen in `hauptframe.windowClosing` vor `System.exit(0)` (zuvor `System.exit(1)` ohne SHUTDOWN). Beseitigt stale `.lck`-Dateien nach jedem Programmende. Watkost5.exe neu via `jpackage` gebaut und in der EXE verifiziert (Lock nach Beenden weg, `modified=no`).
+- [x] Fix: Vertauschte Labels im Preise-Dialog korrigiert (2026-09-08) — im Kostendialog (`<Preise>`) waren die Beschriftungen der beiden Dosiermittel-Felder vertauscht: das Feld für `dosierMittel` (`textFieldDosK`) zeigte "RO Dosiermittel €/kg", das Feld für `ro` (`textFieldROK`) zeigte "Dosiermittel €/kg". Ursache: Textressourcen Zeile 106 und 187 in `bin/WtkLg.xls` vertauscht. Beide Zeilen (Spalten DE/EN/DK/PL) getauscht. **Kein Neukompilieren/EXE-Rebuild nötig** — die Labels werden bei jedem Start zur Laufzeit aus der xls gelesen (`hauptframe` via Apache POI → `startframe.Texte`). Verifiziert durch Start der echten `kostendialog`-Klasse mit den zur Laufzeit geladenen Texten (Screenshot: Labels an den richtigen Feldern). Commit `ed103f2`, gepusht.
 
 ---
 
@@ -113,6 +114,7 @@ build.bat run      ← kompilieren und starten
 | 2026-05-16 | `hauptframe.java` + `kostendialog.java` | `String.format(Locale.GERMAN, "%.Nf", v)` durch `fmt(v,n)`-Helper mit `Locale.ROOT` + `.replace('.', ',')` ersetzt — gestrippter jpackage-Runtime ohne de-Locale-Daten zeigte im Hauptfenster (11 Felder) und im Preise-Dialog (14 Felder) Punkte statt Kommas (selber Mechanismus wie passwd-Bug) |
 | 2026-05-16 | `grenzwertedialog2.java` | Anzeige (7 `Double.toString`) auf `dts()` umgestellt + Eingabe (7 `Double.parseDouble`) auf `ptd()` (toleriert Komma); `dts/ptd`-Helper analog zu kostendialog/analysendialog/grenzwertedialog ergänzt. Betraf nur den sonst-Pfad ohne Kühlturmkreislauf — die anderen Eingabedialoge hatten die Helper bereits. |
 | 2026-06-11 | `data.java` + `hauptframe.java` | `shutdown()`-Methode in `data` (SHUTDOWN + close), aufgerufen in `windowClosing` vor `System.exit(0)`. Vorher wurde `System.exit(1)` ohne SHUTDOWN aufgerufen → HSQLDB ließ stale `.lck`-Datei zurück, die beim nächsten Start eine Warnung verursachte. |
+| 2026-09-08 | `Watkost5/bin/WtkLg.xls` | Beschriftungen der beiden Dosiermittel-Felder im Preise-Dialog vertauscht (Textressourcen Zeile 106 ↔ 187, Spalten DE/EN/DK/PL getauscht). `Texte[106]` labelt das RO-Feld → "RO Dosiermittel €/kg", `Texte[187]` labelt das Dosiermittel-Feld → "Dosiermittel €/kg". Nur Ressourcenänderung, kein Rebuild nötig (Labels werden zur Laufzeit aus der xls gelesen). |
 
 ## Bekannte Warnungen beim Kompilieren
 
